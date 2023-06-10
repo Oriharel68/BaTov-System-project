@@ -1,0 +1,162 @@
+.page-wrap{
+    height: 800px;
+}
+
+.page-wrap .topFirst-container{
+    /* position: sticky; */
+    top: 0;
+    height: 90px;
+    z-index: 1;
+   max-width: 100%;
+    background-image: url("/public/assets/pexels-fauxels-3183197.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   
+   padding: 23em 0em;
+}
+
+
+/* .topFirst-container  */
+.insidetopFirst-container{
+background-color: #FBEAEB;
+/* max-width: 100%; */
+margin: 0 15em;
+padding: 3em 0em;
+
+border-radius:5px 30px 30px 5px;
+
+/* position: static; */
+/* top: 50%; */
+z-index: 2;
+}
+
+.topFirst-container h3{
+text-align: center;
+}
+.topFirst-container h4{
+    text-align: center;
+
+}
+.topFirst-container .btn-container{
+display: flex;
+justify-content: center;
+text-align: center;
+
+
+}
+.topFirst-container .btn-container button{
+    
+    background-color: white; /* Green */
+    border: none;
+    color: #4CAF50;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.topFirst-container .btn-container button:hover {
+
+    background-color: #4CAF50; 
+    color: white; 
+    border: 2px solid #4CAF50;
+  }
+
+
+.content-container{
+
+    /* for the content container: */
+    position: relative;
+    
+        /* margin-top: 100px;  */
+        /* Adjust the margin to match the height of the image container */
+        z-index: 2;
+    background-color: #FBEAEB;
+}
+
+.content-container .welcome-container{
+    max-width: 100%;
+    background-color: #EE4E34;
+    padding: 9em 7em;
+} 
+.content-container .introduction-containerFirst{
+display: flex;
+flex-wrap: wrap-reverse;
+padding: 3em 3em;
+
+}
+.content-container .introduction-containerFirst .left-container{
+    max-width: 70%;
+    padding: 5em 5em;
+}
+.content-container .introduction-containerFirst .right-container{
+    
+}
+.image-containerFirst img{
+    padding: 3em 0em;
+}
+/* @media only screen and (max-width: 1380) {
+    .left-container{
+        padding: 5em 6em;
+    }
+    body {
+        background-color: lightblue;
+      }
+  } */
+  
+
+
+  .content-container .introduction-containerSeconed{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3em 3em;
+    
+    }
+
+
+    .content-container .introduction-containerSeconed .left-container{
+
+    }
+
+
+    .content-container .introduction-containerSeconed .right-container{
+        max-width: 70%;
+        padding: 5em 5em;
+    }
+  
+    .image-containerSeconed img{
+        padding: 3em 0em;
+    }
+
+
+    @media screen and (max-width: 1380px) {
+      .page-wrap .topFirst-container .insidetopFirst-container{
+        margin: 0 5em;
+      }
+      
+      
+      
+      
+        .right-container{
+       /* max-width: 1%; */
+        /* background-color: red */
+         
+       }
+
+       /* changing the settings of the small images!!!!!! */
+        .image-containerFirst img{
+        /* padding: 0 15em; */
+        margin-left: 5em ;
+        }  
+
+        .image-containerSeconed img{
+            margin-left: 5em ;
+
+        }
+      }
+
+ 
