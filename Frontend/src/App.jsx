@@ -7,7 +7,7 @@ function App() {
     <div>
       <RouterServer/>
       {/* <Main/> */}
-      {/* need to conatin the main router component that connect all the components */}
+      {/* need to conatin the main router component that connect all the cדגכדomponents */}
     </div>
   )
 }
