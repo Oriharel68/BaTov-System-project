@@ -1,0 +1,27 @@
+.Footer{
+    position: relative;   
+    z-index: 2;
+    background-color: #2F3C7E    ;
+    /* display: flex;
+    justify-content: center; */
+    padding: 2em 0;
+
+}
+
+.Footer .topfooter-container {
+    display: flex;
+    justify-content: center;
+
+}
+.Footer .bottomfooter-container{
+/* display: flex; */
+padding-right: 5em;
+
+}
+.Footer .bottomfooter-container ul {
+    display: flex;   
+    justify-content: space-evenly;
+}
+.Footer .bottomfooter-container ul li{
+    list-style: none;
+}
