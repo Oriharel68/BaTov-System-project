@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from './Footer'
+import NavBar from "../nav/NavBar";
+import { Link } from 'react-router-dom';
 
 
 
@@ -24,6 +26,8 @@ function Main() {
 
   return (
     <div>
+            <NavBar/>
+
       <div className="page-wrap">
       <div className="topFirst-container">    
    <div className="insidetopFirst-container">
@@ -32,7 +36,7 @@ function Main() {
    <h4>slogen / some text about the company</h4>
    <div className="btn-container">
      <button >חברה</button>
-     <button style={{marginLeft:'35px'}}>לקוח</button>
+    <Link to={'/client/main'}> <button style={{marginLeft:'35px'}}>לקוח</button></Link>
    </div>
    </div>
  </div>
