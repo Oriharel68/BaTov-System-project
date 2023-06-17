@@ -16,7 +16,7 @@ function NavBar() {
   return (
     <div>
     <div className='navBar-Main'>
-       <h1>logo</h1>
+     <h1>logo</h1>
      </div>
     </div>
   )
