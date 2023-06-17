@@ -1,4 +1,7 @@
 const express = require("express");
+const fs = require('fs');
+const path = require("path");
+const FireBaseApp = require('./FireBase/auth');
 const mongoose = require("mongoose");
 const ClientsModel = require("./models/ClientsModel");
 const OrdersModel = require('./models/OrderModel');
@@ -9,11 +12,6 @@ const CompanyModel = require('./models/CompanyModel');
 require("dotenv").config();
 
 
-
-
-
-
-
 const app = express();
 var port = process.env.PORT;
 var mongo_uri = process.env.MONGO_URI;
@@ -22,6 +20,11 @@ var mongo_uri = process.env.MONGO_URI;
 
 app.use(express.json());
 app.use(express.static("public"));
+
+
+
+
+
 
 mongoose.set("strictQuery", true);
 
