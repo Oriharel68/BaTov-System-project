@@ -11,7 +11,7 @@
 
 }  
 .page-wraper .mainClient-page-wraper .mainClient-page{
-    padding: 15em 0;
+    padding:10em 0;
     /* background-color: blue; */
     max-width: 100%;
     /* max-width: 30%\; */
@@ -19,6 +19,11 @@
     justify-content: center; 
     /* justify-content: space-around; */
 
+}
+.page-wraper .mainClient-page-wraper .mainClient-page form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .page-wraper .mainClient-page-wraper .mainClient-page .buttonContainer-client{
@@ -34,7 +39,9 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     font-size: 24px;  
     padding:  8px 10px ;
-    margin: 0em;
+    width: fit-content;
+    margin-top: 1em;
+    margin-right: 20em;
 
 }
 
@@ -97,17 +104,17 @@
 
 
     .buttonContainer-client{
-  
         display: flex;
         flex-direction: column;
        justify-content: space-evenly;
-       max-width: 20%;
+       max-width: 50%;
     }
 
 
     .page-wraper .mainClient-page .buttonContainer-client button {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        font-size: 24px;  
+        font-size: 24px;
+       
     
     }
 }

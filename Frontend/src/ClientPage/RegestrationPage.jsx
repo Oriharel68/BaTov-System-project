@@ -1,26 +1,49 @@
-import React from 'react'
-import ClientNavBar from '../nav/ClientNavBar'
-
+import React from "react";
+import ClientNavBar from "../nav/ClientNavBar";
+import app from "../FireBase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function RegestrationPage() {
-  // check how errors are being exported
-//   const { register, handleSubmit, formState: { errors }} = useForm();
-
-//   const onSubmit = (values) => {...}; 
+  const navigate = useNavigate();
   
+  function handleOnSubmit(event) {
+    event.preventDefault();
+    const auth = getAuth();
+    const email = event.target[0].value;
+    const password = event.target[1].value;
+    createUserWithEmailAndPassword(auth,email,password)
+    .then((userCred)=>{
+      //what happen after a user register
+    })
+    .catch((error)=>{
+      navigate('/*')//add an error 
+    })
+  }
+
+  // check how errors are being exported
+  //   const { register, handleSubmit, formState: { errors }} = useForm();
+  // console.log(app);
+  //   const onSubmit = (values) => {...};
   return (
     <div>
-           {/* nav component */}
-       <div className="page-wraper">
+      {/* nav component */}
+      <div className="page-wraper">
         {/* bdika vdika */}
         {/* <ClientNavBar/> */}
-       
+
         <div className="mainClient-page-wraper">
-        <ClientNavBar/>
-        
+          <ClientNavBar />
+
           <div className="mainClient-page">
-                THE FORM DIV HERE
-          {/* <div className="buttonContainer-client">
+            <form action="" onSubmit={(event) => handleOnSubmit(event)}>
+              <input type="email" name="" id="email" placeholder="Email" />
+              <input type="password" placeholder="Password" id="passowrd" />
+              <div className="buttonContainer-client">
+                <button>Register</button>
+              </div>
+            </form>
+            {/* <div className="buttonContainer-client">
           <form 
           onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -38,12 +61,11 @@ function RegestrationPage() {
               
        
           </div> */}
+          </div>
         </div>
-        </div>
-
-       </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default RegestrationPage
+export default RegestrationPage;

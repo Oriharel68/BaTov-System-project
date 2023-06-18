@@ -1,7 +1,8 @@
 import React from 'react'
 import ClientNavBar from '../nav/ClientNavBar'
-import { Link } from 'react-router-dom'
+import { Link  } from 'react-router-dom'
 import RegestrationPage from './RegestrationPage'
+import app from '../FireBase/auth'
 
 function Clientmainpage() {
   return (
