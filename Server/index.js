@@ -5,6 +5,7 @@ const ClientsModel = require("./models/ClientsModel");
 const OrdersModel = require('./models/OrderModel');
 const ServiceProvidersModel = require('./models/ServiceProviderModel');
 const CompanyModel = require('./models/CompanyModel');
+const cors = require('cors')
 
 
 require("dotenv").config();
@@ -18,7 +19,7 @@ var mongo_uri = process.env.MONGO_URI;
 
 app.use(express.json());
 app.use(express.static("public"));
-
+app.use(cors());
 
 
 
@@ -77,8 +78,8 @@ app.get("/findAllClients", async (req, res) => {
 
 app.post("/register", async (req, res) => {
   try {
-    let { FirstName, lastName, Email, PhoneNumber } = req.body;
-    if (!FirstName || !lastName || !Email || !PhoneNumber)
+    let { FirstName, LastName, Email, PhoneNumber } = req.body;
+    if (!FirstName || !LastName || !Email || !PhoneNumber)
       throw new Error("missing info complete required info(in post /register)");
     if (await ClientsModel.findOne({ $or: [{ Email }, { PhoneNumber }] }))
       throw new Error("duped info replace required info(in post /register)");
