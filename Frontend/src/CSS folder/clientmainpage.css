@@ -11,7 +11,7 @@
 
 }  
 .page-wraper .mainClient-page-wraper .mainClient-page{
-    padding:10em 0;
+    padding: 10em 0;
     /* background-color: blue; */
     max-width: 100%;
     /* max-width: 30%\; */
@@ -34,6 +34,56 @@
    max-width: 20%;
 }
 
+.page-wraper .mainClient-page-wraper .mainClient-page .signin-container{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-wraper .mainClient-page-wraper .mainClient-page .signin-container h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .page-wraper .mainClient-page-wraper .mainClient-page .signin-container form .form-group {
+    margin-bottom: 20px;
+  }
+  .page-wraper .mainClient-page-wraper .mainClient-page .signin-container form .form-group input[type="email"],  .page-wraper .mainClient-page-wraper .mainClient-page .signin-container form .form-group input[type="password"] {
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .page-wraper .mainClient-page-wraper .mainClient-page .signin-container form .forgot-password {
+    margin-top: 10px;
+    text-align: right;
+  }
+
+
+  .page-wraper .mainClient-page-wraper .mainClient-page .signin-container form .signin-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .page-wraper .mainClient-page-wraper .mainClient-page .signin-container form .signin-button:hover {
+    background-color: #0056b3;
+  }
+
 
 .page-wraper .mainClient-page .buttonContainer-client button {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -42,8 +92,9 @@
     width: fit-content;
     margin-top: 1em;
     margin-right: 20em;
-
 }
+
+
 
 /* .page-wraper{
     background-color: pink;
@@ -91,16 +142,15 @@
     
     }   
     .page-wraper .mainClient-page-wraper .mainClient-page{
-        padding: 15em 0;
+        padding: 0;
         /* background-color: blue; */
         max-width: 100%;
         /* max-width: 30%\; */
         display: flex;
-        justify-content: center; 
+        justify-content: center;
         /* justify-content: space-around; */
 
     }
-
 
 
     .buttonContainer-client{
@@ -118,3 +168,8 @@
     
     }
 }
+@media only screen and (max-width: 600px) {
+    .signin-container {
+      max-width: 90%;
+    }
+  }
