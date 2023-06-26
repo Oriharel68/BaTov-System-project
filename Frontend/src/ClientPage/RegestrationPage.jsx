@@ -3,13 +3,14 @@ import ClientNavBar from "../nav/ClientNavBar";
 import app from "../FireBase/auth";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import  axios from 'axios';
+import ServerStatus from "../FireBase/ServerStatus";
 import { useNavigate } from "react-router-dom";
 
 
 function RegestrationPage() {
   const auth = getAuth();
   const navigate = useNavigate();
-   function handleOnSubmit(event) {
+    async function handleOnSubmit(event) {
 try{
     event.preventDefault();
     const Email = event.target[0].value;
@@ -21,20 +22,51 @@ try{
       alert('missing info');
       return;
     }
+    
+    if(!(await ServerStatus())){
+      alert('Server down');
+      return;
+    }
+
+
+  
+
     createUserWithEmailAndPassword(auth,Email,password)
     .then( async (userCred)=>{
       //what happen after a user register
-     const {data}  = await axios.post('http://localhost:4000/register',{FirstName,LastName,Email,PhoneNumber});
+      const {data} = await axios.post('http://localhost:4000/register',{FirstName,LastName,Email,PhoneNumber});
+      if(!data.ok){
+        alert(data.error)
+        userCred.user.delete();
+        return;
+      }
+
+
+
      updateProfile(userCred.user,{
       displayName:`${FirstName} ${LastName}`,
+     }).then(()=>{
+
+
+      alert('user was created Succsesfuly');
+
+      setTimeout(() => {
+        navigate('/client/access');
+      }, 3000);
+      
+
+
      })
-     console.log(data);
+     .catch((err)=>{
+      alert(err);
+     })
+  
     }).catch((err)=>{
-      console.log(err);
+      alert(err);
     })
-    navigate('/client/access');
+    
   }catch(error){
-    console.log(error);
+    alert(error);
   }
   }
   // check how errors are being exported

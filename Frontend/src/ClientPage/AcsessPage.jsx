@@ -7,6 +7,7 @@ const auth = getAuth();
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
 
+
   function handleOnSubmit(event) {
     event.preventDefault();
     const email = event.target[0].value;
@@ -17,7 +18,7 @@ function AcsessPage() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        // const user = userCredential.user;
         setLoggedin(true);
         // ...
       })

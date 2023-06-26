@@ -71,7 +71,9 @@ app.get("/findAllClients", async (req, res) => {
   }
 });
 
-
+app.get('/ServerStatus', (req,res)=>{
+  res.send(true);
+})
 
 
 
@@ -82,7 +84,7 @@ app.post("/register", async (req, res) => {
     if (!FirstName || !LastName || !Email || !PhoneNumber)
       throw new Error("missing info complete required info(in post /register)");
     if (await ClientsModel.findOne({ $or: [{ Email }, { PhoneNumber }] }))
-      throw new Error("duped info replace required info(in post /register)");
+      throw new Error("Email or Phone Number already exists in the system ");
     const ClientDB = new ClientsModel({
       FirstName,
       LastName,
@@ -94,7 +96,7 @@ app.post("/register", async (req, res) => {
     });
   } catch (err) {
     console.log(err.message);
-    res.status(500).send({ ok: false, error: err.message });
+    res.send({ ok: false, error: err.message });
   }
 });
 
