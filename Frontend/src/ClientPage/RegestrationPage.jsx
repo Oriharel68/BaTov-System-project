@@ -8,21 +8,27 @@ import { useNavigate } from "react-router-dom";
 
 
 function RegestrationPage() {
+
+
   const auth = getAuth();
   const navigate = useNavigate();
+ 
+
     async function handleOnSubmit(event) {
+
 try{
     event.preventDefault();
-    const Email = event.target[0].value;
-    const password = event.target[1].value;
-    const FirstName = event.target[2].value;
-    const LastName = event.target[3].value;
-    const PhoneNumber = event.target[4].value;
+    const formData = new FormData(event.target); 
+    const Email = formData.get('Email');
+    const password = formData.get('Password');
+    const FirstName = formData.get('FirstName');
+    const LastName =  formData.get('LastName');
+    const PhoneNumber = formData.get('PhoneNumber');
     if (!FirstName || !LastName || !Email || !PhoneNumber || !password){
       alert('missing info');
       return;
     }
-    
+ 
     if(!(await ServerStatus())){
       alert('Server down');
       return;
@@ -85,11 +91,11 @@ try{
           {}
           <div className="mainClient-page">
             <form action="" onSubmit={(event) => handleOnSubmit(event)}>
-              <input type="email" name="" id="email" placeholder="Email" />
-              <input type="password" placeholder="Password" id="passowrd" />
-              <input type="text" id="FirstName" placeholder="First Name" />
-              <input type="text" id="LastName" placeholder="Last Name" />
-              <input type="text" id="PhoneNumber" placeholder="PhoneNumber" />
+              <input type="email" name="Email" id="email" placeholder="Email" required />
+              <input type="password" name="Password" placeholder="Password" id="passowrd" required />
+              <input type="text" name="FirstName" id="FirstName" placeholder="First Name" required />
+              <input type="text" name="LastName" id="LastName" placeholder="Last Name" required />
+              <input type="text" name="PhoneNumber" id="PhoneNumber" placeholder="PhoneNumber" required />
               <div className="buttonContainer-client">
                 <button>Register</button>
               </div>
