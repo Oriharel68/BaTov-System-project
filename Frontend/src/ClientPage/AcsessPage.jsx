@@ -9,7 +9,7 @@ import {  Spinner } from "reactstrap";
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate(); 
-
+const auth = getAuth();
 
 
   function handleOnSubmit(event) {
