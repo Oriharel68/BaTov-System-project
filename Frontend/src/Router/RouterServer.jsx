@@ -6,6 +6,7 @@ import NavBar from "../nav/NavBar";
 import Clientmainpage from "../ClientPage/Clientmainpage";
 import RegestrationPage from "../ClientPage/RegestrationPage";
 import AcsessPage from "../ClientPage/AcsessPage";
+import OrderMain from "../ClientPage/OrderMain";
 
 
 function RouterServer() {
@@ -19,6 +20,8 @@ function RouterServer() {
           <Route path="/client/main" element={<Clientmainpage/>} />
           <Route path="/client/registration" element={<RegestrationPage/>} />
           <Route path="/client/access" element={<AcsessPage/>} />
+          {/* orders */}
+          <Route path="/order/main" element={<OrderMain/>} />
 
         </Routes>
       </Router>

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import {  Spinner } from "reactstrap";
 
 const auth = getAuth();
 
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
+  const navigate = useNavigate(); 
+
 
 
   function handleOnSubmit(event) {
@@ -20,6 +24,10 @@ function AcsessPage() {
         // Signed in
         // const user = userCredential.user;
         setLoggedin(true);
+
+        setTimeout(() => {
+          navigate('/order/main')
+        }, 3000);
         // ...
       })
       .catch((error) => {
@@ -44,6 +52,18 @@ function AcsessPage() {
           <ClientNavBar />
           {Loggedin ? (
             <h1>welcome {auth.currentUser.displayName}</h1>
+        //   <h1> 
+        //     {/* <Spinner
+        //   style={{ position: "absolute", top: "50%", right: "50%" }}
+        //   color="info"   
+        // >
+          
+          
+        // </Spinner>{" "}
+        //  */}
+        //  {/* <Spinner></Spinner> */}
+        // </h1>
+       
           ) : (
             <h1 id="errorbox"></h1>
           )}
