@@ -27,10 +27,10 @@ function AcsessPage() {
         const errorMessage = error.message;
   
         // console.log(`${errorCode}:${errorMessage}`);
-        const p = document.querySelector("p");
+        const errorbox = document.querySelector("#errorbox");
         console.log(errorCode);
         let Message = "" + errorCode.replace('auth/','')
-        p.innerText = `${Message}:`;
+        errorbox.innerText = `${Message}:`;
       });
   }
 
@@ -45,7 +45,7 @@ function AcsessPage() {
           {Loggedin ? (
             <h1>welcome {auth.currentUser.displayName}</h1>
           ) : (
-            <p></p>
+            <h1 id="errorbox"></h1>
           )}
           <div className="mainClient-page">
             <div className="signin-container">
