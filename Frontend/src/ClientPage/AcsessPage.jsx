@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-const auth = getAuth();
+
 
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
-
+  const auth = getAuth();
 
   function handleOnSubmit(event) {
     event.preventDefault();
@@ -39,9 +39,9 @@ function AcsessPage() {
       <div className="page-wraper">
         {/* bdika vdika */}
         {/* <ClientNavBar/> */}
-
         <div className="mainClient-page-wraper">
           <ClientNavBar />
+          
           {Loggedin ? (
             <h1>welcome {auth.currentUser.displayName}</h1>
           ) : (
