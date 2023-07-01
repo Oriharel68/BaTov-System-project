@@ -4,7 +4,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import {  Spinner } from "reactstrap";
 
-const auth = getAuth();
+
 
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
@@ -47,9 +47,9 @@ function AcsessPage() {
       <div className="page-wraper">
         {/* bdika vdika */}
         {/* <ClientNavBar/> */}
-
         <div className="mainClient-page-wraper">
           <ClientNavBar />
+          
           {Loggedin ? (
             <h1>welcome {auth.currentUser.displayName}</h1>
         //   <h1> 
