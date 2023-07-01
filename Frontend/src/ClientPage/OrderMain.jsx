@@ -17,7 +17,7 @@ function OrderMain() {
 
          <Link to={'/client/registration'}><button >הזמנה חדשה</button></Link>
          <Link to={'/client/access'}> <button style={{marginTop:'25px',paddingRight:'17px'}}>הזמנה קיימת</button></Link>
-         <Link to={'/client/access'}> <button style={{marginTop:'25px',paddingRight:'17px'}}>הזמנה קיימת</button></Link>
+         {/* <Link to={'/client/access'}> <button style={{marginTop:'25px',paddingRight:'17px'}}>הזמנה קיימת</button></Link> */}
           </div>
         </div>
         </div>

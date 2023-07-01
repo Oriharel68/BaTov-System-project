@@ -51,18 +51,9 @@ const auth = getAuth();
           <ClientNavBar />
           
           {Loggedin ? (
-            <h1>welcome {auth.currentUser.displayName}</h1>
-        //   <h1> 
-        //     {/* <Spinner
-        //   style={{ position: "absolute", top: "50%", right: "50%" }}
-        //   color="info"   
-        // >
-          
-          
-        // </Spinner>{" "}
-        //  */}
-        //  {/* <Spinner></Spinner> */}
-        // </h1>
+
+<div class="custom-loader"></div>
+     
        
           ) : (
             <h1 id="errorbox"></h1>
