@@ -1,10 +1,11 @@
 import React from 'react'
 
-function NewOrderList({item}) {
+function NewOrderList({item,addServiceProvider}) {
+console.log(addServiceProvider);
   return (
     <div>
-        <h5>{item.TypeOfService}</h5>
-        <h6>{item.WorkerName}</h6>
+       <button onClick={(e)=>addServiceProvider(e)}>type of worker :  {item.TypeOfService} <br /><br /> 
+      worker Name : {item.WorkerName} </button> 
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import ClientNavBar from '../nav/ClientNavBar'
 import { Link  } from 'react-router-dom'
 import axios from "axios";
@@ -8,8 +8,14 @@ function NewOrder() {
 
 
   const [ServiceProviders,setServiceProviders] = useState([]);
+   //useMemo
+//   const calculation = useMemo(() => expensiveCalculation(count), [count]);
+  
+const addServiceProvider= (e)=>{
+    console.log(e.target);
+}
 
-  useEffect(() => {
+useEffect(() => {
     async function getServiceProviders(){
       try{
       const {data} = await axios.get("http://localhost:4000/getServiceProvider");
@@ -25,14 +31,34 @@ function NewOrder() {
   return (
 
     <div>
-      <div className='clientNewOrderPage'>
+           <div className="page-wraper">
+  
+
+        <div className="mainClient-page-wraper">
+        <ClientNavBar/>
+        
+          <div className="mainClient-page">
+          <div className="buttonContainer-client">
+          <div className='clientNewOrderPage'>
         <h3>סוג איש מקצוע</h3>
       </div>
-        {data.map((item)=>{
+  
+      <div className="client-orderList-container">
+
+        {ServiceProviders.map((item)=>{
           return (
-            <NewOrderList item={item} key={item._id}/>
+            <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider}/>
           )
         })}
+
+      </div>
+         
+          </div>
+        </div>
+        </div>
+
+       </div>
+     
     </div>
 
   )
