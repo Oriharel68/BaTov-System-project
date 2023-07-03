@@ -14,8 +14,10 @@ const auth = getAuth();
 
   function handleOnSubmit(event) {
     event.preventDefault();
-    const email = event.target[0].value;
-    const password = event.target[1].value;
+    const formData = new FormData(event.target)
+
+    const email = formData.get('Email')
+    const password = formData.get('password');
 
 
 
