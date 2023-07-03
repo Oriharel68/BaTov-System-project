@@ -43,6 +43,7 @@ function RegestrationPage() {
             Email,
             PhoneNumber,
           });
+          
           if (!data.ok) {
             alert(data.error);
             userCred.user.delete();

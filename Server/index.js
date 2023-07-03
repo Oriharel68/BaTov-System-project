@@ -46,7 +46,7 @@ mongoose
 //       FirstName: "oro",
 //       LastName: "harel",
 //       Email: "ori@gmail.com",
-//       PhoneNumber: "0508917746",
+//       PhoneNumber: "",
 //     });
 //     await ClientDB.save().then((data) => {
 //       console.log(data);
@@ -71,9 +71,41 @@ app.get("/findAllClients", async (req, res) => {
   }
 });
 
+app.get('/addProvider',async (req,res)=>{
+  try {
+    const ServiceDB = new ServiceProvidersModel({
+      TypeOfService:'IT',
+      WorkerName:'ori'
+    });
+    await ServiceDB.save().then((data)=>{
+    res.send({ ok: true, data });
+    })
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ ok: false, error: error.message });
+  }
+})
+
+app.get('/getServiceProvider',async (req,res)=>{
+  try {
+    const ServiceDB = await ServiceProvidersModel.find();
+    res.send(ServiceDB);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ ok: false, error: error.message });
+  }
+})
+
+
+
 app.get('/ServerStatus', (req,res)=>{
   res.send(true);
-})
+});
+
+
+
+
+
 
 
 
