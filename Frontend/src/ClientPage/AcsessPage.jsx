@@ -54,7 +54,7 @@ const auth = getAuth();
           
           {Loggedin ? (
 
-<div class="custom-loader"></div>
+        <div class="custom-loader"></div>
      
        
           ) : (
