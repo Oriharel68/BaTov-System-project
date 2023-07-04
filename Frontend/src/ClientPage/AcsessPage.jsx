@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import {  Spinner } from "reactstrap";
 
 
 
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate(); 
-const auth = getAuth();
+  const auth = getAuth();
 
 
   function handleOnSubmit(event) {

@@ -1,5 +1,6 @@
-import React  from 'react'
+import React, { memo } from 'react'
 import { Link } from 'react-router-dom';
+
 
 function NewOrderList({item,addServiceProvider}) {
 // console.log(addServiceProvider);
@@ -13,4 +14,4 @@ function NewOrderList({item,addServiceProvider}) {
   )
 }
 
-export default NewOrderList
+export default memo(NewOrderList)

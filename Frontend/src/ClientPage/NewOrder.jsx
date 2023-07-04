@@ -11,9 +11,9 @@ function NewOrder() {
   
    //useMemo
 //   const calculation = useMemo(() => expensiveCalculation(count), [count]);
-  
+
 const addServiceProvider= (item)=>{
-    // console.log(e.target);
+  
 
 }
 
