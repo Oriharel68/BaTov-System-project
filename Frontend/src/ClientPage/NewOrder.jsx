@@ -8,11 +8,13 @@ function NewOrder() {
 
 
   const [ServiceProviders,setServiceProviders] = useState([]);
+  
    //useMemo
 //   const calculation = useMemo(() => expensiveCalculation(count), [count]);
   
-const addServiceProvider= (e)=>{
-    console.log(e.target);
+const addServiceProvider= (item)=>{
+    // console.log(e.target);
+
 }
 
 useEffect(() => {
