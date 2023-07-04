@@ -6,7 +6,8 @@ import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import Badge from '@mui/material/Badge';
 import { PickersDay } from '@mui/x-date-pickers/PickersDay';
 import CheckIcon from '@mui/icons-material/Check';
-import '../CSS folder/Calender.css'
+// import '../CSS folder/Calender.css'בחינת
+// import '../..'
 
 const Calender = () => {
   const [value, setValue] = useState(new Date());

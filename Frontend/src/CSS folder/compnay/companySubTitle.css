@@ -1,0 +1,21 @@
+.companySubTitle-conatiner{
+    /* display: flex; */
+    /* justify-content: center; */
+    
+}
+.companySubTitle-conatiner ul{
+    display: flex;
+    justify-content: space-between;
+  
+}
+.companySubTitle-conatiner ul li{
+list-style: none;
+/* border-right:1px solid black ; */
+/* border-bottom:1px solid black ; */
+}
+.companySubTitle-conatiner ul li h3{
+
+}
+
+
+/* max-width 645px change */
