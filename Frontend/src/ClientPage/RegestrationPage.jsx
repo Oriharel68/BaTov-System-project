@@ -116,7 +116,7 @@ function RegestrationPage() {
                 required
               />
               <input
-                type="text"
+                type="tel"
                 name="PhoneNumber"
                 id="PhoneNumber"
                 placeholder="PhoneNumber"
