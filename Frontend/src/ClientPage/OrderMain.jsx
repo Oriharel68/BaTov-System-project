@@ -1,8 +1,13 @@
 import React from 'react'
 import { Link  } from 'react-router-dom'
 import ClientNavBar from '../nav/ClientNavBar'
+import { getAuth } from 'firebase/auth'
 
 function OrderMain() {
+  const auth = getAuth();
+console.log(auth);
+
+
   return (
     <div>
      <div className="page-wraper">
@@ -11,7 +16,7 @@ function OrderMain() {
 
         <div className="mainClient-page-wraper">
         <ClientNavBar/>
-        
+        <h1>Welcome to{auth.currentUser.displayName}</h1>
           <div className="mainClient-page">
           <div className="buttonContainer-client">
 
