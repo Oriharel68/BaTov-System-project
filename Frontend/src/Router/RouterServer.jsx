@@ -11,6 +11,10 @@ import NewOrder from "../ClientPage/NewOrder";
 import Calender from "../ClientPage/Calender/Calender";
 import CompanyAccsess from "../CompanyPage/CompanyAccsess";
 import CompantMainPage from "../CompanyPage/CompantMainPage";
+import AddworkerCompany from "../CompanyPage/subTitlelsComponents/AddworkerCompany";
+import CompnatCalenderDetaills from "../CompanyPage/subTitlelsComponents/CompnatCalenderDetaills";
+import StatisticCompany from "../CompanyPage/subTitlelsComponents/StatisticCompany";
+import OrderOfTheCompany from "../CompanyPage/subTitlelsComponents/OrderOfTheCompany";
 
 
 function RouterServer() {
@@ -34,6 +38,11 @@ function RouterServer() {
           {/*company side  */}
           <Route path="/company/access" element={<CompanyAccsess/>} />
           <Route path="/company/mainpage" element={<CompantMainPage/>} />
+              {/* subtitels */}
+              <Route path="/company/AddWorker" element={<AddworkerCompany/>} />
+              <Route path="/company/Calener" element={<CompnatCalenderDetaills/>} />
+              <Route path="/company/Statistics" element={<StatisticCompany/>} />
+              <Route path="/company/Orders" element={<OrderOfTheCompany/>} />
 
         </Routes>
       </Router>

@@ -5,11 +5,11 @@ function Companysubtitle() {
   return (
     <div className='companySubTitle-conatiner'>
         <ul >
-            <li>הזמנות</li>
-            <li>סטטיסטיקה</li>
+        <Link to={'/company/Orders'}> <li>הזמנות</li> </Link> 
+            <Link to={'/company/Statistics'}> <li>סטטיסטיקה</li> </Link> 
            <Link to={'/company/mainpage'}> <li><h3>ראשי</h3></li> </Link> 
-            <li>יומן עבודה</li>
-            <li>הוספת עובד</li>
+           <Link to={'/company/Calener'}>   <li>יומן עבודה</li> </Link> 
+           <Link to={'/company/AddWorker'}> <li>הוספת עובד</li> </Link> 
         </ul>
 
     </div>
