@@ -1,32 +1,42 @@
-import React from 'react'
-
-
+import React, { useState } from 'react'
+import DatePicker  from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 function DatePickerComponent() {
+  const [startDate, setStartDate] = useState(null);
 
+
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return day !==5 && day !== 6; // without saturday and friday
+
+  };
+
+
+  const filterPassedTime = (time) => {
+        const currentDate = new Date();
+        const selectedDate = new Date(time);
+    
+        return currentDate.getTime() < selectedDate.getTime();
+      };
 
   return (
-    <div>DatePickerComponent</div>
+    <DatePicker
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+      showTimeSelect
+      filterDate={(date)=>isWeekday(date)}
+      filterTime={filterPassedTime}
+      dateFormat="d MMMM, yyyy h:mm aa"
+    />
   )
 }
 
 export default DatePickerComponent
 
 
-// () => {
-//   const [startDate, setStartDate] = useState(null);
-//   const isWeekday = (date) => {
-//     const day = getDay(date);
-//     return day !==5 && day !== 6;
-//   };
-//   return (
-//     <DatePicker
-//       selected={startDate}
-//       onChange={(date) => setStartDate(date)}
-//       filterDate={isWeekday}
-//       placeholderText="Select a weekday"
-//     />
-//   );
-// };
+
+
+
 
 // () => {
 //   const [startDate, setStartDate] = useState(
