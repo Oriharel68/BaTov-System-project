@@ -40,11 +40,11 @@ useEffect(() => {
         <ClientNavBar/>
         
           <div className="mainClient-page">
-          <div className="buttonContainer-client">
+          <div className="clientbuttonContainer-client">
 
 
-          <div className='clientNewOrderPage'>
         <h3>סוג איש מקצוע</h3>
+          <div className='clientNewOrderPage'>
         {ServiceProviders.map((item)=>{
           return (
             <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider}/>

@@ -16,9 +16,13 @@ console.log(auth);
 
         <div className="mainClient-page-wraper">
         <ClientNavBar/>
-        <h1>Welcome to{auth.currentUser.displayName}</h1>
+        <div className="clientName-conatier">
+        <h2>Welcome Back👋 <h4>{auth.currentUser.displayName} </h4></h2>
+        
+
+        </div>
           <div className="mainClient-page">
-          <div className="buttonContainer-client">
+          <div className="order-buttonContainer-client">
 
          <Link to={'/order/newOrder'}><button >הזמנה חדשה</button></Link>
          {/* change the client order list:*/}

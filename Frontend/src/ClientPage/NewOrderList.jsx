@@ -6,8 +6,8 @@ function NewOrderList({item,addServiceProvider}) {
 // console.log(addServiceProvider);
 
   return (
-    <div>
-       <button onClick={()=>addServiceProvider(item)}>type of worker :  {item.TypeOfService} <br /><br /> 
+    <div className='workerType-wraper'>
+       <button id='WokerType' onClick={()=>addServiceProvider(item)}>type of worker :  {item.TypeOfService} <br /><br /> 
       worker Name : {item.WorkerName} </button> 
      
     </div>

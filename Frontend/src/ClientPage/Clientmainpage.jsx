@@ -18,7 +18,7 @@ function Clientmainpage() {
           <div className="mainClient-page">
           <div className="buttonContainer-client">
 
-         <Link to={'/client/registration'}><button >הירשם</button></Link>
+         <Link to={'/client/registration'}><button>הירשם</button></Link>
          <Link to={'/client/access'}> <button style={{marginTop:'25px',paddingRight:'17px'}}>כניסה</button></Link>
           </div>
         </div>
