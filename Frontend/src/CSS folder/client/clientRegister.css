@@ -1,0 +1,59 @@
+
+.page-wraper .mainClient-page-wraper .mainClient-page{
+    /* padding: 15em 0; */
+    padding: 2em 0;
+    /* background-color: blue; */
+    max-width: 100%;
+    /* max-width: 30%\; */
+    display: flex;
+    justify-content: center; 
+    text-align: center;
+
+    align-items: center;
+    /* justify-content: space-around; */
+
+}
+.page-wraper .mainClient-page-wraper .mainClient-page .registerWraper-conatiner form{
+padding: 5em;
+margin-right: 15px;
+}
+.page-wraper .mainClient-page-wraper .mainClient-page .registerWraper-conatiner input{
+    text-align: center;
+height: 48px;
+margin: 0px 15px;
+margin-top: 1em;
+border: 1px solid black;
+}
+.page-wraper .mainClient-page-wraper .mainClient-page .registerWraper-conatiner button{
+height: 48px;
+width: 30%;
+margin: 4em 15px;
+transition-duration: 0.4s;
+}
+.page-wraper .mainClient-page-wraper .mainClient-page .registerWraper-conatiner button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+/* .page-wraper .mainClient-page-wraper .mainClient-page .buttonContainer-client{
+height: 48px;
+margin: 0 15px;
+} */
+/* register page */
+
+.page-wraper .mainClient-page-wraper .mainClient-page .buttonContainer-client{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   max-width: 20%;
+}
+
+
+.page-wraper .mainClient-page .buttonContainer-client button {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-size: 24px;  
+    padding:  8px 10px ;
+    margin: 0em;
+
+}

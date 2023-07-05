@@ -43,7 +43,7 @@ function RegestrationPage() {
             Email,
             PhoneNumber,
           });
-          
+
           if (!data.ok) {
             alert(data.error);
             userCred.user.delete();
@@ -86,8 +86,13 @@ function RegestrationPage() {
           <ClientNavBar />
           {}
           <div className="mainClient-page">
-            <form action="" onSubmit={(event) => handleOnSubmit(event)}>
-              <input
+            {/* -----xxxx---- */}
+            <div className="registerWraper-conatiner">
+              <div className="registerClient-page-title">
+                <h2>Register</h2>
+              </div>
+              <form action="" onSubmit={(event) => handleOnSubmit(event)}>
+                {/* <input
                 type="email"
                 name="Email"
                 id="email"
@@ -121,11 +126,73 @@ function RegestrationPage() {
                 id="PhoneNumber"
                 placeholder="PhoneNumber"
                 required
-              />
-              <div className="buttonContainer-client">
-                <button>Register</button>
-              </div>
-            </form>
+              /> */}
+
+                <label for="inp" class="inp">
+                  <input 
+                    type="email"
+                    name="Email"
+                    id="email"
+                    placeholder="Email"
+                    required
+                   style={{
+                    marginLeft:'0'
+                   }}
+                   />
+
+                  <input
+                    type="type"
+                    name="Password"
+                    placeholder="Enter New Password"
+                    id="passowrd"
+                    required
+                    pattern=".{6,}"
+                  />
+  
+                  <input
+                    type="type"
+                    name="Password"
+                    placeholder="Repeat Your Password"
+                    id="passowrd"
+                    required
+                    pattern=".{6,}"
+                  />
+  
+                  <input
+                    type="text"
+                    name="FirstName"
+                    id="FirstName"
+                    placeholder="First Name"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="LastName"
+                    id="LastName"
+                    placeholder="Last Name"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    name="PhoneNumber"
+                    id="PhoneNumber"
+                    placeholder="PhoneNumber"
+                    required
+                  />
+
+                  {/* <svg width="280px" height="18px" viewBox="0 0 280 18" class="border">
+    <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>
+  </svg>
+  <svg width="14px" height="12px" viewBox="0 0 14 12" class="check">
+    <path d="M1 7 5.5 11 L13 1"></path>
+  </svg> */}
+                </label>
+                {/* <div className="buttonContainer-client"> */}
+                <button>Sumbit</button>
+                {/* </div> */}
+              </form>
+            </div>
+
             {/* <div className="buttonContainer-client">
           <form 
           onSubmit={handleSubmit(onSubmit)}>

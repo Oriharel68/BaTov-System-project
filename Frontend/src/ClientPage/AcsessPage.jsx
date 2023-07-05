@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -60,8 +60,11 @@ function AcsessPage() {
             <h1 id="errorbox"></h1>
           )}
           <div className="mainClient-page">
-            <div className="signin-container">
-              <h2>Sign In</h2>
+
+          <div className="registerWraper-conatiner">
+          <div className="registerClient-page-title">
+          <h2>Sign In</h2>
+           </div>
               <form onSubmit={(event)=>handleOnSubmit(event)}>
                 <div className="form-group">
                   <input
@@ -71,6 +74,8 @@ function AcsessPage() {
                     placeholder="Email"
                     required
                   />
+ 
+
                 </div>
                 <div className="form-group">
                   <input
@@ -81,42 +86,16 @@ function AcsessPage() {
                     required
                   />
                 </div>
-                <div className="form-group forgot-password">
-                  <a href="#">Forgot password?</a>
+                <div className="form-group forgot-password" style={{marginTop:'2em'}}>
+                 
+                <Link to={'/*'}>  <a href="#">Forgot password?</a>  </Link>  
                 </div>
                 <button className="signin-button" type="submit">
                   Sign In
                 </button>
               </form>
-            </div>
-
-            {/* <form action="" onSubmit={(event) => handleOnSubmit(event)}>
-              <input type="email" name="" id="email" placeholder="Email" />
-              <input type="password" placeholder="Password" id="password" />
-              <div className="buttonContainer-client">
-                <button>Login</button>
               </div>
-            </form>  */}
-
-
-            {/* <div className="buttonContainer-client">
-          <form 
-          onSubmit={handleSubmit(onSubmit)}>
-        <input
-          name="message"
-          autoComplete="off"
-
-          // check how register is being used.
-          {...register("message", {
-            required: "Required",
-          })}
-        />
-        {errors.message && errors.message.message}
-        <input type="submit" />
-      </form>
-              
        
-          </div> */}
           </div>
         </div>
       </div>
