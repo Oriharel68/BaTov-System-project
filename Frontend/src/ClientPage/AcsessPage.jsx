@@ -34,11 +34,12 @@ function AcsessPage() {
       .catch((error) => {
         let errorCode = error.code;
         const errorMessage = error.message;
-  
+                                           console.log(errorMessage);                  
         // console.log(`${errorCode}:${errorMessage}`);
         const errorbox = document.querySelector("#errorbox");
         console.log(errorCode);
-        let Message = "" + errorCode.replace('auth/','')
+        let Message = "" + errorCode.replace('auth/','');
+        Message = Message.replace(':', 'd');
         errorbox.innerText = `${Message}:`;
       });
   }
@@ -51,14 +52,7 @@ function AcsessPage() {
         <div className="mainClient-page-wraper">
           <ClientNavBar />
           
-          {Loggedin ? (
-
-        <div class="custom-loader"></div>
-     
-       
-          ) : (
-            <h1 id="errorbox"></h1>
-          )}
+          
           <div className="mainClient-page">
 
           <div className="registerWraper-conatiner">
@@ -86,6 +80,14 @@ function AcsessPage() {
                     required
                   />
                 </div>
+                {Loggedin ? (
+
+<div class="custom-loader"></div>
+
+
+  ) : (
+    <h4 id="errorbox"></h4>
+  )}
                 <div className="form-group forgot-password" style={{marginTop:'2em'}}>
                  
                 <Link to={'/*'}>  <a href="#">Forgot password?</a>  </Link>  

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link  } from 'react-router-dom'
 import ClientNavBar from '../nav/ClientNavBar'
 import { getAuth } from 'firebase/auth'
@@ -7,6 +7,7 @@ function OrderMain() {
   const auth = getAuth();
 console.log(auth);
 
+const [userAuth,setUserAuth] =useState(auth)
 
   return (
     <div>
@@ -17,7 +18,7 @@ console.log(auth);
         <div className="mainClient-page-wraper">
         <ClientNavBar/>
         <div className="clientName-conatier">
-        <h2>Welcome Back👋 <h4>{auth.currentUser.displayName} </h4></h2>
+        <h2>Welcome Back👋 <h4>{userAuth.currentUser.displayName} </h4></h2>
         
 
         </div>

@@ -50,7 +50,7 @@ useEffect(() => {
             <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider}/>
           )
         })}
-         </div>
+         </div> 
 
           </div>
         </div>

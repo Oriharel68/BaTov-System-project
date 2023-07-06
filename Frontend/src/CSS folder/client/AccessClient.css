@@ -12,3 +12,8 @@ margin-right: 1em;
 .mainClient-page .registerWraper-conatiner .registerClient-page-title h2{
 
 }
+
+
+#errorbox{
+    color: red;
+}
