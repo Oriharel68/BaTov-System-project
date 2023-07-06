@@ -92,52 +92,16 @@ function RegestrationPage() {
                 <h2>Register</h2>
               </div>
               <form action="" onSubmit={(event) => handleOnSubmit(event)}>
-                {/* <input
-                type="email"
-                name="Email"
-                id="email"
-                placeholder="Email"
-                required
-              />
-              <input
-                type="password"
-                name="Password"
-                placeholder="Password"
-                id="passowrd"
-                required
-              />
-              <input
-                type="text"
-                name="FirstName"
-                id="FirstName"
-                placeholder="First Name"
-                required
-              />
-              <input
-                type="text"
-                name="LastName"
-                id="LastName"
-                placeholder="Last Name"
-                required
-              />
-              <input
-                type="tel"
-                name="PhoneNumber"
-                id="PhoneNumber"
-                placeholder="PhoneNumber"
-                required
-              /> */}
+            
 
-                <label for="inp" class="inp">
+                <label for="inp" class="inp1">
                   <input 
                     type="email"
                     name="Email"
                     id="email"
                     placeholder="Email"
                     required
-                   style={{
-                    marginLeft:'0'
-                   }}
+                    
                    />
 
                   <input
@@ -193,24 +157,7 @@ function RegestrationPage() {
               </form>
             </div>
 
-            {/* <div className="buttonContainer-client">
-          <form 
-          onSubmit={handleSubmit(onSubmit)}>
-        <input
-          name="message"
-          autoComplete="off"
-
-          // check how register is being used.
-          {...register("message", {
-            required: "Required",
-          })}
-        />
-        {errors.message && errors.message.message}
-        <input type="submit" />
-      </form>
-              
-       
-          </div> */}
+        
           </div>
         </div>
       </div>
