@@ -93,7 +93,6 @@ app.get('/ServerStatus', (req,res)=>{
 app.post('/getExistingOrders',async (req,res)=>{
   try {
   let {TypeOfService , WorkerName} = req.body;
-    console.log(req.body);
   if(!TypeOfService || !WorkerName){
     throw new Error("missing info complete required info(in get /getExistingOrders)");
   }
@@ -129,9 +128,6 @@ app.post('/addOrder',async (req,res)=>{
     console.log(error.message);
     res.send({ ok: false, error: error.message })
   }
-
-
-
 })
 
 

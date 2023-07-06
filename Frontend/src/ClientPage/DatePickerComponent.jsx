@@ -2,9 +2,15 @@ import axios from 'axios';
 import React, { memo, useEffect, useState } from 'react'
 import DatePicker  from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+
+
+
 function DatePickerComponent({setSelectedDate,Provider}) {
  
   const [startDate, setStartDate] = useState(null);
+
+
   useEffect(() => {
     async function getorders(){
       const {TypeOfService,WorkerName} = Provider;
@@ -12,7 +18,7 @@ function DatePickerComponent({setSelectedDate,Provider}) {
         TypeOfService,
         WorkerName
       });
-      console.log(data);
+      console.log(data);//save and exclude from the datepicker
     }
     getorders();
   }, [])
