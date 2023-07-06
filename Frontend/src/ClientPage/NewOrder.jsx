@@ -51,26 +51,39 @@ useEffect(() => {
         
           <div className='clientNewOrderPage'>
         {Choice ? 
+          
+          <div className="">
+                <h3>סוג איש מקצוע</h3>
+  
         
+              {ServiceProviders.map((item)=>{
+                  
+                  return (
+                  
+                     
+                     
+                     <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider}/>
+                     
+                    
+                  
+                  )
+                })}
+          </div>
         
-        (ServiceProviders.map((item)=>{
-          
-          return (
-          
-             <>
-             
-             <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider}/>
-             </>
-            
-          
-          )
-        }))
         
       :
-      <>
+      
+      <div className="calender-container">
+
+
       <h3>בחר תאריך</h3>
+      <div className="bootmCalender-container">
+        
       <DatePickerComponent setSelectedDate ={setSelectedDate}/>
-      </>
+      <button> Complete</button>
+      </div>
+      </div>
+      
         
         
         }
