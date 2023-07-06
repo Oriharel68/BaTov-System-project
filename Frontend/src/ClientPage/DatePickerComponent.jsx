@@ -14,7 +14,7 @@ function DatePickerComponent({setSelectedDate,Provider}) {
   useEffect(() => {
     async function getorders(){
       const {TypeOfService,WorkerName} = Provider;
-      const data = await axios.post('http://localhost:4000/getExistingOrders',{
+      const {data} = await axios.post('http://localhost:4000/getExistingOrders',{
         TypeOfService,
         WorkerName
       });
