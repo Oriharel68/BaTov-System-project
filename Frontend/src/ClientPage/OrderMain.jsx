@@ -5,7 +5,7 @@ import { getAuth } from 'firebase/auth'
 
 function OrderMain() {
   const auth = getAuth();
-console.log(auth);
+  console.log(auth);
 
 const [userAuth,setUserAuth] =useState(auth)
 

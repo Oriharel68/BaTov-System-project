@@ -3,17 +3,22 @@ import ClientNavBar from '../nav/ClientNavBar'
 import { Link  } from 'react-router-dom'
 import axios from "axios";
 import NewOrderList from './NewOrderList';
+import DatePickerComponent from './DatePickerComponent';
 
 function NewOrder() {
 
 
   const [ServiceProviders,setServiceProviders] = useState([]);
+  const [Provider,setProvider] = useState({});
+  const [Choice, setChoice] = useState(true);
+  const [SelectedDate, setSelectedDate] = useState(null);
   
    //useMemo
 //   const calculation = useMemo(() => expensiveCalculation(count), [count]);
   
 const addServiceProvider= (item)=>{
-    // console.log(e.target);
+    setProvider(item);
+    setChoice(false);
 
 }
 
@@ -41,16 +46,35 @@ useEffect(() => {
         
           <div className="mainClient-page">
           <div className="clientbuttonContainer-client">
+            
 
-
-        <h3>סוג איש מקצוע</h3>
+        
           <div className='clientNewOrderPage'>
-        {ServiceProviders.map((item)=>{
+        {Choice ? 
+        
+        
+        (ServiceProviders.map((item)=>{
+          
           return (
-            <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider}/>
+          
+             <>
+             
+             <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider}/>
+             </>
+            
+          
           )
-        })}
-         </div> 
+        }))
+        
+      :
+      <>
+      <h3>בחר תאריך</h3>
+      <DatePickerComponent setSelectedDate ={setSelectedDate}/>
+      </>
+        
+        
+        }
+         </div>
 
           </div>
         </div>
