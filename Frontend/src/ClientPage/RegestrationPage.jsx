@@ -8,11 +8,12 @@ import {
 } from "firebase/auth";
 import axios from "axios";
 import ServerStatus from "../FireBase/ServerStatus";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function RegestrationPage() {
   const auth = getAuth();
   const navigate = useNavigate();
+  
 
   async function handleOnSubmit(event) {
     try {
@@ -23,12 +24,15 @@ function RegestrationPage() {
       const FirstName = formData.get("FirstName");
       const LastName = formData.get("LastName");
       const PhoneNumber = formData.get("PhoneNumber");
-
-      if (!FirstName || !LastName || !Email || !PhoneNumber || !password) {
+      const rPassword = formData.get("RepeatYourPassword")
+      if (!FirstName || !LastName || !Email || !PhoneNumber || !password || !rPassword) {
         alert("missing info");
         return;
       }
-
+      if(rPassword !== password){
+      alert('password not the same');
+      return;
+      } 
       if (!(await ServerStatus())) {
         alert("Server down");
         return;
@@ -54,8 +58,8 @@ function RegestrationPage() {
             displayName: `${FirstName} ${LastName}`,
           })
             .then(() => {
-              alert("user was created Succsesfuly");
-
+              // alert("user was created Succsesfuly");
+              navigate("/client/registrationCompalete")
               setTimeout(() => {
                 navigate("/client/access");
               }, 3000);
@@ -105,7 +109,7 @@ function RegestrationPage() {
                    />
 
                   <input
-                    type="type"
+                    type="password"
                     name="Password"
                     placeholder="Enter New Password"
                     id="passowrd"
@@ -114,8 +118,8 @@ function RegestrationPage() {
                   />
   
                   <input
-                    type="type"
-                    name="Password"
+                    type="password"
+                    name="RepeatYourPassword"
                     placeholder="Repeat Your Password"
                     id="passowrd"
                     required
@@ -152,7 +156,9 @@ function RegestrationPage() {
   </svg> */}
                 </label>
                 {/* <div className="buttonContainer-client"> */}
-                <button>Sumbit</button>
+               {/* <Link to={'/client/registrationCompalete'}>   */}
+               <button>Sumbit</button> 
+               {/* </Link>  */}
                 {/* </div> */}
               </form>
             </div>

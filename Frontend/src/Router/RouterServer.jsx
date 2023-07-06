@@ -15,6 +15,8 @@ import CompnatCalenderDetaills from "../CompanyPage/subTitlelsComponents/Compnat
 import StatisticCompany from "../CompanyPage/subTitlelsComponents/StatisticCompany";
 import OrderOfTheCompany from "../CompanyPage/subTitlelsComponents/OrderOfTheCompany";
 import DatePickerComponent from "../ClientPage/DatePickerComponent";
+import UserRegistrationComplete from "../ClientPage/ClientMessages/UserRegistrationComplete";
+import OrderCompelteMessage from "../ClientPage/ClientMessages/OrderCompelteMessage";
 
 
 function RouterServer() {
@@ -45,7 +47,9 @@ function RouterServer() {
               <Route path="/company/Calener" element={<CompnatCalenderDetaills/>} />
               <Route path="/company/Statistics" element={<StatisticCompany/>} />
               <Route path="/company/Orders" element={<OrderOfTheCompany/>} />
-
+              {/* messages */}
+              <Route path="/client/registrationCompalete" element={<UserRegistrationComplete/>} />
+              <Route path="/client/orderCompelte" element={<OrderCompelteMessage/>} />
         </Routes>
       </Router>
     </div>
