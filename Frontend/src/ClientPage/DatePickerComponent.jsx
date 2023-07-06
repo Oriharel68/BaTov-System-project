@@ -26,8 +26,9 @@ function DatePickerComponent({setSelectedDate,Provider}) {
 
 
   useEffect(() => {
-    setSelectedDate(startDate);
-    
+    const a = new Date(startDate);
+    console.log(a.getTime());
+    setSelectedDate(a);
   }, [startDate])
 
 

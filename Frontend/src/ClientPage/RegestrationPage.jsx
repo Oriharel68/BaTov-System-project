@@ -57,13 +57,18 @@ function RegestrationPage() {
           updateProfile(userCred.user, {
             displayName: `${FirstName} ${LastName}`,
           })
+
+
             .then(() => {
               // alert("user was created Succsesfuly");
               navigate("/client/registrationCompalete")
               setTimeout(() => {
                 navigate("/client/access");
               }, 3000);
+
             })
+
+
             .catch((err) => {
               alert(err);
             });

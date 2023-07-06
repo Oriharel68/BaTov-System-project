@@ -51,7 +51,6 @@ useEffect(() => {
           <div className="clientbuttonContainer-client">
             
 
-        
           <div className='clientNewOrderPage'>
         {Choice ? 
           
@@ -84,7 +83,6 @@ useEffect(() => {
       </div>
       </div>
       
-        
         
         }
          </div>
