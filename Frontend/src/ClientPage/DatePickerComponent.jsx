@@ -34,6 +34,7 @@ function DatePickerComponent({setSelectedDate}) {
       selected={startDate}
       onChange={(date) => setStartDate(date)}
       showTimeSelect
+      minDate={new Date()}
       filterDate={(date)=>isWeekday(date)}
       filterTime={filterPassedTime}
       dateFormat="d MMMM, yyyy h:mm aa"
