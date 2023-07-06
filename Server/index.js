@@ -40,23 +40,7 @@ mongoose
 
 
 
-// app.get("/get", async (req, res) => {
-//   try {
-//     const ClientDB = new ClientsModel({
-//       FirstName: "oro",
-//       LastName: "harel",
-//       Email: "ori@gmail.com",
-//       PhoneNumber: "",
-//     });
-//     await ClientDB.save().then((data) => {
-//       console.log(data);
-//     });
-//     res.send("saved in DB");
-//   } catch (err) {
-//     console.log(error.message);
-//     res.status(500).send({ ok: false, error: error.message });
-//   }
-// }); 
+
 
 
 
@@ -86,6 +70,8 @@ app.get('/addProvider',async (req,res)=>{
   }
 })
 
+
+
 app.get('/getServiceProvider',async (req,res)=>{
   try {
     const ServiceDB = await ServiceProvidersModel.find();
@@ -94,7 +80,8 @@ app.get('/getServiceProvider',async (req,res)=>{
     console.log(error.message);
     res.status(500).send({ ok: false, error: error.message });
   }
-})
+});
+
 
 
 
@@ -103,6 +90,49 @@ app.get('/ServerStatus', (req,res)=>{
 });
 
 
+app.post('/getExistingOrders',async (req,res)=>{
+  try {
+  let {TypeOfService , WorkerName} = req.body;
+    console.log(req.body);
+  if(!TypeOfService || !WorkerName){
+    throw new Error("missing info complete required info(in get /getExistingOrders)");
+  }
+  const Orders = await OrdersModel.find();
+  res.send(Orders);
+  } catch (error) {
+    console.log(error.message);
+    res.send({ ok: false, error: error.message });
+  }
+});
+
+
+
+
+app.post('/addOrder',async (req,res)=>{
+  try {
+    let {TypeOfService, WorkerName,ClientId,DateTime} = req.body;
+    console.log(TypeOfService, WorkerName,ClientId,DateTime);
+    if(!TypeOfService ||!WorkerName||!ClientId||!DateTime){
+      throw new Error("missing info complete required info(in get /addOrder)");
+    }
+    const orderDB = new OrdersModel({
+      TypeOfService, 
+      WorkerName,
+      ClientId,
+      DateTime,
+    })
+    await orderDB.save().then(()=>{
+      res.send({ok:true});
+    });
+
+  } catch (error) {
+    console.log(error.message);
+    res.send({ ok: false, error: error.message })
+  }
+
+
+
+})
 
 
 

@@ -22,6 +22,9 @@ const addServiceProvider= (item)=>{
 
 }
 
+
+
+
 useEffect(() => {
     async function getServiceProviders(){
       try{
@@ -61,10 +64,7 @@ useEffect(() => {
                   return (
                   
                      
-                     
                      <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider}/>
-                     
-                    
                   
                   )
                 })}
@@ -79,7 +79,7 @@ useEffect(() => {
       <h3>בחר תאריך</h3>
       <div className="bootmCalender-container">
         
-      <DatePickerComponent setSelectedDate ={setSelectedDate}/>
+      <DatePickerComponent Provider={Provider} setSelectedDate ={setSelectedDate}/>
       <button> Complete</button>
       </div>
       </div>

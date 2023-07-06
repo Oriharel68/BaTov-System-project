@@ -1,19 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import React, { memo, useEffect, useState } from 'react'
 import DatePicker  from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-function DatePickerComponent({setSelectedDate}) {
-
-
+function DatePickerComponent({setSelectedDate,Provider}) {
+ 
   const [startDate, setStartDate] = useState(null);
-
+  useEffect(() => {
+    async function getorders(){
+      const {TypeOfService,WorkerName} = Provider;
+      const data = await axios.post('http://localhost:4000/getExistingOrders',{
+        TypeOfService,
+        WorkerName
+      });
+      console.log(data);
+    }
+    getorders();
+  }, [])
+  
 
 
   useEffect(() => {
-
     setSelectedDate(startDate);
     
   }, [startDate])
-  
+
+
 
   const isWeekday = (date) => {
     const day = date.getDay();
@@ -42,7 +53,7 @@ function DatePickerComponent({setSelectedDate}) {
   )
 }
 
-export default DatePickerComponent
+export default memo(DatePickerComponent)
 
 
 
