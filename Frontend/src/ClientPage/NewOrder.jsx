@@ -9,7 +9,7 @@ function NewOrder() {
 
 
   const [ServiceProviders,setServiceProviders] = useState([]);
-  const [Provider,setProvider] = useState({});
+  const [Provider,setProvider] = useState(null);
   const [Choice, setChoice] = useState(true);
   const [SelectedDate, setSelectedDate] = useState(null);
   
