@@ -12,18 +12,19 @@ function NewOrder() {
   const [Provider,setProvider] = useState(null);
   const [Choice, setChoice] = useState(true);
   const [SelectedDate, setSelectedDate] = useState(null);
+
   
    //useMemo
 //   const calculation = useMemo(() => expensiveCalculation(count), [count]);
-  
+
+
+
 const addServiceProvider= (item)=>{
     setProvider(item);
     setChoice(false);
 
 }
-
-
-
+console.log(Provider);
 
 useEffect(() => {
     async function getServiceProviders(){
@@ -36,7 +37,7 @@ useEffect(() => {
     }
     getServiceProviders();
   }, [])
-
+// console.log(ServiceProviders);
 
   return (
 
@@ -51,11 +52,12 @@ useEffect(() => {
           <div className="clientbuttonContainer-client">
             
 
+        
           <div className='clientNewOrderPage'>
         {Choice ? 
           
           <div className="">
-                <h3>סוג איש מקצוע</h3>
+                <h3>:סוג איש מקצוע</h3>
   
         
               {ServiceProviders.map((item)=>{
@@ -63,7 +65,10 @@ useEffect(() => {
                   return (
                   
                      
+                     
                      <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider}/>
+                     
+                    
                   
                   )
                 })}
@@ -73,16 +78,16 @@ useEffect(() => {
       :
       
       <div className="calender-container">
-
-
-      <h3>בחר תאריך</h3>
+      <h3>:בחר תאריך</h3>
+      
       <div className="bootmCalender-container">
         
       <DatePickerComponent Provider={Provider} setSelectedDate ={setSelectedDate}/>
-      <button> Complete</button>
+      <button id='Calender'> Complete</button>
       </div>
       </div>
       
+        
         
         }
          </div>

@@ -27,7 +27,7 @@ const [userAuth,setUserAuth] =useState(auth)
 
          <Link to={'/order/newOrder'}><button >הזמנה חדשה</button></Link>
          {/* change the client order list:*/}
-         <Link to={'/*'}> <button style={{marginTop:'25px',paddingRight:'17px'}}>הזמנה קיימת</button></Link>
+         <Link to={'/order/ExistingOrder'}> <button style={{marginTop:'25px',paddingRight:'17px'}}>הזמנה קיימת</button></Link>
           </div>
         </div>
         </div>

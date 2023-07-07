@@ -21,3 +21,13 @@
 
     width: 25em;
 }
+
+.bootmCalender-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#Calender{
+margin-top: 3em;
+}

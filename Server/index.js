@@ -61,6 +61,7 @@ app.get('/addProvider',async (req,res)=>{
       TypeOfService:'IT',
       WorkerName:'ori'
     });
+
     await ServiceDB.save().then((data)=>{
     res.send({ ok: true, data });
     })
@@ -90,20 +91,36 @@ app.get('/ServerStatus', (req,res)=>{
 });
 
 
-app.post('/getExistingOrders',async (req,res)=>{
+
+// app.post('/getExistingOrders',async (req,res)=>{
+//   try {
+//   let {TypeOfService , WorkerName} = req.body;
+//   if(!TypeOfService || !WorkerName){
+//     throw new Error("missing info complete required info(in get /getExistingOrders)");
+//   }
+//   const Orders = await OrdersModel.find();
+//   res.send(Orders);
+//   } catch (error) {
+//     console.log(error.message);
+//     res.send({ ok: false, error: error.message });
+//   }
+// });
+
+app.get('/getExistingOrders',async (req,res)=>{
   try {
-  let {TypeOfService , WorkerName} = req.body;
-  if(!TypeOfService || !WorkerName){
-    throw new Error("missing info complete required info(in get /getExistingOrders)");
-  }
   const Orders = await OrdersModel.find();
+  
+  // const dbObject = await collection.findOne({DateTime});
+
+  // const timestamp = dbObject.getTime();
+  // console.log(timestamp);
+
   res.send(Orders);
   } catch (error) {
     console.log(error.message);
-    res.send({ ok: false, error: error.message });
+    res.status(500).send({ ok: false, error: error.message });
   }
 });
-
 
 
 
@@ -120,6 +137,8 @@ app.post('/addOrder',async (req,res)=>{
       ClientId,
       DateTime,
     })
+    // const combinedObject = { ...dbObject, ...stateObject }; // Merge using the spread operator (shallow merge)
+
     await orderDB.save().then(()=>{
       res.send({ok:true});
     });
