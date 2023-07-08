@@ -24,6 +24,7 @@
 /* .topFirst-container  */
 .insidetopFirst-container{
 background-color: #FBEAEB;
+
 /* max-width: 100%; */
 margin: 0 15em;
 padding: 3em 0em;
@@ -49,7 +50,9 @@ text-align: center;
 
 
 }
-.topFirst-container .btn-container button{
+
+/* moved to nav  ------start*/
+.insideNavTopFirst .btn-container button{
     
     background-color: white; /* Green */
     border: none;
@@ -64,13 +67,14 @@ text-align: center;
     cursor: pointer;
 }
 
-.topFirst-container .btn-container button:hover {
+.insideNavTopFirst .btn-container button:hover {
 
     background-color: #4CAF50; 
     color: white; 
     border: 2px solid #4CAF50;
   }
 
+/* moved to nav  ------end ------*need some fixing*/
 
 .content-container{
 
@@ -80,7 +84,8 @@ text-align: center;
         /* margin-top: 100px;  */
         /* Adjust the margin to match the height of the image container */
         z-index: 2;
-    background-color: #FBEAEB;
+    /* background-color: #FBEAEB; */
+    background-color: white;
 }
 
 .content-container .welcome-container{
@@ -92,10 +97,18 @@ text-align: center;
 display: flex;
 flex-wrap: wrap-reverse;
 padding: 3em 3em;
+ justify-content: center;
+
 
 }
 .content-container .introduction-containerFirst .left-container{
+  text-align: center;
+  align-items: center;
+
+  border-top: 2px solid black;
+  border-top-style:dotted;
     max-width: 70%;
+    /* max-width: 70%; */
     padding: 5em 5em;
 }
 .content-container .introduction-containerFirst .right-container{
@@ -119,17 +132,22 @@ padding: 3em 3em;
     display: flex;
     flex-wrap: wrap;
     padding: 3em 3em;
-    
+    display: flex;
+    justify-content: center;
     }
 
 
     .content-container .introduction-containerSeconed .left-container{
+ 
 
     }
 
 
     .content-container .introduction-containerSeconed .right-container{
-        max-width: 70%;
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+        /* justify-content: center; */
         padding: 5em 5em;
     }
   
@@ -159,16 +177,17 @@ padding: 3em 3em;
         }  
 
         .image-containerSeconed img{
-            margin-left: 5em ;
+            /* margin-left: 5em ; */
 
         }
       }
 
  /* ---------------------------------------------- */
- .BDIKA{
+ /* .BDIKA{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    justify-content: center;
+
     -webkit-text-size-adjust: 100%;
     color: #333;
     font-family: Ploni aaa,sans-serif;
@@ -182,13 +201,14 @@ padding: 3em 3em;
     height: auto;
     background-color: #256442;
     padding: 51px;
-  }
+  } */
 
 
  .spec-icons-wrapper{
 display: flex;
 flex-direction: column;
-
+justify-content: center;
+align-items: center;
     -webkit-text-size-adjust: 100%;
     color: #333;
     font-family: Ploni aaa,sans-serif;
@@ -245,3 +265,16 @@ flex-direction: column;
   height: auto;
   background-color: #ce4c13;
   display: flex; */
+
+
+     {/* <div class="seporator-fill-line"></div> */}
+  /* -webkit-text-size-adjust: 100%;
+  color: #333;
+  font-family: Ploni aaa,sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  box-sizing: border-box;
+  height: 2px;
+  background-color: #eda84a;
+  flex: 1;
+  margin-right: 14px; */
