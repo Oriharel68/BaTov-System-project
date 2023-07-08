@@ -25,7 +25,6 @@ const addServiceProvider= (item)=>{
     setChoice(false);
 
 }
-console.log(Provider);
 
 useEffect(() => {
     async function getServiceProviders(){
