@@ -1,5 +1,6 @@
 import React from 'react'
 import ClientNavBar from '../../nav/ClientNavBar'
+import ClientNavBarOrderMain from '../../nav/ClientNavBarOrderMain'
 
 function OrderCompelteMessage() {
   return (
@@ -9,7 +10,7 @@ function OrderCompelteMessage() {
         {/* <ClientNavBar/> */}
 
         <div className="mainClient-page-wraper">
-        <ClientNavBar/>
+        <ClientNavBarOrderMain/>
         
           <div className="mainClient-page">
         

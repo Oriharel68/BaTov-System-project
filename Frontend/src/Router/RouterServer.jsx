@@ -18,6 +18,7 @@ import DatePickerComponent from "../ClientPage/DatePickerComponent";
 import UserRegistrationComplete from "../ClientPage/ClientMessages/UserRegistrationComplete";
 import OrderCompelteMessage from "../ClientPage/ClientMessages/OrderCompelteMessage";
 import ExistingOrder from "../ClientPage/ExistingOrder";
+import ForgetPassword from "../ClientPage/ForgetPassword";
 
 
 function RouterServer() {
@@ -34,6 +35,7 @@ function RouterServer() {
           <Route path="/client/main" element={<Clientmainpage/>} />
           <Route path="/client/registration" element={<RegestrationPage/>} />
           <Route path="/client/access" element={<AcsessPage/>} />
+          <Route path="/client/forgetPassword" element={<ForgetPassword/>} />
           {/* orders */}
           <Route path="/order/main" element={<OrderMain/>} />
           <Route path="/order/newOrder" element={<NewOrder/>} />

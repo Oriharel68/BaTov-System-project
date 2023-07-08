@@ -90,7 +90,7 @@ function AcsessPage() {
   )}
                 <div className="form-group forgot-password" style={{marginTop:'2em'}}>
                  
-                <Link to={'/*'}>  <a href="#">Forgot password?</a>  </Link>  
+                <Link to={'/client/forgetPassword'}>  <a href="#">Forgot password?</a>  </Link>  
                 </div>
                 <button className="signin-button" type="submit">
                   Sign In

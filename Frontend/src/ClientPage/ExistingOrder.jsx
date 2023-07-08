@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ClientNavBar from '../nav/ClientNavBar'
 import axios from 'axios';
 import ExistingOrderList from './ExistingOrderList';
+import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 
 function ExistingOrder() {
 const [ordersData,setOrdersData]= useState(null);
@@ -24,7 +25,7 @@ const [ordersData,setOrdersData]= useState(null);
 
     <div className="page-wraper">
   <div className="mainClient-page-wraper">
-  <ClientNavBar/>
+  <ClientNavBarOrderMain/>
   
     <div className="mainClient-page">
     <div className="clientbuttonContainer-client">
@@ -34,11 +35,11 @@ const [ordersData,setOrdersData]= useState(null);
     <div className='clientNewOrderPage'>
    <h3>:הזמנות קיימות</h3>
    
-  {ordersData.map((order)=>{
+  {/* {ordersData.map((order)=>{
     return(
         <ExistingOrderList order={order} key={order._id}/>
     )
-  })}
+  })} */}
 
  
    </div>

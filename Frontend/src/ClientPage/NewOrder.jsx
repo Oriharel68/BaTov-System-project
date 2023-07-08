@@ -4,6 +4,7 @@ import { Link  } from 'react-router-dom'
 import axios from "axios";
 import NewOrderList from './NewOrderList';
 import DatePickerComponent from './DatePickerComponent';
+import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 
 function NewOrder() {
 
@@ -46,7 +47,7 @@ useEffect(() => {
   
 
         <div className="mainClient-page-wraper">
-        <ClientNavBar/>
+        <ClientNavBarOrderMain/>
         
           <div className="mainClient-page">
           <div className="clientbuttonContainer-client">

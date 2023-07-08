@@ -7,6 +7,10 @@ function CompanyAccsess() {
         <div className="CompanyNav-container">
           <NavBar/>
         </div>
+     
+
+   
+
          <div className="CompanyMain-access-container">
           <div className="topAccess-container">
              {/* <input type="text" placeholder='שם משתמש' /> */}
