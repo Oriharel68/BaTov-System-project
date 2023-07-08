@@ -35,8 +35,8 @@ function Main() {
    <h3>name of the company </h3>
    <h4>slogen / some text about the company</h4>
    <div className="btn-container">
-   <Link to={'/company/access'}><button >חברה</button></Link>
-    <Link to={'/client/main'}> <button style={{marginLeft:'35px'}}>לקוח</button></Link>
+   {/* <Link to={'/company/access'}><button >חברה</button></Link>
+    <Link to={'/client/main'}> <button style={{marginLeft:'35px'}}>לקוח</button></Link> */}
    </div>
    </div>
  </div>

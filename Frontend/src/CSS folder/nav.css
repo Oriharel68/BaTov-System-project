@@ -8,13 +8,64 @@
   background-color: #5a607e  ;
   justify-content: center;
   /* padding: 1em 0em; */
+  padding-left: 2em;
+  /* padding-right: 7em; */
+  justify-content: space-between;
 }
 .navBar-Main h1{
 
    background-color: red;
    text-align: center;
+   padding-left: 9%;
 
    
 }
 
+.navBar-Main .insideNavTopFirst-container{
+   display: flex;
+   /* background-color: red; */
+   justify-content: right;
+   align-items: center;
+   /* padding-left: 22em; */
+     padding-right: 8em;
 
+        } 
+        @media screen and (max-width: 525px) {
+         
+         .navBar-Main{
+            display: flex;
+           position: sticky;
+           /* background-color: white; */
+           position: fixed;
+           z-index: 15;
+           width:  100%;
+           background-color: #5a607e  ;
+           justify-content: center;
+           /* padding: 1em 0em; */
+           padding-left: 1em;
+           /* padding-right: 7em; */
+           justify-content: space-between;
+         }
+         .navBar-Main h1{
+         
+            background-color: red;
+            text-align: center;
+            padding-left: 5%;
+         
+            
+         }
+         
+         .navBar-Main .insideNavTopFirst-container{
+            display: flex;
+            /* background-color: red; */
+            justify-content: right;
+            align-items: center;
+            /* padding-left: 22em; */
+              padding-right: 5em;
+         
+                 } 
+                 .btn-container{
+                  /* padding-left: 5em;
+                      color: green; */
+                 }
+        }

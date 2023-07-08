@@ -1,8 +1,12 @@
 import React from 'react'
+import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany'
 
 function StatisticCompany() {
   return (
-    <div>StatisticCompany</div>
+    <div>
+                  <CombaibnedNavCompany/>
+
+    </div>
   )
 }
 

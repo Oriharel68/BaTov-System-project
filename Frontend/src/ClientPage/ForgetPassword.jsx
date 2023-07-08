@@ -20,9 +20,9 @@ function ForgetPassword() {
         sendPasswordResetEmail(auth, email)
         .then(() => {
           // Password reset email sent!
-        //   alert("check your email adreess for new password")
+          alert("check your email adreess for new password")
           SetSendEmail(true);
-
+               
           setTimeout(() => {
             navigate('/client/main')
           }, 3000);
@@ -79,12 +79,13 @@ function ForgetPassword() {
             {/* -----xxxx---- */}
             <div className="registerWraper-conatiner">
               <div className="registerClient-page-title">
-                <h2>Register</h2>
+                <h2>Forgot password?</h2>
               </div>
               <form action="" onSubmit={(event) => handleOnSubmit(event)}>
             
 
                 <label for="inp" class="inp1">
+                Reset password on a quick step:
                   <input 
                     type="email"
                     name="Email"

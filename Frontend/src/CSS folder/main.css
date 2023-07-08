@@ -160,3 +160,11 @@ padding: 3em 3em;
       }
 
  
+
+     .navBar-Main .insideNavTopFirst-container{
+display: flex;
+/* background-color: red; */
+justify-content: right;
+align-items: center;
+/* padding-left: 22em; */
+     } 

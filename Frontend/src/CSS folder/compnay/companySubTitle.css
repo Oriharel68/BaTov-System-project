@@ -1,17 +1,40 @@
  .companySubTitle-conatiner{
-  background-color: grey;
+    box-shadow: inset 10em 1em gold; 
+     background-color: rgb(170, 165, 165);
   padding-top:5em ;
+  padding-right:3em ;
+  padding-left:1em ;
+  /* padding: 1em; */
+  animation: popInAnimation  500ms cubic-bezier(0.87, 0, 0.13, 1) 0s 1 reverse backwards;}
+  @keyframes popInAnimation  {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  
+    100% {
+        opacity: 0;
+        transform: translateY(-250px);
+    }
 }
+
+
 .companySubTitle-conatiner ul{
     display: flex;
     justify-content: space-between;
-  
 }
+
 .companySubTitle-conatiner ul li{
 list-style: none;
+text-decoration: none;
+color: crimson;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+/* border-left: 1px solid rgb(99, 99, 99);
+        border-right: 1px solid rgb(141, 139, 139); */
+        /* border-bottom: 1px solid rgb(141, 139, 139); */
 }
 .companySubTitle-conatiner ul li h3{
-
 } 
  
 
@@ -20,24 +43,60 @@ list-style: none;
     .companySubTitle-conatiner{
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column;
         /* justify-content: center; */
-        
+        box-shadow: inset 7em 1em gold; 
     }
     .companySubTitle-conatiner ul{
         display: flex;
         flex-wrap: wrap;
         /* justify-content: space-between; */
+  
+
       
     }
     .companySubTitle-conatiner ul li{
     list-style: none;
+ 
+        color: coral;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  /* border-left: 1px solid rgb(99, 99, 99);
+        border-right: 1px solid rgb(141, 139, 139); */
+        /* border-bottom: 1px solid rgb(141, 139, 139); */
     /* border-right:1px solid black ; */
     /* border-bottom:1px solid black ; */
     }
     .companySubTitle-conatiner ul li h3{
-    
+
     }
     
     
 
+}
+
+
+
+@media screen and (max-width: 470px) {
+    .companySubTitle-conatiner{
+        background-color: white;
+    }
+    .companySubTitle-conatiner ul{
+        display: flex;
+        flex-direction: column;
+        /* margin-right:5em ; */
+        padding: 0;
+        
+    }
+   
+    .companySubTitle-conatiner ul li{
+       
+    }
+
+}
+
+
+/* list ddecoration to Link's */
+
+#T{
+    text-decoration: none;
 }
