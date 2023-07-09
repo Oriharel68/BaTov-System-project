@@ -145,7 +145,7 @@ function Main() {
 
         
         <div className="introduction-containerFirst">
-          {/* <div className="left-container"> */}
+          <div className="left-container">
             <div className="describe-containerFirst">
               <h3> למי אנחנו פונים: </h3>
               <p>
@@ -154,7 +154,7 @@ function Main() {
                 לחברות הגדולות שיש ללהם טכנאי שטח שצריכים בן אדם שיש על סידור
                 יום יומי -לוז של טכנאים בודקים וכדומה
               </p>
-            {/* </div> */}
+            </div>
           </div>
           {/* <div className="right-container">
             <div className="image-containerFirst">

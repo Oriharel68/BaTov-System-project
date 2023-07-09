@@ -223,7 +223,7 @@ background-size:100% 50%, 100%, 50% ; */
     background-color: rgb(255, 255, 255);
     background-repeat: no-repeat;
     background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(248, 248, 248), rgb(248, 248, 248));
-    background-position: 0px -170px, 0px 50%;
+    background-position: 0px 0 0px 50%;
     background-size: 100% 50%, 100%, 50%;
 }
 .wraperTwo-section{
@@ -237,7 +237,8 @@ background-size:100% 50%, 100%, 50% ; */
     background-color: rgb(255, 255, 255);
     background-repeat: no-repeat;
     background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(248, 248, 248), rgb(248, 248, 248));
-    background-position: 0px -170px, 0px 50%;
+    /* background-position: 0px 0, 0px 50%; */
+    background-position: top;
     background-size: 100% 50%, 100%, 50%;
 }
 .content-container .introduction-containerFirst{
