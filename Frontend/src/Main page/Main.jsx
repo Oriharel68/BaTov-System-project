@@ -72,14 +72,14 @@ function Main() {
           <div class="spec-icons-wrapper">
             <div class="icon-txt-wrapper">
               {/* <img src="https://uploads-ssl.webflow.com/6228bf6850370db453e25ec1/6256e014820e34bab61c415c_Asset%209.svg" loading="lazy" alt="" class="feature-img"/> */}
-              <span>
+              <span className="feature-icon">
                 <FiUser />
               </span>
-              <h2 class="features-txt">הלקוח נרשם</h2>
+              <h2 >הלקוח נרשם</h2>
             </div>
             <div class="icon-txt-wrapper">
               {/* <img src="https://uploads-ssl.webflow.com/6228bf6850370db453e25ec1/6256e01494238bbde8b7eee7_Asset%205.svg" loading="lazy" alt="" class="feature-img"/> */}
-              <span>
+              <span className="errow-icon">
                 {" "}
                 <AiOutlineArrowDown />{" "}
               </span>
@@ -88,7 +88,7 @@ function Main() {
             </div>
             <div class="icon-txt-wrapper">
               {/* <img src="https://uploads-ssl.webflow.com/6228bf6850370db453e25ec1/6256e013a1bbf80ec5b6c05d_Asset%202.svg" loading="lazy" alt="" class="feature-img"/> */}
-              <span>
+              <span className="feature-icon">
                 <GrInspect />
               </span>
               <h2 class="features-txt">בוחר בודקים</h2>
@@ -96,14 +96,15 @@ function Main() {
             <div class="icon-txt-wrapper">
               {/* <img src="https://uploads-ssl.webflow.com/6228bf6850370db453e25ec1/6256e014db761a58a32db794_Asset%208.svg" loading="lazy" alt="" class="feature-img"/> */}
               {/* <h2 class="features-txt">גג נעים ומאובזר</h2> */}
-              <span>
+              <span className="errow-icon">
                 {" "}
-                <AiOutlineArrowDown />{" "}
+                <AiOutlineArrowDown/>
+                {" "}
               </span>
             </div>
             <div class="icon-txt-wrapper">
               {/* <img src="https://uploads-ssl.webflow.com/6228bf6850370db453e25ec1/6256e014e6524d2ebb3a85aa_Asset%2010.svg" loading="lazy" alt="" class="feature-img"/> */}
-              <span>
+              <span className="feature-icon">
                 <SlCalender />
               </span>
               <h2 class="features-txt">בוחר תאריך יום ושעה</h2>
@@ -111,14 +112,14 @@ function Main() {
             <div class="icon-txt-wrapper">
               {/* <img src="https://uploads-ssl.webflow.com/6228bf6850370db453e25ec1/6256e014db761a58a32db794_Asset%208.svg" loading="lazy" alt="" class="feature-img"/> */}
               {/* <h2 class="features-txt">גג נעים ומאובזר</h2> */}
-              <span>
+              <span className="errow-icon">
                 {" "}
                 <AiOutlineArrowDown />{" "}
               </span>
             </div>
             <div class="icon-txt-wrapper">
               {/* <img src="https://uploads-ssl.webflow.com/6228bf6850370db453e25ec1/6256e0133785c8810e1b6830_Asset%204.svg" loading="lazy" alt="" class="feature-img"/> */}
-              <span>
+              <span className="feature-icon">
                 <GrSystem />
               </span>
               <h2 class="features-txt">מגיע למערכות החברה</h2>
@@ -140,8 +141,11 @@ function Main() {
     display: flex; */}
 
         {/* ---------------------> */}
+        <div className="wraperOne-section">
+
+        
         <div className="introduction-containerFirst">
-          <div className="left-container">
+          {/* <div className="left-container"> */}
             <div className="describe-containerFirst">
               <h3> למי אנחנו פונים: </h3>
               <p>
@@ -150,7 +154,7 @@ function Main() {
                 לחברות הגדולות שיש ללהם טכנאי שטח שצריכים בן אדם שיש על סידור
                 יום יומי -לוז של טכנאים בודקים וכדומה
               </p>
-            </div>
+            {/* </div> */}
           </div>
           {/* <div className="right-container">
             <div className="image-containerFirst">
@@ -181,6 +185,9 @@ function Main() {
 
           </div> */}
         </div>
+
+        </div>
+        <div className="wraperTwo-section">
         <div className="introduction-containerFirst">
           <div className="left-container">
             <div className="describe-containerFirst">
@@ -228,6 +235,7 @@ function Main() {
               </p>
             </div>
           </div>
+        </div>
         </div>
       </div>
       <div className="footer-container">
