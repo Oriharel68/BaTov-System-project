@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ClientNavBar from '../../nav/ClientNavBar'
 import ClientNavBarOrderMain from '../../nav/ClientNavBarOrderMain'
+import { useNavigate } from 'react-router-dom'
 
 function OrderCompelteMessage() {
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    setTimeout(() => {
+      navigate('/order/main');
+    }, 3000);
+
+  },[])
   return (
     <div>
   <div className="page-wraper">

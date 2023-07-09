@@ -3,9 +3,6 @@ import React, { memo, useEffect, useState } from 'react'
 import DatePicker  from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
-
-
 function DatePickerComponent({setSelectedDate,Provider}) {
  
   const [startDate, setStartDate] = useState(null);
@@ -28,7 +25,7 @@ function DatePickerComponent({setSelectedDate,Provider}) {
   useEffect(() => {
     const a = new Date(startDate);
     console.log(a.getTime());
-    setSelectedDate(a);
+    setSelectedDate(a.getTime());
   }, [startDate])
 
 

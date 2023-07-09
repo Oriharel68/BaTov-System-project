@@ -1,23 +1,44 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import ClientNavBar from '../nav/ClientNavBar'
-import { Link  } from 'react-router-dom'
+import { Link, useNavigate  } from 'react-router-dom'
 import axios from "axios";
 import NewOrderList from './NewOrderList';
 import DatePickerComponent from './DatePickerComponent';
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
+import { getAuth } from 'firebase/auth';
+
 
 function NewOrder() {
-
-
+  const navigate = useNavigate();
+  const [auth, setAuth] = useState(getAuth());
   const [ServiceProviders,setServiceProviders] = useState([]);
   const [Provider,setProvider] = useState(null);
   const [Choice, setChoice] = useState(true);
   const [SelectedDate, setSelectedDate] = useState(null);
-
   
    //useMemo
 //   const calculation = useMemo(() => expensiveCalculation(count), [count]);
 
+
+const handleComplete =  async ()=>{
+  const {TypeOfService,WorkerName} = Provider;
+  if(!SelectedDate || !Provider){
+    alert('date or Provider is empty or invalid');
+    return;
+  }
+
+  const message = await axios.post('http://localhost:4000/addOrder',{
+    TypeOfService,
+    WorkerName,
+    Email:auth.currentUser.email,
+    DateTime:SelectedDate
+  });
+  if(!message.data.ok){
+    alert("order could not be placed");
+    return;
+  }
+  navigate('/order/orderCompelte')
+}
 
 
 const addServiceProvider= (item)=>{
@@ -25,6 +46,7 @@ const addServiceProvider= (item)=>{
     setChoice(false);
 
 }
+
 
 useEffect(() => {
     async function getServiceProviders(){
@@ -83,7 +105,7 @@ useEffect(() => {
       <div className="bootmCalender-container">
         
       <DatePickerComponent Provider={Provider} setSelectedDate ={setSelectedDate}/>
-      <button id='Calender'> Complete</button>
+      <button onClick={handleComplete} id='Calender'> Complete</button>
       </div>
       </div>
       
