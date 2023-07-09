@@ -14,7 +14,6 @@ import AddworkerCompany from "../CompanyPage/subTitlelsComponents/AddworkerCompa
 import CompnatCalenderDetaills from "../CompanyPage/subTitlelsComponents/CompnatCalenderDetaills";
 import StatisticCompany from "../CompanyPage/subTitlelsComponents/StatisticCompany";
 import OrderOfTheCompany from "../CompanyPage/subTitlelsComponents/OrderOfTheCompany";
-import DatePickerComponent from "../ClientPage/DatePickerComponent";
 import UserRegistrationComplete from "../ClientPage/ClientMessages/UserRegistrationComplete";
 import OrderCompelteMessage from "../ClientPage/ClientMessages/OrderCompelteMessage";
 import ExistingOrder from "../ClientPage/ExistingOrder";
@@ -40,8 +39,8 @@ function RouterServer() {
           <Route path="/order/main" element={<OrderMain/>} />
           <Route path="/order/newOrder" element={<NewOrder/>} />
           <Route path="/order/ExistingOrder" element={<ExistingOrder/>} />
-          {/* CHECK CALENDER */}
-          <Route path="/order/calender" element={<DatePickerComponent/>} />
+         
+        
           
           {/*company side  */}
           <Route path="/company/access" element={<CompanyAccsess/>} />

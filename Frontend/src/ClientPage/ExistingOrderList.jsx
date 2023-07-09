@@ -2,7 +2,11 @@ import React from 'react'
 
 function ExistingOrderList({order}) {
   
-   console.log(order);
+  
+   const TimeOF = new Date();
+   TimeOF.setTime(order.DateTime);
+
+
   return (
     
     <div>
@@ -11,7 +15,7 @@ function ExistingOrderList({order}) {
        <button id='WokerType'> 
      Type Of Service:{order.TypeOfService} <br /><br /> 
       worker Name : {order.WorkerName}<br /><br/>
-      Chosen Date : {order.DateTime}
+      Chosen Date : {TimeOF.toUTCString()}
        </button> 
        
     </div>

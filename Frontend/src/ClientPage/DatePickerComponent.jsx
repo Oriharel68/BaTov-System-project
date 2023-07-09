@@ -40,9 +40,9 @@ function DatePickerComponent({setSelectedDate,Provider}) {
   const filterPassedTime = (time) => {
         const currentDate = new Date();
         const selectedDate = new Date(time);
-    
+        console.log(selectedDate);
         return currentDate.getTime() < selectedDate.getTime();
-      };
+      };//fix disable times in specific date
 
   return (
     <DatePicker

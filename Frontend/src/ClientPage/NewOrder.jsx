@@ -37,7 +37,7 @@ const handleComplete =  async ()=>{
     alert("order could not be placed");
     return;
   }
-  navigate('/order/orderCompelte')
+  navigate('/order/orderCompelte');
 }
 
 

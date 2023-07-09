@@ -98,7 +98,6 @@ app.post('/getExistingOrders',async (req,res)=>{
   if(!TypeOfService || !WorkerName){
     throw new Error("missing info complete required info(in get /getExistingOrders)");
   }
-  console.log(TypeOfService,WorkerName);
   const Orders = await OrdersModel.find({$and:[{TypeOfService},{WorkerName}]});
   res.send(Orders);
   } catch (error) {
@@ -130,7 +129,6 @@ app.post('/getExistingOrders',async (req,res)=>{
 app.post('/addOrder',async (req,res)=>{
   try {
     let {TypeOfService, WorkerName,Email,DateTime} = req.body;
-    console.log(TypeOfService, WorkerName,Email,DateTime);
     if(!TypeOfService ||!WorkerName||!Email||!DateTime){
       throw new Error("missing info complete required info(in get /addOrder)");
     }
@@ -153,6 +151,27 @@ app.post('/addOrder',async (req,res)=>{
     console.log(error.message);
     res.send({ ok: false, error: error.message })
   }
+});
+
+
+
+
+app.post('/GetMyOrders',async (req,res)=>{
+  try {
+    const {Email} = req.body;
+    if(!Email)throw new Error("No email(in post /GetMyOrders)");
+    
+    const Client = await ClientsModel.findOne({Email});
+    if(!Client) throw new Error("Client doesnt exist(in post /GetMyOrders)");
+    
+    const MyOrders = await OrdersModel.find({ClientId:Client._id.toString()});
+    res.send(MyOrders);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ok:false,error:error});
+  }
+ 
+
 })
 
 
