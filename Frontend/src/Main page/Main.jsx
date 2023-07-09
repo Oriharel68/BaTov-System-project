@@ -147,8 +147,8 @@ function Main() {
         <div className="introduction-containerFirst">
           <div className="left-container">
             <div className="describe-containerFirst">
-              <h3> למי אנחנו פונים: </h3>
-              <p>
+              <h3 className="TContent"> למי אנחנו פונים: </h3>
+              <p className="TTContent">
                 {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
                 Est illum iusto minima minus doloremque deleniti, distinctio temporibus possimus libero quas aliquid accusantium consectetur, fugiat repudiandae optio quae pariatur ad dolorem. Quae laboriosam, dolore soluta quos expedita necessitatibus mollitia. */}
                 לחברות הגדולות שיש ללהם טכנאי שטח שצריכים בן אדם שיש על סידור
@@ -167,8 +167,8 @@ function Main() {
         <div className="introduction-containerFirst">
           <div className="left-container">
             <div className="describe-containerFirst">
-              <h3> תיאור: </h3>
-              <p>
+              <h3 className="TContent"> תיאור: </h3>
+              <p className="TTContent">
                 {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
                 Est illum iusto minima minus doloremque deleniti, distinctio temporibus possimus libero quas aliquid accusantium consectetur, fugiat repudiandae optio quae pariatur ad dolorem. Quae laboriosam, dolore soluta quos expedita necessitatibus mollitia. */}
               מערכת של תיאום תורים לחברות הגדולות שבדכ מתנהלות מול החברות קבלן או פרטי
@@ -191,8 +191,8 @@ function Main() {
         <div className="introduction-containerFirst">
           <div className="left-container">
             <div className="describe-containerFirst">
-              <h3> מטרה: </h3>
-              <p>
+              <h3 className="TContent"> :מטרה</h3>
+              <p className="TTContent">
                 {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
                 Est illum iusto minima minus doloremque deleniti, distinctio temporibus possimus libero quas aliquid accusantium consectetur, fugiat repudiandae optio quae pariatur ad dolorem. Quae laboriosam, dolore soluta quos expedita necessitatibus mollitia. */}
     * לייעל את הדרישה של הלקוחות לטכנאים-הזמנות-זימון תורים
@@ -224,8 +224,8 @@ function Main() {
 
           <div className="right-container">
             <div className="describe-containerSeconed">
-              <h3>תהליך השימוש של האפליקציה:</h3>
-              <p>
+              <h3 className="TContent">תהליך השימוש של האפליקציה:</h3>
+              <p className="TTContent">
                 {/* orem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
                 Est illum iusto minima minus doloremque deleniti, distinctio temporibus possimus libero quas aliquid accusantium consectetur, fugiat repudiandae optio quae pariatur ad dolorem. Quae laboriosam, dolore soluta quos expedita necessitatibus mollitia. */}
                 האתר יבנה כאתר  שיהיה לו את האופציה להוסיף למסף הבית ובכך ישמש את הלקחות  

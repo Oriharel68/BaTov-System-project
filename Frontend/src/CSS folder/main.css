@@ -122,6 +122,12 @@ background-repeat: no-repeat;
 background-image:linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(248, 248, 248), rgb(248, 248, 248));
 background-position: 0px 0px, 0px 50%;
 background-size:100% 50%, 100%, 50% ; */
+background-color: rgb(255, 255, 255);
+background-repeat: no-repeat;
+background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(248, 248, 248), rgb(248, 248, 248));
+/* background-position: 0px 0, 0px 50%; */
+background-position:top ;
+background-size: 100% 80%, 100%, 50%;
 }
 
  .DocumentationiIcons-wraper .spec-icons-wrapper{
@@ -141,6 +147,7 @@ background-size:100% 50%, 100%, 50% ; */
         justify-content: space-between;
         padding: 20px;
         display: flex; 
+        
     }
     .DocumentationiIcons-wraper .spec-icons-wrapper .icon-txt-wrapper{
     
@@ -156,6 +163,7 @@ background-size:100% 50%, 100%, 50% ; */
           text-align: center;
           padding: 11px 0;
           display: flex;
+          
       }
       /* .features-txt{
       } */
@@ -223,8 +231,9 @@ background-size:100% 50%, 100%, 50% ; */
     background-color: rgb(255, 255, 255);
     background-repeat: no-repeat;
     background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(248, 248, 248), rgb(248, 248, 248));
-    background-position: 0px 0 0px 50%;
-    background-size: 100% 50%, 100%, 50%;
+    /* background-position: 0px 0 0px 50%; */
+    background-position:center ;
+    background-size: 100% 39.8%, 100%, 50%;
 }
 .wraperTwo-section{
     /* background-color: rgb(255, 255, 255);
@@ -238,8 +247,8 @@ background-size:100% 50%, 100%, 50% ; */
     background-repeat: no-repeat;
     background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(248, 248, 248), rgb(248, 248, 248));
     /* background-position: 0px 0, 0px 50%; */
-    background-position: top;
-    background-size: 100% 50%, 100%, 50%;
+    background-position:bottom ;
+    background-size: 100% 75%, 100%, 50%;
 }
 .content-container .introduction-containerFirst{
 display: flex;
@@ -262,9 +271,70 @@ padding: 3em 3em;
     /* max-width: 70%; */
     padding: 5em 5em;
 }
+.content-container .introduction-containerFirst .left-container .describe-containerFirst{
+
+}
+
 .content-container .introduction-containerFirst .right-container{
+ 
+}
+/* classes for the topics and lorem   --->*/
+.TContent{
+  font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-family: WoltHeading-October, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", "Helvetica Neue", sans-serif;
+  font-variant-ligatures: common-ligatures;
+  font-size: 2em;
+  line-height: 3.5rem;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  text-transform: none;
+}
+.TTcontent{
+  font-feature-settings: "kern";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", "Helvetica Neue", sans-serif;
+    font-style: normal;
+    font-stretch: normal;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1.43;
+    display: block;
+    max-width: 48rem;
+    margin: 0px auto;
+    text-align: center;
+    color: rgb(32, 33, 37);
+
+}
+
+.content-container .introduction-containerFirst .right-container h3{
+}
+
+
+.content-container .introduction-containerSeconed{
+  /* background-color: red; */
+  background-color: rgb(255, 255, 255);
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(248, 248, 248), rgb(248, 248, 248));
+  /* background-position: 0px 0, 0px 50%; */
+  background-position:top ;
+  background-size: 100% 46%, 100%, 50%;
+}
+.content-container .introduction-containerSeconed .left-container{
+  
+}
+.content-container .introduction-containerSeconed .right-container{
     
 }
+.content-container .introduction-containerSeconed .right-container .describe-containerSeconed{
+
+/* background-color: red; */
+}
+
 .image-containerFirst img{
     padding: 3em 0em;
 }
@@ -312,7 +382,12 @@ padding: 3em 3em;
         margin: 0 5em;
       }
       
-      
+      .introduction-containerSeconed{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+      }
       
       
         .right-container{
@@ -331,6 +406,7 @@ padding: 3em 3em;
             /* margin-left: 5em ; */
 
         }
+        
       }
 
  
