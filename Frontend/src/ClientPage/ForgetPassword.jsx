@@ -24,7 +24,7 @@ function ForgetPassword() {
           SetSendEmail(true);
                
           setTimeout(() => {
-            navigate('/client/main')
+            navigate('/client/access');
           }, 3000);
           // ..
         })
@@ -112,8 +112,6 @@ function ForgetPassword() {
         (
             <h4 id="errorbox"></h4>
         )
-        
-        
         }
                 </label>
                 {/* <div className="buttonContainer-client"> */}
