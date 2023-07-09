@@ -52,9 +52,9 @@ text-align: center;
 }
 
 /* moved to nav  ------start*/
-.insideNavTopFirst .btn-container button{
+/* .insideNavTopFirst .btn-container button{
     
-    background-color: white; /* Green */
+    background-color: white; 
     border: none;
     color: #4CAF50;
     padding: 16px 32px;
@@ -72,9 +72,9 @@ text-align: center;
     background-color: #4CAF50; 
     color: white; 
     border: 2px solid #4CAF50;
-  }
+  } */
 
-/* moved to nav  ------end ------*need some fixing*/
+/* moved to nav  ------end ------*need some fixing */
 
 .content-container{
 

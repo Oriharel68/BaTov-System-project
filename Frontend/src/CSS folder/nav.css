@@ -30,6 +30,30 @@
      padding-right: 8em;
 
         } 
+               /*btn nav  */
+               .insideNavTopFirst-container .btn-container button{
+    
+                  background-color: white; 
+                  border: none;
+                  color: #4CAF50;
+                  padding: 5px 32px;
+                  text-align: center;
+                  text-decoration: none;
+                  display: inline-block;
+                  /* font-size: 16px; */
+                  /* margin: 4px 2px; */
+                  transition-duration: 0.4s;
+                  cursor: pointer;
+              }
+              
+              .insideNavTopFirst-container .btn-container button:hover {
+              
+                  background-color: #4CAF50; 
+                  color: white; 
+                  border: 2px solid #4CAF50;
+                }
+              
+
         @media screen and (max-width: 525px) {
          
          .navBar-Main{
@@ -68,4 +92,30 @@
                   /* padding-left: 5em;
                       color: green; */
                  }
+                        /*btn nav  */
+        .insideNavTopFirst-container .btn-container button{
+    
+         background-color: white; 
+         border: none;
+         color: #4CAF50;
+         padding: 8px 5px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         /* font-size: 16px; */
+         margin: 4px 2px;
+         transition-duration: 0.4s;
+         cursor: pointer;
+     }
+     
+     .insideNavTopFirst-container .btn-container button:hover {
+     
+         background-color: #4CAF50; 
+         color: white; 
+         border: 2px solid #4CAF50;
+       }
+     
         }
+        
+
+ 

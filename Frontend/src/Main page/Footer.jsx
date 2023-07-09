@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { AiFillFacebook,AiOutlineInstagram,AiOutlineMail } from 'react-icons/ai';
 function Footer() {
   return (
     <div className='Footer'>
@@ -10,9 +10,11 @@ function Footer() {
       <div className="bottomfooter-container">
 
       <ul>
-        <li>instegram</li>
-        <li>Facebook</li>
-        <li> mail </li>
+        <li>instegram<AiOutlineInstagram/></li>
+        <li>Facebook<AiFillFacebook/></li>
+         <a  href="mailto:admin@gmail.com">
+         <li  >  mail<AiOutlineMail/> </li>
+          </a> 
       </ul>
       </div>
     </div>
