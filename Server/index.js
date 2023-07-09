@@ -129,19 +129,22 @@ app.post('/getExistingOrders',async (req,res)=>{
 
 app.post('/addOrder',async (req,res)=>{
   try {
-    let {TypeOfService, WorkerName,ClientId,DateTime} = req.body;
-    console.log(TypeOfService, WorkerName,ClientId,DateTime);
-    if(!TypeOfService ||!WorkerName||!ClientId||!DateTime){
+    let {TypeOfService, WorkerName,Email,DateTime} = req.body;
+    console.log(TypeOfService, WorkerName,Email,DateTime);
+    if(!TypeOfService ||!WorkerName||!Email||!DateTime){
       throw new Error("missing info complete required info(in get /addOrder)");
+    }
+    const clientId = await ClientsModel.findOne({Email});
+    if(!clientId){
+      throw new Error("client doesnt exists(in post /addOrder)");
     }
     const orderDB = new OrdersModel({
       TypeOfService, 
       WorkerName,
-      ClientId,
+      ClientId:clientId._id.toString(),
       DateTime,
     })
-    // const combinedObject = { ...dbObject, ...stateObject }; // Merge using the spread operator (shallow merge)
-
+    // // const combinedObject = { ...dbObject, ...stateObject }; // Merge using the spread operator (shallow merge)
     await orderDB.save().then(()=>{
       res.send({ok:true});
     });
