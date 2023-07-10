@@ -20,9 +20,11 @@
  /* client Nav Bar Order Main */
  #LU{
    color: red;
-    position: absolute;
+    /* position: absolute; */
+    position: relative;
+    position: fixed;
     text-decoration: none;
-    padding: 2em 5em;
+    padding: 2em 2em;
     font-size: 15px;
     font-family: 'Courier New', Courier, monospace;
  }
