@@ -18,10 +18,20 @@ function UserRegistrationComplete() {
           <div className="mainClient-page">
         
           <div className="RegisterMessage">
-
-<p>
-המשתמש נרשם בהצלחה
-</p>
+          <div class="alert-popup-container">
+  <div class="success-checkmark">
+    <div class="check-icon">
+      <span class="icon-line line-tip"></span>
+      <span class="icon-line line-long"></span>
+      <div class="icon-circle"></div>
+      <div class="icon-fix"></div>
+    </div>
+  </div>
+  <div class="alert-popup-title">Success!!!</div>
+  <div class="alert-popup-message">
+  המשתמש נרשם בהצלחה
+  </div>
+</div>
 
 
 </div>
