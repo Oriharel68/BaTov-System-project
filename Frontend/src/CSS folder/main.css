@@ -8,16 +8,18 @@
 }
 
 .page-wrap .topFirst-container{
-    /* position: sticky; */
+    position: sticky;
     top: 0;
     height: 90px;
-    z-index: 1;
+
+    z-index: 3;
+    
    max-width: 100%;
     background-image: url("/public/assets/pexels-fauxels-3183197.jpg");
    background-repeat: no-repeat;
    background-size: cover;
    
-   padding: 23em 0em;
+   padding: 26em 0em;
 }
 
 
@@ -79,8 +81,8 @@ text-align: center;
 .content-container{
 
     /* for the content container: */
-    position: relative;
-    
+    /* position: relative; */
+
         /* margin-top: 100px;  */
         /* Adjust the margin to match the height of the image container */
         z-index: 2;
@@ -92,6 +94,17 @@ text-align: center;
     max-width: 100%;
     background-color: #EE4E34;
     padding: 9em 7em;
+    /* position: absolute; */
+    position: relative;
+    /* position: fixed; */
+    z-index: 5;
+
+    -webkit-border-top-left-radius: 80px;
+-webkit-border-top-right-radius: 80px;
+-moz-border-radius-topleft: 80px;
+-moz-border-radius-topright: 80px;
+border-top-left-radius: 80px;
+border-top-right-radius: 80px;
 } 
 
 /* ---------------------------------------------- */
@@ -116,6 +129,7 @@ text-align: center;
   } */
 .DocumentationiIcons-wraper{
 /* background-color: green; */
+/* margin-top: 70em; */
 padding: 5em;
 /* background-color: rgb(255, 255, 255);
 background-repeat: no-repeat;
@@ -131,6 +145,7 @@ background-size: 100% 80%, 100%, 50%;
 }
 
  .DocumentationiIcons-wraper .spec-icons-wrapper{
+  /* margin-top: 45em; */
     display: flex;
     flex-direction: column;
     justify-content: center;

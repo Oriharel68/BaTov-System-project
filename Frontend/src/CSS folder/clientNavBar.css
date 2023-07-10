@@ -17,7 +17,8 @@
     
  }
 
- /* client Nav Bar Order Main */
+ /* client Nav Bar Order Main *//*  ---------- *//* client Nav Bar Order Main */
+
  #LU{
    color: red;
     /* position: absolute; */
@@ -28,3 +29,9 @@
     font-size: 15px;
     font-family: 'Courier New', Courier, monospace;
  }
+ /* #LOGOUT{
+   position: relative;
+   padding:3px; */
+   /* position: fixed; */
+   /* margin-right: 1em; */
+ /* } */

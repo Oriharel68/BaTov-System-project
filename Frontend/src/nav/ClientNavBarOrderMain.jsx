@@ -1,5 +1,6 @@
 import React from "react";
 import { Link ,useNavigate} from "react-router-dom";
+import { CgProfile } from 'react-icons/cg';
 
 import { getAuth, signOut } from "firebase/auth";
 function ClientNavBarOrderMain() {
@@ -45,8 +46,8 @@ function ClientNavBarOrderMain() {
         {/* <Link to={"/client/main"}> */}
       
           <a href="" id="LU">
+            {/* <CgProfile id="LOGOUT"/> */}
             <button>
-
              Log Out  
             </button>
              </a>
