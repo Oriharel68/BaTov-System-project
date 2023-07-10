@@ -1,5 +1,7 @@
 .Footer{
-    position: relative;   
+    position: relative;
+    align-items: center;
+    text-align: center;
     z-index: 2;
     background-color: #2F3C7E    ;
     /* display: flex;
@@ -9,17 +11,24 @@
 }
 
 .Footer .topfooter-container {
+    /* background-color: green; */
     display: flex;
     justify-content: center;
+    padding-left: 28px;
+    /* text-align: center; */
 
 }
 .Footer .bottomfooter-container{
 /* display: flex; */
-padding-right: 5em;
+/* padding-right: 5em; */
 
 }
 .Footer .bottomfooter-container ul {
-    display: flex;   
+    display: flex; 
+    /* background-color: yellow; */
+    /* padding-left: 5em; */
+    /* width: 100%; */
+    justify-content: center;  
     justify-content: space-evenly;
 }
 .Footer .bottomfooter-container ul li{
