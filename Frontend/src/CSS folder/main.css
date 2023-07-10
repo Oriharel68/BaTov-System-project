@@ -316,6 +316,7 @@ padding: 3em 3em;
 
 
 .content-container .introduction-containerSeconed{
+
   /* background-color: red; */
   background-color: rgb(255, 255, 255);
   background-repeat: no-repeat;
@@ -325,8 +326,14 @@ padding: 3em 3em;
   background-size: 100% 46%, 100%, 50%;
 }
 .content-container .introduction-containerSeconed .left-container{
-  
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
+.content-container .introduction-containerSeconed .left-container .image-containerSeconed{
+
+}
+
 .content-container .introduction-containerSeconed .right-container{
     
 }
@@ -351,16 +358,18 @@ padding: 3em 3em;
 
   .content-container .introduction-containerSeconed{
     display: flex;
+    justify-content: center;
+    background-color: red;
     flex-wrap: wrap;
     padding: 3em 3em;
-    display: flex;
-    justify-content: center;
     }
 
 
     .content-container .introduction-containerSeconed .left-container{
- 
-
+      width: 100%;
+      display: flex;
+      justify-content: center;
+       
     }
 
 
