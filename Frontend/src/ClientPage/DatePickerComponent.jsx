@@ -42,7 +42,7 @@ function DatePickerComponent({setSelectedDate,Provider}) {
         const selectedDate = new Date(time);
         console.log(selectedDate);
         return currentDate.getTime() < selectedDate.getTime();
-      };//fix disable times in specific date
+      };//fix disable times in specific date a
 
   return (
     <DatePicker
