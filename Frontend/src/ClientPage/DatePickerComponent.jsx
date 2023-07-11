@@ -6,6 +6,8 @@ import "react-datepicker/dist/react-datepicker.css";
 function DatePickerComponent({setSelectedDate,Provider}) {
  
   const [startDate, setStartDate] = useState(null);
+  const [OrderData, setOrderData] = useState([]);
+
 
 
   useEffect(() => {
@@ -15,7 +17,10 @@ function DatePickerComponent({setSelectedDate,Provider}) {
         TypeOfService,
         WorkerName
       });
-      console.log(data);//save and exclude from the datepicker
+     const FilterTime = data.map((item)=>{
+      return item.DateTime;
+    })
+    setOrderData(FilterTime);
     }
     getorders();
   }, [])
@@ -24,9 +29,10 @@ function DatePickerComponent({setSelectedDate,Provider}) {
 
   useEffect(() => {
     const a = new Date(startDate);
-    console.log(a.getTime());
+    a.setMilliseconds(0);
+    a.setSeconds(0);
     setSelectedDate(a.getTime());
-  }, [startDate])
+  }, [startDate]);
 
 
 
@@ -38,11 +44,18 @@ function DatePickerComponent({setSelectedDate,Provider}) {
 
 
   const filterPassedTime = (time) => {
+        let isBusy = true;
         const currentDate = new Date();
         const selectedDate = new Date(time);
-        console.log(selectedDate);
-        return currentDate.getTime() < selectedDate.getTime();
-      };//fix disable times in specific date a
+
+        
+        OrderData.forEach((item)=>{
+          if(item == selectedDate.getTime()){
+            isBusy = false;
+          }
+        })
+        return currentDate.getTime() < selectedDate.getTime() && isBusy;
+      };
 
   return (
     <DatePicker

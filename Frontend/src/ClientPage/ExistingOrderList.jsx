@@ -1,11 +1,12 @@
 import React from 'react'
+import { setDate } from '../Helpjs/help';
 
 function ExistingOrderList({order}) {
   
   
    const TimeOF = new Date();
    TimeOF.setTime(order.DateTime);
-
+   
 
   return (
     
@@ -15,9 +16,9 @@ function ExistingOrderList({order}) {
        <button id='WokerType'> 
      Type Of Service:{order.TypeOfService} <br /><br /> 
       worker Name : {order.WorkerName}<br /><br/>
-      Chosen Date : {TimeOF.toUTCString()}
+      Chosen Date : {setDate(TimeOF)}
        </button> 
-       
+
     </div>
     </div>
   )
