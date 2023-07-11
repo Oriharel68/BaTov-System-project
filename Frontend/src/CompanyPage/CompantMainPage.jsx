@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../nav/NavBar'
 import Companysubtitle from '../nav/Companysubtitle'
 import CompanyNavBar from '../nav/CompanyNavBar';
 import CombaibnedNavCompany from '../nav/CombaibnedNavCompany';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function CompantMainPage() {
@@ -15,7 +17,22 @@ function CompantMainPage() {
 //     const handleMouseLeave = () => {
 //       setShowSecondDiv(false);
 //     };
+const navigate = useNavigate()
+const auth = getAuth();
+const [userAuth,setUserAuth] =useState(auth)
+
+//cheking the user if in/ out
+// console.log(userIn);
+useEffect(()=>{
+  if(userAuth == null ){
     
+    navigate('/');
+    alert("useer is not assianged");
+  }  
+},[])
+
+// console.log(userIn.currentUser);
+  
   return (
     <div>
         {/* <div

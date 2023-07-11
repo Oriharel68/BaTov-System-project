@@ -3,13 +3,15 @@ import NavBar from "../nav/NavBar";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { AiOutlineMail } from 'react-icons/ai';
-
 import axios from "axios";
+
+
 
 function CompanyAccsess() {
  
   const [showSecondDiv, setShowSecondDiv] = useState(false);
-       
+
+
   const handleMouseEnter = () => {
 if(showSecondDiv == false){
   setShowSecondDiv(true)
@@ -18,8 +20,9 @@ if(showSecondDiv == false){
   setShowSecondDiv(false)
   return;
 }
-
   };
+
+  
   
   // const handleMouseLeave = () => {
   //   setShowSecondDiv(false);
@@ -28,7 +31,7 @@ if(showSecondDiv == false){
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
   const auth = getAuth();
-
+ 
   async function handeleSingIn(e) {
     e.preventDefault();
 
