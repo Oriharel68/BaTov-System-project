@@ -106,6 +106,7 @@ app.post('/getExistingOrders',async (req,res)=>{
   }
 });
 
+
 // ---------------------------TOMER----------------------------------->
 // app.get('/getExistingOrders',async (req,res)=>{
 //   try {
@@ -203,7 +204,18 @@ app.post("/register", async (req, res) => {
 });
 
 
-
+app.post("/companyCheck",async(req,res)=>{
+  try {
+    const {email} = req.body;
+    // const {Password} = req.body;
+    if(!email)throw new Error("No email(in post /GetMyOrders)");
+    const Client = await CompanyModel.findOne({email});
+    // if(!Client) throw new Error("Client doesnt exist(in post /GetMyOrders)");
+  } catch (error) {
+    console.log(error.message);
+    res.send({ ok: false, error: error.message });
+ }
+})
 
 
 app.listen(port, () => {

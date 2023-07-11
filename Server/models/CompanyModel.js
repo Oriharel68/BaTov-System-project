@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const CompanyScehma = new mongoose.Schema({
-  Username:String,
-  Password:String,
+  email:String,
+
 });
 
 const CompanyModel = mongoose.model("Company", CompanyScehma);
