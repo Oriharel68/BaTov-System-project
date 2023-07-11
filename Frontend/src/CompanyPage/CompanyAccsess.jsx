@@ -9,14 +9,21 @@ import axios from "axios";
 function CompanyAccsess() {
  
   const [showSecondDiv, setShowSecondDiv] = useState(false);
-        
+       
   const handleMouseEnter = () => {
-    setShowSecondDiv(true);
+if(showSecondDiv == false){
+  setShowSecondDiv(true)
+  return;
+}else{
+  setShowSecondDiv(false)
+  return;
+}
+
   };
   
-  const handleMouseLeave = () => {
-    setShowSecondDiv(false);
-  };
+  // const handleMouseLeave = () => {
+  //   setShowSecondDiv(false);
+  // };
 
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
@@ -33,7 +40,10 @@ function CompanyAccsess() {
     const { data } = await axios.post("http://localhost:4000/companyCheck",{
       email
     });
-
+      if(data.ok == false){
+        alert('user in not a company user ,please contact the administrator ')
+        return;
+      }
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -152,7 +162,7 @@ function CompanyAccsess() {
   )}
                 <div className="form-group forgot-password" style={{marginTop:'2em'}}
                    onClick={handleMouseEnter}
-                   onMouseLeave={handleMouseLeave}
+                  //  onMouseLeave={handleMouseLeave}
                    >
                  
                   <a href="#">Forgot password?</a>   

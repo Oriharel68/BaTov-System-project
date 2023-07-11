@@ -208,9 +208,14 @@ app.post("/companyCheck",async(req,res)=>{
   try {
     const {email} = req.body;
     // const {Password} = req.body;
+    // console.log(req.body);
     if(!email)throw new Error("No email(in post /GetMyOrders)");
     const Client = await CompanyModel.findOne({email});
-    // if(!Client) throw new Error("Client doesnt exist(in post /GetMyOrders)");
+    if(!Client){
+      res.send({ok: false})
+    } else{
+      res.send({ok:true})
+    }
   } catch (error) {
     console.log(error.message);
     res.send({ ok: false, error: error.message });
