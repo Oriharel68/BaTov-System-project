@@ -1,7 +1,9 @@
  .companySubTitle-conatiner{
+    z-index: 5;
+    /* position: absolute; */
     box-shadow: inset 10em 1em gold; 
      background-color: rgb(170, 165, 165);
-  padding-top:5em ;
+  padding-top:6.5em ;
   padding-right:3em ;
   padding-left:1em ;
   /* padding: 1em; */
@@ -22,6 +24,12 @@
 .companySubTitle-conatiner ul{
     display: flex;
     justify-content: space-between;
+    /* padding-bottom: 1em; */
+    /* padding: 1em 25px; */
+    padding-top: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 1em;
 }
 
 .companySubTitle-conatiner ul li{
@@ -39,17 +47,18 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
  
 
 /* max-width 645px change */
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 757px) {
     .companySubTitle-conatiner{
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         /* justify-content: center; */
-        box-shadow: inset 7em 1em gold; 
+        box-shadow: inset 6em 1em gold; 
     }
     .companySubTitle-conatiner ul{
         display: flex;
         flex-wrap: wrap;
+        /* padding-left: 1em; */
         /* justify-content: space-between; */
   
 

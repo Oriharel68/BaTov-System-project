@@ -1,0 +1,103 @@
+
+.mainAddWorker-Page{
+    display: flex;
+    position: relative;
+    z-index: 0;
+    padding: 10em;
+    align-items: center;
+    /* margin-top: 5em; */
+    background-color: rgb(64, 23, 23);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mainAddWorker-Page form{
+    margin-top:  5em;
+    padding:  10em;
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+     align-items: center;
+     text-align: center;
+    background-color: green;
+}
+.mainAddWorker-Page form input{
+max-width: 100%;
+text-align: end;
+
+}
+
+/* not in used for now */  
+#W1 {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+  }
+  
+  #W1:focus {
+    background-color: lightblue;
+  }
+  /* not in used for now */
+#W2 {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+  }
+  
+  #W2:focus {
+    background-color: lightcoral;
+  }
+  
+#W3 {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+  }
+  
+  #W3:focus {
+    background-color: lightgreen;
+  }
+  
+  
+  @media screen and (max-width: 880px) {
+    .mainAddWorker-Page form{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding:  10em;
+         align-items: center;
+         text-align: center;
+        background-color: green;
+  
+    }
+    
+    .mainAddWorker-Page form input{
+    width: 100%;
+    }
+    
+    
+    
+    #W {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #555;
+        outline: none;
+      }
+      
+      #W:focus {
+        background-color: lightblue;
+      }
+}
