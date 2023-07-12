@@ -16,7 +16,7 @@ function AddworkerCompany() {
             
         <input type="text" id="W2" name="" placeholder='סוג איש מקצוע'/>
         <input type="text" id="W2" name="" placeholder='שם עובד'/>
-        <input type="number" id="W3" name="" placeholder='מחיר/עלות בדיקה' />
+        <input type="number" id="W3" name="" placeholder='מחיר/עלות בדיקה' min="0"/>
          
           <button type="button">
             הוספה
