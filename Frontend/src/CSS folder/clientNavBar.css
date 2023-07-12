@@ -12,18 +12,58 @@
  .navBar-Main h1{
  
     background-color: red;
-    text-align: center;
+    /* text-align: center; */
  
     
  }
 
  /* client Nav Bar Order Main *//*  ---------- *//* client Nav Bar Order Main */
+.navBar-Client{
+  display: flex;
+  justify-content: space-between;
+}
+.navBar-Client h1{
+  background-color: red; 
+  padding-left: 2.5em;
 
+  position: relative;
+}
+.navBar-Client .right-orderClient-container{
+display: flex;
+
+}
+.navBar-Client form{
+position: relative;
+/* background-color: red; */
+display: flex;
+text-align: center;
+/* not allowing to tutch  --------need to fix the form -------------------------------------------------!!!*/
+opacity: 0.6;
+cursor: not-allowed;
+
+}
+/* client help message */
+.client-order-message{
+  padding: 1em;
+  background-color: yellowgreen;
+  position: absolute;
+text-align: end;
+max-width: 28.3%;
+/* margin-left: 65%; */
+}
+/* need to complete */
+#information{
+  /* padding: 5px; */
+  
+  background-color: #5a607e;
+  /* background-color: red; */
+}
  #LU{
    color: red;
-    /* position: absolute; */
+    /* position: relative; */
     position: relative;
-    position: fixed;
+    z-index: 0;
+    /* position: sticky; */
     text-decoration: none;
     padding: 2em 2em;
     font-size: 15px;
@@ -35,3 +75,13 @@
    /* position: fixed; */
    /* margin-right: 1em; */
  /* } */
+ @media screen and (max-width: 820px)  {
+  .client-order-message{
+    padding: 1em;
+    background-color: yellowgreen;
+    position: absolute;
+  text-align: end;
+  max-width: 100%;
+  /* margin-left: 65%; */
+  }
+}
