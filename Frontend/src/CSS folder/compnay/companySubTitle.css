@@ -1,6 +1,11 @@
  .companySubTitle-conatiner{
     z-index: 5;
     /* position: absolute; */
+    position: relative;
+    position: fixed;
+   width: 100%;
+   max-width: 100%;
+   
     box-shadow: inset 10em 1em gold; 
      background-color: rgb(170, 165, 165);
   padding-top:6.5em ;

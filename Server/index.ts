@@ -58,11 +58,15 @@ app.get("/findAllClients", async (req, res) => {
   }
 });
 
-app.get('/addProvider',async (req,res)=>{
+app.post('/addProvider',async (req,res)=>{
   try {
+    let { price, workerName, serviceType } = req.body;
     const ServiceDB = new ServiceProvidersModel({
-      TypeOfService:'IT',
-      WorkerName:'ori'
+      // TypeOfService:'IT',
+      // WorkerName:'ori'
+      price ,
+      workerName ,
+      serviceType,
     });
 
     await ServiceDB.save().then((data)=>{
@@ -73,6 +77,16 @@ app.get('/addProvider',async (req,res)=>{
     res.status(500).send({ ok: false, error: error.message });
   }
 })
+
+// const ClientDB = new ClientsModel({
+//   FirstName,
+//   LastName,
+//   Email,
+//   PhoneNumber,
+// });
+// await ClientDB.save().then((data) => {
+//   res.send({ ok: true, data });
+// });
 
 
 
