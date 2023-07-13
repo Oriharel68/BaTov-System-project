@@ -60,23 +60,21 @@ app.get("/findAllClients", async (req, res) => {
 
 app.post('/addProvider',async (req,res)=>{
   try {
-    let { price, workerName, serviceType } = req.body;
+    let { Price, WorkerName, TypeOfService } = req.body;
+
     
-    console.log(price);
-    console.log(workerName);
-    console.log(serviceType);
     
-    if (!price || !price || !serviceType )
+    if (!Price || !WorkerName || !TypeOfService )
     throw new Error("missing info complete required info");
   // if (await ServiceProvidersModel.findOne({ $or: [{ workerName }] }))
   //   throw new Error("workerName already exists in the system ");
 
     const ServiceDB = new ServiceProvidersModel({
-      price ,
-      workerName ,
-      serviceType,
+      Price,
+      WorkerName,
+      TypeOfService,
     });
-  console.log(ServiceDB);
+  // console.log(ServiceDB);
   
     await ServiceDB.save().then((data)=>{
     res.send({ ok: true, data });

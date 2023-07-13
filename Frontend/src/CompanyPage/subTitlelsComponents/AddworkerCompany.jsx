@@ -9,11 +9,11 @@ function AddworkerCompany() {
     try {
       event.preventDefault();
       const formData = new FormData(event.target);
-      const workerName = formData.get("workerName");
-      const serviceType = formData.get("serviceType");
-      const price = formData.get("price");
+      const WorkerName = formData.get("workerName");
+      const TypeOfService = formData.get("serviceType");
+      const Price = formData.get("price");
       
-      if (!price || !workerName || !serviceType ) {
+      if (!Price || !TypeOfService || !TypeOfService ) {
         alert("missing info");
         return;
       }
@@ -27,9 +27,9 @@ function AddworkerCompany() {
       // }
       
       const { serviceProvider } = await axios.post("http://localhost:4000/addProvider", {
-       price,
-       workerName,
-       serviceType,
+       Price,
+       WorkerName,
+       TypeOfService,
       })
       .then(()=>{
          alert("worker was created Succsesfuly");

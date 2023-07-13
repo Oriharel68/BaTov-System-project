@@ -1,4 +1,5 @@
-const mongooseClient = require("mongoose");
+// const mongooseClient = require("mongoose");
+import mongooseClient from  "mongoose"
 
 const clientScehma = new mongooseClient.Schema({
   FirstName:String,
