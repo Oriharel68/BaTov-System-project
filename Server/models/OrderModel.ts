@@ -1,4 +1,4 @@
-const mongooseOrder = require("mongoose");
+import mongooseOrder from "mongoose";
 
 const OrderScehma = new mongooseOrder.Schema({
   TypeOfService:String,
