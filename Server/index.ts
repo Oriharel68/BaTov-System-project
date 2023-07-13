@@ -61,14 +61,23 @@ app.get("/findAllClients", async (req, res) => {
 app.post('/addProvider',async (req,res)=>{
   try {
     let { price, workerName, serviceType } = req.body;
+    
+    console.log(price);
+    console.log(workerName);
+    console.log(serviceType);
+    
+    if (!price || !price || !serviceType )
+    throw new Error("missing info complete required info");
+  // if (await ServiceProvidersModel.findOne({ $or: [{ workerName }] }))
+  //   throw new Error("workerName already exists in the system ");
+
     const ServiceDB = new ServiceProvidersModel({
-      // TypeOfService:'IT',
-      // WorkerName:'ori'
       price ,
       workerName ,
       serviceType,
     });
-
+  console.log(ServiceDB);
+  
     await ServiceDB.save().then((data)=>{
     res.send({ ok: true, data });
     })
@@ -78,15 +87,7 @@ app.post('/addProvider',async (req,res)=>{
   }
 })
 
-// const ClientDB = new ClientsModel({
-//   FirstName,
-//   LastName,
-//   Email,
-//   PhoneNumber,
-// });
-// await ClientDB.save().then((data) => {
-//   res.send({ ok: true, data });
-// });
+
 
 
 
@@ -211,6 +212,7 @@ app.post("/register", async (req, res) => {
       Email,
       PhoneNumber,
     });
+    
     await ClientDB.save().then((data) => {
       res.send({ ok: true, data });
     });

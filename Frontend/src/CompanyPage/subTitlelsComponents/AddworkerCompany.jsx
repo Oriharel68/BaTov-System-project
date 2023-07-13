@@ -26,11 +26,12 @@ function AddworkerCompany() {
       //   return;
       // }
       
-      const {serviceProvider} = await axios.post("http://localhost:4000/addProvider", {
+      const { serviceProvider } = await axios.post("http://localhost:4000/addProvider", {
        price,
        workerName,
        serviceType,
-      }).then(()=>{
+      })
+      .then(()=>{
          alert("worker was created Succsesfuly");
       })
      
