@@ -1,6 +1,5 @@
 import React from 'react'
 import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany'
-import ServerStatus from '../../FireBase/ServerStatus';
 import axios from 'axios';
 // import ServerStatus from "../FireBase/ServerStatus";
 function AddworkerCompany() {
@@ -26,19 +25,21 @@ function AddworkerCompany() {
       //   return;
       // }
       
-      const { serviceProvider } = await axios.post("http://localhost:4000/addProvider", {
+      const  {data}  = await axios.post("http://localhost:4000/addProvider", {
        Price,
        WorkerName,
        TypeOfService,
       })
-      .then(()=>{
-         alert("worker was created Succsesfuly");
-      })
+
+
      
-      if (!serviceProvider.ok) {
-        alert(serviceProvider.error);
+      if (!data.ok) {
+        alert(data.error);
         // userCred.user.delete();
         return;
+      }
+      else if(data.ok){
+        alert('Provider has been created succssefuly');
       }      
       
 
