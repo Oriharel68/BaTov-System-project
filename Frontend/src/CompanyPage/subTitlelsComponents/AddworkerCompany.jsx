@@ -25,7 +25,7 @@ function AddworkerCompany() {
       //   return;
       // }
       
-      const  {data}  = await axios.post("http://localhost:4000/addProvider", {
+      const  {data}  = await axios.put("http://localhost:4000/addProvider", {
        Price,
        WorkerName,
        TypeOfService,
