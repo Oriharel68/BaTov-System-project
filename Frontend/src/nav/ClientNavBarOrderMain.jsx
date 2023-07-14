@@ -63,21 +63,22 @@ function ClientNavBarOrderMain() {
 
            <button id="information" 
             onClick={handleMouseEnter}
+            // style={{fontSize:}}
 >
            <GrCircleInformation/>
 
            </button>
            
        
-        <form action="" onSubmit={(event)=>handleOnSubmit(event)}>
+        <form action="" id="LU">
         {/* <Link to={"/client/main"}> */}
        
-          <a href="" id="LU">
+          {/* <a href="" id="LU"> */}
             {/* <CgProfile id="LOGOUT"/> */}
-            <button> 
+            <button   onClick={(event)=>handleOnSubmit(event)}> 
              Log Out  
             </button>
-             </a>
+             {/* </a> */}
              
         {/* </Link> */}
         </form>

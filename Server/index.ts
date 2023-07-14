@@ -61,8 +61,6 @@ app.get("/findAllClients", async (req, res) => {
 app.post('/addProvider',async (req,res)=>{
   try {
     let { Price, WorkerName, TypeOfService } = req.body;
-
-    
     
     if (!Price || !WorkerName || !TypeOfService )
     throw new Error("missing info complete required info");
