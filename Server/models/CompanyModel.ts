@@ -1,6 +1,7 @@
 import mongooseCompany from "mongoose";
+import { Company } from "./interface";
 
-const CompanyScehma = new mongooseCompany.Schema({
+const CompanyScehma = new mongooseCompany.Schema<Company>({
   email:String,
 });
 

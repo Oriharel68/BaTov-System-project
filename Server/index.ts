@@ -1,24 +1,18 @@
-import { Model } from "mongoose";
 
-interface Order{
-  TypeOfService:String,
-  DateTime:String,
-  ClientId:String,
-  WorkerName:String,
-}
-
+import  findAllClients from './Router/FindAllClient';
+import getServiceProvider from './Router/getServiceProvider';
+import addprovider from './Router/addProvider';
+import getExistingOrders from './Router/getExistingOrders';
+import { Request, Response } from "express";
+import getAllOrders from './Router/getAllOrders';
+import addOrder from './Router/addOrder';
+import GetMyOrders from './Router/GetMyOrders';
+import register from './Router/register';
+import companyCheck from './Router/companyCheck';
 
 const express = require("express");
 const mongoose = require("mongoose");
-var ClientsModel = require("./models/ClientsModel");
-var OrdersModel:Model<Order>= require('./models/OrderModel');
-var ServiceProvidersModel = require('./models/ServiceProviderModel');
-var CompanyModel = require('./models/CompanyModel');
 const cors = require('cors');
-
-
-
-
 require("dotenv").config();
 
 
@@ -49,95 +43,46 @@ mongoose
 
 
 
+  app.use("/findAllClients",findAllClients);
+  app.use("/addProvider",addprovider);   
+  app.use("/getServiceProvider",getServiceProvider);
+  app.use('/getExistingOrders',getExistingOrders);
+  app.use('/getAllOrders',getAllOrders);
+  app.use('/addOrder',addOrder);
+  app.use('/GetMyOrders',GetMyOrders);
+  app.use('/register',register);
+  app.use('/companyCheck',companyCheck)
 
-
-
-
-
-
-app.get("/findAllClients", async (req, res) => {
-  try {
-    const ClientDB = await ClientsModel.find();
-    res.send(ClientDB);
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).send({ ok: false, error: error.message });
-  }
-});
-
-app.post('/addProvider',async (req,res)=>{
-  try {
-    let { Price, WorkerName, TypeOfService } = req.body;
-
-    if (!Price || !WorkerName || !TypeOfService )
-    throw new Error("missing info complete required info");
-    
-  if (await ServiceProvidersModel.findOne({ WorkerName }))
-    throw new Error("workerName already exists in the system ");
-
-    const ServiceDB = new ServiceProvidersModel({
-      Price,
-      WorkerName,
-      TypeOfService,
-    });
-  // console.log(ServiceDB);
-  
-    await ServiceDB.save().then((data)=>{
-    res.send({ ok: true, data });
-    })
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).send({ ok: false, error: error.message });
-  }
-})
-
-
-
-
-
-app.get('/getServiceProvider',async (req,res)=>{
-  try {
-    const ServiceDB = await ServiceProvidersModel.find();
-    res.send(ServiceDB);
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).send({ ok: false, error: error.message });
-  }
-});
-
-
-
-
-app.get('/ServerStatus', (req,res)=>{
+app.get('/ServerStatus', (req:Request,res:Response)=>{
   res.send(true);
 });
 
  
 
-app.post('/getExistingOrders',async (req,res)=>{
-  try {
-  let {TypeOfService , WorkerName} = req.body;
-  if(!TypeOfService || !WorkerName){
-    throw new Error("missing info complete required info(in get /getExistingOrders)");
-  }
-  const Orders = await OrdersModel.find({$and:[{TypeOfService},{WorkerName}]});
-  res.send(Orders);
-  } catch (error) {
-    console.log(error.message);
-    res.send({ ok: false, error: error.message });
-  }
-});
+// app.post('/getExistingOrders',async (req,res)=>{
+//   try {
+//   let {TypeOfService , WorkerName} = req.body;
+//   if(!TypeOfService || !WorkerName){
+//     throw new Error("missing info complete required info(in get /getExistingOrders)");
+//   }
+//   const Orders = await OrdersModel.find({$and:[{TypeOfService},{WorkerName}]});
+//   res.send(Orders);
+//   } catch (error) {
+//     console.log(error.message);
+//     res.send({ ok: false, error: error.message });
+//   }
+// });
 
 
-app.get('/getAllOrders',async (req,res)=>{
-  try {
-    const OrdersDB = await OrdersModel.find();
-    res.send({ok:true,Orders:OrdersDB})
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).send({ ok: false, error: error.message });
-  }
-})
+// app.get('/getAllOrders',async (req,res)=>{
+//   try {
+//     const OrdersDB = await OrdersModel.find();
+//     res.send({ok:true,Orders:OrdersDB})
+//   } catch (error) {
+//     console.log(error.message);
+//     res.status(500).send({ ok: false, error: error.message });
+//   }
+// })
 
 // ---------------------------TOMER----------------------------------->
 // app.get('/getExistingOrders',async (req,res)=>{
@@ -159,53 +104,53 @@ app.get('/getAllOrders',async (req,res)=>{
 
 
 
-app.post('/addOrder',async (req,res)=>{
-  try {
-    let {TypeOfService, WorkerName,Email,DateTime} = req.body;
-    if(!TypeOfService ||!WorkerName||!Email||!DateTime){
-      throw new Error("missing info complete required info(in get /addOrder)");
-    }
-    const clientId = await ClientsModel.findOne({Email});
-    if(!clientId){
-      throw new Error("client doesnt exists(in post /addOrder)");
-    }
-    const orderDB = new OrdersModel({
-      TypeOfService, 
-      WorkerName,
-      ClientId:clientId._id.toString(),
-      DateTime,
-    })
-    // // const combinedObject = { ...dbObject, ...stateObject }; // Merge using the spread operator (shallow merge)
-    await orderDB.save().then(()=>{
-      res.send({ok:true});
-    });
+// app.post('/addOrder',async (req,res)=>{
+//   try {
+//     let {TypeOfService, WorkerName,Email,DateTime} = req.body;
+//     if(!TypeOfService ||!WorkerName||!Email||!DateTime){
+//       throw new Error("missing info complete required info(in get /addOrder)");
+//     }
+//     const clientId = await ClientsModel.findOne({Email});
+//     if(!clientId){
+//       throw new Error("client doesnt exists(in post /addOrder)");
+//     }
+//     const orderDB = new OrdersModel({
+//       TypeOfService, 
+//       WorkerName,
+//       ClientId:clientId._id.toString(),
+//       DateTime,
+//     })
+//     // // const combinedObject = { ...dbObject, ...stateObject }; // Merge using the spread operator (shallow merge)
+//     await orderDB.save().then(()=>{
+//       res.send({ok:true});
+//     });
 
-  } catch (error) {
-    console.log(error.message);
-    res.send({ ok: false, error: error.message })
-  }
-});
-
-
+//   } catch (error) {
+//     console.log(error.message);
+//     res.send({ ok: false, error: error.message })
+//   }
+// });
 
 
-app.post('/GetMyOrders',async (req,res)=>{
-  try {
-    const {Email} = req.body;
-    if(!Email)throw new Error("No email(in post /GetMyOrders)");
+
+
+// app.post('/GetMyOrders',async (req,res)=>{
+//   try {
+//     const {Email} = req.body;
+//     if(!Email)throw new Error("No email(in post /GetMyOrders)");
     
-    const Client = await ClientsModel.findOne({Email});
-    if(!Client) throw new Error("Client doesnt exist(in post /GetMyOrders)");
+//     const Client = await ClientsModel.findOne({Email});
+//     if(!Client) throw new Error("Client doesnt exist(in post /GetMyOrders)");
     
-    const MyOrders = await OrdersModel.find({ClientId:Client._id.toString()});
-    res.send(MyOrders);
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).send({ok:false,error:error});
-  }
+//     const MyOrders = await OrdersModel.find({ClientId:Client._id.toString()});
+//     res.send(MyOrders);
+//   } catch (error) {
+//     console.log(error.message);
+//     res.status(500).send({ok:false,error:error});
+//   }
  
 
-})
+// })
 
 
 
@@ -213,47 +158,45 @@ app.post('/GetMyOrders',async (req,res)=>{
 
 
 
-app.post("/register", async (req, res) => {
-  try {
-    let { FirstName, LastName, Email, PhoneNumber } = req.body;
-    if (!FirstName || !LastName || !Email || !PhoneNumber)
-      throw new Error("missing info complete required info(in post /register)");
-    if (await ClientsModel.findOne({ $or: [{ Email }, { PhoneNumber }] }))
-      throw new Error("Email or Phone Number already exists in the system ");
-    const ClientDB = new ClientsModel({
-      FirstName,
-      LastName,
-      Email,
-      PhoneNumber,
-    });
+// app.post("/register", async (req, res) => {
+//   try {
+//     let { FirstName, LastName, Email, PhoneNumber } = req.body;
+//     if (!FirstName || !LastName || !Email || !PhoneNumber)
+//       throw new Error("missing info complete required info(in post /register)");
+//     if (await ClientsModel.findOne({ $or: [{ Email }, { PhoneNumber }] }))
+//       throw new Error("Email or Phone Number already exists in the system ");
+//     const ClientDB = new ClientsModel({
+//       FirstName,
+//       LastName,
+//       Email,
+//       PhoneNumber,
+//     });
     
-    await ClientDB.save().then((data) => {
-      res.send({ ok: true, data });
-    });
-  } catch (err) {
-    console.log(err.message);
-    res.send({ ok: false, error: err.message });
-  }
-});
+//     await ClientDB.save().then((data) => {
+//       res.send({ ok: true, data });
+//     });
+//   } catch (err) {
+//     console.log(err.message);
+//     res.send({ ok: false, error: err.message });
+//   }
+// });
 
 
-app.post("/companyCheck",async(req,res)=>{
-  try {
-    const {email} = req.body;
-    // const {Password} = req.body;
-    // console.log(req.body);
-    if(!email)throw new Error("No email(in post /GetMyOrders)");
-    const Client = await CompanyModel.findOne({email});
-    if(!Client){
-      res.send({ok: false})
-    } else{
-      res.send({ok:true})
-    }
-  } catch (error) {
-    console.log(error.message);
-    res.send({ ok: false, error: error.message });
- }
-})
+// app.post("/companyCheck",async(req,res)=>{
+//   try {
+//     const {email} = req.body;
+//     if(!email)throw new Error("No email(in post /GetMyOrders)");
+//     const Client = await CompanyModel.findOne({email});
+//     if(!Client){
+//       res.send({ok: false})
+//     } else{
+//       res.send({ok:true})
+//     }
+//   } catch (error) {
+//     console.log(error.message);
+//     res.send({ ok: false, error: error.message });
+//  }
+// })
 
 
 app.listen(port, () => {
