@@ -4,7 +4,7 @@ import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany'
 function OrderOfTheCompany() {
   return (
     <div>
-                  <CombaibnedNavCompany/>
+        <CombaibnedNavCompany/>
             
     </div>
   )

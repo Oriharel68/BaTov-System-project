@@ -47,7 +47,7 @@ function RouterServer() {
           <Route path="/company/mainpage" element={<CompantMainPage/>} />
               {/* subtitels */}
               <Route path="/company/AddWorker" element={<AddworkerCompany/>} />
-              <Route path="/company/Calener" element={<CompnatCalenderDetaills/>} />
+              <Route path="/company/Calender" element={<CompnatCalenderDetaills/>} />
               <Route path="/company/Statistics" element={<StatisticCompany/>} />
               <Route path="/company/Orders" element={<OrderOfTheCompany/>} />
               {/* messages */}
