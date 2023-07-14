@@ -6,7 +6,7 @@ function CompnatCalenderDetaills() {
   return (
     <div>
             <CombaibnedNavCompany/>
-            <div  style={{height:'40em', paddingTop:'10em'}}>
+            <div className='calendar-Company-container'>
             <Fullcalender/>
             </div>
            

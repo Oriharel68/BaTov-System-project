@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany'
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 
 function StatisticCompany() {
@@ -74,12 +74,14 @@ function StatisticCompany() {
   });
 
   return (
-    <div>
+    <div >
       <CombaibnedNavCompany />
       {/* need to ypload some user data */}
+      <div className="main-statistics-page-wraper">
+        <h3>מספר הזמנות</h3>
       <div className="main-statistics-page">
-    
-        <Bar
+
+        <Line
          data={userData} 
         //  this is the option to styiling the Bar chart we can see the options in the documinatation 
         // options={}
@@ -87,6 +89,45 @@ function StatisticCompany() {
 
 
 
+      </div>
+      <h3>הכנסות</h3>
+      <div className="money--statistics">
+      <table>
+  <tr>
+    <th>תאריכים</th>
+    <th>הזמנה</th>
+    <th>סכום</th>
+    <th>מספר הזמנה</th>
+  </tr>
+  <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+    <td>$100</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+    <td>$150</td>
+    <td>$100</td>
+
+  </tr>
+  <tr>
+    <td>Joe</td>
+    <td>Swanson</td>
+    <td>$300</td>
+    <td>$100</td>
+
+  </tr>
+  <tr>
+    <td>Cleveland</td>
+    <td>Brown</td>
+    <td>$250</td>
+    <td>$100</td>
+
+  </tr>
+      </table>
+      </div>
       </div>
 
 

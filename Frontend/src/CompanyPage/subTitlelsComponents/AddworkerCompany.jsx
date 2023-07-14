@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany'
 import axios from 'axios';
+import AddWorkerListCompany from './Add Worker List/AddWorkerListCompany';
 // import ServerStatus from "../FireBase/ServerStatus";
 function AddworkerCompany() {
+  const [ServiceProviders,setServiceProviders] = useState([]);
+
 
   async function handleOnSubmit(event) {
     try {
@@ -104,6 +107,17 @@ function AddworkerCompany() {
       alert(error);
     }
   }
+useEffect(() => {
+    async function getServiceProviders(){
+      try{
+      const {data} = await axios.get("http://localhost:4000/getServiceProvider");
+      setServiceProviders(data);
+      }catch(err){
+        console.log(err);
+      }
+    }
+    getServiceProviders();
+  }, [])
 
   return (
     <div>
@@ -128,19 +142,24 @@ function AddworkerCompany() {
 
             
             </div>
-            <div className="Worker-list-cintainer">
+            <div className="Worker-list-container">
               <h3>ניהול עובדים קיימים</h3>
 
               <div className="main-worker-list-container">
-                
-                <div className="workerName-list">
-                <p>displat name</p>
-                </div>
-                <div className="btn-workerEdit-container">
-                <button>עריכה</button>
-                <button>הסרה</button>
-
-                </div>
+              {ServiceProviders.map((item)=>{
+                  
+                return (
+                  
+                     
+                     
+                     <AddWorkerListCompany item={item} key={item._id}/>
+                     
+                    
+                  
+                  )
+                })}
+         
+           
               </div>
          
               </div>

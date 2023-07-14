@@ -1,0 +1,23 @@
+.main-statistics-page-wraper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+    text-align: center;
+   /* background-color: red; */
+   padding: 7em 0em  ;
+
+}
+.main-statistics-page{
+    display: flex;
+    justify-content: center;
+    /* background-color: green; */
+        width: 60%;
+    padding: 3em 0em  ;
+
+}
+/* canvas{
+    width: 500px;
+} */

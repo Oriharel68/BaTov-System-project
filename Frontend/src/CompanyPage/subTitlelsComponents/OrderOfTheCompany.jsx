@@ -6,7 +6,7 @@ function OrderOfTheCompany() {
     <div>
       <CombaibnedNavCompany />
       <div className="main-ordeList-container">
-   <div className="orderReceipts-container">
+   <div className="orderReceipts-container" >
    <h3>הזמנות פעילות</h3>
      
       <table>
@@ -16,8 +16,8 @@ function OrderOfTheCompany() {
     <th>סכום</th>
     <th>מספר הזמנה</th>
   </tr>
-  <tr>
-    <td>Peter</td>
+  <tr id="Active">
+    <td >Peter</td>
     <td>Griffin</td>
     <td>$100</td>
     <td>$100</td>

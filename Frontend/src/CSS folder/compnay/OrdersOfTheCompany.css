@@ -19,6 +19,12 @@
 }
 .main-ordeList-container .orderReceipts-container table{
     margin-top: 20px;
+    width: 80%;
+    max-width: 100%;
+    border: 1px solid black;
+}
+#Active{
+    background-color: #90EE90    ;
 }
 #B{
     margin-top: 5em;
@@ -30,18 +36,19 @@ border-collapse: collapse;
 border-style: hidden;
 border-top-style: none;
 font-size: 14px; */
-table {
+
+/* table {
     width: 80%;
     max-width: 100%;
     border: 1px solid black;
-  }
+  } */
   
-  th {
+  .main-ordeList-container .orderReceipts-container table th {
     height: 70px;
     /* border: 1px solid black; */
 
   }
-  td{
+  .main-ordeList-container .orderReceipts-container table  td{
     border: 1px solid black;
 
   }
