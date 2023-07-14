@@ -130,8 +130,20 @@ function AddworkerCompany() {
             </div>
             <div className="Worker-list-cintainer">
               <h3>ניהול עובדים קיימים</h3>
-              <p>שם עובדת ,עריכה, הסרה</p>
-            </div>
+
+              <div className="main-worker-list-container">
+                
+                <div className="workerName-list">
+                <p>displat name</p>
+                </div>
+                <div className="btn-workerEdit-container">
+                <button>עריכה</button>
+                <button>הסרה</button>
+
+                </div>
+              </div>
+         
+              </div>
       </div>
 
     </div>

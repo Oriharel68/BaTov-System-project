@@ -77,6 +77,44 @@ text-align: end;
   }
 
 
+  .Worker-list-cintainer{
+    
+    /* background-color: red; */
+    /* max-width: 40%; */
+  }
+
+  .Worker-list-cintainer .main-worker-list-container{
+display: flex;
+flex-direction: row-reverse;
+justify-content: space-around;
+padding-top: 1em;
+  }
+  
+  .Worker-list-cintainer .main-worker-list-container .workerName-list {
+border: 1px solid black;
+padding: 1em;
+padding-right: 15px;
+
+  }
+  .Worker-list-cintainer .main-worker-list-container .btn-workerEdit-container {
+    padding: 10px 1em;
+    display: flex;
+    
+
+  }
+  .Worker-list-cintainer .main-worker-list-container .btn-workerEdit-container p{
+    /* padding: 0 5em; */
+    
+
+  }
+  
+  .Worker-list-cintainer .main-worker-list-container .btn-workerEdit-container button {
+    /* padding: 1em; */
+
+      margin-right: 1em;
+
+
+  }
   
   @media screen and (max-width: 880px) {
   

@@ -1,0 +1,47 @@
+.main-ordeList-container{
+    padding-top: 9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    /* the diraction of the fonts */
+    /* direction: rtl; */
+}
+.main-ordeList-container .orderReceipts-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* padding-top: 1em; */
+
+    /* the diraction of the fonts */
+    direction: rtl;
+}
+.main-ordeList-container .orderReceipts-container table{
+    margin-top: 20px;
+}
+#B{
+    margin-top: 5em;
+}
+/* font-family: 'Open Sans Hebrew';
+
+width: 100%;
+border-collapse: collapse;
+border-style: hidden;
+border-top-style: none;
+font-size: 14px; */
+table {
+    width: 80%;
+    max-width: 100%;
+    border: 1px solid black;
+  }
+  
+  th {
+    height: 70px;
+    /* border: 1px solid black; */
+
+  }
+  td{
+    border: 1px solid black;
+
+  }
