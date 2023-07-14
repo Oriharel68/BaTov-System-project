@@ -1,10 +1,17 @@
+import { Model } from "mongoose";
 
+interface Order{
+  TypeOfService:String,
+  DateTime:String,
+  ClientId:String,
+  WorkerName:String,
+}
 
 
 const express = require("express");
 const mongoose = require("mongoose");
 var ClientsModel = require("./models/ClientsModel");
-var OrdersModel= require('./models/OrderModel');
+var OrdersModel:Model<Order>= require('./models/OrderModel');
 var ServiceProvidersModel = require('./models/ServiceProviderModel');
 var CompanyModel = require('./models/CompanyModel');
 const cors = require('cors');
@@ -121,6 +128,16 @@ app.post('/getExistingOrders',async (req,res)=>{
   }
 });
 
+
+app.get('/getAllOrders',async (req,res)=>{
+  try {
+    const OrdersDB = await OrdersModel.find();
+    res.send({ok:true,Orders:OrdersDB})
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ ok: false, error: error.message });
+  }
+})
 
 // ---------------------------TOMER----------------------------------->
 // app.get('/getExistingOrders',async (req,res)=>{
