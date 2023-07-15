@@ -10,6 +10,8 @@ import GetMyOrders from './Router/GetMyOrders';
 import register from './Router/register';
 import companyCheck from './Router/companyCheck';
 
+import removeWorker from './Router/removeWorker'
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors');
@@ -52,6 +54,8 @@ mongoose
   app.use('/GetMyOrders',GetMyOrders);
   app.use('/register',register);
   app.use('/companyCheck',companyCheck)
+  
+  app.use('/removeworker',removeWorker)
 
 app.get('/ServerStatus', (req:Request,res:Response)=>{
   res.send(true);
