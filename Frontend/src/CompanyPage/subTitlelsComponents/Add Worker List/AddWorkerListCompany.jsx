@@ -13,7 +13,8 @@ function AddWorkerListCompany({item}) {
     async function handaleRemove(event){
         try {
           event.preventDefault();
-        //   const formData = new FormData(event.target);
+          
+          const formData = new FormData(event.target);
           const WorkerName = document.getElementById('WorkerName');
           const target = event.target;
 

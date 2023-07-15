@@ -1,9 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany'
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
+import axios from 'axios';
+import StatisticCompanyList from './Statistic Compant List/StatisticCompanyList';
 
 function StatisticCompany() {
+  const [ServiceProviders,setServiceProviders] = useState([]);
+
+  useEffect(() => {
+    async function getServiceProviders(){
+      try{
+      const {data} = await axios.get("http://localhost:4000/getServiceProvider");
+      setServiceProviders(data);
+      }catch(err){
+        console.log(err);
+      }
+    }
+    getServiceProviders();
+  }, [])
   const UserData = [
     {
       id: 1,
@@ -92,41 +107,14 @@ function StatisticCompany() {
       </div>
       <h3>הכנסות</h3>
       <div className="money--statistics">
-      <table>
-  <tr>
-    <th>תאריכים</th>
-    <th>הזמנה</th>
-    <th>סכום</th>
-    <th>מספר הזמנה</th>
-  </tr>
-  <tr>
-    <td>Peter</td>
-    <td>Griffin</td>
-    <td>$100</td>
-    <td>$100</td>
-  </tr>
-  <tr>
-    <td>Lois</td>
-    <td>Griffin</td>
-    <td>$150</td>
-    <td>$100</td>
-
-  </tr>
-  <tr>
-    <td>Joe</td>
-    <td>Swanson</td>
-    <td>$300</td>
-    <td>$100</td>
-
-  </tr>
-  <tr>
-    <td>Cleveland</td>
-    <td>Brown</td>
-    <td>$250</td>
-    <td>$100</td>
-
-  </tr>
-      </table>
+        {ServiceProviders.map((item)=>{
+          return(
+     
+            <StatisticCompanyList item={item} key={item.id}/>
+            
+          )
+        })}
+      
       </div>
       </div>
 

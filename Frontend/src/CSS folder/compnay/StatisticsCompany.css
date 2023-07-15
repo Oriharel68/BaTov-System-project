@@ -18,6 +18,46 @@
     padding: 3em 0em  ;
 
 }
+
+
+.money--statistics{
+
+}
+.money--statistics-list{
+
+}
+.money--statistics-list table{
+        padding: 10px;
+
+    width: 100%;
+    direction: rtl;
+    border: 1px solid black;
+    /* border-right: 1px solid black;
+    border-bottom: 1px solid black; */
+
+    
+
+
+}
+.money--statistics-list table tr{
+
+    
+}
+.money--statistics-list table tr th{
+border: 1px solid salmon;
+    
+}
+.money--statistics-list table tr{
+
+    
+}
+.money--statistics-list table tr td{ 
+    /* padding: 5px; */
+   border: 1px solid black;
+
+  
+
+}
 /* canvas{
     width: 500px;
 } */
