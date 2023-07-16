@@ -21,7 +21,7 @@ function AddWorkerListCompany({item,setChange}) {
             return;
           }
           else if(data.ok){
-            setChange(true)
+            setChange(current+1);
             alert('Provider has been removed succssefuly');
           }      
           }

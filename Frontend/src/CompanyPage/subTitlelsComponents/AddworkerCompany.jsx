@@ -5,7 +5,7 @@ import AddWorkerListCompany from './Add Worker List/AddWorkerListCompany';
 // import ServerStatus from "../FireBase/ServerStatus";
 function AddworkerCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
-  const [Change,setChange] = useState(false);
+  const [Change,setChange] = useState(0);
 
   async function handleOnSubmit(event) {
     try {
