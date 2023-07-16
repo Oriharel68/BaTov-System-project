@@ -2,7 +2,7 @@ import axios from 'axios';
 // import { log } from 'console';
 import React, { useState } from 'react'
 
-function AddWorkerListCompany({item,setChange}) {
+function AddWorkerListCompany({item,setChange,Change}) {
     // console.log(item);
     const {Price,TypeOfService,WorkerName} = item;
 
@@ -21,7 +21,7 @@ function AddWorkerListCompany({item,setChange}) {
             return;
           }
           else if(data.ok){
-            setChange(current+1);
+            setChange(Change+1);
             alert('Provider has been removed succssefuly');
           }      
           }
