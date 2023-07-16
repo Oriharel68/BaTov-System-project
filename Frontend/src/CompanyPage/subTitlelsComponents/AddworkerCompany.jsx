@@ -149,12 +149,14 @@ useEffect(() => {
                   
                 return (
                   
-                     
+                  <table>
+
                      
                      <AddWorkerListCompany item={item} key={item._id}/>
                      
                     
-                  
+                     </table>
+
                   )
                 })}
          

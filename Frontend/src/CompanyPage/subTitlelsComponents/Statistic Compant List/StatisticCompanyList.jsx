@@ -1,8 +1,39 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function StatisticCompanyList({item}) {
- console.log(item);
+//  console.log(item);
  const {Price,TypeOfService,WorkerName,_id} = item
+
+//  const [orderData,setOrdersData] = useState(null);
+
+ 
+useEffect(()=>{
+// async function getOrdersData(){
+// try {
+//   const {data} = await axios.get("http://localhost:4000/getAllOrders");
+//   setOrdersData(data);
+// } catch (error) {
+  
+// }
+// }
+},[])
+//  const[OrderData,setOrderData]=useState(null)
+//  useEffect(() => {
+//   async function getorders(){
+//     const {TypeOfService,WorkerName} = Provider;
+//     const {data} = await axios.post('http://localhost:4000/getExistingOrders',{
+//       TypeOfService,
+//       WorkerName
+//     });
+//    const FilterTime = data.map((item)=>{
+//     return item.DateTime;
+//   })
+//   setOrderData(FilterTime);
+//   }
+//   getorders();
+// }, [])
+
     return (
     <div className="money--statistics-list">
         <table>

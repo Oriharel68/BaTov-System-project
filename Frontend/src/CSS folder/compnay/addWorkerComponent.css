@@ -69,15 +69,9 @@ text-align: end;
 #W3:focus {
   background-color: lightgreen;
 }
-
   
   .Worker-list-container{
-    /* margin-top: 8em; */
     padding-top: 5em;
-  }
-
-
-  .Worker-list-container{
     display: flex;
     flex-direction: column;
   
@@ -96,23 +90,37 @@ text-align: end;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
-  padding: 1em 0;
+  /* padding: 1em 0; */
   
   width: 100%;
   }
   .Worker-list-container .main-worker-list-container .workers-list{
     width: 100%;
     display: flex;
+    /* flex-direction: row; */
     justify-content: center;
   
    }
-  .Worker-list-container .main-worker-list-container .workers-list table{
-    /* background-color: red; */
+  .Worker-list-container .main-worker-list-container .workers-list form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
+   }
+  .Worker-list-container .main-worker-list-container .workers-list input[type=text] {
+    background-color: #3CBC8D;
+    color: white;
+    direction: ltr;
+  }
+  .Worker-list-container .main-worker-list-container .workers-list button {
+    /* background-color: #3CBC8D; */
+    /* color: white; */
+  }
+   .Worker-list-container .main-worker-list-container .workers-list table{
     margin-top: 20px;
     width: 45%;
     max-width: 100%;
     border-top: 1px solid black;
-    /* border-left: 1px solid black; */
     border-right: 1px solid black;
   }
 
@@ -123,10 +131,10 @@ text-align: end;
     text-align: start;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
-    /* background-color: #F9F0C1; */
     background-color: lightyellow;
 
-  }
+  } 
+  
   #btnAddRemove{
     width: 5%;
   }
@@ -211,6 +219,7 @@ text-align: end;
   background-color: lightgreen;
 }
 
+
 .Worker-list-container{
   display: flex;
   flex-direction: column;
@@ -228,7 +237,7 @@ direction: rtl
   /* background-color: red; */
 display: flex;
 justify-content: center;
-padding-top: 1em;
+/* padding-top: 1em; */
 width: 100%;
 }
 

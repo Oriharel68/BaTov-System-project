@@ -11,26 +11,15 @@ function AddWorkerListCompany({item}) {
     // console.log(workercheck);
 
     async function handaleRemove(event){
-      console.log(event);
+      // console.log(event);
         try {
           event.preventDefault();
           
           const formData = new FormData(event.target);
-          console.log(formData);
-          const WorkerName = document.getElementById('WorkerName');
-          // // const target = event.target;
-
-          //  const NewWorkerName = WorkerName.target;
-
-        //   document.querySelectorAll("WorkerName");
-        //  formData.get({WorkerName});
-        //  document.getElementById('WorkerName');
-        //  console.log(WorkerName);
-        //  console.log(NewWorkerName);
-        //  if (!WorkerName ) {
-        //     alert("eror");
-        //     return;
-        //   }
+          // console.log(formData);
+          const WorkerName = formData.get('WorkerName');
+          console.log(WorkerName);
+     
 
             //   .delete
           const {data} = await axios.delete('http://localhost:4000/removeworker',{
@@ -54,6 +43,11 @@ function AddWorkerListCompany({item}) {
       }
   return (
     <div className='workers-list'>
+      {/* <form action="">
+        <input type="text" value={WorkerName}/>
+        <button>עריכה</button>
+        <button onClick={(event)=>handaleRemove(event)} name='WorkerName'>הסרה</button>
+      </form> */}
              <table>
 
 <tr 
@@ -61,7 +55,7 @@ function AddWorkerListCompany({item}) {
 >
   <td id='WorkerName' className='WorkerName' > {WorkerName}</td>
   <td id='btnAddRemove'>   <button >עריכה</button></td>
-  <td id='btnAddRemove' >  <button onClick={(event)=>handaleRemove(event)}>הסרה</button></td>
+  <td id='btnAddRemove'>  <button onClick={(event)=>handaleRemove(event)} name='WorkerName'>הסרה</button></td>
 
 </tr>
 

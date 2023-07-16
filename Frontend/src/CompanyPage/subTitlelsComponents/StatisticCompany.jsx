@@ -7,18 +7,36 @@ import StatisticCompanyList from './Statistic Compant List/StatisticCompanyList'
 
 function StatisticCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
-
+  const [orderData,setOrdersData] = useState(null);
+  console.log(orderData);
+  // console.log(orderData.Orders.length); 
+  
+  // give us an err while re-rendering
+  // const numOfOrder = orderData.Orders.length;
+// console.log(numOfOrder);
   useEffect(() => {
     async function getServiceProviders(){
       try{
       const {data} = await axios.get("http://localhost:4000/getServiceProvider");
       setServiceProviders(data);
+      
       }catch(err){
         console.log(err);
       }
     }
+    async function getOrdersData(){
+      try {
+        const {data} = await axios.get("http://localhost:4000/getAllOrders");
+        setOrdersData(data);
+      } catch (error) {
+        console.log(error);
+      }
+      }
     getServiceProviders();
+
+    getOrdersData()
   }, [])
+
   const UserData = [
     {
       id: 1,
@@ -73,8 +91,10 @@ function StatisticCompany() {
     labels: UserData.map((data) => data.year),
     datasets: [
       {
-        label: "Users Gained",
+        label: "מספר הזמנות",
         data: UserData.map((data) => data.userGain),
+        // orderData.Orders.length,
+        // .map((data) => data.userGain),
         backgroundColor: [
           "rgba(75,192,192,1)",
           "#ecf0f1",
@@ -118,7 +138,9 @@ function StatisticCompany() {
       </div>
       </div>
 
-
+      <div className="TotalAmmount">
+        <h3>cash ammount</h3>
+      </div>
 
     </div>
   )

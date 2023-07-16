@@ -13,7 +13,7 @@ function OrderOfTheCompany() {
   <tr>
     <th>תאריכים</th>
     <th>הזמנה</th>
-    <th>סכום</th>
+    <th>שם בודק</th>
     <th>מספר הזמנה</th>
   </tr>
   <tr id="Active">
