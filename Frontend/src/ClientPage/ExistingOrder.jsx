@@ -18,7 +18,7 @@ const [Auth] = useState(getAuth());
           console.log(data);
           const currdate = new Date().getTime();
           const oldOrders= [];
-          const OngoingOrders = [];
+          const OngoingOrders = []; ///do with splice to save memory
           data.forEach((item)=>{
             if(currdate > item.DateTime) oldOrders.push(item);
             else OngoingOrders.push(item);
