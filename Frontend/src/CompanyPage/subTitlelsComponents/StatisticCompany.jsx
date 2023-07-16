@@ -31,7 +31,7 @@ function StatisticCompany() {
       } catch (error) {
         console.log(error);
       }
-      }
+     }
     getServiceProviders();
 
     getOrdersData()

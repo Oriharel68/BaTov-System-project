@@ -5,6 +5,7 @@ import AddWorkerListCompany from './Add Worker List/AddWorkerListCompany';
 // import ServerStatus from "../FireBase/ServerStatus";
 function AddworkerCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
+  const [Change,setChange] = useState(false);
 
   async function handleOnSubmit(event) {
     try {
@@ -152,7 +153,7 @@ useEffect(() => {
                   <table>
 
                      
-                     <AddWorkerListCompany item={item} key={item._id}/>
+                     <AddWorkerListCompany item={item} key={item._id} setChange={setChange}/>
                      
                     
                      </table>

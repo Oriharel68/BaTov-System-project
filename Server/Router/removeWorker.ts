@@ -8,7 +8,7 @@ const removeWorker:Router = express.Router();
 const ServiceProvider:Model<Service> = require('../models/ServiceProviderModel');
 
 
-removeWorker.delete('/removeworker',async (req:Request,res:Response)=>{
+removeWorker.post('/removeworker',async (req:Request,res:Response)=>{
     try {
         const { WorkerName } = req.body;
         // const query = { WorkerName};
