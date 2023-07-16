@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import ClientNavBar from '../nav/ClientNavBar'
 import axios from 'axios';
 import ExistingOrderList from './ExistingOrderList';
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 import { getAuth } from 'firebase/auth';
 
 function ExistingOrder() {
-const [ordersData,setOrdersData]= useState(null);
-const [Auth, setAuth] = useState(getAuth());
+const [ordersData,setOrdersData]= useState([]);
+const [OldOrders, setOldOrders] = useState([]);
+const [Auth] = useState(getAuth());
 
     useEffect(() => {
         async function getOrdersData(){
@@ -16,14 +16,22 @@ const [Auth, setAuth] = useState(getAuth());
             Email:Auth.currentUser.email
           });
           console.log(data);
-          setOrdersData(data);
+          const currdate = new Date().getTime();
+          const oldOrders= [];
+          const OngoingOrders = [];
+          data.forEach((item)=>{
+            if(currdate > item.DateTime) oldOrders.push(item);
+            else OngoingOrders.push(item);
+          })
+          
+          setOldOrders(oldOrders);
+          setOrdersData(OngoingOrders);
           }catch(err){
             console.log(err);
           }
         }
         getOrdersData();
       }, [])
-  console.log(ordersData);
       
     return (
     <div>
@@ -47,6 +55,12 @@ const [Auth, setAuth] = useState(getAuth());
         <ExistingOrderList order={order} key={order._id}/>
     );
   })}
+  <h4 style={{direction:'rtl'}}>הזמנות ישנות:</h4>
+   {OldOrders.map((order)=>{
+    return(
+      <ExistingOrderList order={order} key={order._id}/>
+  );
+   })}
    </div>
    
   :
