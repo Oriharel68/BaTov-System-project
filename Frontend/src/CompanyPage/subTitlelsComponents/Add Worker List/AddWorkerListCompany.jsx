@@ -11,26 +11,29 @@ function AddWorkerListCompany({item}) {
     // console.log(workercheck);
 
     async function handaleRemove(event){
+      console.log(event);
         try {
           event.preventDefault();
           
           const formData = new FormData(event.target);
+          console.log(formData);
           const WorkerName = document.getElementById('WorkerName');
-          const target = event.target;
+          // // const target = event.target;
 
-           const NewWorkerName = WorkerName.target;
+          //  const NewWorkerName = WorkerName.target;
+
         //   document.querySelectorAll("WorkerName");
         //  formData.get({WorkerName});
         //  document.getElementById('WorkerName');
-         console.log(WorkerName);
-         console.log(NewWorkerName);
+        //  console.log(WorkerName);
+        //  console.log(NewWorkerName);
         //  if (!WorkerName ) {
         //     alert("eror");
         //     return;
         //   }
 
             //   .delete
-          const {data} = await axios.post('http://localhost:4000/removeworker',{
+          const {data} = await axios.delete('http://localhost:4000/removeworker',{
             // TypeOfService,
             WorkerName,
             // Price,
@@ -58,7 +61,7 @@ function AddWorkerListCompany({item}) {
 >
   <td id='WorkerName' className='WorkerName' > {WorkerName}</td>
   <td id='btnAddRemove'>   <button >עריכה</button></td>
-  <td id='btnAddRemove' onClick={(event)=>handaleRemove(event)}>   <button>הסרה</button></td>
+  <td id='btnAddRemove' >  <button onClick={(event)=>handaleRemove(event)}>הסרה</button></td>
 
 </tr>
 
