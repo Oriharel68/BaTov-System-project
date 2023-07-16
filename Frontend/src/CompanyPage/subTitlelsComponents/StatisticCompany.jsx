@@ -88,11 +88,11 @@ function StatisticCompany() {
      
   // })
   const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.year),
+    labels: orderData.map((data) => data.DateTime),
     datasets: [
       {
         label: "מספר הזמנות",
-        data: UserData.map((data) => data.userGain),
+        data: orderData.length,
         // orderData.Orders.length,
         // .map((data) => data.userGain),
         backgroundColor: [
