@@ -1,23 +1,44 @@
 import React, { useEffect, useState } from 'react'
 import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany'
-import { Line } from "react-chartjs-2";
-import { Chart as ChartJS } from "chart.js/auto";
-import axios from 'axios';
 import StatisticCompanyList from './Statistic Compant List/StatisticCompanyList';
+import StatisticCompanyLine from './Statistic Compant List/StatisticCompanyLine';
+
+import axios from 'axios';
 
 function StatisticCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
+  // const [orderReady,setOrderReady] = useState(false)
+
   const [orderData,setOrdersData] = useState([]);
-  console.log(orderData);
+  const [statisticData, setStatisticData] = useState({
+    labels:["1689163200000","1689163200000","1689163200000"],
+    datasets: [
+      {
+        label: "מספר הזמנות",
+        data: ["1689163200000","1689163200000","1689163200000"],
+
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+        borderColor: "black",
+        borderWidth: 2,
+      },
+    ],
+  });
+
   // console.log(orderData.map((item)=>item.DateTime));
-  // console.log(orderData.Orders.length); 
+  console.log(orderData); 
   
   // give us an err while re-rendering
   // const numOfOrder = orderData.Orders.length;
 // console.log(numOfOrder);
 // const ordersDataTest = orderData;
-
-
+// let orderData = ["asdasd"];
+ 
   useEffect(() => {
     async function getServiceProviders(){
       try{
@@ -31,8 +52,9 @@ function StatisticCompany() {
     async function getOrdersData(){
       try {
         const {data} = await axios.get("http://localhost:4000/getAllOrders");
-        setOrdersData([data]);
-
+        const {Order} = data;
+        setOrdersData(Order);
+        // orderData = Order;
       
 
       } catch (error) {
@@ -40,8 +62,8 @@ function StatisticCompany() {
       }
      }
     getServiceProviders();
-
     getOrdersData()
+    // setOrderReady(true)
   }, [])
 
   // const UserData = [
@@ -94,70 +116,42 @@ function StatisticCompany() {
 
      
   // })
-   const UserData = [
-      {
-        id: 1,
-        year: 2016,
-        userGain: 80000,
-        userLost: 823,
-      },
-      {
-        id: 2,
-        year: 2017,
-        userGain: 45677,
-        userLost: 345,
-      },
-      {
-        id: 3,
-        year: 2018,
-        userGain: 78888,
-        userLost: 555,
-      },]
+  //  const UserData = [
+  //     {
+  //       id: 1,
+  //       year: 2016,
+  //       userGain: 80000,
+  //       userLost: 823,
+  //     },
+  //     {
+  //       id: 2,
+  //       year: 2017,
+  //       userGain: 45677,
+  //       userLost: 345,
+  //     },
+  //     {
+  //       id: 3,
+  //       year: 2018,
+  //       userGain: 78888,
+  //       userLost: 555,
+  //     },]
 
       // console.log(UserData.length);
-      console.log(orderData);
-      console.log(orderData.length);
-
-  const [userData, setUserData] = useState({
-    labels:  ["1689163200000","1689163200000","1689163200000"],
-
-    // orderData.mpa((item)=>{
-    //  return(item +1)
-    // }),
-    // ["1689163200000","1689163200000","1689163200000"],
-    datasets: [
-      {
-        label: "מספר הזמנות",
-        data: orderData.length,
-        // UserData.map((data) => data.userGain),
-        // orderData.Orders.length,
- 
-        // .map((data) => data.userGain),
-        backgroundColor: [
-          "rgba(75,192,192,1)",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
-        ],
-        borderColor: "black",
-        borderWidth: 2,
-      },
-    ],
-  });
+      // console.log(orderData);
+      // console.log(orderData.length);
+      
+          
   return (
     <div >
       <CombaibnedNavCompany />
-      {/* need to ypload some user data */}
       <div className="main-statistics-page-wraper">
         <h3>מספר הזמנות</h3>
       <div className="main-statistics-page">
 
-        <Line
-         data={userData} 
-        //  this is the option to styiling the Bar chart we can see the options in the documinatation 
-        // options={}
-        />
+        
+          <StatisticCompanyLine  statisticData={statisticData}/>
+         
+        
 
 
 
@@ -176,11 +170,8 @@ function StatisticCompany() {
       </div>
 
       <div className="TotalAmmount">
-        <h3>cash ammount:{orderData.map((item)=>{
-          return(
-            <p>{item.DateTime}</p>
-          )
-        })}</h3>
+        <h3>cash ammount:
+     </h3>
       </div>
 
     </div>

@@ -10,8 +10,8 @@ const ClientsModel:Model<Client> = require('../models/ClientsModel');
 
 addOrder.post('/',async(req:Request,res:Response)=>{
     try {
-        let {TypeOfService, WorkerName,Email,DateTime} = req.body;
-        if(!TypeOfService ||!WorkerName||!Email||!DateTime){
+        let {TypeOfService, WorkerName,Email,DateTime,Price} = req.body;
+        if(!TypeOfService ||!WorkerName||!Email||!DateTime||!Price){
           throw new Error("missing info complete required info(in get /addOrder)");
         }
         const clientId = await ClientsModel.findOne({Email});
@@ -23,6 +23,7 @@ addOrder.post('/',async(req:Request,res:Response)=>{
           WorkerName,
           ClientId:clientId._id.toString(),
           DateTime,
+          Price,
         })
         // // const combinedObject = { ...dbObject, ...stateObject }; // Merge using the spread operator (shallow merge)
         await orderDB.save().then(()=>{

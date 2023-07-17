@@ -21,8 +21,8 @@ function NewOrder() {
 
 
 const handleComplete =  async ()=>{
-  const {TypeOfService,WorkerName} = Provider;
-  if(!SelectedDate || !Provider){
+  const {TypeOfService,WorkerName,Price} = Provider;
+  if(!SelectedDate || !Provider ){
     alert('date or Provider is empty or invalid');
     return;
   }
@@ -31,7 +31,8 @@ const handleComplete =  async ()=>{
     TypeOfService,
     WorkerName,
     Email:auth.currentUser.email,
-    DateTime:SelectedDate
+    DateTime:SelectedDate,
+    Price,
   });
   if(!message.data.ok){
     alert("order could not be placed");

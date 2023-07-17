@@ -4,6 +4,7 @@ export interface Order{
     DateTime:String,
     ClientId:String,
     WorkerName:String,
+    Price:Number,
   }
 export interface Client{
     FirstName:String,
