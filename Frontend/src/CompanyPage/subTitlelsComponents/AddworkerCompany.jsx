@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany'
 import axios from 'axios';
 import AddWorkerListCompany from './Add Worker List/AddWorkerListCompany';
@@ -6,7 +6,8 @@ import AddWorkerListCompany from './Add Worker List/AddWorkerListCompany';
 function AddworkerCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
   const [Change,setChange] = useState(0);
-
+   const ref = useRef();
+   
   async function handleOnSubmit(event) {
     try {
       event.preventDefault();
@@ -14,95 +15,43 @@ function AddworkerCompany() {
       const WorkerName = formData.get("workerName");
       const TypeOfService = formData.get("serviceType");
       const Price = formData.get("price");
-      
+      ref.current.style.paddingTop = "1em";
+      ref.current.style.fontWeight = "bold";
+
       if (!Price || !TypeOfService || !TypeOfService ) {
-        alert("missing info");
+        // alert("missing info");
+        ref.current.style.color = "red";
+        ref.current.innerText = "חסר מידע -בבקשה השלם את כל המידע הנדרש";
+
         return;
       }
-      // if(rPassword !== password){
-      // alert('password not the same');
-      // return;
-      // } 
-      // if (!(await ServerStatus())) {
-      //   alert("Server down");
-      //   return;
-      // }
+ 
       
       const  {data}  = await axios.put("http://localhost:4000/addProvider", {
        Price,
        WorkerName,
        TypeOfService,
       })
-       
+   
 
-     
       if (!data.ok) {
-        alert(data.error);
-        // userCred.user.delete();
+        // alert("the user is alredy in us");
+        ref.current.style.color = "red";
+        ref.current.innerText = data.error;
         return;
       }
       else if(data.ok){
-        alert('Provider has been created succssefuly');
+        setChange(Change +1)
+        // alert('Provider has been created succssefuly');
+        ref.current.style.color = "green";
+        // ref.current.style.paddingTop = "1em";
+
+        ref.current.innerText = 'נוצר בהצלחה';
+
       }      
       
 
-        // updateProfile(userCred.user, {
-        //   displayName: `${FirstName} ${LastName}`,
-        // })
-
-
-          // .then(() => {
-          //   // alert("user was created Succsesfuly");
-          //   navigate("/client/registrationCompalete")
-          //   setTimeout(() => {
-          //     navigate("/client/access");
-          //   }, 3000);
-
-          // })
-
-
-         
-          
-        
-
-      // createUserWithEmailAndPassword(auth, Email, password)
-      //   .then(async (userCred) => {
-      //     //what happen after a user register
-      //     const { data } = await axios.post("http://localhost:4000/register", {
-      //       FirstName,
-      //       LastName,
-      //       Email,
-      //       PhoneNumber,
-      //     });
-
-      //     if (!data.ok) {
-      //       alert(data.error);
-      //       userCred.user.delete();
-      //       return;
-      //     }
-
-      //     updateProfile(userCred.user, {
-      //       displayName: `${FirstName} ${LastName}`,
-      //     })
-
-
-      //       .then(() => {
-      //         // alert("user was created Succsesfuly");
-      //         navigate("/client/registrationCompalete")
-      //         setTimeout(() => {
-      //           navigate("/client/access");
-      //         }, 3000);
-
-      //       })
-
-
-      //       .catch((err) => {
-      //         alert(err);
-      //       });
-      //   })
-      //   .catch((err) => {
-      //     alert(err);
-      //   });
+      
     } catch (error) {
       alert(error);
     }
@@ -117,7 +66,7 @@ useEffect(() => {
       }
     }
     getServiceProviders();
-  }, [Change,])
+  }, [Change])
 
   return (
     <div>
@@ -131,7 +80,7 @@ useEffect(() => {
           <form action=""  onSubmit={(event) => handleOnSubmit(event)}>
           <h3>הוספת עובד</h3>
             
-        <input type="text" id="W2" name="workerName" placeholder='שם עובד'/>
+        <input type="text" id="W2" name="workerName" placeholder=' שם + שם משפחה'/>
         <input type="text" id="W2" name="serviceType" placeholder='סוג איש מקצוע'/>
         <input type="number" id="W3" name="price" placeholder='מחיר/עלות בדיקה' min="0"/>
          
@@ -139,7 +88,7 @@ useEffect(() => {
             הוספה
           </button>
           </form>
-
+                <div ref={ref} className=""></div>
             
             </div>
             <div className="Worker-list-container">

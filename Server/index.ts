@@ -11,6 +11,7 @@ import register from './Router/register';
 import companyCheck from './Router/companyCheck';
 
 import removeWork from './Router/removeWorker';
+import EditCompanyWorker from './Router/EditCompanyWorker';
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -55,6 +56,7 @@ mongoose
   app.use('/register',register);
   app.use('/companyCheck',companyCheck);
   app.use('/removeworker',removeWork);
+  app.use('/EditCompanyWorker',EditCompanyWorker);
 
 app.get('/ServerStatus', (req:Request,res:Response)=>{
   res.send(true);

@@ -16,7 +16,7 @@ addProvider.put('/',async (req:Request,res:Response)=>{
     throw new Error("missing info complete required info");
     
   if (await ServiceProviderModel.findOne({ WorkerName }))
-    throw new Error("workerName already exists in the system ");
+    throw new Error("העובד קיים במערכת ");
     const ServiceDB = new ServiceProviderModel({
       Price,
       WorkerName,
@@ -29,7 +29,7 @@ addProvider.put('/',async (req:Request,res:Response)=>{
     })
   } catch (error) {
     console.log(error.message);
-    res.status(500).send({ ok: false, error: error.message });
+    res.send({ ok: false, error: error.message });
   }  
 });
 

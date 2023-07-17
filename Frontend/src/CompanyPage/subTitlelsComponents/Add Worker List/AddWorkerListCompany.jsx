@@ -1,13 +1,29 @@
 import axios from 'axios';
 // import { log } from 'console';
 import React, { useState } from 'react'
+import EditWorkerContainer from './EditWorkerContainer';
 
 function AddWorkerListCompany({item,setChange,Change}) {
     // console.log(item);
     const {Price,TypeOfService,WorkerName} = item;
 
+    const [showSecondDiv, setShowSecondDiv] = useState(false);
+        function handleClick (){
+            // setShowSecondDiv(true);
+            if(showSecondDiv){
+              setShowSecondDiv(false)
+              return;
+            }else{
+              setShowSecondDiv(true)
 
-    async function handaleRemove(event){
+            }
+        }
+   
+
+
+
+
+    async function handleRemove(event){
         try {
           const {data} = await axios.post('http://localhost:4000/removeworker',{
             // TypeOfService,
@@ -30,32 +46,32 @@ function AddWorkerListCompany({item,setChange,Change}) {
         }
       }
   return (
-    <div className='workers-list'>
-      {/* <form action="">
-        <input type="text" value={WorkerName}/>
-        <button>עריכה</button>
-        <button onClick={(event)=>handaleRemove(event)} name='WorkerName'>הסרה</button>
-      </form> */}
-             <table>
+    // <div className='workers-list'>
+     
+             <>
 
 <tr 
 // id="Active"
 >
   <td id='WorkerName' className='WorkerName' > {WorkerName}</td>
   <td id='btnAddRemove'>
-       <button >עריכה</button>
+       <button onClick={()=>handleClick()} >עריכה</button>
        </td>
+       
   <td id='btnAddRemove'>
-      <button onClick={(event)=>handaleRemove(event)} name='WorkerName'>הסרה</button>
+      <button onClick={(event)=>handleRemove(event)} name='WorkerName'>הסרה</button>
+      
       </td>
 
 </tr>
+       {showSecondDiv &&  <div className="subTitle-company" >
+        <EditWorkerContainer setShowSecondDiv={setShowSecondDiv} item={item} Change={Change}  setChange={setChange}/>
+        </div>}
 
 
-
-           </table>
+           </>
               
-    </div>
+    // </div>
   )
 }
 
