@@ -2,7 +2,9 @@
 
 
 export function setDate(dat){
-   return `${ToAday(dat.getDay())} ${dat.getHours()}:${AddZero(dat.getMinutes())},${dat.getDate()}/${(dat.getMonth()+1)}/${dat.getFullYear()}`;
+    const targetdate = new Date();
+    targetdate.setTime(dat)
+   return `${ToAday(targetdate.getDay())} ${targetdate.getHours()}:${AddZero(targetdate.getMinutes())},${targetdate.getDate()}/${(targetdate.getMonth()+1)}/${targetdate.getFullYear()}`;
 
 }
 

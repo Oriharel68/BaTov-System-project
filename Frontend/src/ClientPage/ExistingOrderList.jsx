@@ -4,8 +4,7 @@ import { setDate } from '../Helpjs/help';
 function ExistingOrderList({order}) {
   
   
-   const TimeOF = new Date();
-   TimeOF.setTime(order.DateTime);
+   
    
 
   return (
@@ -16,7 +15,7 @@ function ExistingOrderList({order}) {
        <button id='WokerType'> 
      Type Of Service:{order.TypeOfService} <br /><br /> 
       worker Name : {order.WorkerName}<br /><br/>
-      Chosen Date : {setDate(TimeOF)}
+      Chosen Date : {setDate(order.DateTime)}
        </button> 
 
     </div>
