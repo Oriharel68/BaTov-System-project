@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CombaibnedNavCompany from "../../nav/CombaibnedNavCompany";
 import axios from "axios";
+import ActiceOrdersList from "./order list's/ActiceOrdersList";
+// import OldOrders from "./order list's/OldOrdersList";
+import OldOrdersList from "./order list's/OldOrdersList";
 
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
-  const [oldOrders, setOldOrders] = useState(null);
+  const [oldOrders, setOldOrders] = useState([]);
 
   useEffect(() => {
     async function getOrdersData() {
@@ -33,7 +36,7 @@ function OrderOfTheCompany() {
         setOldOrders(oldOrders);
         setActiveOrders(OngoingOrders);
         console.log(oldOrders);
-        console.log(activeOrders);
+        // console.log(activeOrders);
       } catch (err) {
         console.log(err);
       }
@@ -53,10 +56,18 @@ function OrderOfTheCompany() {
               <th>תאריכים</th>
               <th>הזמנה</th>
               <th>שם בודק</th>
+              <th>סכום</th>
               <th>מספר הזמנה</th>
             </tr>
-
-            <tr id="Active">
+                {activeOrders.map((item)=>{
+                  return(
+                  <tr id="Active">
+          
+                    <ActiceOrdersList item={item} key={item._id} />
+                 </tr>
+                  )
+                })}
+            {/* <tr id="Active">
               <td>Peter</td>
               <td>Griffin</td>
               <td>$100</td>
@@ -79,7 +90,7 @@ function OrderOfTheCompany() {
               <td>Brown</td>
               <td>$250</td>
               <td>$100</td>
-            </tr>
+            </tr> */}
           </table>
         </div>
         <div className="orderReceipts-container" id="B">
@@ -87,12 +98,21 @@ function OrderOfTheCompany() {
 
           <table>
             <tr>
-              <th>תאריכים</th>
+            <th>תאריכים</th>
               <th>הזמנה</th>
+              <th>שם בודק</th>
               <th>סכום</th>
               <th>מספר הזמנה</th>
             </tr>
+
             <tr>
+            {oldOrders.map((item)=>{
+            return(
+              <OldOrdersList item={item} key={item._id}/>
+            )
+            })}
+              </tr>
+            {/* <tr>
               <td>Peter</td>
               <td>Griffin</td>
               <td>$100</td>
@@ -115,7 +135,7 @@ function OrderOfTheCompany() {
               <td>Brown</td>
               <td>$250</td>
               <td>$100</td>
-            </tr>
+            </tr> */}
           </table>
         </div>
         {/* need to add styling  */}
@@ -124,18 +144,15 @@ function OrderOfTheCompany() {
 
           <table>
             <tr>
-              <th>תאריכים</th>
               <th>הזמנה</th>
               <th>סכום</th>
-              <th>מספר הזמנה</th>
             </tr>
             <tr>
               <td>Peter</td>
               <td>Griffin</td>
-              <td>$100</td>
-              <td>$100</td>
+             
             </tr>
-            <tr>
+            {/* <tr>
               <td>Lois</td>
               <td>Griffin</td>
               <td>$150</td>
@@ -152,7 +169,7 @@ function OrderOfTheCompany() {
               <td>Brown</td>
               <td>$250</td>
               <td>$100</td>
-            </tr>
+            </tr> */}
           </table>
         </div>
       </div>
