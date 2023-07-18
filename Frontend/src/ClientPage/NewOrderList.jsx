@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 function NewOrderList({item,addServiceProvider}) {
-// console.log(addServiceProvider);
 
   return (
     <div className='workerType-wraper'>
