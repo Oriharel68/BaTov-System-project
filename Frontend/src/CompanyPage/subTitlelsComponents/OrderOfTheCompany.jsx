@@ -56,12 +56,7 @@ function OrderOfTheCompany() {
   }, []);
 
 
-  const calculateTotalAmount = (orders) => {
-    if (!orders || !Array.isArray(orders)) {
-      return 0;
-    }
-    return orders.reduce((total, order) => total + order.price, 0);
-  };
+
   
   return (
     <div>
@@ -145,18 +140,16 @@ function OrderOfTheCompany() {
 
             {/* {allClients.map((client)=>{ */}
    
-            <tr>
-            {allClients.map((client) => (
-              <li key={client._id}>
-                <strong>{client.name}</strong>: ${calculateTotalAmount(client.orders)}
-              </li>
-   ))}
-            {/* // return(
-            //     <IncomesList client={client} key={client._id}/>
-              
-            //  )   } )} */}
-            
+             {allClients.map((client)=>{
+        return  (            
+               <tr>
+            <IncomesList client={client} key={client._id}/>
+        
              </tr>
+             )})}
+            
+               
+           
             {/* <tr>
               <td>Peter</td>
               <td>Griffin</td>
