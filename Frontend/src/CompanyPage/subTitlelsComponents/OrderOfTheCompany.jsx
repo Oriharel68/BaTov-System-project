@@ -9,8 +9,9 @@ import IncomesList from "./order list's/IncomesList";
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
   const [oldOrders, setOldOrders] = useState([]);
+
   const [allClients, setAllClients] = useState([]);
- 
+  console.log(allClients);
   // console.log(allClients);
   useEffect(() => {
     async function getOrdersData() {
@@ -120,13 +121,13 @@ function OrderOfTheCompany() {
               <th>מספר הזמנה</th>
             </tr>
 
-            <tr>
             {oldOrders.map((item)=>{
-            return(
+              return(
+              <tr>
               <OldOrdersList item={item} key={item._id}/>
+              </tr>
             )
             })}
-              </tr>
            
           </table>
         </div>
@@ -139,9 +140,9 @@ function OrderOfTheCompany() {
               <th>סכום</th>
             </tr> 
 
-            <tr>
             {/* {allClients.map((client)=>{ */}
    
+            <tr>
             {allClients.map((client) => (
               <li key={client._id}>
                 <strong>{client.name}</strong>: ${calculateTotalAmount(client.orders)}
