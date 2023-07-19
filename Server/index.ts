@@ -9,6 +9,7 @@ import addOrder from './Router/addOrder';
 import GetMyOrders from './Router/GetMyOrders';
 import register from './Router/register';
 import companyCheck from './Router/companyCheck';
+import getSumOfClientsOrder from './Router/getSumOfClientsOrder';
 
 import removeWork from './Router/removeWorker';
 import EditCompanyWorker from './Router/EditCompanyWorker';
@@ -57,6 +58,7 @@ mongoose
   app.use('/companyCheck',companyCheck);
   app.use('/removeworker',removeWork);
   app.use('/EditCompanyWorker',EditCompanyWorker);
+  app.use('/getSumOfClientsOrder',getSumOfClientsOrder)
 
 app.get('/ServerStatus', (req:Request,res:Response)=>{
   res.send(true);

@@ -17,9 +17,11 @@ function OrderOfTheCompany() {
     async function getOrdersData() {
       let Clients,Orders;
       try {
-        await Promise.all([axios.get("http://localhost:4000/findAllClients"),axios.get("http://localhost:4000/getAllOrders")]).then((values)=>{
+        await Promise.all([axios.get("http://localhost:4000/findAllClients"),axios.get("http://localhost:4000/getAllOrders"),axios.get('http://localhost:4000/getSumOfClientsOrder')]).then((values)=>{
           Clients= values[0].data;
           Orders = values[1].data.Orders
+          setAllClients(values[2]);
+          console.log(allClients);
         });
         // console.log(Clients);
         const currdate = new Date().getTime();
@@ -33,7 +35,7 @@ function OrderOfTheCompany() {
           });
           return {...item,ClientName:`${With.FirstName} ${With.LastName}`}
         });
-        setAllClients(OrdersWithName)
+        // setAllClients(OrdersWithName)
         console.log(allClients);
           
         OrdersWithName.forEach((item) => {
