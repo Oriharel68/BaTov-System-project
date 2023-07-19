@@ -4,11 +4,14 @@ import axios from "axios";
 import ActiceOrdersList from "./order list's/ActiceOrdersList";
 // import OldOrders from "./order list's/OldOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
+import IncomesList from "./order list's/IncomesList";
 
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
   const [oldOrders, setOldOrders] = useState([]);
-
+  const [allClients, setAllClients] = useState([]);
+ 
+  // console.log(allClients);
   useEffect(() => {
     async function getOrdersData() {
       let Clients,Orders;
@@ -17,7 +20,9 @@ function OrderOfTheCompany() {
           Clients= values[0].data;
           Orders = values[1].data.Orders
         });
+        // console.log(Clients);
         const currdate = new Date().getTime();
+        
         const oldOrders = [];
         const OngoingOrders = []; ///do with splice to save memory
 
@@ -27,15 +32,17 @@ function OrderOfTheCompany() {
           });
           return {...item,ClientName:`${With.FirstName} ${With.LastName}`}
         });
-
+        setAllClients(OrdersWithName)
+        console.log(allClients);
+          
         OrdersWithName.forEach((item) => {
           if (currdate > item.DateTime) oldOrders.push(item);
           else OngoingOrders.push(item);
         });
-
+        
         setOldOrders(oldOrders);
         setActiveOrders(OngoingOrders);
-        console.log(oldOrders);
+        // console.log(oldOrders);
         // console.log(activeOrders);
       } catch (err) {
         console.log(err);
@@ -44,6 +51,14 @@ function OrderOfTheCompany() {
     getOrdersData();
   }, []);
 
+
+  const calculateTotalAmount = (orders) => {
+    if (!orders || !Array.isArray(orders)) {
+      return 0;
+    }
+    return orders.reduce((total, order) => total + order.price, 0);
+  };
+  
   return (
     <div>
       <CombaibnedNavCompany />
@@ -112,46 +127,37 @@ function OrderOfTheCompany() {
             )
             })}
               </tr>
-            {/* <tr>
-              <td>Peter</td>
-              <td>Griffin</td>
-              <td>$100</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Lois</td>
-              <td>Griffin</td>
-              <td>$150</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Joe</td>
-              <td>Swanson</td>
-              <td>$300</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Cleveland</td>
-              <td>Brown</td>
-              <td>$250</td>
-              <td>$100</td>
-            </tr> */}
+           
           </table>
         </div>
         {/* need to add styling  */}
         <div className="orderReceipts-container" id="B">
           <h3>הכנסות</h3>
-
           <table>
             <tr>
               <th>הזמנה</th>
               <th>סכום</th>
-            </tr>
+            </tr> 
+
             <tr>
+            {/* {allClients.map((client)=>{ */}
+   
+            {allClients.map((client) => (
+              <li key={client._id}>
+                <strong>{client.name}</strong>: ${calculateTotalAmount(client.orders)}
+              </li>
+   ))}
+            {/* // return(
+            //     <IncomesList client={client} key={client._id}/>
+              
+            //  )   } )} */}
+            
+             </tr>
+            {/* <tr>
               <td>Peter</td>
               <td>Griffin</td>
              
-            </tr>
+            </tr> */}
             {/* <tr>
               <td>Lois</td>
               <td>Griffin</td>
