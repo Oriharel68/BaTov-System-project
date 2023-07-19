@@ -157,20 +157,26 @@ function StatisticCompany() {
 
       </div>
       <h3>הכנסות</h3>
-      <div className="money--statistics">
-        {ServiceProviders.map((item)=>{
+      <div className="money--statistics" >
+        {/* {ServiceProviders.map((item)=>{
           return(
      
             <StatisticCompanyList item={item} key={item.id}/>
             
           )
-        })}
+        })} */}
+        <ul style={{backgroundColor:'red',padding:'1em',display:'flex'}}>
+          <li >יומי</li>
+          <li>חודשי </li>
+          <li>שנתי</li>
+        </ul>
       
       </div>
       </div>
 
       <div className="TotalAmmount">
-        <h3>cash ammount:
+        <h3>
+          רווחים
      </h3>
       </div>
 
