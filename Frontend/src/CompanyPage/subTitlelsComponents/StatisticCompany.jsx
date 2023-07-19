@@ -156,7 +156,7 @@ function StatisticCompany() {
 
 
       </div>
-      <h3>הכנסות</h3>
+      <h3>דוח הכנסות</h3>
       <div className="money--statistics" >
         {/* {ServiceProviders.map((item)=>{
           return(
