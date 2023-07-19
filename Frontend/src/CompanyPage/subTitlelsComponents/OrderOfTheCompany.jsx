@@ -20,7 +20,8 @@ function OrderOfTheCompany() {
         await Promise.all([axios.get("http://localhost:4000/findAllClients"),axios.get("http://localhost:4000/getAllOrders"),axios.get('http://localhost:4000/getSumOfClientsOrder')]).then((values)=>{
           Clients= values[0].data;
           Orders = values[1].data.Orders
-          setAllClients(values[2]);
+          setAllClients(values[2].data);
+          console.log(allClients);
           console.log(allClients);
         });
         // console.log(Clients);

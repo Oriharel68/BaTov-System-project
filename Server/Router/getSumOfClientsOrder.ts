@@ -12,13 +12,19 @@ const OrdersModel:Model<Order> = require('../models/OrderModel');
 getSumOfClientsOrder.get('/',async (req:Request,res:Response)=>{
     try {
         const ClientDB = await ClientModel.find();
-        const ClientWithPrice = ClientDB.map(async (Client)=>{
-           const OrderOfClient = await OrdersModel.find({ClientId:Client._id});
-           if(!OrderOfClient)return;
-           const TotalMoney = OrderOfClient.reduce((acc,currnetValue)=>acc+(currnetValue.Price as number),0);
-           return {ClientName:`${Client.FirstName} ${Client.LastName}`,Total:TotalMoney}
-        })
-        res.status(200).send(ClientWithPrice);
+        const ClientWithPrice = Promise.all(
+            ClientDB.map(async (Client)=>{
+            const OrderOfClient = await OrdersModel.find({ClientId:Client._id});
+            //    console.log(OrderOfClient);
+            //    if(OrderOfClient.length === 0)return;
+            
+               const TotalMoney = OrderOfClient.reduce((acc,currnetValue)=>acc+(currnetValue.Price as number),0);
+            //    console.log(TotalMoney);
+               
+               return {ClientName:`${Client.FirstName} ${Client.LastName}`,Total:TotalMoney};
+            })).then((value)=>{
+                res.status(200).send(value);
+            })
     } catch (error) {
         res.status(500).send(error);
     }
