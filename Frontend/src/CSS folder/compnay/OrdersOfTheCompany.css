@@ -1,13 +1,15 @@
 .main-ordeList-container{
-    padding-top: 9em;
+    padding-top: 1.5em;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     /* the diraction of the fonts */
-    /* direction: rtl; */
+    direction: rtl;
 }
 .main-ordeList-container .orderReceipts-container{
+    margin-top: 5em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,9 +28,10 @@
 #Active{
     background-color: #90EE90    ;
 }
-#B{
+/* #B{
     margin-top: 5em;
-}
+   
+} */
 /* font-family: 'Open Sans Hebrew';
 
 width: 100%;
@@ -51,4 +54,20 @@ font-size: 14px; */
   .main-ordeList-container .orderReceipts-container table  td{
     border: 1px solid black;
 
+  }
+
+  /* min width 552 */
+  @media screen and (max-width: 552px) {
+    .main-ordeList-container{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .orderReceipts-container{
+        /* background-color: red; */
+        max-width: 100%;
+        overflow-x: auto;
+        
+
+    }
   }

@@ -4,7 +4,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 
 function StatisticCompanyLine({statisticData}) {
   return (
-    <div >
+    <div className='statistics-page'>
           <Line
             data={statisticData} 
            //  this is the option to styiling the Bar chart we can see the options in the documinatation 

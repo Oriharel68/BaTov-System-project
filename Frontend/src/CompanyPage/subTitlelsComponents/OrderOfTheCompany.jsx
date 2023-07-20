@@ -107,7 +107,7 @@ function OrderOfTheCompany() {
             </tr> */}
           </table>
         </div>
-        <div className="orderReceipts-container" id="B">
+        <div className="orderReceipts-container" >
           <h3>הזמנות ישנות</h3>
 
           <table>
@@ -130,7 +130,7 @@ function OrderOfTheCompany() {
           </table>
         </div>
         {/* need to add styling  */}
-        <div className="orderReceipts-container" id="B">
+        <div className="orderReceipts-container" >
           <h3>הכנסות</h3>
           <table>
             <tr>
@@ -141,7 +141,7 @@ function OrderOfTheCompany() {
             {/* {allClients.map((client)=>{ */}
    
              {allClients.map((client)=>{
-        return  (            
+              return  (            
                <tr>
             <IncomesList client={client} key={client._id}/>
         

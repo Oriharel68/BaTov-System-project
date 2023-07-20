@@ -95,7 +95,7 @@ text-align: end;
   flex-direction: column;
   /* justify-content: center; */
   /* padding: 1em 0; */
-  
+  padding-bottom: 18.5em;
   width: 100%;
   }
   /* .Worker-list-container .main-worker-list-container .workers-list{
@@ -145,8 +145,33 @@ text-align: end;
   #WorkerCompanyNames{
     width: 12%;
   }
+  /* etiting conatiner 3 third component */
 
+   .Editing-container{
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    width: 60%;
+    left: 20%;
+    position: absolute;
+    /* text-align: center; */
+   }
   
+   .Editing-container input{
+     max-width: 80%;
+   }
+  
+  
+   .Editing-container button{
+    /* font-size: 12px; */
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    padding: 0.5em;
+  }
+   
  
   
   @media screen and (max-width: 880px) {
@@ -237,11 +262,13 @@ direction: rtl
 }
 
 .Worker-list-container .main-worker-list-container{
-  /* background-color: red; */
+  background-color: red;
 display: flex;
 justify-content: center;
 /* padding-top: 1em; */
 width: 100%;
+padding-bottom: 18.5em;
+
 }
 
   }

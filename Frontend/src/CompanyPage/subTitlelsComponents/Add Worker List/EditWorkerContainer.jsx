@@ -34,7 +34,7 @@ function EditWorkerContainer({item,Change,setChange,setShowSecondDiv}) {
     }
   }
   return (
-    <div style={{backgroundColor:'red',position:'absolute'}}>
+    <div className='Editing-container' >
       
           <h3>עריכת שינוי</h3>
           <input type="text" id="W2" name="workerName" ref={InputWokrerNameref} placeholder=  {`שם + שם משפחה -- ${WorkerName}   `} />

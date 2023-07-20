@@ -8,6 +8,7 @@ import axios from 'axios';
 function StatisticCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
   // const [orderReady,setOrderReady] = useState(false)
+    const [orderDataWithDate, setOrderDataWithDate] = useState([]);
 
   const [orderData,setOrdersData] = useState([]);
   const [statisticData, setStatisticData] = useState({
@@ -31,7 +32,7 @@ function StatisticCompany() {
   });
 
   // console.log(orderData.map((item)=>item.DateTime));
-  console.log(orderData); 
+  // console.log(orderData); 
   
   // give us an err while re-rendering
   // const numOfOrder = orderData.Orders.length;
@@ -60,9 +61,20 @@ function StatisticCompany() {
       } catch (error) {
         console.log(error);
       }
+  
      }
+     async function NewOrdersDate(){
+     try {
+        const {data} =await axios.get('http://localhost:4000/getAllOrders');
+        setOrderDataWithDate(data);
+        console.log(orderDataWithDate);
+      } catch (error) {
+        console.log(Error);
+      }
+    }
     getServiceProviders();
     getOrdersData()
+    NewOrdersDate()
     // setOrderReady(true)
   }, [])
 
@@ -165,11 +177,23 @@ function StatisticCompany() {
             
           )
         })} */}
-        <ul style={{backgroundColor:'red',padding:'1em',display:'flex'}}>
+        <table>
+        <tr>
+              <th>שנתי </th>
+              <th>חודשי</th>
+              <th>יומי</th>       
+      </tr>
+       <tr>
+        <td>100₪</td>
+        <td>200₪</td>
+        <td>300₪</td>
+       </tr>
+        </table>
+        {/* <ul style={{backgroundColor:'red',padding:'1em',display:'flex'}}>
           <li >יומי</li>
           <li>חודשי </li>
           <li>שנתי</li>
-        </ul>
+        </ul> */}
       
       </div>
       </div>

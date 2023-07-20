@@ -13,6 +13,7 @@ import getSumOfClientsOrder from './Router/getSumOfClientsOrder';
 
 import removeWork from './Router/removeWorker';
 import EditCompanyWorker from './Router/EditCompanyWorker';
+import getTime from './Router/getTime';
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -59,6 +60,7 @@ mongoose
   app.use('/removeworker',removeWork);
   app.use('/EditCompanyWorker',EditCompanyWorker);
   app.use('/getSumOfClientsOrder',getSumOfClientsOrder)
+  app.use('/getTime',getTime)
 
 app.get('/ServerStatus', (req:Request,res:Response)=>{
   res.send(true);
