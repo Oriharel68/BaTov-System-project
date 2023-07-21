@@ -50,9 +50,7 @@ function AddWorkerListCompany({item,setChange,Change}) {
      
              <>
 
-<tr 
-// id="Active"
->
+<tr>
   <td id='WorkerName' className='WorkerName' > {WorkerName}</td>
   <td id='btnAddRemove'>
        <button onClick={()=>handleClick()} >עריכה</button>

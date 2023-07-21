@@ -43,6 +43,7 @@ function EditWorkerContainer({item,Change,setChange,setShowSecondDiv}) {
 
         <input type="number" id="W3" name="price" ref={InputPriceNameref} placeholder= {`מחיר /עלות בדיקה-- ${Price}   `} min="0"/>
         <button onClick={(event)=>handleEdit(event)}>בצע שינוי </button>
+        <button id='close' onClick={()=>setShowSecondDiv(false)}>close</button>
     </div>
   )
 }

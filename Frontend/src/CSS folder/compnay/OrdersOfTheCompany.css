@@ -9,7 +9,9 @@
     direction: rtl;
 }
 .main-ordeList-container .orderReceipts-container{
-    margin-top: 5em;
+    margin-top: 5em ;
+    margin-bottom: 1.9em;
+    
     display: flex;
     flex-direction: column;
     align-items: center;

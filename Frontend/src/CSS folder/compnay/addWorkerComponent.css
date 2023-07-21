@@ -24,6 +24,11 @@ text-align: center;
    text-align: center;
   /* background-color: green; */
 }
+.mainAddWorker-Page form button{
+  border-radius: 12px;
+  /* background-color: blue; */
+  padding: 5px;
+}
 .mainAddWorker-Page form input{
 max-width: 100%;
 text-align: end;
@@ -130,12 +135,18 @@ text-align: end;
   
   .Worker-list-container .main-worker-list-container  table tr{
   }
-  .Worker-list-container .main-worker-list-container .workers-list table td{
+  .Worker-list-container .main-worker-list-container  table tr td{
     text-align: start;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
+    /* border-left: 1px solid black;
+    border-bottom: 1px solid black; */
     background-color: lightyellow;
 
+  } 
+  .Worker-list-container .main-worker-list-container  table tr td button{
+  border-radius: 12px;
+ /* background-color: blue; */
+ padding: 5px;
+ 
   } 
   
   #btnAddRemove{
@@ -172,7 +183,71 @@ text-align: end;
     padding: 0.5em;
   }
    
- 
+  #close {
+    overflow: hidden;
+    position: absolute;
+    right: 9px;
+    top: 5px;
+    border: none;
+    padding: 0;
+    width: 2em; height: 2em;
+    border-radius: 50%;
+    background: transparent;
+    color: #1da1f2;
+    font: inherit;
+    text-indent: 100%;
+    cursor: pointer;
+    
+    &:focus {
+      outline: solid 0 transparent;
+      box-shadow: 0 0 0 2px #8ed0f9
+    }
+    
+    &:hover {
+      background: rgba(29, 161, 142, .1)
+    }
+    
+    &:before, &:after {
+      position: absolute;
+      top: 15%; left: calc(50% - .0625em);
+      width: .125em; height: 70%;
+      border-radius: .125em;
+      transform: rotate(45deg);
+      background: currentcolor;
+      content: ''
+    }
+    
+    &:after { transform: rotate(-45deg); }
+  }
+  
+/* 
+  .btn-close {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-color: hsl(216, 100, 50);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 150ms;
+  
+    .icon-cross {
+      @include cross(40px, #fff, 6px);
+    }
+  
+    &:hover,
+    &:focus {
+      transform: rotateZ(90deg);
+      background-color: hsl(216, 100, 40);
+    }
+  }
+   */
+  
   
   @media screen and (max-width: 880px) {
   
@@ -262,13 +337,20 @@ direction: rtl
 }
 
 .Worker-list-container .main-worker-list-container{
-  background-color: red;
+  /* background-color: red; */
 display: flex;
 justify-content: center;
 /* padding-top: 1em; */
 width: 100%;
 padding-bottom: 18.5em;
 
+}
+.Worker-list-container .main-worker-list-container  table{
+  margin-top: 20px;
+  width: 80%;
+  max-width: 100%;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
 }
 
   }
