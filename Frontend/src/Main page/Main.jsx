@@ -46,7 +46,11 @@ function Main() {
 
       <div className="content-container">
         <div className="welcome-container">
-          <h3>about us :</h3>
+          <h3>Work with us
+</h3>
+<p> Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+</p>
+          {/* <h3>about us :</h3>
           <p>
           Sarah and John are exceptional students, driven by curiosity and creativity, and we are known for our innovative ideas and problem-solving skills. Sarah is passionate about environmental sustainability, and we are constantly seeking ways to address pressing issues in our community. John, on the other hand, is gifted with technical expertise, and we are always tinkering with gadgets and electronics, aiming to create solutions that positively impact society.
 <br /><br />
@@ -71,7 +75,7 @@ However, the most rewarding aspect was knowing that our project could make a dif
 Sarah and John's project is a testament to what we can achieve when passion and technical expertise come together. Our names will forever be etched in the school's history, and we hope to continue inspiring future generations to be agents of positive change in their communities and the world.
 
         
-          </p>
+          </p> */}
         </div>
 
 
