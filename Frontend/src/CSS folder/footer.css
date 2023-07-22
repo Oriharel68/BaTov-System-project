@@ -1,36 +1,92 @@
 .Footer{
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+    max-width: 100%;
+    /* flex-wrap: wrap-reverse; */
+    /* flex-wrap: wrap; */
+
+     /* position: relative;
     align-items: center;
     text-align: center;
-    z-index: 2;
+    z-index: 2; */
     background-color: #2F3C7E    ;
-    /* display: flex;
-    justify-content: center; */
-    padding: 2em 0;
+    
+    padding: 2em 3.5em; 
 
 }
-
-.Footer .topfooter-container {
-    /* background-color: green; */
+.Footer .left-Fotter-container{
+    /* padding-top: 1em;
+    padding-left: 1em; */
     display: flex;
-    justify-content: center;
-    padding-left: 28px;
-    /* text-align: center; */
+    justify-content: start;
+width: 50%;
+/* background-color: red; */
+align-items: center;
+}
+.Footer .left-Fotter-container p{
+color: #C0C0C0		;
+font-size: 15px;
+/* padding-left: 2.8em; */
+}
+
+.Footer .right-Fotter-container{
+width: 50%;
+display: flex;
+justify-content: end;
+/* background-color: blue; */
 
 }
-.Footer .bottomfooter-container{
-/* display: flex; */
-/* padding-right: 5em; */
+.Footer .right-Fotter-container ul{
+display: flex;
+justify-content: space-around;
 
 }
-.Footer .bottomfooter-container ul {
-    display: flex; 
-    /* background-color: yellow; */
-    /* padding-left: 5em; */
-    /* width: 100%; */
-    justify-content: center;  
-    justify-content: space-evenly;
+.Footer .right-Fotter-container ul a{
+text-decoration: none;
+/* color: #A9A9A9	; */
+/* padding-right: 4.8em; */
+
 }
-.Footer .bottomfooter-container ul li{
-    list-style: none;
+.Footer .right-Fotter-container ul li{
+list-style: none;
+padding-left: 1em;
+color: #A9A9A9		;
+font-size:25px;
+/* justify-content: space-around; */
+
+}
+.Footer .right-Fotter-container ul li :hover{
+
+color: #C0C0C0			;
+
+/* justify-content: space-around; */
+
+}
+
+
+/* max widh 590 */
+@media screen and (max-width: 590px) {
+    .Footer{
+        display: flex;
+        flex-direction: column-reverse;
+        /* justify-content: center; */
+    
+    }
+    .Footer .left-Fotter-container{
+        /* padding-top: 1em;
+        padding-left: 1em; */
+        display: flex;
+        justify-content: center;
+    width: 100%;
+    /* background-color: red; */
+    align-items: center;
+    }
+    .Footer .right-Fotter-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* background-color: blue; */
+        
+        }
 }

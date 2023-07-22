@@ -32,7 +32,7 @@ function Main() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [domRef]);
+  }, [domRef[0],domRef[1],domRef[2],domRef[3],domRef[4],]);
 
   
 
