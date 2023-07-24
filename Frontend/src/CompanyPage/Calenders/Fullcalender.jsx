@@ -5,33 +5,13 @@ import moment from 'moment'
 import Modal from 'react-modal';
 import {setDate} from '../../Helpjs/help'
 import {BiExit} from 'react-icons/bi'
-
+import Style from './dialogStyle.ts';
 
 function Fullcalender() {
     const [Events, setEvents] = useState([])
     const [EventData,setEventData] = useState(null);
     const [isOpen,setIsOpen] = useState(false);
-    const Style = {
-        overlay:{
-            opacity:'1',
-            backgroundColor: '#3434c7',
-            backgroundImage:  'repeating-radial-gradient( circle at 0 0, transparent 0, #3434c7 40px ), repeating-linear-gradient( #00000055, #000000 )'
-        },
-       
- 
-        content: {
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            maxWidth: '18em',
-            minWidth:'10em',
-            padding: '2em',
-            paddingTop:'1em',
-            paddingRight:'1em',
-            direction:'rtl'
-          },
-    };
-
+    
     useEffect(()=>{
         const getAllOrders = async ()=>{
             const {data} = await axios.get('http://localhost:4000/getAllOrders');
