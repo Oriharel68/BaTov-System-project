@@ -1,4 +1,9 @@
 .calendar-Company-container{
     height: 40em;
-    padding-top: 5.1em;
+    padding-top: 3em;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }

@@ -4,13 +4,13 @@
 export function setDate(dat){
     const targetdate = new Date();
     targetdate.setTime(dat)
-   return `${ToAday(targetdate.getDay())} ${targetdate.getHours()}:${AddZero(targetdate.getMinutes())},${targetdate.getDate()}/${(targetdate.getMonth()+1)}/${targetdate.getFullYear()}`;
+   return ` יום ${ToAday(targetdate.getDay())} ${targetdate.getHours()}:${AddZero(targetdate.getMinutes())},${targetdate.getDate()}/${(targetdate.getMonth()+1)}/${targetdate.getFullYear()}`;
 
 }
 
 
 function ToAday(numDay){
-    const DaysInString = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const DaysInString = ['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
     return DaysInString[numDay];
     
 }
