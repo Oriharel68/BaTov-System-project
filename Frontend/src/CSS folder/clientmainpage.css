@@ -1,14 +1,20 @@
 
+body{
+
+    background-color:rgb(190, 190, 190)
+}
 .page-wraper{
     display: flex;
     justify-content: center;
+    ;
 }
 
 .page-wraper .mainClient-page-wraper{
     /* padding: 15em; */
-    /* background-color:  #E0E0DE; */
+    background-color:  #E0E0DE;
     /* border: 1px solid black; */
     width: 30%;
+    padding-bottom: 20%;
 
 }  
 
@@ -75,7 +81,8 @@
         /* padding: 15em; */
         /* background-color: red; */
         width: 100%;
-    
+        padding-bottom: 100%;
+
     }   
     .page-wraper .mainClient-page-wraper .mainClient-page{
         padding: 15em 0;
