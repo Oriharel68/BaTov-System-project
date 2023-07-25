@@ -46,8 +46,6 @@ function OrderOfTheCompany() {
         
         setOldOrders(oldOrders);
         setActiveOrders(OngoingOrders);
-        // console.log(oldOrders);
-        // console.log(activeOrders);
       } catch (err) {
         console.log(err);
       }

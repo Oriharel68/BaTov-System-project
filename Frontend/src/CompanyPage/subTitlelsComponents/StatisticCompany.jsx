@@ -4,26 +4,27 @@ import StatisticCompanyList from './Statistic Compant List/StatisticCompanyList'
 import StatisticCompanyLine from './Statistic Compant List/StatisticCompanyLine';
 
 import axios from 'axios';
+import { GetOrdersByMonth } from './Statistic Compant List/GetData';
 
 function StatisticCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
   // const [orderReady,setOrderReady] = useState(false)
-    const [orderDataWithDate, setOrderDataWithDate] = useState([]);
+  const [OrdersByMonth,setOrdersByMonth] = useState([]);
 
   const [orderData,setOrdersData] = useState([]);
   const [statisticData, setStatisticData] = useState({
-    labels:["10","100","200","300"],
+    labels:["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"],
     datasets: [
       {
         label: "מספר הזמנות",
-        data: ["10","100","200","300"],
-        backgroundColor: [
-          "rgba(75,192,192,1)",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
-        ],
+        data: [1,2,3,4,5,6,7,8,9,10,11,12],
+        // backgroundColor: [
+        //   "rgba(75,192,192,1)",
+        //   "#ecf0f1",
+        //   "#50AF95",
+        //   "#f3ba2f",
+        //   "#2a71d0",
+        // ],
         borderColor: "black",
         borderWidth: 2,
       },
@@ -44,28 +45,36 @@ function StatisticCompany() {
     async function getOrdersData(){
       try {
         const {data} = await axios.get("http://localhost:4000/getAllOrders");
-        const {Order} = data;
-        setOrdersData(Order);
-        // orderData = Order;
-      
-
+        const {Orders} = data;
+        setOrdersData(Orders);
+        const OrderByM = GetOrdersByMonth(Orders);
+        setStatisticData({
+          labels:["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"],
+          datasets: [
+            {
+              label: "מספר הזמנות",
+              data: OrderByM,
+              backgroundColor: [
+                "rgba(75,192,192,1)",
+                "#ecf0f1",
+                "#50AF95",
+                "#f3ba2f",
+                "#2a71d0",
+              ],
+              borderColor: "black",
+              borderWidth: 2,
+            },
+          ],
+        })
       } catch (error) {
         console.log(error);
       }
   
      }
-     async function NewOrdersDate(){
-     try {
-        const {data} =await axios.get('http://localhost:4000/getAllOrders');
-        setOrderDataWithDate(data);
-        console.log(orderDataWithDate);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+
     getServiceProviders();
     getOrdersData()
-    NewOrdersDate()
+    // NewOrdersDate()
     // setOrderReady(true)
   }, [])
 

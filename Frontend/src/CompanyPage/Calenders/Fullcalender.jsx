@@ -5,7 +5,7 @@ import moment from 'moment'
 import Modal from 'react-modal';
 import {setDate} from '../../Helpjs/help'
 import {BiExit} from 'react-icons/bi'
-import Style from './dialogStyle.ts';
+import Style from './dialogStyle';
 
 function Fullcalender() {
     const [Events, setEvents] = useState([])
@@ -59,19 +59,19 @@ function Fullcalender() {
         
     
    
-    {isOpen ?<Modal isOpen={isOpen} onRequestClose={CloseDia} style={Style}>
+    {isOpen ?
+    <Modal isOpen={isOpen} onRequestClose={CloseDia} style={Style}>
         <h3>{EventData.title}</h3>
         <p>בתאריך:<br/>{setDate(EventData.start.getTime())}</p>
         <div className='button-container'>
         <BiExit style={{minHeight:'7.5em', width:'5em',cursor:'pointer'}} onClick={CloseDia}/>
         </div>
         
-      </Modal>:
+      </Modal>
+      :
       <div className='calendar-Company-container'>
       <Calender onSelectEvent={OnSelectEvent} events={Events} />
-  
     </div>
-   
       }
 
    

@@ -20,10 +20,7 @@ function ClientNavBarOrderMain() {
 
       
     event.preventDefault();
-    // const formData = new FormData(event.target)
-
-    // // const email = formData.get('Email')
-    // // const password = formData.get('password');
+  
     const auth = getAuth();
     signOut(auth).then(() => {
       // Sign-out successful.
