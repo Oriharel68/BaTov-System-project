@@ -9,9 +9,20 @@ import { SlCalender } from "react-icons/sl";
 import { CiCalculator1 } from "react-icons/ci";
 
 function Main() {
-
-  const domRef = [useRef(null), useRef(null), useRef(null),useRef(null),useRef(null)];
-  const [isVisible, setIsVisible] = useState([false, false, false,false,false]);
+  const domRef = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
+  const [isVisible, setIsVisible] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,22 +31,20 @@ function Main() {
           const rect = ref.current.getBoundingClientRect();
           setIsVisible((prevVisible) => {
             const newVisible = [...prevVisible];
-            newVisible[index] = rect.top >= 0 && rect.bottom <= window.innerHeight;
+            newVisible[index] =
+              rect.top >= 0 && rect.bottom <= window.innerHeight;
             return newVisible;
           });
         }
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll(); // Check initial visibility on mount
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [domRef[0],domRef[1],domRef[2],domRef[3],domRef[4],]);
-
-  
-
+  }, [domRef[0], domRef[1], domRef[2], domRef[3], domRef[4]]);
 
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -62,45 +71,42 @@ function Main() {
             <h4>slogen / some text about the company</h4>
           </div>
           <div className="welcome-container">
+            <div class="logo-holder">
+              <div class="bg"></div>
+              <div class="bar"></div>
+              <div class="bar fill1"></div>
+              <div class="bar fill2"></div>
+              <div class="bar fill3"></div>
+              <div class="bar fill4"></div>
+              <div class="bar fill1"></div>
+              <div class="bar fill5"></div>
+              <div class="bar fill6"></div>
+              <div class="bar"></div>
+            </div>
 
-          <div class="logo-holder">
-  <div class="bg"></div>
-  <div class="bar"></div>
-  <div class="bar fill1"></div>
-  <div class="bar fill2"></div>
-  <div class="bar fill3"></div>
-  <div class="bar fill4"></div>
-  <div class="bar fill1"></div>
-  <div class="bar fill5"></div>
-  <div class="bar fill6"></div>
-  <div class="bar"></div>
-</div>
-  
-
-
-<div class="card">
-    <h1> Work with us
-      {/* <!-- Scroller Start --> */}
-      
-      <div class="scroller">
-        <span>
-        Big companies !<br/>
-        Small companies !<br/>
-        Private companies !<br/>
-        everybody !
-        </span>
-      </div>
-      
-      {/* <!-- Scroller End --> */}
-    </h1>
-    {/* <p class="note">
+            <div class="card">
+              <h1>
+                {" "}
+                Work with us
+                {/* <!-- Scroller Start --> */}
+                <div class="scroller">
+                  <span>
+                    Big companies !<br />
+                    Small companies !<br />
+                    Private companies !<br />
+                    everybody !
+                  </span>
+                </div>
+                {/* <!-- Scroller End --> */}
+              </h1>
+              {/* <p class="note">
         Simple text scroller by <a href="http://roel.shoikan.nl">Roël Couwenberg.</a><br/><br/>
       Follow me!<br/>
       <a href="http://roel.shoikan.nl">My Website.</a>
     </p> */}
-  </div>
+            </div>
 
-          {/* <p class="content__container__text">
+            {/* <p class="content__container__text">
           Work with us
          </p>
             
@@ -115,37 +121,52 @@ function Main() {
       </div>
 
       <div className="content-container">
-     
         <div className="about-container">
-            <div className={`about-wraper ${isVisible[4] ? 'afterAbout'  : ''} `}
-               ref={domRef[4]}>
-          <h3 className={'TContent'}>קצת עלינו :</h3>
-          {/* <div className={`describe-containerFirst ${isVisible[4] ? 'visible'  : ''} `}
+          <div
+            className={`about-wraper ${isVisible[4] ? "afterAbout" : ""} `}
+            ref={domRef[4]}
+          >
+            <h3 className={"TContent"}>קצת עלינו :</h3>
+            {/* <div className={`describe-containerFirst ${isVisible[4] ? 'visible'  : ''} `}
                ref={domRef[4]}></div> */}
-               </div>
+          </div>
           <p>
-           אנחנו שני סטדנטים בקורס פול סטאק  שהחליטו לייצר מערכת כחלק מהפרוייקט שלנו. לאחר עבודה קשה הצלחנו ליצר מערכת כמו שתיככנו. מערכת זאת אמורה לייצר נוחות ללקוחות ולחברות .
+            אנחנו שני סטדנטים בקורס פול סטאק שהחליטו לייצר מערכת כחלק מהפרוייקט
+            שלנו. לאחר עבודה קשה הצלחנו ליצר מערכת כמו שתיככנו. מערכת זאת אמורה
+            לייצר נוחות ללקוחות ולחברות .
             <br />
             <br />
             לקחנו על עצמנו את הפרוייקט הזה והלכנו איתו בכל הכוח
             <br />
             <br />
-            לבסוף, לאחר ניסויים קפדניים, בנינו בהצלחה אב טיפוס עובד של מערכת המרת הפסולת לאנרגיה שלנו. זה היה הישג יוצא דופן שהרשים את הקהילה שלנו ואף משך תשומת לב תקשורתית. הפרויקט שלנו נתפס כמחליף משחק פוטנציאלי בחיפוש אחר פתרונות אנרגיה ברי קיימא.
+            לבסוף, לאחר ניסויים קפדניים, בנינו בהצלחה אב טיפוס עובד של מערכת
+            המרת הפסולת לאנרגיה שלנו. זה היה הישג יוצא דופן שהרשים את הקהילה
+            שלנו ואף משך תשומת לב תקשורתית. הפרויקט שלנו נתפס כמחליף משחק
+            פוטנציאלי בחיפוש אחר פתרונות אנרגיה ברי קיימא.
             <br />
             <br />
-            ככל שהתפשטה השמועה, הוזמנו להציג את הפרויקט שלנו ביריד מדע אזורי. התשוקה וההתלהבות שלנו היו מדבקות, והעניקו השראה לתלמידים אחרים לחשוב מחוץ לקופסה ולפעול בנושאי איכות הסביבה.
+            ככל שהתפשטה השמועה, הוזמנו להציג את הפרויקט שלנו ביריד מדע אזורי.
+            התשוקה וההתלהבות שלנו היו מדבקות, והעניקו השראה לתלמידים אחרים לחשוב
+            מחוץ לקופסה ולפעול בנושאי איכות הסביבה.
             <br />
             <br />
-            זכייה בהצטיינות מובילה ביריד המדע הייתה אישור מדהים לעבודה הקשה ולמסירות שלנו. יתרה מכך, עסקים מקומיים וארגונים סביבתיים גילו עניין במימון מחקר ופיתוח נוספים, מתוך הכרה בהשפעה הפוטנציאלית של היצירה שלנו.
+            זכייה בהצטיינות מובילה ביריד המדע הייתה אישור מדהים לעבודה הקשה
+            ולמסירות שלנו. יתרה מכך, עסקים מקומיים וארגונים סביבתיים גילו עניין
+            במימון מחקר ופיתוח נוספים, מתוך הכרה בהשפעה הפוטנציאלית של היצירה
+            שלנו.
             <br />
             <br />
-            עם זאת, ההיבט המתגמל ביותר היה הידיעה שהפרויקט שלנו יכול לעשות שינוי בקהילה שלנו ומחוצה לה. המסע שלנו לימד אותנו שיעורים יקרי ערך על עבודת צוות, התמדה וכוחה של חדשנות.
+            עם זאת, ההיבט המתגמל ביותר היה הידיעה שהפרויקט שלנו יכול לעשות שינוי
+            בקהילה שלנו ומחוצה לה. המסע שלנו לימד אותנו שיעורים יקרי ערך על
+            עבודת צוות, התמדה וכוחה של חדשנות.
             <br />
             <br />
-            הפרויקט של שרה וג'ון הוא עדות למה שאנחנו יכולים להשיג כאשר תשוקה ומומחיות טכנית מתאחדים. השמות שלנו לנצח ייחרטו בהיסטוריה של בית הספר, ואנו מקווים להמשיך לעורר את הדורות הבאים להיות סוכנים של שינוי חיובי בקהילות שלהם ובעולם
+            הפרויקט של שרה וג'ון הוא עדות למה שאנחנו יכולים להשיג כאשר תשוקה
+            ומומחיות טכנית מתאחדים. השמות שלנו לנצח ייחרטו בהיסטוריה של בית
+            הספר, ואנו מקווים להמשיך לעורר את הדורות הבאים להיות סוכנים של שינוי
+            חיובי בקהילות שלהם ובעולם
             <br />
             <br />
-         
           </p>
         </div>
         {/* ---------------------> */}
@@ -155,8 +176,12 @@ function Main() {
         <div className="wraperOne-section">
           <div className="introduction-containerFirst">
             <div className="left-container">
-            <div className={`describe-containerFirst ${isVisible[0] ? 'visible'  : ''} `}
-               ref={domRef[0]}>
+              <div
+                className={`describe-containerFirst ${
+                  isVisible[0] ? "visible" : ""
+                } `}
+                ref={domRef[0]}
+              >
                 <h3 className="TContent"> למי אנחנו פונים: </h3>
                 <p className="TTContent">
                   {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
@@ -176,8 +201,12 @@ function Main() {
 
           <div className="introduction-containerFirst">
             <div className="left-container">
-            <div className={`describe-containerFirst ${isVisible[1] ? 'visible'  : ''} `}
-               ref={domRef[1]}>
+              <div
+                className={`describe-containerFirst ${
+                  isVisible[1] ? "visible" : ""
+                } `}
+                ref={domRef[1]}
+              >
                 <h3 className="TContent"> תיאור: </h3>
                 <p className="TTContent">
                   {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
@@ -277,8 +306,12 @@ function Main() {
         <div className="wraperTwo-section">
           <div className="introduction-containerFirst">
             <div className="left-container">
-              <div className={`describe-containerFirst ${isVisible[2] ? 'visible'  : ''} `}
-               ref={domRef[2]}>
+              <div
+                className={`describe-containerFirst ${
+                  isVisible[2] ? "visible" : ""
+                } `}
+                ref={domRef[2]}
+              >
                 <h3 className="TContent">מטרה:</h3>
                 <p className="TTContent">
                   {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
@@ -315,8 +348,12 @@ function Main() {
 
             <div className="right-container">
               {/* <div className="describe-containerSeconed"> */}
-              <div className={`describe-containerFirst ${isVisible[3] ? 'visible'  : ''} `}
-               ref={domRef[3]}>
+              <div
+                className={`describe-containerFirst ${
+                  isVisible[3] ? "visible" : ""
+                } `}
+                ref={domRef[3]}
+              >
                 <h3 className="TContent">תהליך השימוש של האפליקציה:</h3>
                 <p className="TTContent">
                   {/* orem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.

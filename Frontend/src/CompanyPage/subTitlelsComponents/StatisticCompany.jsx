@@ -12,12 +12,11 @@ function StatisticCompany() {
 
   const [orderData,setOrdersData] = useState([]);
   const [statisticData, setStatisticData] = useState({
-    labels:["1689163200000","1689163200000","1689163200000"],
+    labels:["10","100","200","300"],
     datasets: [
       {
         label: "מספר הזמנות",
-        data: ["1689163200000","1689163200000","1689163200000"],
-
+        data: ["10","100","200","300"],
         backgroundColor: [
           "rgba(75,192,192,1)",
           "#ecf0f1",
@@ -31,15 +30,7 @@ function StatisticCompany() {
     ],
   });
 
-  // console.log(orderData.map((item)=>item.DateTime));
-  // console.log(orderData); 
-  
-  // give us an err while re-rendering
-  // const numOfOrder = orderData.Orders.length;
-// console.log(numOfOrder);
-// const ordersDataTest = orderData;
-// let orderData = ["asdasd"];
- 
+
   useEffect(() => {
     async function getServiceProviders(){
       try{
@@ -69,7 +60,7 @@ function StatisticCompany() {
         setOrderDataWithDate(data);
         console.log(orderDataWithDate);
       } catch (error) {
-        console.log(Error);
+        console.log(error);
       }
     }
     getServiceProviders();
@@ -77,6 +68,66 @@ function StatisticCompany() {
     NewOrdersDate()
     // setOrderReady(true)
   }, [])
+
+      
+          
+  return (
+    <div >
+      <CombaibnedNavCompany />
+      <div className="main-statistics-page-wraper">
+        <h3>מספר הזמנות</h3>
+      <div className="main-statistics-page">
+
+        
+          <StatisticCompanyLine  statisticData={statisticData}/>
+         
+        
+
+
+
+      </div>
+      <h3>דוח הכנסות</h3>
+      <div className="money--statistics" >
+        {/* {ServiceProviders.map((item)=>{
+          return(
+     
+            <StatisticCompanyList item={item} key={item.id}/>
+            
+          )
+        })} */}
+        <table>
+        <tr>
+              <th>שנתי </th>
+              <th>חודשי</th>
+              <th>יומי</th>       
+      </tr>
+       <tr>
+        <td>100₪</td>
+        <td>200₪</td>
+        <td>300₪</td>
+       </tr>
+        </table>
+        {/* <ul style={{backgroundColor:'red',padding:'1em',display:'flex'}}>
+          <li >יומי</li>
+          <li>חודשי </li>
+          <li>שנתי</li>
+        </ul> */}
+      
+      </div>
+      </div>
+
+      <div className="TotalAmmount">
+        <h3>
+          רווחים
+     </h3>
+      </div>
+
+    </div>
+  )
+}
+
+export default StatisticCompany
+
 
   // const UserData = [
   //   {
@@ -151,61 +202,3 @@ function StatisticCompany() {
       // console.log(UserData.length);
       // console.log(orderData);
       // console.log(orderData.length);
-      
-          
-  return (
-    <div >
-      <CombaibnedNavCompany />
-      <div className="main-statistics-page-wraper">
-        <h3>מספר הזמנות</h3>
-      <div className="main-statistics-page">
-
-        
-          <StatisticCompanyLine  statisticData={statisticData}/>
-         
-        
-
-
-
-      </div>
-      <h3>דוח הכנסות</h3>
-      <div className="money--statistics" >
-        {/* {ServiceProviders.map((item)=>{
-          return(
-     
-            <StatisticCompanyList item={item} key={item.id}/>
-            
-          )
-        })} */}
-        <table>
-        <tr>
-              <th>שנתי </th>
-              <th>חודשי</th>
-              <th>יומי</th>       
-      </tr>
-       <tr>
-        <td>100₪</td>
-        <td>200₪</td>
-        <td>300₪</td>
-       </tr>
-        </table>
-        {/* <ul style={{backgroundColor:'red',padding:'1em',display:'flex'}}>
-          <li >יומי</li>
-          <li>חודשי </li>
-          <li>שנתי</li>
-        </ul> */}
-      
-      </div>
-      </div>
-
-      <div className="TotalAmmount">
-        <h3>
-          רווחים
-     </h3>
-      </div>
-
-    </div>
-  )
-}
-
-export default StatisticCompany

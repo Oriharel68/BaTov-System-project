@@ -63,7 +63,7 @@ function Fullcalender() {
         <h3>{EventData.title}</h3>
         <p>בתאריך:<br/>{setDate(EventData.start.getTime())}</p>
         <div className='button-container'>
-        <BiExit style={{maxHeight:'10em'}} onClick={CloseDia}/>
+        <BiExit style={{minHeight:'7.5em', width:'5em',cursor:'pointer'}} onClick={CloseDia}/>
         </div>
         
       </Modal>:
