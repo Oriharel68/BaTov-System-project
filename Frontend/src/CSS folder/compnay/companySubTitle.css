@@ -1,70 +1,72 @@
- .companySubTitle-conatiner{
-    z-index: 5;
-    /* position: absolute; */
-    position: relative;
-    position: fixed;
-   width: 100%;
-   max-width: 100%;
-   
-    box-shadow: inset 10em 1em gold; 
-     background-color: rgb(170, 165, 165);
-  padding-top:6.5em ;
-  padding-right:3em ;
-  padding-left:1em ;
-  /* padding: 1em; */
-  animation: popInAnimation  500ms cubic-bezier(0.87, 0, 0.13, 1) 0s 1 reverse backwards;}
-  @keyframes popInAnimation  {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-  
-    100% {
-        opacity: 0;
-        transform: translateY(-250px);
-    }
-}
-
-
-.companySubTitle-conatiner ul{
+ .subTitle-company{
+    width: 70%;
+    /* background-color: blue; */
+    /* max-width: 100%; */
+ }
+ .subTitle-company .companySubTitle-conatiner{
     display: flex;
-    justify-content: space-between;
-    /* padding-bottom: 1em; */
-    /* padding: 1em 25px; */
-    padding-top: 0;
-    padding-left: 25px;
-    padding-right: 50px;
-    padding-bottom: 1em;
+    justify-content: center;
+    /* background-color: #ff0000; */
+    
+
+   /* width: 100%;
+   max-width: 100%; */
+   
+
 }
 
-.companySubTitle-conatiner ul li{
+
+.subTitle-company .companySubTitle-conatiner ul{
+    width: 100%;
+    display: flex;
+   
+    justify-content: space-around;
+   /* background-color: black; */
+
+
+}
+
+.subTitle-company .companySubTitle-conatiner ul li{
+    position: relative;
+    padding: 1em;
 list-style: none;
-text-decoration: none;
-color: crimson;
+/* color: crimson; */
+color: gainsboro;
 text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
-/* border-left: 1px solid rgb(99, 99, 99);
-        border-right: 1px solid rgb(141, 139, 139); */
-        /* border-bottom: 1px solid rgb(141, 139, 139); */
 }
-.companySubTitle-conatiner ul li h3{
+
+.subTitle-company .companySubTitle-conatiner ul li:hover{
+
+list-style: none;
+/* color: crimson; */
+position: relative;
+/* color: darkgray  ; */
+
+border-radius: 1px;
+
+background-color: grey;
+border-radius: 10px;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+.subTitle-company .companySubTitle-conatiner ul li h3{
 } 
  
 
 /* max-width 645px change */
-@media screen and (max-width: 757px) {
+/* @media screen and (max-width: 757px) {
     .companySubTitle-conatiner{
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        /* justify-content: center; */
+       
         box-shadow: inset 6em 1em gold; 
     }
     .companySubTitle-conatiner ul{
         display: flex;
         flex-wrap: wrap;
-        /* padding-left: 1em; */
-        /* justify-content: space-between; */
+        
   
 
       
@@ -74,11 +76,7 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
  
         color: coral;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  /* border-left: 1px solid rgb(99, 99, 99);
-        border-right: 1px solid rgb(141, 139, 139); */
-        /* border-bottom: 1px solid rgb(141, 139, 139); */
-    /* border-right:1px solid black ; */
-    /* border-bottom:1px solid black ; */
+
     }
     .companySubTitle-conatiner ul li h3{
 
@@ -97,7 +95,7 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     .companySubTitle-conatiner ul{
         display: flex;
         flex-direction: column;
-        /* margin-right:5em ; */
+        
         padding: 0;
         
     }
@@ -106,11 +104,19 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
        
     }
 
-}
+} */
 
 
-/* list ddecoration to Link's */
 
-#T{
+.T{
     text-decoration: none;
+    font-family: Ploni aaa,sans-serif;
+    font-size: 17px;
+}
+.main{
+    color:white;
+    border-radius:10px;
+    background-color:grey;
+    text-decoration: none;
+
 }

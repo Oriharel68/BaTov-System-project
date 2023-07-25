@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Companysubtitle() {
+
+function Tchange(event) {
+  console.log(event);
+  
+}
+
+  // function onMousrClick(){
+  //   if(bgColor == true){
+
+  //   }
+  // }
   return (
     <div className='companySubTitle-conatiner'>
         <ul >
-        <Link to={'/company/Orders'}id='T'> <li>הזמנות</li> </Link> 
-            <Link to={'/company/Statistics'} id='T'> <li>סטטיסטיקה</li> </Link> 
-           <Link to={'/company/mainpage'}id='T'> <li><h3>ראשי</h3></li> </Link> 
-           <Link to={'/company/Calender'}id='T'>   <li>יומן עבודה</li> </Link> 
-           <Link to={'/company/AddWorker'}id='T'> <li>הוספת עובד</li> </Link> 
+        <Link to={'/company/Orders'} className='T' onClick={(e)=>Tchange(e)}>  <li>הזמנות</li> </Link> 
+            <Link to={'/company/Statistics'}className='T' onClick={(e)=>Tchange(e)}> <li>סטטיסטיקה</li> </Link> 
+           <Link to={'/company/Calender'}className='T' onClick={(e)=>Tchange(e)}>  <li>יומן עבודה</li> </Link> 
+           <Link to={'/company/AddWorker'}className='T' onClick={(e)=>Tchange(e)}><li>הוספת עובד</li> </Link> 
+           <Link to={'/company/mainpage'}className='T' onClick={(e)=>Tchange(e)}><li >ראשי</li> </Link> 
         </ul>
 
     </div>

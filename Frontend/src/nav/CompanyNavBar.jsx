@@ -1,23 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Companysubtitle from './Companysubtitle'
 
 function CompanyNavBar() {
   return (
-    <div>
+    <>
 
       <Link to={'/company/mainpage'}>
-    <div className='navBar-Main' style={{
-   
-        
-    }}>
+    <div >
      <h1>
         logo     
        <span>v</span>
        </h1>
-     
+       {/* <div className="subTitle-company" >
+        <Companysubtitle/>
+        </div>
+    */}
      </div>
      </Link>
-    </div>
+    </>
     
   )
 }

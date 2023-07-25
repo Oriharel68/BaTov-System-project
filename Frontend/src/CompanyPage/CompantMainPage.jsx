@@ -35,20 +35,7 @@ useEffect(()=>{
   
   return (
     <div>
-        {/* <div
-        //  className="companyMainpage-nav-container" 
-        className="companyMainpage-nav-container"
-       onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        >
-            <CompanyNavBar/>
-
-            {showSecondDiv &&  <div className="subTitle-company" >
-            <Companysubtitle/>
-            </div>}
-
-           
-        </div> */}
+  
         <CombaibnedNavCompany/>
         <div className="mainCompanyPage-container">
 

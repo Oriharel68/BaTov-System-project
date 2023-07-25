@@ -1,4 +1,33 @@
-.navCompany-container{
-    top: 0;
-    /* position: relative; */
+
+.companyMainpage-nav-container{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    /* justify-content: center; */
+    /* position: sticky; */
+    /* background-color: white; */
+    z-index: 15;
+    width:  100%;
+    max-width: 100%;
+    background-color: #5a607e  ;
+    /* justify-content: center; */
+    /* padding: 1em 0em; */
+    padding: 0 2em ;
+    /* padding-right: 7em; */
+    justify-content: space-between;
 }
+
+
+.nav-logo-container{
+background-color: green;
+width: 30%;
+text-align: start;
+}
+/* .navCompany-container{
+    top: 0;
+    position: relative;
+}
+.company-Main{
+ } */
+
+ 
