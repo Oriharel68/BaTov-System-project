@@ -9,7 +9,6 @@ import { GetOrdersByMonth } from './Statistic Compant List/GetData';
 function StatisticCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
   // const [orderReady,setOrderReady] = useState(false)
-  const [OrdersByMonth,setOrdersByMonth] = useState([]);
 
   const [orderData,setOrdersData] = useState([]);
   const [statisticData, setStatisticData] = useState({
@@ -18,13 +17,6 @@ function StatisticCompany() {
       {
         label: "מספר הזמנות",
         data: [1,2,3,4,5,6,7,8,9,10,11,12],
-        // backgroundColor: [
-        //   "rgba(75,192,192,1)",
-        //   "#ecf0f1",
-        //   "#50AF95",
-        //   "#f3ba2f",
-        //   "#2a71d0",
-        // ],
         borderColor: "black",
         borderWidth: 2,
       },
