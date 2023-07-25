@@ -19,7 +19,7 @@
 .subTitle-company .companySubTitle-conatiner ul{
     width: 100%;
     display: flex;
-   
+   padding-right: 2em;
     justify-content: space-around;
    /* background-color: black; */
 
@@ -36,12 +36,11 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 }
 
-.subTitle-company .companySubTitle-conatiner ul li:hover{
+/* .subTitle-company .companySubTitle-conatiner ul li:hover{
 
 list-style: none;
-/* color: crimson; */
 position: relative;
-/* color: darkgray  ; */
+
 
 border-radius: 1px;
 
@@ -49,7 +48,7 @@ background-color: grey;
 border-radius: 10px;
 text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
-}
+} */
 .subTitle-company .companySubTitle-conatiner ul li h3{
 } 
  
@@ -122,3 +121,17 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     background-color:grey;
     text-decoration: none;
 }
+.mainO{
+    /* color:white; */
+    border-radius:10px;
+    background-color:yellow;
+    text-decoration: none;
+}
+.mainP{
+    border-radius:10px;
+    background-color:silver;
+    text-decoration: none;
+}
+
+
+/* media quey min width 769px   */

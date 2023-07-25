@@ -7,11 +7,11 @@ function Companysubtitle() {
   return (
     <div className='companySubTitle-conatiner'>
         <ul >
-        <NavLink to={'/company/Orders'} className={`T ${path ==='Orders' ?'main':'' }`} >  <li>הזמנות</li> </NavLink> 
+        <NavLink to={'/company/Orders'} className={`T ${path ==='Orders' ?'mainO':'' }`} >  <li>הזמנות</li> </NavLink> 
             <NavLink to={'/company/Statistics'}className={`T ${path ==='Statistics' ?'main':'' }`} > <li>סטטיסטיקה</li> </NavLink> 
            <NavLink to={'/company/Calender'}className={`T ${path === 'Calender' ?'main':'' }`}>  <li>יומן עבודה</li> </NavLink> 
            <NavLink to={'/company/AddWorker'}className={`T ${path === 'AddWorker' ?'main':'' }`} ><li>הוספת עובד</li> </NavLink> 
-           <NavLink to={'/company/mainpage'}className={`T ${path === 'mainpage' ?'main':'' }  `} ><li >ראשי</li> </NavLink> 
+           <NavLink to={'/company/mainpage'}className="mainP"><li >ראשי</li> </NavLink> 
         </ul>
 
     </div>
