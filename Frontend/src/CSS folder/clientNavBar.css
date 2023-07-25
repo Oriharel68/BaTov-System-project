@@ -27,6 +27,7 @@
 .navBar-Client{
   display: flex;
   justify-content: space-between;
+  /* box-shadow: 0px 10px 0px 0.4em teal; */
 }
 .navBar-Client h1{
   background-color: red; 
