@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useRef } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function EditWorkerContainer({item,Change,setChange,setShowSecondDiv}) {
   const {Price,TypeOfService,WorkerName,_id} = item;
@@ -20,7 +22,14 @@ function EditWorkerContainer({item,Change,setChange,setShowSecondDiv}) {
         // alert("missing info");
         // ref.current.style.color = "red";
         // ref.current.innerText = "חסר מידע -בבקשה השלם את כל המידע הנדרש";
-
+        toast.error('אנא השלם את המידע הנדרש', {
+          position: "bottom-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          progress: undefined,
+          theme: "dark",
+          });
         return;
       }
       let {data} = await axios.post('http://localhost:4000/EditCompanyWorker',{
@@ -29,13 +38,21 @@ function EditWorkerContainer({item,Change,setChange,setShowSecondDiv}) {
       console.log(data);
       setChange(Change +1)
       setShowSecondDiv(false)
+      toast.success('עודכן בהצלחה', {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        progress: undefined,
+        theme: "dark",
+        });
     } catch (error) {
       alert(error)
     }
   }
   return (
     <div className='Editing-container' >
-      
+                <ToastContainer/>
           <h3>עריכת שינוי</h3>
           <input type="text" id="W2" name="workerName" ref={InputWokrerNameref} placeholder=  {`שם + שם משפחה -- ${WorkerName}   `} />
 

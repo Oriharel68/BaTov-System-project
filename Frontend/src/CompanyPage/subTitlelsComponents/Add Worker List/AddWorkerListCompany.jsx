@@ -2,6 +2,8 @@ import axios from 'axios';
 // import { log } from 'console';
 import React, { useState } from 'react'
 import EditWorkerContainer from './EditWorkerContainer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddWorkerListCompany({item,setChange,Change}) {
     // console.log(item);
@@ -18,10 +20,6 @@ function AddWorkerListCompany({item,setChange,Change}) {
 
             }
         }
-   
-
-
-
 
     async function handleRemove(event){
         try {
@@ -34,15 +32,16 @@ function AddWorkerListCompany({item,setChange,Change}) {
           if (!data.ok) {
             alert(data.error);
             // userCred.user.delete();
+            toast.error(`מחיקת נותן השירות נכשלה`);
             return;
           }
           else if(data.ok){
             setChange(Change+1);
-            alert('Provider has been removed succssefuly');
+            toast.success('נותן השירות נמחק בהצלחה');
           }      
           }
          catch (error) {
-          alert(error)
+          toast.error(`מחיקת נותן השירות נכשלה`);
         }
       }
   return (
@@ -65,7 +64,14 @@ function AddWorkerListCompany({item,setChange,Change}) {
        {showSecondDiv &&  <div className="subTitle-company" >
         <EditWorkerContainer setShowSecondDiv={setShowSecondDiv} item={item} Change={Change}  setChange={setChange}/>
         </div>}
-
+        <ToastContainer
+position="bottom-center"
+autoClose={200}
+hideProgressBar={false}
+closeOnClick
+rtl={true}
+theme="light"
+/>
 
            </>
               
