@@ -107,14 +107,6 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 
 
-.T{
-    text-decoration: none;
-    font-family: Ploni aaa,sans-serif;
-    font-size: 17px;
-    /* color: gainsboro; */
-    /* border-radius: ${({ isActive }) => (isActive ? '10px' : '0')}; */
-
-}
 .main{
     /* color:white; */
     border-radius:10px;
@@ -135,3 +127,126 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 
 /* media quey min width 769px   */
+/* Common styles for larger and smaller screens */
+.subTitle-company .companySubTitle-conatiner ul.desktop-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .subTitle-company .companySubTitle-conatiner ul li {
+    padding: 0.5rem 1rem;
+  }
+  
+  .subTitle-company .companySubTitle-conatiner ul li a {
+    text-decoration: none;
+    color: gainsboro;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: 17px;
+  }
+  
+  .subTitle-company .companySubTitle-conatiner ul li a:hover {
+    color: #fff;
+  }
+  
+  .T {
+    font-family: 'Ploni aaa', sans-serif;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main {
+    background-color: grey;
+    color: #fff;
+  }
+  
+  .mainO {
+    background-color: yellow;
+  }
+  
+  .mainP {
+    background-color: silver;
+  }
+  
+  /* Styles for smaller screens */
+  .subTitle-company .companySubTitle-conatiner div.more-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 3rem;
+    height: 3rem;
+    background-color: #fff;
+    border: none;
+    border-radius: 0 0 0 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .subTitle-company .companySubTitle-conatiner div.more-button.active {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .subTitle-company .companySubTitle-conatiner div.more-button svg {
+    color: #000;
+  }
+  @media screen and (max-width: 767px) {
+    .subTitle-company .companySubTitle-conatiner ul.desktop-list {
+      display: none;
+    }
+  
+    .subTitle-company .companySubTitle-conatiner button.more-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #fff;
+      border: none;
+      font-size: 17px;
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 0 10px;
+    }
+  
+    .subTitle-company .companySubTitle-conatiner div.dropdown-list-wrapper {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+  
+    .subTitle-company .companySubTitle-conatiner ul.dropdown-list {
+      list-style: none;
+      color: coral;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .subTitle-company .companySubTitle-conatiner ul.dropdown-list li {
+      padding: 0.5rem 1rem;
+    }
+  
+    .subTitle-company .companySubTitle-conatiner ul.dropdown-list li a {
+      color: coral;
+      text-decoration: none;
+      font-size: 17px;
+    }
+  
+    .subTitle-company .companySubTitle-conatiner ul.dropdown-list li a:hover {
+      color: #fff;
+    }
+  }
+  
