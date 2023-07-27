@@ -21,14 +21,43 @@
     /* the diraction of the fonts */
     direction: rtl;
 }
+
+.main-ordeList-container .orderReceipts-container .subTititle-container{
+    display: flex;
+    /* background-color: red; */
+    width: 80%;
+    justify-content: flex-end;
+    justify-content: space-between;
+    align-items:center ;
+    /* padding:0 5em ; */
+}
+.main-ordeList-container .orderReceipts-container .subTititle-container h3{
+padding-right: 1em;
+}
+
+.main-ordeList-container .orderReceipts-container button{
+    background-color: darkslateblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0.5em;
+    border-radius: 8px;
+    color: white;
+    width: 65px;
+    
+}
 .main-ordeList-container .orderReceipts-container table{
     margin-top: 20px;
+    border-collapse: collapse;
     width: 80%;
     max-width: 100%;
-    border: 1px solid black;
+    background-color: white;
+    border-radius: 14px ;
+    /* border: 1px solid #007bff;
+    box-shadow: 0 0 0 1px #007bff */
 }
 #Active{
-    background-color: #90EE90    ;
+    /* background-color: #90EE90    ; */
+    background-color: limegreen;
+    
 }
 /* #B{
     margin-top: 5em;
@@ -47,16 +76,82 @@ font-size: 14px; */
     max-width: 100%;
     border: 1px solid black;
   } */
-  
-  .main-ordeList-container .orderReceipts-container table th {
+  .main-ordeList-container .orderReceipts-container table tr{
+    /* border-bottom: 1px solid silver  ; */
+    position: relative;
+
+    
+  }
+  .main-ordeList-container .orderReceipts-container table tr::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 5%; /* Adjust this value to control the starting position of the border */
+    right: 5%;
+    width: 90%; /* Set the width of the bottom border to 80% */
+    height: 1px;
+    background-color: #ccc; /* Set the color of the bottom border */
+}
+
+  .main-ordeList-container .orderReceipts-container table tr th {
     height: 70px;
     /* border: 1px solid black; */
 
   }
   .main-ordeList-container .orderReceipts-container table  td{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+     color: dimgray ;
+    padding: 0.8em ;
+    height: 50px;
+   
+
 
   }
+
+
+
+
+/* [colspan="3"] */
+  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container {
+    /* background-color: #f0f0f0; */
+            /* padding: 10px; */
+            box-sizing: border-box;
+            width: 100%;
+            
+          display: flex;
+          justify-content: end;
+
+         direction: ltr;
+         
+         /* text-align: start; */
+         padding-top: 2.5em;
+         padding-right: 3em;
+         padding-bottom: 1.5em;
+        
+  }
+  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .left-conatiner{
+text-align: end;
+        
+  }
+  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .left-conatiner p{
+  padding: 0.4em;
+ color: dimgray  ;
+  }
+  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .right-cotainer{
+  text-align: end;
+  padding-left: 1.9em;
+        
+  }
+  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .right-cotainer p{
+    padding: 0.4em;
+    color: dimgray ;
+        
+  }
+  #emphasis{
+    color: black;
+  }
+
+
 
   /* min width 552 */
   @media screen and (max-width: 552px) {
@@ -67,9 +162,34 @@ font-size: 14px; */
     
     .orderReceipts-container{
         /* background-color: red; */
-        max-width: 100%;
+        width: 100%;
         overflow-x: auto;
         
 
     }
+    .main-ordeList-container .orderReceipts-container table{
+        font-size: 10px;
+    
+    }
+    .main-ordeList-container .orderReceipts-container table th td{
+        padding: 4px;
+    
+    }
+    
+    .main-ordeList-container .orderReceipts-container td .subTotal-Incomes-container{
+        background-color: #f0f0f0;
+                padding: 10px;
+                box-sizing: border-box;
+                width: 100%;
+              display: flex;
+              justify-content: space-between;
+    
+             direction: ltr;
+             /* padding-top: 1em;
+             padding-right: 2em;
+             padding-bottom: 1.5em; */
+            
+      }
+    
+    
   }

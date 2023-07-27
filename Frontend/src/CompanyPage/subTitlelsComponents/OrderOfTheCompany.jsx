@@ -9,8 +9,9 @@ import IncomesList from "./order list's/IncomesList";
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
   const [oldOrders, setOldOrders] = useState([]);
-
   const [allClients, setAllClients] = useState([]);
+
+  const [colspan, setColspan] = useState(1);
   console.log(allClients);
   // console.log(allClients);
   useEffect(() => {
@@ -21,8 +22,8 @@ function OrderOfTheCompany() {
           Clients= values[0].data;
           Orders = values[1].data.Orders
           setAllClients(values[2].data);
-          console.log(allClients);
-          console.log(allClients);
+          // console.log(allClients);
+          // console.log(allClients);
         });
         // console.log(Clients);
         const currdate = new Date().getTime();
@@ -51,6 +52,19 @@ function OrderOfTheCompany() {
       }
     }
     getOrdersData();
+    const updateColspan = () => {
+      setColspan(window.innerWidth <= 552 ? 3: 2);
+    };
+
+    updateColspan(); // Set the initial colspan
+
+    // Attach event listener for window resize
+    window.addEventListener('resize', updateColspan);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updateColspan);
+    };
   }, []);
 
 
@@ -65,15 +79,15 @@ function OrderOfTheCompany() {
 
           <table>
             <tr>
-              <th>תאריכים</th>
-              <th>הזמנה</th>
-              <th>שם בודק</th>
-              <th>סכום</th>
-              <th>מספר הזמנה</th>
+              <th >תאריכים</th>
+              <th >הזמנה</th>
+              <th >שם בודק</th>
+              <th >סכום</th>
+              <th >מספר הזמנה</th>
             </tr>
                 {activeOrders.map((item)=>{
                   return(
-                  <tr id="Active">
+                  <tr >
           
                     <ActiceOrdersList item={item} key={item._id} />
                  </tr>
@@ -106,8 +120,8 @@ function OrderOfTheCompany() {
           </table>
         </div>
         <div className="orderReceipts-container" >
-          <h3>הזמנות ישנות</h3>
-
+          <h3>הזמנות ישנות </h3>
+          
           <table>
             <tr>
             <th>תאריכים</th>
@@ -129,11 +143,18 @@ function OrderOfTheCompany() {
         </div>
         {/* need to add styling  */}
         <div className="orderReceipts-container" >
+          <div className="subTititle-container">
+
           <h3>הכנסות</h3>
+         
+          <button>Print</button>
+          </div>
           <table>
             <tr>
               <th>הזמנה</th>
+              <th>כתובת אלקטרונית</th>
               <th>סכום</th>
+           
             </tr> 
 
             {/* {allClients.map((client)=>{ */}
@@ -144,33 +165,21 @@ function OrderOfTheCompany() {
             <IncomesList client={client} key={client._id}/>
         
              </tr>
-             )})}
-            
-               
-           
-            {/* <tr>
-              <td>Peter</td>
-              <td>Griffin</td>
-             
-            </tr> */}
-            {/* <tr>
-              <td>Lois</td>
-              <td>Griffin</td>
-              <td>$150</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Joe</td>
-              <td>Swanson</td>
-              <td>$300</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Cleveland</td>
-              <td>Brown</td>
-              <td>$250</td>
-              <td>$100</td>
-            </tr> */}
+             )})}    
+             <td colSpan={colspan}>                                      
+          <div className="subTotal-Incomes-container">
+              <div className="left-conatiner">
+                <p>Subtotal:</p>
+                <p>Tax:</p>
+                <p id="emphasis"><b>Total:</b> </p>
+              </div>
+              <div className="right-cotainer">
+                <p>$8,800.00</p>
+                <p>$1,760.00</p>
+                <p id="emphasis"> <b >$10,560.00 </b> </p>
+              </div>
+             </div>
+             </td>
           </table>
         </div>
       </div>

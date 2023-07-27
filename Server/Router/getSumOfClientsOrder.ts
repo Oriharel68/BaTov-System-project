@@ -21,7 +21,7 @@ getSumOfClientsOrder.get('/',async (req:Request,res:Response)=>{
                const TotalMoney = OrderOfClient.reduce((acc,currnetValue)=>acc+(currnetValue.Price as number),0);
             //    console.log(TotalMoney);
                
-               return {ClientName:`${Client.FirstName} ${Client.LastName}`,Total:TotalMoney};
+               return {ClientName:`${Client.FirstName} ${Client.LastName}`,Total:TotalMoney,Email:Client.Email};
             })).then((value)=>{
                 res.status(200).send(value);
             })

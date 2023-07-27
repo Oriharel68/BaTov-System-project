@@ -1,7 +1,7 @@
 import React from 'react'
 
 function IncomesList({client}) {
-    const {ClientName,Total} = client;
+    const {ClientName,Total,Email} = client;
     console.log(client);
 
 
@@ -9,8 +9,10 @@ function IncomesList({client}) {
     // add styling : diraction--- RTL 
   return (
     <>
-           <td >{ClientName}</td>
+           <td id="emphasis" > {ClientName}</td>
+           <td >{Email}</td>
               <td>{Total} ₪</td>
+              
     </>
   )
 }

@@ -8,7 +8,7 @@ function OldOrdersList({item}) {
   return (
     <>
        
-    <td>{setDate(DateTime)}</td>
+    <td id="emphasis">{setDate(DateTime)}</td>
     <td>{ClientName}</td>
     <td>{WorkerName}</td>
     <td>{Price}₪</td>
