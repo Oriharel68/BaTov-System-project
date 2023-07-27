@@ -19,7 +19,7 @@ function Companysubtitle() {
   }, []);
 
   // Determine whether to show the dropdown based on windowWidth
-  const showDropdown = windowWidth <= 767;
+  const showDropdown = windowWidth <= 769;
 
   return (
     <div className='companySubTitle-conatiner'>
@@ -47,7 +47,7 @@ function Companysubtitle() {
           </li>
           <li>
             <NavLink to='/company/AddWorker' className={`T ${path === '/AddWorker' ? 'main' : ''}`}>
-              הוספת עובד
+              ניהול עובדים
             </NavLink>
           </li>
           <li>
@@ -101,7 +101,7 @@ function Companysubtitle() {
                     to='/company/AddWorker'
                     className={`T ${path === '/AddWorker' ? 'main' : ''}`}
                   >
-                    הוספת עובד
+              ניהול עובדים
                   </NavLink>
                 </li>
               </ul>

@@ -169,6 +169,7 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   
   .mainP {
     background-color: silver;
+    padding: 1em;
   }
   
   /* Styles for smaller screens */
@@ -196,7 +197,32 @@ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   .subTitle-company .companySubTitle-conatiner div.more-button svg {
     color: #000;
   }
-  @media screen and (max-width: 767px) {
+
+
+  @media only screen and (max-width: 1215px) {
+    
+    .companyMainpage-nav-container{
+
+    }
+    .subTitle-company .companySubTitle-conatiner ul  li{
+      display: flex;
+      justify-content: center;
+     text-align: justify;
+      align-items: center;
+      padding: 0.9em;
+      text-align: end;
+    }
+    .mainP{
+      margin-right: 11.5em ;
+    }
+   
+  }
+
+  
+  @media screen and (max-width: 769px) {
+    .mainP{
+      margin-right: 0 ;
+    }
     .subTitle-company .companySubTitle-conatiner ul.desktop-list {
       display: none;
     }
