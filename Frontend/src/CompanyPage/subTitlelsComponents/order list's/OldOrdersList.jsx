@@ -13,6 +13,7 @@ function OldOrdersList({item}) {
     <td>{WorkerName}</td>
     <td>{Price}₪</td>
     <td>{_id}</td>
+    <td ><button id="Closed">נסגר</button></td>
   
 </>
   )

@@ -8,11 +8,12 @@ function ActiceOrdersList({item}) {
   return (
     <>
        
-              <td id="emphasis" id="Active">{setDate(DateTime)}</td>
+              <td id="emphasis">{setDate(DateTime)}</td>
               <td >{ClientName}</td>
               <td>{WorkerName}</td>
               <td>{Price}₪</td>
               <td>{_id}</td>
+              <td ><button id="Active">פעיל</button></td>
             
     </>
   )

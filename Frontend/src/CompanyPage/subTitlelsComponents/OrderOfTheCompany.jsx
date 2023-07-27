@@ -11,6 +11,7 @@ function OrderOfTheCompany() {
   const [oldOrders, setOldOrders] = useState([]);
   const [allClients, setAllClients] = useState([]);
 
+   
   const [colspan, setColspan] = useState(1);
   console.log(allClients);
   // console.log(allClients);
@@ -22,6 +23,7 @@ function OrderOfTheCompany() {
           Clients= values[0].data;
           Orders = values[1].data.Orders
           setAllClients(values[2].data);
+          // console.log(Orders);
           // console.log(allClients);
           // console.log(allClients);
         });
@@ -67,9 +69,21 @@ function OrderOfTheCompany() {
     };
   }, []);
 
+const TAX_RATE = 0.17;
+// מעמ
+// 17%
 
-
+  const subtotalSum  = allClients.reduce((accumulator, currentValue) => accumulator + currentValue.Total, 0);
   
+  const ordersWithTax = oldOrders.map((order) => ({
+    ...order,
+    PriceWithTax: (order.Price / (1 + TAX_RATE)).toFixed(2),
+  }));
+  console.log(ordersWithTax);
+  const subtotalSumTAX  = ordersWithTax.reduce((accumulator, currentValue) => accumulator + currentValue.PriceWithTax, 0);
+  console.log(subtotalSumTAX);
+
+  const TOTALPRICE = subtotalSum + subtotalSumTAX;
   return (
     <div>
       <CombaibnedNavCompany />
@@ -84,6 +98,7 @@ function OrderOfTheCompany() {
               <th >שם בודק</th>
               <th >סכום</th>
               <th >מספר הזמנה</th>
+              <th >סטטוס</th>
             </tr>
                 {activeOrders.map((item)=>{
                   return(
@@ -93,30 +108,7 @@ function OrderOfTheCompany() {
                  </tr>
                   )
                 })}
-            {/* <tr id="Active">
-              <td>Peter</td>
-              <td>Griffin</td>
-              <td>$100</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Lois</td>
-              <td>Griffin</td>
-              <td>$150</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Joe</td>
-              <td>Swanson</td>
-              <td>$300</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Cleveland</td>
-              <td>Brown</td>
-              <td>$250</td>
-              <td>$100</td>
-            </tr> */}
+       
           </table>
         </div>
         <div className="orderReceipts-container" >
@@ -129,6 +121,8 @@ function OrderOfTheCompany() {
               <th>שם בודק</th>
               <th>סכום</th>
               <th>מספר הזמנה</th>
+              <th >סטטוס</th>
+
             </tr>
 
             {oldOrders.map((item)=>{
@@ -166,7 +160,8 @@ function OrderOfTheCompany() {
         
              </tr>
              )})}    
-             <td colSpan={colspan}>                                      
+             <td colSpan={colspan}>                           
+                        
           <div className="subTotal-Incomes-container">
               <div className="left-conatiner">
                 <p>Subtotal:</p>
@@ -174,8 +169,8 @@ function OrderOfTheCompany() {
                 <p id="emphasis"><b>Total:</b> </p>
               </div>
               <div className="right-cotainer">
-                <p>$8,800.00</p>
-                <p>$1,760.00</p>
+                <p>{subtotalSum }</p>
+                <p>Null</p>
                 <p id="emphasis"> <b >$10,560.00 </b> </p>
               </div>
              </div>
