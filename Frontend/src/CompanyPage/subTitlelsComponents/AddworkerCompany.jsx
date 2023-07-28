@@ -22,7 +22,6 @@ function AddworkerCompany() {
         // alert("missing info");
         ref.current.style.color = "red";
         ref.current.innerText = "חסר מידע -בבקשה השלם את כל המידע הנדרש";
-
         return;
       }
  
@@ -93,7 +92,7 @@ useEffect(() => {
             </div>
             <div className="Worker-list-container">
               <h3>ניהול עובדים קיימים</h3>
-
+.
               <div className="main-worker-list-container">
               {ServiceProviders.map((item)=>{
                   
