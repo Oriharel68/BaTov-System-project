@@ -108,6 +108,7 @@ font-size: 14px; */
      color: dimgray ;
     padding: 0.8em ;
     height: 50px;
+    
    
 
 
@@ -118,12 +119,12 @@ font-size: 14px; */
 
 /* [colspan="3"] */
   .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container {
-    /* background-color: #f0f0f0; */
+    background-color: #f0f0f0;
             /* padding: 10px; */
             box-sizing: border-box;
-            width: 100%;
-            
-          display: flex;
+            width: 85%;
+            border-radius: 10px 100px / 120px;
+            display: flex;
           justify-content: end;
 
          direction: ltr;
@@ -135,7 +136,8 @@ font-size: 14px; */
         
   }
   .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .left-conatiner{
-text-align: end;
+text-align: start;
+direction: rtl;
         
   }
   .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .left-conatiner p{
@@ -143,8 +145,8 @@ text-align: end;
  color: dimgray  ;
   }
   .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .right-cotainer{
-  text-align: end;
-  padding-left: 1.9em;
+  text-align: start;
+  padding-right: 1.9em;
         
   }
   .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .right-cotainer p{

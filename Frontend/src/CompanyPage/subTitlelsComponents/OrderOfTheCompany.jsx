@@ -77,13 +77,13 @@ const TAX_RATE = 0.17;
   
   const ordersWithTax = oldOrders.map((order) => ({
     ...order,
-    PriceWithTax: (order.Price / (1 + TAX_RATE)).toFixed(2),
+    PriceWithTax: (order.Price * (1 + TAX_RATE)).toFixed(2),
   }));
   console.log(ordersWithTax);
-  const subtotalSumTAX  = ordersWithTax.reduce((accumulator, currentValue) => accumulator + currentValue.PriceWithTax, 0);
+  const subtotalSumTAX  = ordersWithTax.reduce((accumulator, currentValue) => accumulator + (currentValue.PriceWithTax -currentValue.Price) , 0);
   console.log(subtotalSumTAX);
 
-  const TOTALPRICE = subtotalSum + subtotalSumTAX;
+  // const TOTALPRICE = subtotalSum + subtotalSumTAX;
   return (
     <div>
       <CombaibnedNavCompany />
@@ -163,15 +163,16 @@ const TAX_RATE = 0.17;
              <td colSpan={colspan}>                           
                         
           <div className="subTotal-Incomes-container">
-              <div className="left-conatiner">
-                <p>Subtotal:</p>
-                <p>Tax:</p>
-                <p id="emphasis"><b>Total:</b> </p>
-              </div>
+             
               <div className="right-cotainer">
-                <p>{subtotalSum }</p>
-                <p>Null</p>
-                <p id="emphasis"> <b >$10,560.00 </b> </p>
+                <p> ₪{subtotalSum.toLocaleString() }</p>
+                <p> ₪{subtotalSumTAX.toLocaleString()}</p>
+                <p id="emphasis"> <b > ₪{(subtotalSum - subtotalSumTAX).toLocaleString()} </b> </p>
+              </div>
+              <div className="left-conatiner">
+                <p>סכום משנה:</p>
+                <p>מע"מ:</p>
+                <p id="emphasis"><b>סה"כ:</b> </p>
               </div>
              </div>
              </td>
