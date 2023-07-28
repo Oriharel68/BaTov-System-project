@@ -3,6 +3,8 @@ import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany'
 import axios from 'axios';
 import AddWorkerListCompany from './Add Worker List/AddWorkerListCompany';
 // import ServerStatus from "../FireBase/ServerStatus";
+import { BiExit } from 'react-icons/bi';
+
 function AddworkerCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
   const [Change,setChange] = useState(0);
@@ -115,14 +117,17 @@ useEffect(() => {
             
         <input type="text" id="W2" name="workerName" placeholder=' שם + שם משפחה'/>
         <input type="text" id="W2" name="serviceType" placeholder='סוג איש מקצוע'/>
-        <input type="number" id="W3" name="price" placeholder='מחיר/עלות בדיקה' min="0"/>
-         
+        <input type="number" id="W3" name="price" placeholder='  מחיר/עלות הבדיקה  ₪' min="0"/>
+          
+          <div className="buttom-contaienr">
           <button>
             הוספה
           </button>
           <button onClick={()=>handleClick()}>
-            יציאה
+            <BiExit/>
           </button>
+
+          </div>
           </form>
                 <div ref={ref} className=""></div>
             

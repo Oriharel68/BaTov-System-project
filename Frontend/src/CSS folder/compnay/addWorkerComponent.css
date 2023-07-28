@@ -111,7 +111,15 @@ text-align: center;
   flex-wrap: wrap;
    align-items: center;
    text-align: center;
+ 
   /* background-color: green; */
+}
+.mainAddWorker-Page .main-container form .buttom-contaienr{
+display: flex;
+/* background-color: red; */
+padding-top: 5.8em;
+width: 60%;
+justify-content: space-around;
 }
 .mainAddWorker-Page .main-container form button{
   border-radius: 12px;
@@ -120,7 +128,7 @@ text-align: center;
 }
 .mainAddWorker-Page form input{
 max-width: 100%;
-text-align: end;
+text-align: start;
 
 }
 
