@@ -15,7 +15,11 @@ function NewOrder() {
   const [Provider,setProvider] = useState(null);
   const [Choice, setChoice] = useState(true);
   const [SelectedDate, setSelectedDate] = useState(null);
-  
+  const CurrentDate = new Date();
+  if(CurrentDate.getDay()=== 5|| CurrentDate.getDay()=== 6){
+
+    CurrentDate.setDate(CurrentDate.getDate()+2);
+  }
    //useMemo
 //   const calculation = useMemo(() => expensiveCalculation(count), [count]);
 
@@ -59,6 +63,7 @@ useEffect(() => {
       }
     }
     getServiceProviders();
+   
   }, [])
 // console.log(ServiceProviders);
 
@@ -105,7 +110,7 @@ useEffect(() => {
       
       <div className="bootmCalender-container">
         
-      <DatePickerComponent Provider={Provider} setSelectedDate ={setSelectedDate}/>
+      <DatePickerComponent CurrentDate={CurrentDate} Provider={Provider} setSelectedDate ={setSelectedDate}/>
       <button onClick={handleComplete} id='Calender'> Complete</button>
       </div>
       </div>

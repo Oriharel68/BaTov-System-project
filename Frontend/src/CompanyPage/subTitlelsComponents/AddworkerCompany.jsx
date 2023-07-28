@@ -34,7 +34,6 @@ function AddworkerCompany() {
         // alert("missing info");
         ref.current.style.color = "red";
         ref.current.innerText = "חסר מידע -בבקשה השלם את כל המידע הנדרש";
-
         return;
       }
  

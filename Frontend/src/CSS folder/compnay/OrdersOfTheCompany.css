@@ -17,7 +17,6 @@
     align-items: center;
     text-align: center;
     /* padding-top: 1em; */
-
     /* the diraction of the fonts */
     direction: rtl;
 }
@@ -51,6 +50,7 @@ padding-right: 1em;
     max-width: 100%;
     background-color: white;
     border-radius: 14px ;
+   
     /* border: 1px solid #007bff;
     box-shadow: 0 0 0 1px #007bff */
 }
@@ -64,6 +64,7 @@ padding-right: 1em;
     background-color: crimson;
     
 }
+
 /* #B{
     margin-top: 5em;
    
@@ -121,8 +122,10 @@ font-size: 14px; */
   .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container {
     background-color: #f0f0f0;
             /* padding: 10px; */
+            
             box-sizing: border-box;
             width: 85%;
+            
             border-radius: 10px 100px / 120px;
             display: flex;
           justify-content: end;
@@ -172,10 +175,11 @@ direction: rtl;
         width: 100%;
         overflow-x: auto;
         
+        
 
     }
     .main-ordeList-container .orderReceipts-container table{
-        font-size: 10px;
+        font-size: 8px;
     
     }
     .main-ordeList-container .orderReceipts-container table th td{
@@ -190,7 +194,6 @@ direction: rtl;
                 width: 100%;
               display: flex;
               justify-content: space-between;
-    
              direction: ltr;
              /* padding-top: 1em;
              padding-right: 2em;
@@ -199,4 +202,16 @@ direction: rtl;
       }
     
     
+  }
+
+  @media print{
+    #not-in-print{
+      display: none;
+    }
+    .companyMainpage-nav-container{
+      display: none;
+    }
+    .main-ordeList-container .orderReceipts-container button{
+      display: none;
+    }
   }

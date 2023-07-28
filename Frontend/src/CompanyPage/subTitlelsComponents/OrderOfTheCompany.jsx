@@ -10,7 +10,7 @@ function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
   const [oldOrders, setOldOrders] = useState([]);
   const [allClients, setAllClients] = useState([]);
-
+  const TAX_RATE = 0.17;
    
   const [colspan, setColspan] = useState(1);
   console.log(allClients);
@@ -69,7 +69,7 @@ function OrderOfTheCompany() {
     };
   }, []);
 
-const TAX_RATE = 0.17;
+
 // מעמ
 // 17%
 
@@ -83,12 +83,11 @@ const TAX_RATE = 0.17;
   const subtotalSumTAX  = ordersWithTax.reduce((accumulator, currentValue) => accumulator + (currentValue.PriceWithTax -currentValue.Price) , 0);
   console.log(subtotalSumTAX);
 
-  // const TOTALPRICE = subtotalSum + subtotalSumTAX;
   return (
     <div>
       <CombaibnedNavCompany />
       <div className="main-ordeList-container">
-        <div className="orderReceipts-container">
+        <div id="not-in-print" className="orderReceipts-container">
           <h3>הזמנות פעילות</h3>
 
           <table>
@@ -111,7 +110,7 @@ const TAX_RATE = 0.17;
        
           </table>
         </div>
-        <div className="orderReceipts-container" >
+        <div id="not-in-print" className="orderReceipts-container" >
           <h3>הזמנות ישנות </h3>
           
           <table>
@@ -141,7 +140,7 @@ const TAX_RATE = 0.17;
 
           <h3>הכנסות</h3>
          
-          <button>Print</button>
+          <button onClick={()=>window.print()}>הדפס</button>
           </div>
           <table>
             <tr>
@@ -160,7 +159,7 @@ const TAX_RATE = 0.17;
         
              </tr>
              )})}    
-             <td colSpan={colspan}>                           
+             <td  colSpan={colspan}>                           
                         
           <div className="subTotal-Incomes-container">
              
