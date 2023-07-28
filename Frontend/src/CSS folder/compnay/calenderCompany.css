@@ -7,3 +7,9 @@
     justify-content: center;
     align-items: end;
 }
+.rbc-calendar{
+    direction: rtl;
+}
+.rbc-header{
+    text-align:right;
+}
