@@ -5,12 +5,13 @@ import StatisticCompanyLine from './Statistic Compant List/StatisticCompanyLine'
 
 import axios from 'axios';
 import { GetOrdersByMonth } from './Statistic Compant List/GetData';
-
+import {getOrderWithDate,getMoneyByDay,getMoneyByMonth,getMoneyByYear} from '../../Helpjs/help'
 function StatisticCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
   // const [orderReady,setOrderReady] = useState(false)
 
   const [orderData,setOrdersData] = useState([]);
+  console.log(orderData);
   const [statisticData, setStatisticData] = useState({
     labels:["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"],
     datasets: [
@@ -38,7 +39,7 @@ function StatisticCompany() {
       try {
         const {data} = await axios.get("http://localhost:4000/getAllOrders");
         const {Orders} = data;
-        setOrdersData(Orders);
+        setOrdersData(getOrderWithDate(Orders));
         const OrderByM = GetOrdersByMonth(Orders);
         setStatisticData({
           labels:["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"],
@@ -103,16 +104,12 @@ function StatisticCompany() {
               <th>יומי</th>       
       </tr>
        <tr>
-        <td>100₪</td>
-        <td>200₪</td>
-        <td>300₪</td>
+        <td>{`₪${getMoneyByYear(orderData).toLocaleString()}`}</td>
+        <td>{getMoneyByMonth(orderData).toLocaleString()}</td>
+        <td>{getMoneyByDay(orderData).toLocaleString()}</td>
        </tr>
         </table>
-        {/* <ul style={{backgroundColor:'red',padding:'1em',display:'flex'}}>
-          <li >יומי</li>
-          <li>חודשי </li>
-          <li>שנתי</li>
-        </ul> */}
+ 
       
       </div>
       </div>
@@ -130,76 +127,4 @@ function StatisticCompany() {
 export default StatisticCompany
 
 
-  // const UserData = [
-  //   {
-  //     id: 1,
-  //     year: 2016,
-  //     userGain: 80000,
-  //     userLost: 823,
-  //   },
-  //   {
-  //     id: 2,
-  //     year: 2017,
-  //     userGain: 45677,
-  //     userLost: 345,
-  //   },
-  //   {
-  //     id: 3,
-  //     year: 2018,
-  //     userGain: 78888,
-  //     userLost: 555,
-  //   },
-  //   {
-  //     id: 4,
-  //     year: 2019,
-  //     userGain: 90000,
-  //     userLost: 4555,
-  //   },
-  //   {
-  //     id: 5,
-  //     year: 2020,
-  //     userGain: 4300,
-  //     userLost: 234,
-  //   },
-  // ];
-
-  // the state that will store all the data that needed for the analyitics
-  // if we want we can stored that data outside the componenet
-  // const [userData , setUserData] = useState({
-    // repesent the option that we want to repesnt and add to the chart
-    //we can use here for exapale .MAP to view all the stored data that we want to repesent .
-    // labels: [2010,2012,2013],
-    // the use gorw for year
-    // datasetes: [{
-      // what is this piece repsent
-      // label:"User Gained",
-      // the ammount of user's gained --- >  we can use the .map methood to present all the data stored
-      // data: [15000,25000,35000] 
-    // }]
-
-
-     
-  // })
-  //  const UserData = [
-  //     {
-  //       id: 1,
-  //       year: 2016,
-  //       userGain: 80000,
-  //       userLost: 823,
-  //     },
-  //     {
-  //       id: 2,
-  //       year: 2017,
-  //       userGain: 45677,
-  //       userLost: 345,
-  //     },
-  //     {
-  //       id: 3,
-  //       year: 2018,
-  //       userGain: 78888,
-  //       userLost: 555,
-  //     },]
-
-      // console.log(UserData.length);
-      // console.log(orderData);
-      // console.log(orderData.length);
+  

@@ -19,6 +19,8 @@
     /* padding-top: 1em; */
     /* the diraction of the fonts */
     direction: rtl;
+    overflow-x: hidden;
+
 }
 
 .main-ordeList-container .orderReceipts-container .subTititle-container{
@@ -168,12 +170,11 @@ direction: rtl;
     .main-ordeList-container{
         display: flex;
         justify-content: center;
-    }
-    
-    .orderReceipts-container{
+      }
+      
+      .orderReceipts-container{
         /* background-color: red; */
         width: 100%;
-        overflow-x: auto;
         
         
 
