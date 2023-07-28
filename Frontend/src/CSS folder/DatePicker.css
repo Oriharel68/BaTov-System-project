@@ -2,6 +2,7 @@
  * https://github.com/arqex/react-datetime
  */
 
+
  .rdt {
     position: relative;
   }
@@ -215,4 +216,7 @@
   
   .rdtTime td {
     cursor: default;
+  }
+  .react-datepicker__month-container {
+    direction: rtl;
   }

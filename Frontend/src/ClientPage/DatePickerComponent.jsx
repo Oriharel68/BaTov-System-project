@@ -2,12 +2,13 @@ import axios from 'axios';
 import React, { memo, useEffect, useState } from 'react'
 import DatePicker  from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import he from 'date-fns/locale/he'
 
-function DatePickerComponent({setSelectedDate,Provider}) {
+function DatePickerComponent({setSelectedDate,Provider,CurrentDate}) {
  
   const [startDate, setStartDate] = useState(null);
   const [OrderData, setOrderData] = useState([]);
-
+ 
 
 
   useEffect(() => {
@@ -21,6 +22,7 @@ function DatePickerComponent({setSelectedDate,Provider}) {
       return item.DateTime;
     })
     setOrderData(FilterTime);
+    
     }
     getorders();
   }, [])
@@ -62,7 +64,8 @@ function DatePickerComponent({setSelectedDate,Provider}) {
       selected={startDate}
       onChange={(date) => setStartDate(date)}
       showTimeSelect
-      minDate={new Date()}
+      locale={he}
+      minDate={CurrentDate}
       filterDate={(date)=>isWeekday(date)}
       filterTime={filterPassedTime}
       dateFormat="d MMMM, yyyy h:mm aa"
