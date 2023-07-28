@@ -7,6 +7,18 @@ function AddworkerCompany() {
   const [ServiceProviders,setServiceProviders] = useState([]);
   const [Change,setChange] = useState(0);
    const ref = useRef();
+
+   const [showSecondDiv, setShowSecondDiv] = useState(false);
+   function handleClick (){
+       // setShowSecondDiv(true);
+       if(showSecondDiv){
+         setShowSecondDiv(false)
+         return;
+       }else{
+         setShowSecondDiv(true)
+
+       }
+   }
    
   async function handleOnSubmit(event) {
     try {
@@ -76,7 +88,7 @@ useEffect(() => {
       </div>
       
       <div className="mainAddWorker-Page">
-        <div className="main-container">
+        {/* <div className="main-container">
           <form action=""  onSubmit={(event) => handleOnSubmit(event)}>
           <h3>הוספת עובד</h3>
             
@@ -90,29 +102,63 @@ useEffect(() => {
           </form>
                 <div ref={ref} className=""></div>
             
-            </div>
+            </div> */}
             <div className="Worker-list-container">
-              <h3>ניהול עובדים קיימים</h3>
+              <div className="topics-container">
 
+              <h3 className='TContent'>ניהול עובדים קיימים</h3>
+              <button className="button-30" role="button" onClick={()=>handleClick()}>הוספת עובד</button>
+              {/* <button className='TTContent' onClick={()=>handleClick()}>הוספת עובד</button> */}
+              </div>
+              {showSecondDiv &&     <div className="main-container">
+          <form action=""  onSubmit={(event) => handleOnSubmit(event)}>
+          <h3>הוספת עובד</h3>
+            
+        <input type="text" id="W2" name="workerName" placeholder=' שם + שם משפחה'/>
+        <input type="text" id="W2" name="serviceType" placeholder='סוג איש מקצוע'/>
+        <input type="number" id="W3" name="price" placeholder='מחיר/עלות בדיקה' min="0"/>
+         
+          <button>
+            הוספה
+          </button>
+          <button onClick={()=>handleClick()}>
+            יציאה
+          </button>
+          </form>
+                <div ref={ref} className=""></div>
+            
+            </div>
+              
+              }
               <div className="main-worker-list-container">
+                  <table> 
+                    <tr>
+                      <th>שם עובד</th>
+                      <th>סוג עובד</th>
+                      <th>מחיר בדיקה</th>
+                      <th>עריכה</th>
+                      <th>הסרה</th>
+                    </tr>
               {ServiceProviders.map((item)=>{
                   
                 return (
                   
-                  <table>
 
+<tr>
 
+                     <AddWorkerListCompany item={item} key={item._id} setChange={setChange} Change={Change}  />
 
-                     <AddWorkerListCompany item={item} key={item._id} setChange={setChange} Change={Change}/>
+</tr>
+
 
 
                      
                     
-                     </table>
 
-                  )
-                })}
+)
+})}
          
+</table>
            
               </div>
          

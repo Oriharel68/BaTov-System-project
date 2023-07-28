@@ -3,6 +3,7 @@ body{
 
     background-color:rgb(190, 190, 190)
 }
+
 .page-wraper{
     display: flex;
     justify-content: center;

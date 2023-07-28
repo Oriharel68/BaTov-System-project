@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import EditWorkerContainer from './EditWorkerContainer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FiEdit3,FiDelete } from 'react-icons/fi';
+import { AiOutlineUserDelete } from 'react-icons/ai';
 
 function AddWorkerListCompany({item,setChange,Change}) {
     // console.log(item);
@@ -49,18 +51,20 @@ function AddWorkerListCompany({item,setChange,Change}) {
      
              <>
 
-<tr>
+
   <td id='WorkerName' className='WorkerName' > {WorkerName}</td>
+  <td id='WorkerName' className='WorkerName' > {TypeOfService}</td>
+  <td id='WorkerName' className='WorkerName' > {Price}₪</td>
   <td id='btnAddRemove'>
-       <button onClick={()=>handleClick()} >עריכה</button>
+       <button onClick={()=>handleClick()} ><FiEdit3/></button>
        </td>
        
   <td id='btnAddRemove'>
-      <button onClick={(event)=>handleRemove(event)} name='WorkerName'>הסרה</button>
+      <button onClick={(event)=>handleRemove(event)} name='WorkerName'><AiOutlineUserDelete/></button>
       
       </td>
 
-</tr>
+
        {showSecondDiv &&  <div className="subTitle-company" >
         <EditWorkerContainer setShowSecondDiv={setShowSecondDiv} item={item} Change={Change}  setChange={setChange}/>
         </div>}
