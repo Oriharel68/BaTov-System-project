@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
 import ErorPage from "../ErorPage/ErorPage";
 import Main from "../Main page/Main";
@@ -21,12 +21,15 @@ import ForgetPassword from "../ClientPage/ForgetPassword";
 import Fullcalender from "../CompanyPage/Calenders/Fullcalender";
 
 
-function RouterServer() {
+export const MyContext = createContext(null);
 
+function RouterServer() {
+const [item,setItem] =useState([])
 
   
   return (
     <div>
+          <MyContext.Provider value={item}>
       <Router>
         {/* <NavBar/> */}
         <Routes>
@@ -44,17 +47,21 @@ function RouterServer() {
           
           {/*company side  */}
           <Route path="/company/access" element={<CompanyAccsess/>} />
+
+         
           <Route path="/company/mainpage" element={<CompantMainPage/>} />
               {/* subtitels */}
               <Route path="/company/AddWorker" element={<AddworkerCompany/>} />
               <Route path="/company/Calender" element={<CompnatCalenderDetaills/>} />
               <Route path="/company/Statistics" element={<StatisticCompany/>} />
+
               <Route path="/company/Orders" element={<OrderOfTheCompany/>} />
               {/* messages */}
               <Route path="/client/registrationCompalete" element={<UserRegistrationComplete/>} />
               <Route path="/order/orderCompelte" element={<OrderCompelteMessage/>} />
         </Routes>
       </Router>
+              </MyContext.Provider>
     </div>
   );
 }

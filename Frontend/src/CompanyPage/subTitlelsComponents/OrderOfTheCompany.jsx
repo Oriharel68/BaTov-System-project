@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CombaibnedNavCompany from "../../nav/CombaibnedNavCompany";
 import axios from "axios";
 import ActiceOrdersList from "./order list's/ActiceOrdersList";
@@ -6,7 +6,8 @@ import ActiceOrdersList from "./order list's/ActiceOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
 import CompantMainPage from "../CompantMainPage";
-import AppContext from "../../Helpjs/AppContexxt";
+import { MyContext } from "../../Router/RouterServer";
+// import AppContext from "../../Helpjs/AppContexxt";
 
 //  AppContext
 // to pass this object we have some methods:
@@ -20,7 +21,7 @@ function OrderOfTheCompany() {
   const [allClients, setAllClients] = useState([]);
   const TAX_RATE = 0.17;
    
-
+const context = useContext(MyContext);
 
    const [colspan, setColspan] = useState(1);
   console.log(allClients);
@@ -92,7 +93,7 @@ function OrderOfTheCompany() {
   const subtotalSumTAX  = ordersWithTax.reduce((accumulator, currentValue) => accumulator + (currentValue.PriceWithTax -currentValue.Price) , 0);
  
   // const AppContext = React.createContext();
-   const TOTAL_VALUE = subtotalSum - subtotalSumTAX;
+    const TOTAL_VALUE = subtotalSum - subtotalSumTAX;
 
   return (
     
@@ -186,12 +187,7 @@ function OrderOfTheCompany() {
                 <p id="emphasis"><b>סה"כ:</b> </p>
 
 
-                <div className="" style={{display:'none'}}>
-  
-             <AppContext.Provider value={{ TOTAL_VALUE }}>
-              <CompantMainPage />
-              </AppContext.Provider>           
-                   </div>
+       
 
               </div>
              </div>

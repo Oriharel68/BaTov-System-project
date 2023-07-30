@@ -14,7 +14,6 @@ import {
 } from "../Helpjs/help";
 import { GetOrdersByMonth } from "../CompanyPage/subTitlelsComponents/Statistic Compant List/GetData";
 import StatisticCompanyLine from "./subTitlelsComponents/Statistic Compant List/StatisticCompanyLine";
-import AppContext from "../Helpjs/AppContexxt";
 
 import AddworkerCompany from "./subTitlelsComponents/AddworkerCompany";
 import CompnatCalenderDetaills from "./subTitlelsComponents/CompnatCalenderDetaills";
