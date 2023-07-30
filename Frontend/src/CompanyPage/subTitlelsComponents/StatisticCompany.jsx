@@ -105,8 +105,8 @@ function StatisticCompany() {
       </tr>
        <tr>
         <td>{`₪${getMoneyByYear(orderData).toLocaleString()}`}</td>
-        <td>{getMoneyByMonth(orderData).toLocaleString()}</td>
-        <td>{getMoneyByDay(orderData).toLocaleString()}</td>
+        <td>{`₪${getMoneyByMonth(orderData).toLocaleString()}`}</td>
+        <td>{`₪${getMoneyByDay(orderData).toLocaleString()}`}</td>
        </tr>
         </table>
  

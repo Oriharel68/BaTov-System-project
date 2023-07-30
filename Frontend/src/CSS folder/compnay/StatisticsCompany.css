@@ -11,6 +11,7 @@
    padding: 7em 0em  ;
 
 }
+
 .main-statistics-page{
 width: 100%;
 display: flex;
@@ -35,6 +36,7 @@ justify-content: center;
 }
 
 .money--statistics{
+    /* background-color: red; */
 /* width: 100%; */
 padding: 1em;
 display: flex;
@@ -60,3 +62,24 @@ border: none;
 /* canvas{
     width: 500px;
 } */
+
+
+.money--statistics .TotalAmmount{
+    background-color: rebeccapurple;
+    
+}
+
+.mainCompanyPage-container {
+
+}
+.mainCompanyPage-container .components-list {
+display: flex;
+justify-content: center;
+padding: 5em;
+}
+.mainCompanyPage-container .components-list .list {
+text-align: center;
+background-color: lightcoral;
+border: 1px solid black;
+padding: 1em;
+}

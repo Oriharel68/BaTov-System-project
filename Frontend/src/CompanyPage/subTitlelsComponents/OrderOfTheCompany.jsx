@@ -5,6 +5,14 @@ import ActiceOrdersList from "./order list's/ActiceOrdersList";
 // import OldOrders from "./order list's/OldOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
+import CompantMainPage from "../CompantMainPage";
+import AppContext from "../../Helpjs/AppContexxt";
+
+//  AppContext
+// to pass this object we have some methods:
+// 1. redux
+// 2. context
+// export const AppContext = React.createContext();
 
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
@@ -12,7 +20,9 @@ function OrderOfTheCompany() {
   const [allClients, setAllClients] = useState([]);
   const TAX_RATE = 0.17;
    
-  const [colspan, setColspan] = useState(1);
+
+
+   const [colspan, setColspan] = useState(1);
   console.log(allClients);
   // console.log(allClients);
   useEffect(() => {
@@ -79,11 +89,13 @@ function OrderOfTheCompany() {
     ...order,
     PriceWithTax: (order.Price * (1 + TAX_RATE)).toFixed(2),
   }));
-  console.log(ordersWithTax);
   const subtotalSumTAX  = ordersWithTax.reduce((accumulator, currentValue) => accumulator + (currentValue.PriceWithTax -currentValue.Price) , 0);
-  console.log(subtotalSumTAX);
+ 
+  // const AppContext = React.createContext();
+   const TOTAL_VALUE = subtotalSum - subtotalSumTAX;
 
   return (
+    
     <div>
       <CombaibnedNavCompany />
       <div className="main-ordeList-container">
@@ -166,12 +178,21 @@ function OrderOfTheCompany() {
               <div className="right-cotainer">
                 <p> ₪{subtotalSum.toLocaleString() }</p>
                 <p> ₪{subtotalSumTAX.toLocaleString()}</p>
-                <p id="emphasis"> <b > ₪{(subtotalSum - subtotalSumTAX).toLocaleString()} </b> </p>
+                <p id="emphasis"> <b > ₪{(TOTAL_VALUE).toLocaleString()} </b> </p>
               </div>
               <div className="left-conatiner">
                 <p>סכום משנה:</p>
                 <p>מע"מ:</p>
                 <p id="emphasis"><b>סה"כ:</b> </p>
+
+
+                <div className="" style={{display:'none'}}>
+  
+             <AppContext.Provider value={{ TOTAL_VALUE }}>
+              <CompantMainPage />
+              </AppContext.Provider>           
+                   </div>
+
               </div>
              </div>
              </td>
