@@ -102,19 +102,19 @@ if(showSecondDiv == false){
 
       <div className="CompanyMain-access-container">
       <form action=""  onSubmit={(e) => handeleSingIn(e)}>
-
-        <div className="topAccess-container">
+      <h3>כניסה למערכת</h3>
+        {/* <div className="topAccess-container"> */}
           {/* <input type="text" placeholder='שם משתמש' /> */}
-          <label for="inp" class="inp">
+          <label for="inp" class="inp">שם משתמש</label>
             <input
               type="email"
               name="Email"
               id="inp"
               placeholder="שם משתמש"
-              pattern=".{6,}"
+              // pattern=".{6,}"
               required
             />
-            <svg
+            {/* <svg
               width="280px"
               height="18px"
               viewBox="0 0 280 18"
@@ -125,21 +125,22 @@ if(showSecondDiv == false){
 
             <svg width="14px" height="12px" viewBox="0 0 14 12" class="check">
               <path d="M1 7 5.5 11 L13 1"></path>
-            </svg>
-          </label>
-        </div>
-        <div className="bootomAccess-container">
+            </svg> */}
+      
+        {/* </div> */}
+        {/* <div className="bootomAccess-container"> */}
           {/* <input type="text" placeholder='סיסמא' /> */}
-          <label for="inp" class="inp">
+          <label for="inp" class="inp">        סיסמא   </label>
+
             <input
               type="password"
               name="password"
               id="inp"
               placeholder="סיסמא"
-              pattern=".{6,}"
+              // pattern=".{6,}"
               required
             />
-            <svg
+            {/* <svg
               width="280px"
               height="18px"
               viewBox="0 0 280 18"
@@ -149,12 +150,11 @@ if(showSecondDiv == false){
             </svg>
             <svg width="14px" height="12px" viewBox="0 0 14 12" class="check">
               <path d="M1 7 5.5 11 L13 1"></path>
-            </svg>
+            </svg> */}
 
           
-          </label>
     
-        </div>
+        {/* </div> */}
         {Loggedin ? (
 
 <div class="custom-loader"></div>
@@ -163,25 +163,27 @@ if(showSecondDiv == false){
   ) : (
     <h4 id="errorbox"></h4>
   )}
-                <div className="form-group forgot-password" style={{marginTop:'2em'}}
+                <div className="form-group forgot-password"
                    onClick={handleMouseEnter}
                   //  onMouseLeave={handleMouseLeave}
                    >
                  
-                  <a href="#">Forgot password?</a>   
+                  <a id="forget" href="#">שכחתי סיסמה</a>   
                   
                 {showSecondDiv &&  <div className="companyAccess-Message" >
-              <h3>Please contact the admin administrator </h3>
-              <a  href="mailto:admin@gmail.com">
-              <li  >  mail<AiOutlineMail/> </li>
+              <h3 className="T">בבקשה תפנו למערכות התמיכה 
+              <a href="mailto:admin@gmail.com" >
+              <AiOutlineMail/> 
               </a> 
+              </h3>
+           
               </div>
              } 
                 </div>
                 <button className="signin-button" type="submit">
-                  Sign In
+                  כניסה למערכת
                 </button> 
-                
+  
 
         </form>
 

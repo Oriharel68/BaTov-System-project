@@ -1,7 +1,10 @@
-
+*{
+    text-decoration: none;
+}
 body{
 
-    background-color:rgb(190, 190, 190)
+    background-color:rgb(190, 190, 190);
+ 
 }
 
 .page-wraper{

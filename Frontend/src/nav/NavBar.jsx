@@ -12,12 +12,13 @@
 // export default NavBar
 import React from 'react'
 import { Link } from 'react-router-dom'
+import NavLogo from '../Main page/NavLogo'
 
 function NavBar() {
   return (
     <div>
     <div className='navBar-Main'>
-     <h1>logo</h1>
+    <NavLogo/>
    <div className="insideNavTopFirst-container">
    <div className="btn-container">
    <Link to={'/company/access'} id='T'><button >חברה</button></Link>

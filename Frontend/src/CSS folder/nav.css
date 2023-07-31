@@ -14,9 +14,9 @@
 }
 .navBar-Main h1{
 
-   background-color: red;
+   /* background-color: red;
    text-align: center;
-   padding-left: 9%;
+   padding-left: 9%; */
 
    
 }
@@ -44,13 +44,16 @@
                   /* margin: 4px 2px; */
                   transition-duration: 0.4s;
                   cursor: pointer;
+                  border-radius: 20px;
+
               }
               
               .insideNavTopFirst-container .btn-container button:hover {
-              
-                  background-color: #4CAF50; 
+               border-radius: 10px;
+               background-color: #4CAF50; 
                   color: white; 
                   border: 2px solid #4CAF50;
+                 
                 }
               
 
@@ -72,9 +75,9 @@
          }
          .navBar-Main h1{
          
-            background-color: red;
+            /* background-color: red;
             text-align: center;
-            padding-left: 5%;
+            padding-left: 5%; */
          
             
          }
