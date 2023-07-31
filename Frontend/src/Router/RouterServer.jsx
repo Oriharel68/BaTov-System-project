@@ -24,7 +24,7 @@ import Fullcalender from "../CompanyPage/Calenders/Fullcalender";
 export const MyContext = createContext(null);
 
 function RouterServer() {
-const [item,setItem] =useState([])
+const [item,setItem] =useState({})
 
   
   return (

@@ -48,9 +48,9 @@ mongoose
 
 
 
-  app.use("/findAllClients",findAllClients);
+  app.use("/findAllClients",findAllClients); 
   app.use("/addProvider",addprovider);   
-  app.use("/getServiceProvider",getServiceProvider);
+  app.use("/getServiceProvider",getServiceProvider); 
   app.use('/getExistingOrders',getExistingOrders);
   app.use('/getAllOrders',getAllOrders);
   app.use('/addOrder',addOrder);
@@ -59,7 +59,7 @@ mongoose
   app.use('/companyCheck',companyCheck);
   app.use('/removeworker',removeWork);
   app.use('/EditCompanyWorker',EditCompanyWorker);
-  app.use('/getSumOfClientsOrder',getSumOfClientsOrder)
+  app.use('/getSumOfClientsOrder',getSumOfClientsOrder); 
   app.use('/getTime',getTime)
 
 app.get('/ServerStatus', (req:Request,res:Response)=>{
