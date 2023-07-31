@@ -23,7 +23,7 @@ function StatisticCompany() {
       },
     ],
   });
-
+// fixxxxxxxxxxxx 
 
   useEffect(() => {
     async function getServiceProviders(){

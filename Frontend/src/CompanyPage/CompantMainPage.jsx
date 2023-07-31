@@ -25,7 +25,8 @@ function CompantMainPage() {
   //   throw new Error('Cannot access context. Make sure you are rendering this component inside the AppContext.Provider');
   // }
   // const { TOTAL_VALUE } = context;
-
+  
+// fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   const [orderData, setOrdersData] = useState([]);
 
   const [statisticData, setStatisticData] = useState({
