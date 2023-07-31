@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import NavBar from "../nav/NavBar";
-import Companysubtitle from "../nav/Companysubtitle";
-import CompanyNavBar from "../nav/CompanyNavBar";
+import IncomesList from "./subTitlelsComponents/order list's/IncomesList";
 import CombaibnedNavCompany from "../nav/CombaibnedNavCompany";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,20 +13,18 @@ import {
 import { GetOrdersByMonth } from "../CompanyPage/subTitlelsComponents/Statistic Compant List/GetData";
 import StatisticCompanyLine from "./subTitlelsComponents/Statistic Compant List/StatisticCompanyLine";
 
-import AddworkerCompany from "./subTitlelsComponents/AddworkerCompany";
-import CompnatCalenderDetaills from "./subTitlelsComponents/CompnatCalenderDetaills";
-import OrderOfTheCompany from "./subTitlelsComponents/OrderOfTheCompany";
+
+import Fullcalender from "./Calenders/Fullcalender";
+import ActiceOrdersList from "./subTitlelsComponents/order list's/ActiceOrdersList";
 
 function CompantMainPage() {
-  // const context = useContext(AppContext);
-  // if (!context) {
-  //   throw new Error('Cannot access context. Make sure you are rendering this component inside the AppContext.Provider');
-  // }
-  // const { TOTAL_VALUE } = context;
+ 
   
 // fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   const [orderData, setOrdersData] = useState([]);
-
+const [OrdersActive,setOrdersActive] = useState([]);
+const [allClients,SetAllClients] = useState([]);
+const [TotalSum, setTotalSum] = useState(0);
   const [statisticData, setStatisticData] = useState({
     labels: [
       "ינואר",
@@ -57,8 +53,13 @@ function CompantMainPage() {
   useEffect(() => {
     async function getOrdersData() {
       try {
-        const { data } = await axios.get("http://localhost:4000/getAllOrders");
-        const { Orders } = data;
+        const Promises = await Promise.all([axios.get("http://localhost:4000/getAllOrders"),axios.get("http://localhost:4000/findAllClients"),axios.get('http://localhost:4000/getSumOfClientsOrder')]);
+        const Clients = Promises[1].data;
+        const { Orders } = Promises[0].data;
+        const SumClients = Promises[2].data;
+        SetAllClients(SumClients)
+        ActiveOrders(Orders,Clients);
+        SumOfClients(SumClients);
         setOrdersData(getOrderWithDate(Orders));
         const OrderByM = GetOrdersByMonth(Orders);
         setStatisticData({
@@ -96,18 +97,41 @@ function CompantMainPage() {
         console.log(error);
       }
     }
+  function ActiveOrders(Orders,Clients){
+      const currdate = new Date().getTime();
+        
+      const oldOrders = [];
+      const OngoingOrders = []; 
+
+      const OrdersWithName = Orders.map((item) => {
+        const With = Clients.find((value)=>{
+          return value._id === item.ClientId;
+        });
+        return {...item,ClientName:`${With.FirstName} ${With.LastName}`}
+      });
+      
+        
+      OrdersWithName.forEach((item) => {
+        if (currdate > item.DateTime) oldOrders.push(item);
+        else OngoingOrders.push(item);
+      });
+      setOrdersActive(OngoingOrders);
+    }
+    function SumOfClients(Clients){
+      console.log(Clients);
+      const Total = Clients.reduce((accumulator, currentValue) => accumulator + currentValue.Total,0)
+      const TotalWithoutTax = Total - (Total*0.17);
+      setTotalSum(TotalWithoutTax);
+    }
     getOrdersData();
   }, []);
+/*
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+*/
 
-  //     const [showSecondDiv, setShowSecondDiv] = useState(false);
-
-  //     const handleMouseEnter = () => {
-  //       setShowSecondDiv(true);
-  //     };
-
-  //     const handleMouseLeave = () => {
-  //       setShowSecondDiv(false);
-  //     };
   const navigate = useNavigate();
   const auth = getAuth();
   const [userAuth, setUserAuth] = useState(auth);
@@ -121,7 +145,7 @@ function CompantMainPage() {
     }
   }, []);
 
-  // console.log(userIn.currentUser);
+
 
   return (
     <>
@@ -137,8 +161,7 @@ function CompantMainPage() {
           <div className="money--statistics">
             <div className="TotalAmmount">
               <h3> רווחי חברה </h3>
-              {/* <p id="emphasis"> <b > ₪{(TOTAL_VALUE).toLocaleString()} </b> </p> */}
-              <p id="emphasis" style={{paddingTop:'4em'}}> <b > CONTEXT FROM ORDERS </b> </p>
+              <p id="emphasis" style={{paddingTop:'4em'}}> <b > ₪{(TotalSum).toLocaleString()} </b> </p>
             </div>
             <StatisticCompanyLine statisticData={statisticData} />
             <table>
@@ -162,19 +185,65 @@ function CompantMainPage() {
           {/* !!!!! need to use context  */}
           <div className="list" >
                 <h3>CONTEXT of things we want to display to our clients</h3>
+                <Fullcalender/>
            {/* <AddworkerCompany/> */}
           </div>
           <div className="list">
           <h3>CONTEXT of things we want to display to our clients</h3>
+          <div className="main-ordeList-container">
+          <div id="not-in-print" className="orderReceipts-container">
+          <h3>הזמנות פעילות</h3>
 
+          <table>
+            <tr>
+              <th >תאריכים</th>
+              <th >הזמנה</th>
+              <th >שם בודק</th>
+              <th >סכום</th>
+              <th >מספר הזמנה</th>
+              <th >סטטוס</th>
+            </tr>
+                {OrdersActive.map((item)=>{
+                  return(
+                  <tr >
+          
+                    <ActiceOrdersList item={item} key={item._id} />
+                 </tr>
+                  )
+                })}
+       
+          </table>
+        </div>
+        </div>
              {/* <CompnatCalenderDetaills/> */}
           </div>
           <div className="list">
           <h3>CONTEXT of things we want to display to our clients</h3>
+          <div className="main-ordeList-container">
+          <div className="orderReceipts-container" >
+          <table>
+            <tr>
+              <th>הזמנה</th>
+              <th>כתובת אלקטרונית</th>
+              <th>סכום</th>
+           
+            </tr> 
 
+            {/* {allClients.map((client)=>{ */}
+   
+             {allClients.map((client)=>{
+              return  (            
+               <tr>
+            <IncomesList client={client} key={client._id}/>
+        
+             </tr>
+             )})}   
+             </table>
+             
+             </div>
       {/* <OrderOfTheCompany/> */}
           </div>
-
+          </div>
         </div>
       </div>
     </>
