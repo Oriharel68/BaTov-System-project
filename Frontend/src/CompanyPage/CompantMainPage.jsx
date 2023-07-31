@@ -10,12 +10,13 @@ import {
   getMoneyByMonth,
   getMoneyByYear,
 } from "../Helpjs/help";
-import { GetOrdersByMonth } from "../CompanyPage/subTitlelsComponents/Statistic Compant List/GetData";
+import { GetOrdersByMonth,MoneyByMonth } from "../CompanyPage/subTitlelsComponents/Statistic Compant List/GetData";
 import StatisticCompanyLine from "./subTitlelsComponents/Statistic Compant List/StatisticCompanyLine";
 
 
 import Fullcalender from "./Calenders/Fullcalender";
 import ActiceOrdersList from "./subTitlelsComponents/order list's/ActiceOrdersList";
+import MoneyStatistics from "./MoneyStatistics";
 
 function CompantMainPage() {
  
@@ -25,6 +26,30 @@ function CompantMainPage() {
 const [OrdersActive,setOrdersActive] = useState([]);
 const [allClients,SetAllClients] = useState([]);
 const [TotalSum, setTotalSum] = useState(0);
+const [LineStatistic,SetLineStatistic] = useState({
+  labels: [
+    "ינואר",
+    "פברואר",
+    "מרץ",
+    "אפריל",
+    "מאי",
+    "יוני",
+    "יולי",
+    "אוגוסט",
+    "ספטמבר",
+    "אוקטובר",
+    "נובמבר",
+    "דצמבר",
+  ],
+  datasets: [
+    {
+      label: "מספר הזמנות",
+      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      borderColor: "black",
+      borderWidth: 2,
+    },
+  ],
+})
   const [statisticData, setStatisticData] = useState({
     labels: [
       "ינואר",
@@ -93,6 +118,45 @@ const [TotalSum, setTotalSum] = useState(0);
             },
           ],
         });
+        const MoneyBy = MoneyByMonth(Orders);
+        SetLineStatistic({
+          labels: [
+            "ינואר",
+            "פברואר",
+            "מרץ",
+            "אפריל",
+            "מאי",
+            "יוני",
+            "יולי",
+            "אוגוסט",
+            "ספטמבר",
+            "אוקטובר",
+            "נובמבר",
+            "דצמבר",
+          ],
+          datasets: [
+            {
+              label: `₪סה"כ`,
+              data: MoneyBy,
+              backgroundColor: [
+                "#e74c3c", // Alizarin Red
+                "#3498db", // Curious Blue
+                "#9b59b6", // Amethyst Purple
+                "#f39c12", // Orange Yellow
+                "#1abc9c", // Mountain Meadow
+                "#d35400", // Pumpkin Orange
+                "rgba(75,192,192,1)",
+                "#8e44ad", // Wisteria Purple
+                "#f1c40f", // Sunglow Yellow
+                "#16a085", // Ocean Green
+                "#c0392b", // Pomegranate Red
+                "#27ae60", // Eucalyptus Green
+              ],
+              borderColor: "black",
+              borderWidth: 2,
+            },
+          ],
+        })
       } catch (error) {
         console.log(error);
       }
@@ -163,7 +227,7 @@ const sumWithInitial = array1.reduce(
               <h3> רווחי חברה </h3>
               <p id="emphasis" style={{paddingTop:'4em'}}> <b > ₪{(TotalSum).toLocaleString()} </b> </p>
             </div>
-            <StatisticCompanyLine statisticData={statisticData} />
+            <MoneyStatistics statisticData={LineStatistic} />
             <table>
               <tr>
                 <th>שנתי </th>
