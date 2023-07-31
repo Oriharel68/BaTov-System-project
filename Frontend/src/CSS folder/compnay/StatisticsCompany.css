@@ -36,8 +36,15 @@ justify-content: center;
 }
 
 .money--statistics{
-    /* background-color: red; */
-/* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    background-color: pink;
+    max-width: 80%;
+    width: 100%;
+
 padding: 1em;
 display: flex;
 }
@@ -66,20 +73,41 @@ border: none;
 
 .money--statistics .TotalAmmount{
     background-color: rebeccapurple;
+    padding: 1em;
     
 }
 
-.mainCompanyPage-container {
 
+.mainCompanyPage-container {
+/* background-color: red; */
 }
 .mainCompanyPage-container .components-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    box-sizing: border-box;
+
+    /* background-color: blue; */
+    max-width: 100%;
+    width: 100%;
 display: flex;
+align-items: center;
 justify-content: center;
-padding: 5em;
+/* padding: 1em; */
 }
 .mainCompanyPage-container .components-list .list {
+    max-width: 60%;
+    /* padding: 2em; */
+    margin: 0.5em;
+    padding: 0.4em;
+   
+    background-color: whitesmoke;
+
+    border-radius: 30px;
+
 text-align: center;
-background-color: lightcoral;
+/* background-color: lightcoral; */
 border: 1px solid black;
-padding: 1em;
+
+/* padding: 1em; */
 }

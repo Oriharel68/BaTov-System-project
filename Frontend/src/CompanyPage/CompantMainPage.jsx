@@ -203,7 +203,7 @@ const sumWithInitial = array1.reduce(
   //cheking the user if in/ out
   // console.log(userIn);
   useEffect(() => {
-    if (userAuth == null) {
+    if (userAuth.currentUser == null) {
       navigate("/");
       alert("useer is not assianged");
     }
@@ -225,9 +225,15 @@ const sumWithInitial = array1.reduce(
           <div className="money--statistics">
             <div className="TotalAmmount">
               <h3> רווחי חברה </h3>
-              <p id="emphasis" style={{paddingTop:'4em'}}> <b > ₪{(TotalSum).toLocaleString()} </b> </p>
+              <p id="emphasis" style={{paddingTop:'4em'}}> <b > +₪{(TotalSum).toLocaleString()} </b> </p>
             </div>
+
+            <div className="MoneyStatistics-container">
+
             <MoneyStatistics statisticData={LineStatistic} />
+
+            </div>
+
             <table>
               <tr>
                 <th>שנתי </th>
@@ -245,15 +251,16 @@ const sumWithInitial = array1.reduce(
 
 
         <div className="components-list">
-
-          {/* !!!!! need to use context  */}
           <div className="list" >
-                <h3>CONTEXT of things we want to display to our clients</h3>
+          <Link to={'/company/Calender'}>
                 <Fullcalender/>
            {/* <AddworkerCompany/> */}
+           </Link>
+
           </div>
           <div className="list">
-          <h3>CONTEXT of things we want to display to our clients</h3>
+          <Link to={'/company/Orders'}>
+
           <div className="main-ordeList-container">
           <div id="not-in-print" className="orderReceipts-container">
           <h3>הזמנות פעילות</h3>
@@ -280,11 +287,15 @@ const sumWithInitial = array1.reduce(
         </div>
         </div>
              {/* <CompnatCalenderDetaills/> */}
+             </Link>
           </div>
           <div className="list">
-          <h3>CONTEXT of things we want to display to our clients</h3>
+          <Link to={'/company/Orders'}>
+
           <div className="main-ordeList-container">
           <div className="orderReceipts-container" >
+          <h3>הכנסות</h3>
+
           <table>
             <tr>
               <th>הזמנה</th>
@@ -294,7 +305,7 @@ const sumWithInitial = array1.reduce(
             </tr> 
 
             {/* {allClients.map((client)=>{ */}
-   
+         
              {allClients.map((client)=>{
               return  (            
                <tr>
@@ -307,7 +318,16 @@ const sumWithInitial = array1.reduce(
              </div>
       {/* <OrderOfTheCompany/> */}
           </div>
+          </Link>
           </div>
+
+          <div className="list">
+          <Link to={'/company/Statistics'}>
+             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium vero corrupti ipsum optio natus quod blanditiis beatae, eveniet dolorum hic magni exercitationem, ea dolores totam. Consequatur tempora dolorum error veniam.</p>
+             <h1>להוסיף אפקטים לעצב את הדיבים למצוא צבע רגע יפה להכול .....</h1>
+          </Link>
+          </div>
+
         </div>
       </div>
     </>
