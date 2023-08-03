@@ -20,7 +20,7 @@
     width: 100%;
     display: flex;
    padding-right: 2em;
-    justify-content: space-around;
+    /* justify-content: space-evenly; */
    /* background-color: black; */
 
 
@@ -34,6 +34,22 @@ list-style: none;
 color: gainsboro;
 text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
+}
+.companyMainpage-nav-container .exit-company{
+  /* background-color: red; */
+
+
+  position: absolute;
+  right: 6em;
+  font-size: 25px;
+}
+.companyMainpage-nav-container .exit-company button{
+  /* background-color: red; */
+  all: unset;
+  /* text-transform: none; */
+  background-color: transparent; 
+
+  
 }
 
 /* .subTitle-company .companySubTitle-conatiner ul li:hover{
@@ -49,9 +65,9 @@ border-radius: 10px;
 text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 } */
-.subTitle-company .companySubTitle-conatiner ul li h3{
+/* .subTitle-company .companySubTitle-conatiner ul li h3{
 } 
- 
+  */
 
 /* max-width 645px change */
 /* @media screen and (max-width: 757px) {

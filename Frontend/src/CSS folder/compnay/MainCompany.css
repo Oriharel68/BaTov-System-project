@@ -1,162 +1,318 @@
-
-.mainCompanyPage-container {
-    /* background-color: red; */
-       padding: 7em 0em  ;
-
-    }
-
- .mainCompanyPage-container .content-wraper{
-    width: 100%;
+.page-wraper-company{
+    
+    /* padding-top:4em; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
-
-    /* flex-flow: column wrap; */
-
-     
     align-items: center;
-    text-align: center;
-   /* background-color: red; */
-   /* padding: 7em 0em  ; */
+    overflow: hidden;
+}
+.page-wraper-company .statistic-container{
+ /* background-color: red; */
+     padding-top:4em;
 
-}
-.mainCompanyPage-container .content-wraper .content-title{
-    display: flex;
-    text-align: center;
-    background-color: red;
-}
-.mainCompanyPage-container .content-wraper .main-statistics-page{
-width: 80%;
+width: 90%;
 max-width: 100%;
-display: flex;
-justify-content: center;
-
-
-
-/* flex-direction: row; */
-
-/* flex-wrap: wrap ; */
-
-justify-content: center;
-    align-items: center;
-
-}
-.mainCompanyPage-container .content-wraper .main-statistics-page .TotalAmmount{
-    background-color: rebeccapurple;
-    padding: 1em;
-  
-    width: 30%;
-    max-width: 100%;
-
-       
-    border: 1px solid rgba(255, 255, 255, .25);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  
-    backdrop-filter: blur(15px);
-
-   
-} 
-.statistics-page{
-    display: flex;
-    justify-content: center;
-    /* background-color: green; */
-        width: 60%;
-        max-width: 100%;
-    padding: 3em 5em  ;
-}
-/* .statistics-page  .TotalAmmount{
-    background-color: rebeccapurple;
-    padding: 1em;
-    
-    border: 1px solid rgba(255, 255, 255, .25);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  
-    backdrop-filter: blur(15px);
-
-} */
-.content-wraper .money--statistics{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    /* background-color: pink; */
-    max-width: 80%;
-    width: 100%;
-  padding: 1em;
- 
-}
-.money--statistics table{
-/* width: 100%; */
-background-color: burlywood;
-border-radius: 30px;
-padding: 5em;
-
-}
-.money--statistics table tr{
-background-color: aquamarine;
-
-}
-.money--statistics table tr td{
-/* width: 100%; */
-padding: 1.9em;
-direction: ltr;
-border: none;
-}
-
-
-.content-wraper .money--statistics .MoneyStatistics-container{
-    background-color: red;
-}
-/* canvas{
-    width: 500px;
-} */
-.content-wraper .money--statistics .first-wraper{
-    display: flex;
-    max-width: 100%;
-    background-color: red;
-   
-}
-
-/* .money--statistics .TotalAmmount{
-    background-color: rebeccapurple;
-    padding: 1em;
-    
-} */
-
-
-
-.mainCompanyPage-container .components-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    box-sizing: border-box;
-
-    /* background-color: blue; */
-    max-width: 100%;
-    width: 100%;
+padding: 0 2em ;
 display: flex;
 align-items: center;
-justify-content: center;
-/* padding: 1em; */
+flex-direction: column;
+overflow: hidden;
+
+
+/* justify-content: space-between; */
+
 }
-.mainCompanyPage-container .components-list .list {
-    max-width: 60%;
-    /* padding: 2em; */
-    margin: 0.5em;
-    padding: 0.4em;
-   
-    background-color: whitesmoke;
+.page-wraper-company .statistic-container .main-content{
+    padding-top: 3.5em;
+    width: 80%;
+display: flex;
+/* justify-content: space-around; */
+align-items: center;
+justify-content: center;
+flex-wrap: wrap-reverse;
+/* background-color: blue; */
+}
 
+.page-wraper-company .statistic-container .main-content .left-container{
+    width: 30%;
+    max-width: 100%;
+    
+    display: flex;
+    background-color: red;
+    flex-direction: column;
+    text-align: center;
+    
+    background-color: rebeccapurple;
+    padding: 1em;
+    margin-right: 4.5em;
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+}
+.page-wraper-company .statistic-container .main-content .left-container table{
+    /* background-color: burlywood; */
     border-radius: 30px;
+    margin-top: 4em;
+    /* padding: 5em; */
+}
+.page-wraper-company .statistic-container .main-content .left-container table tr{
+    background-color: aquamarine;
+    
+    }
+    .page-wraper-company .statistic-container .main-content .left-container table tr td{
+    /* width: 100%; */
+    padding: 1.9em;
+    direction: ltr;
+    border: none;
+    }
 
-text-align: center;
-/* background-color: lightcoral; */
-border: 1px solid black;
+.page-wraper-company .statistic-container .main-content .right-container{
+    width: 60%;
+    max-width: 100%;
 
-/* padding: 1em; */
+}
+
+.page-wraper-company .sub-statistic-container{
+     margin-top:4em;
+width: 90%;
+max-width: 100%;
+padding: 0 2em ;
+display: flex;
+align-items: center;
+flex-direction: column;
+overflow: hidden;
+
+}
+
+.page-wraper-company .sub-statistic-container .main-content{
+    padding-top: 3.5em;
+    width: 90%;
+display: flex;
+/* justify-content: space-; */
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+/* background-color: blue; */
+}
+
+.page-wraper-company .sub-statistic-container .main-content .left-container{
+    width: 53.5%;
+    max-width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    /* background-color: rebeccapurple; */
+    /* padding: 1em 1em  9em;  */
+    /* padding-right: 2em; */
+
+    /* margin-right: 2.5em; */
+
+
+}
+.page-wraper-company .sub-statistic-container .main-content .right-container{
+    width: 43.3%;
+    max-width: 100%;
+    padding-bottom: 9em; 
+    padding-left: 2em;
+
+}
+/* .sub-statistic-container .money-satus-content{
+    padding-bottom: 4.5em;
+}
+.sub-statistic-container .money-satus-content table{
+    background-color: burlywood;
+    border-radius: 30px;
+    padding: 5em;
+}
+.sub-statistic-container .money-satus-content table tr{
+    background-color: aquamarine;
+    
+    }
+.sub-statistic-container .money-satus-content table tr td{
+    padding: 1.9em;
+    direction: ltr;
+    border: none;
+    } */
+
+
+    /* COMPANY FOOTER   */
+.company-Footer{
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+    max-width: 100%;
+    /* flex-wrap: wrap-reverse; */
+    /* flex-wrap: wrap; */
+
+     /* position: relative;
+    align-items: center;
+    text-align: center;
+    z-index: 2; */
+    background-color: #2F3C7E    ;
+    
+    padding: 2em 3.5em; 
+
+}
+.company-Footer .left-company-Footer-container{
+    /* padding-top: 1em;
+    padding-left: 1em; */
+    display: flex;
+    justify-content: start;
+width: 50%;
+/* background-color: red; */
+align-items: center;
+}
+.company-Footer .left-company-Footer-container{
+color: #C0C0C0		;
+font-size: 10px;
+/* padding-left: 2.8em; */
+}
+
+.company-Footer .right-company-Footer-container{
+width: 50%;
+display: flex;
+justify-content: end;
+/* background-color: blue; */
+
+}
+.company-Footer .right-company-Footer-container ul{
+display: flex;
+justify-content: space-around;
+/* background-color: red; */
+align-items: center;
+
+}
+.company-Footer .right-company-Footer-container ul a{
+text-decoration: none;
+/* color: #A9A9A9	; */
+/* padding-right: 4.8em; */
+
+}
+.company-Footer .right-company-Footer-container ul li{
+list-style: none;
+padding-left: 1em;
+color: #A9A9A9		;
+font-size:20px;
+/* justify-content: space-around; */
+
+}
+.company-Footer .right-company-Footer-container ul li :hover{
+
+color: #C0C0C0			;
+
+/* justify-content: space-around; */
+
+}
+
+
+/* max widh 590 */
+@media screen and (max-width: 590px) {
+
+
+
+        /* FOOTER  */
+        /* max widh 590 */
+      
+            .company-Footer{
+                display: flex;
+                flex-direction: column-reverse;
+                /* justify-content: center; */
+            
+            }
+            .company-Footer .left-company-Footer-container{
+                /* padding-top: 1em;
+                padding-left: 1em; */
+                display: flex;
+                justify-content: center;
+            width: 100%;
+            /* background-color: red; */
+            align-items: center;
+            }
+            .company-Footer .right-company-Footer-container{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                /* background-color: blue; */
+                
+                }
+       
+        
+}
+
+
+
+
+@media screen and (max-width: 820px)  {
+    .page-wraper-company .statistic-container .main-content{
+        width: 100%;
+        padding-bottom: 2em;
+        /* padding: 5em; */
+        /* height: 10px; */
+
+        /* display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aliceblue; */
+    }
+    .page-wraper-company .statistic-container .main-content .right-container{
+        width: 100%;
+        /* padding: 1em; */
+     
+    
+    }
+    .page-wraper-company .statistic-container .main-content .left-container{
+      width: 100%;
+      margin-top: 1em;
+      margin-right: 0;
+      justify-content: center;
+      align-items: center;
+}
+
+/* sub-statistic */
+.page-wraper-company .sub-statistic-container{
+    margin-top:2em;
+
+}
+
+.page-wraper-company .sub-statistic-container .main-content{
+   padding-top: 1.5em;
+   width: 90%;
+display: flex;
+/* justify-content: space-; */
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+/* background-color: blue; */
+}
+
+.page-wraper-company .sub-statistic-container .main-content .left-container{
+   width:100%;
+  
+   
+   /* background-color: rebeccapurple; */
+   /* padding: 1em 1em  9em;  */
+   /* padding-right: 2em; */
+
+   /* margin-right: 2.5em; */
+
+
+}
+.page-wraper-company .sub-statistic-container .main-content .right-container{
+   width:100%;
+    padding-bottom: 0;
+   padding-left: 0;
+
+}
+/* -------------------------------------------------not relevnt -- */
+.sub-statistic-container .money-satus-content table{
+    /* width: 50%; */
+    /* background-color: burlywood; */
+    border-radius: 30px;
+    padding: 0em;
+}
 }

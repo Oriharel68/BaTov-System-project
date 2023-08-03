@@ -20,6 +20,9 @@
     padding-left: 1em; */
     display: flex;
     justify-content: start;
+    /* --------------------------------for the logo */
+    align-items: center;
+
 width: 50%;
 /* background-color: red; */
 align-items: center;
@@ -39,6 +42,8 @@ justify-content: end;
 }
 .Footer .right-Fotter-container ul{
 display: flex;
+/* background-color: red; */
+align-items: center;
 justify-content: space-around;
 
 }
@@ -77,7 +82,9 @@ color: #C0C0C0			;
         /* padding-top: 1em;
         padding-left: 1em; */
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
     width: 100%;
     /* background-color: red; */
     align-items: center;

@@ -54,8 +54,20 @@ z-index: 2;
 }
 .topFirst-container h4{
     /* text-align: center; */
+    padding-left: 1em;
+
+font-size: 25px;
 
 }
+.topFirst-container span{
+    /* text-align: center; */
+    padding-left: 4em;
+    font-size: 25px;
+
+
+
+}
+
 .topFirst-container .btn-container{
 display: flex;
 justify-content: center;
@@ -171,11 +183,16 @@ text-align: center;
   overflow: hidden;
   width: 10em;
 }
+/* .scroller span{
+color: #3a3;
+} */
 .scroller > span {
   position: absolute;
   top: 0;
   animation: slide 5s infinite;
   font-weight: bold;
+  color: #3a3;
+
   
 }
 @keyframes slide {

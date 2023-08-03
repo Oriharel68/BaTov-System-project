@@ -68,7 +68,9 @@ function Main() {
         <div className="topFirst-container">
           <div className="insidetopFirst-container">
             <h2>BaTov</h2>
-            <h4>slogen / some text about the company</h4>
+
+            <h4> Work Smart Not Hard </h4>
+                  <span> --------------------------> </span>  
           </div>
           <div className="welcome-container">
             <div class="logo-holder">
@@ -87,7 +89,7 @@ function Main() {
             <div class="card">
               <h1>
                 {" "}
-                Work with us
+                Work with us:
                 {/* <!-- Scroller Start --> */}
                 <div class="scroller">
                   <span>

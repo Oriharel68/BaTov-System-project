@@ -4,10 +4,12 @@
     justify-content: center;
     align-items: center;
     padding-top: 15em;
-    /* background-color: red; */
-/* padding: 15em 15em;    */
+    background-color: 	rgb(255,250,250);
+    
+padding: 22.5em 15em;   
 }
 .CompanyMain-access-container form{ 
+  
   margin-top: 2.5em;
   /* display: flex;
   flex-direction: column;

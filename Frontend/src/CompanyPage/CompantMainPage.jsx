@@ -13,10 +13,13 @@ import {
 import { GetOrdersByMonth,MoneyByMonth } from "../CompanyPage/subTitlelsComponents/Statistic Compant List/GetData";
 import StatisticCompanyLine from "./subTitlelsComponents/Statistic Compant List/StatisticCompanyLine";
 
-
+import { AiFillFacebook,AiOutlineInstagram,AiOutlineMail } from 'react-icons/ai';
+import { BsFacebook } from 'react-icons/bs';
 import Fullcalender from "./Calenders/Fullcalender";
 import ActiceOrdersList from "./subTitlelsComponents/order list's/ActiceOrdersList";
 import MoneyStatistics from "./MoneyStatistics";
+import Footer from "../Main page/Footer";
+import NavLogo from "../Main page/NavLogo";
 
 function CompantMainPage() {
  
@@ -215,66 +218,16 @@ const sumWithInitial = array1.reduce(
   return (
     <>
       <CombaibnedNavCompany />
-      <div className="mainCompanyPage-container">
-        <div className="content-wraper">
-          <div className="content-title">
-          <h3>מספר הזמנות</h3>
-          </div>
-          {/* cannot commit it flex-box */}
-          <div className="main-statistics-page">
-          <div className="TotalAmmount">
-              <h3> רווחי חברה </h3>
-              <p id="emphasis" style={{paddingTop:'4em'}}> <b > +₪{(TotalSum).toLocaleString()} </b> </p>
-            </div>
-            <div className='statistics-page'>
-            <StatisticCompanyLine statisticData={statisticData} />
-            </div>
-
-          </div>
-          </div>
-
-          <div className="content-wraper">
-          <div className="content-title">
-          <h3>דוח הכנסות</h3>
-          </div>
-
-          <div className="money--statistics">    
-        
-            <MoneyStatistics statisticData={LineStatistic} />
-          
-            <div className="list">
-          <Link to={'/company/Orders'}>
-
-          <div className="main-ordeList-container">
-          <div className="orderReceipts-container" >
-          <h3>הכנסות</h3>
-
-          <table>
-            <tr>
-              <th>הזמנה</th>
-              <th>כתובת אלקטרונית</th>
-              <th>סכום</th>
-           
-            </tr> 
-
-         
-             {allClients.map((client)=>{
-              return  (            
-               <tr>
-            <IncomesList client={client} key={client._id}/>
-        
-             </tr>
-             )})}   
-             </table>
-             
-             </div>
-
-          </div>
-
-          </Link>
-          </div>
-
-            <table>
+    <div className="page-wraper-company">
+      
+     <div className="statistic-container">
+     <h3>מספר הזמנות</h3>
+     <div className="main-content">
+      <div className="left-container">
+      <h3> :רווחי חברה </h3>
+      <p id="emphasis" style={{paddingTop:'2em',color:'#3a3'}}> <b > +₪{(TotalSum).toLocaleString()} </b> </p>
+      <div className="money-satus-content">
+     <table>
               <tr>
                 <th>שנתי </th>
                 <th>חודשי</th>
@@ -287,54 +240,25 @@ const sumWithInitial = array1.reduce(
               </tr>
             </table>
             
-          </div>
-          </div>
+      </div>
+      </div>
+      <div className="right-container">
+      <div className='statistics-page'>
+            <StatisticCompanyLine statisticData={statisticData} />
+            </div>
+
+     </div>
+      </div>
+     </div>
     
-
-
-        <div className="components-list">
-          <div className="list" >
-          <Link to={'/company/Calender'}>
-                <Fullcalender/>
-           {/* <AddworkerCompany/> */}
-           </Link>
-
-          </div>
-          <div className="list">
-          <Link to={'/company/Orders'}>
-
-          <div className="main-ordeList-container">
-          <div id="not-in-print" className="orderReceipts-container">
-          <h3>הזמנות פעילות</h3>
-
-          <table>
-            <tr>
-              <th >תאריכים</th>
-              <th >הזמנה</th>
-              <th >שם בודק</th>
-              <th >סכום</th>
-              <th >מספר הזמנה</th>
-              <th >סטטוס</th>
-            </tr>
-                {OrdersActive.map((item)=>{
-                  return(
-                  <tr >
-          
-                    <ActiceOrdersList item={item} key={item._id} />
-                 </tr>
-                  )
-                })}
-       
-          </table>
-        </div>
-        </div>
-             {/* <CompnatCalenderDetaills/> */}
-             </Link>
-          </div>
-          <div className="list">
-          <Link to={'/company/Orders'}>
-
-          <div className="main-ordeList-container">
+     <div className="sub-statistic-container">
+     <h3>דוח הכנסות</h3>
+     <div className="main-content">
+      <div className="left-container">
+      <MoneyStatistics statisticData={LineStatistic} />
+      </div>
+      <div className="right-container">
+      <div className="main-ordeList-container">
           <div className="orderReceipts-container" >
           <h3>הכנסות</h3>
 
@@ -360,18 +284,31 @@ const sumWithInitial = array1.reduce(
 
           </div>
 
-          </Link>
-          </div>
-
-          <div className="list">
-          <Link to={'/company/Statistics'}>
-             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium vero corrupti ipsum optio natus quod blanditiis beatae, eveniet dolorum hic magni exercitationem, ea dolores totam. Consequatur tempora dolorum error veniam.</p>
-             <h1>להוסיף אפקטים לעצב את הדיבים למצוא צבע רגע יפה להכול .....</h1>
-          </Link>
-          </div>
-
-        </div>
+     </div>
       </div>
+     </div>
+      
+
+
+    </div>
+     <div className='company-Footer'>
+      <div className="left-company-Footer-container">
+      {/* <h3>Contact Us:</h3> */}
+      <p> &copy; 2020 Batov, Inc. All rights reserved. </p>
+        <NavLogo/>
+      </div>
+      <div className="right-company-Footer-container">
+
+      <ul>
+        {/* <li><AiOutlineInstagram/></li>
+        <li><BsFacebook/></li> */}
+         <a  href="mailto:admin@gmail.com" >
+         <li  >  <AiOutlineMail/> </li>
+          </a> 
+        <li>תצרו איתנו קשר</li>
+      </ul>
+      </div>
+    </div>
     </>
   );
 }

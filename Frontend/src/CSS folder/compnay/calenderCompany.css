@@ -1,6 +1,7 @@
 .calendar-Company-container{
     height: 40em;
     padding-top: 3em;
+    background-color:	rgb(255,250,250);
 }
 .button-container{
     display: flex;
