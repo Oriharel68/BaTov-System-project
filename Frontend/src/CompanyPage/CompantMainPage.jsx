@@ -202,12 +202,13 @@ const sumWithInitial = array1.reduce(
 
   //cheking the user if in/ out
   // console.log(userIn);
-  useEffect(() => {
-    if (userAuth.currentUser == null) {
-      navigate("/");
-      alert("useer is not assianged");
-    }
-  }, []);
+
+  // useEffect(() => {
+  //   if (userAuth.currentUser == null) {
+  //     navigate("/");
+  //     alert("useer is not assianged");
+  //   }
+  // }, []);
 
 
 
@@ -215,18 +216,30 @@ const sumWithInitial = array1.reduce(
     <>
       <CombaibnedNavCompany />
       <div className="mainCompanyPage-container">
-        <div className="main-statistics-page-wraper">
-          <h3>מספר הזמנות</h3>
-          <div className="main-statistics-page">
-            <StatisticCompanyLine statisticData={statisticData} />
-          </div>
+        <div className="content-wraper">
+          <div className="content-title">
 
-          <h3>דוח הכנסות</h3>
-          <div className="money--statistics">
-            <div className="TotalAmmount">
+          <h3>מספר הזמנות</h3>
+          </div>
+          <div className="main-statistics-page">
+          <div className="TotalAmmount">
               <h3> רווחי חברה </h3>
               <p id="emphasis" style={{paddingTop:'4em'}}> <b > +₪{(TotalSum).toLocaleString()} </b> </p>
             </div>
+            <div className='statistics-page'>
+            <StatisticCompanyLine statisticData={statisticData} />
+            </div>
+
+          </div>
+          </div>
+
+          <div className="content-wraper">
+          <h3>דוח הכנסות</h3>
+          <div className="money--statistics">
+            {/* <div className="TotalAmmount">
+              <h3> רווחי חברה </h3>
+              <p id="emphasis" style={{paddingTop:'4em'}}> <b > +₪{(TotalSum).toLocaleString()} </b> </p>
+            </div> */}
 
             <div className="MoneyStatistics-container">
 
@@ -247,7 +260,8 @@ const sumWithInitial = array1.reduce(
               </tr>
             </table>
           </div>
-        </div>
+          </div>
+    
 
 
         <div className="components-list">

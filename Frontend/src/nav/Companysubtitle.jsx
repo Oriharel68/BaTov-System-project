@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaEllipsisV } from 'react-icons/fa';
+import { FaEllipsisV,} from 'react-icons/fa';
+import { AiOutlineCloseCircle} from 'react-icons/ai';
 
 function Companysubtitle() {
   const path = window.location.pathname.replace('/company', '');
@@ -32,14 +33,14 @@ function Companysubtitle() {
               הזמנות
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to='/company/Statistics'
               className={`T ${path === '/Statistics' ? 'main' : ''}`}
             >
               סטטיסטיקה
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to='/company/Calender' className={`T ${path === '/Calender' ? 'main' : ''}`}>
               יומן עבודה
@@ -70,6 +71,7 @@ function Companysubtitle() {
           {dropdownVisible && (
             <div className='dropdown-list-wrapper'>
               <ul className='dropdown-list'>
+                <div className="close-page" onClick={() => setDropdownVisible(!dropdownVisible)} ><AiOutlineCloseCircle/></div>
                 <li>
                   <NavLink to='/company/mainpage' className='mainP'>
                     ראשי
@@ -80,14 +82,14 @@ function Companysubtitle() {
                     הזמנות
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink
                     to='/company/Statistics'
                     className={`T ${path === '/Statistics' ? 'main' : ''}`}
                   >
                     סטטיסטיקה
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink
                     to='/company/Calender'

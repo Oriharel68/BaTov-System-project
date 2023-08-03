@@ -12,7 +12,7 @@ ChartJS.register(
 function StatisticCompanyLine({statisticData}) {
 
   return (
-    <div className='statistics-page'>
+    <>
           <Bar
             data={statisticData}
             
@@ -20,7 +20,7 @@ function StatisticCompanyLine({statisticData}) {
            // options={}
            />
           
-    </div>
+    </>
   )
 }
 

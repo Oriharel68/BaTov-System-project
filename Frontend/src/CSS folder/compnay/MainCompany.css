@@ -1,40 +1,79 @@
 
-.main-statistics-page-wraper{
+.mainCompanyPage-container {
+    /* background-color: red; */
+    }
+
+.mainCompanyPage-container .content-wraper{
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
+    /* flex-flow: column wrap; */
+
+     
     align-items: center;
     text-align: center;
    /* background-color: red; */
    padding: 7em 0em  ;
 
 }
+.mainCompanyPage-container .content-wraper .content-title{
+    display: flex;
+    text-align: center;
+    background-color: red;
+}
+.mainCompanyPage-container .content-wraper .main-statistics-page{
+width: 80%;
 
-.main-statistics-page{
-width: 100%;
 display: flex;
-flex-direction: column;
 justify-content: center;
 
+flex-direction: row;
 
+/* flex-wrap: wrap ; */
 
+justify-content: center;
     align-items: center;
-    /* text-align: center; */
-
-  /* align-items: center;
-    text-align: center; */
 
 }
+.mainCompanyPage-container .content-wraper .main-statistics-page .TotalAmmount{
+    background-color: rebeccapurple;
+    padding: 1em;
+  
+    width: 30%;
+    max-width: 100%;
+
+       
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  
+    backdrop-filter: blur(15px);
+
+   
+} 
 .statistics-page{
     display: flex;
     justify-content: center;
     /* background-color: green; */
         width: 60%;
+        max-width: 100%;
     padding: 3em 5em  ;
 }
+/* .statistics-page  .TotalAmmount{
+    background-color: rebeccapurple;
+    padding: 1em;
+    
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  
+    backdrop-filter: blur(15px);
 
+} */
 .money--statistics{
     display: flex;
     flex-direction: row;
@@ -71,16 +110,14 @@ border: none;
 } */
 
 
-.money--statistics .TotalAmmount{
+/* .money--statistics .TotalAmmount{
     background-color: rebeccapurple;
     padding: 1em;
     
-}
+} */
 
 
-.mainCompanyPage-container {
-/* background-color: red; */
-}
+
 .mainCompanyPage-container .components-list {
     display: flex;
     flex-wrap: wrap;
