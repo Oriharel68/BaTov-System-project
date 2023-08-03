@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
-import { Link  } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate  } from 'react-router-dom'
 import ClientNavBar from '../nav/ClientNavBar'
 import { getAuth } from 'firebase/auth'
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 
 function OrderMain() {
   const auth = getAuth();
+  const navigate = useNavigate();
   console.log(auth);
-
 const [userAuth,setUserAuth] =useState(auth)
+
+// useEffect(()=>{
+//   if(userAuth.currentUser === null){
+//     navigate('/');
+//   }  
+// },[])
 
   return (
     <div>
@@ -19,7 +25,7 @@ const [userAuth,setUserAuth] =useState(auth)
         <div className="mainClient-page-wraper">
         <ClientNavBarOrderMain/>
         <div className="clientName-conatier">
-        <h2>Welcome Back👋 <h4>{userAuth.currentUser.displayName} </h4></h2>
+        <h2>Welcome Back👋 <h4>{userAuth?.currentUser?.displayName} </h4></h2>
         
 
         </div>
