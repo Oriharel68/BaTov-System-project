@@ -13,13 +13,7 @@
    justify-content: center;
    /* padding: 1em 0em; */
  }
- .navBar-Main h1{
- 
-    /* background-color: red; */
-    /* text-align: center; */
- 
-    
- }
+
 
 
 
@@ -60,6 +54,7 @@ max-width: 28.3%;
 }
 /* need to complete */
 #information{
+  all:unset;
   margin: 25px 0;
   /* padding: 25px 0; */
   /* border: 0; */
