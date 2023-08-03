@@ -7,14 +7,13 @@ import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 function OrderMain() {
   const auth = getAuth();
   const navigate = useNavigate();
-  console.log(auth);
 const [userAuth,setUserAuth] =useState(auth)
 
-// useEffect(()=>{
-//   if(userAuth.currentUser === null){
-//     navigate('/');
-//   }  
-// },[])
+useEffect(()=>{
+  if(userAuth.currentUser === null){
+    navigate('/');
+  }  
+},[])
 
   return (
     <div>
@@ -25,7 +24,7 @@ const [userAuth,setUserAuth] =useState(auth)
         <div className="mainClient-page-wraper">
         <ClientNavBarOrderMain/>
         <div className="clientName-conatier">
-        <h2>Welcome Back👋 <h4>{userAuth?.currentUser?.displayName} </h4></h2>
+        <h2 style={{direction:'rtl'}}>ברוך הבא👋 <h4>{userAuth?.currentUser?.displayName} </h4></h2>
         
 
         </div>

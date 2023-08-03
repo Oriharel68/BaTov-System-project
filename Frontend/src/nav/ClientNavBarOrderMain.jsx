@@ -3,6 +3,9 @@ import { Link ,useNavigate} from "react-router-dom";
 import { CgProfile } from 'react-icons/cg';
 import { getAuth, signOut } from "firebase/auth";
 import { GrCircleInformation } from 'react-icons/gr';
+import { ImExit } from 'react-icons/im';
+import NavLogo from "../Main page/NavLogo";
+import {toast,ToastContainer} from 'react-toastify'
 function ClientNavBarOrderMain() {
   const navigate = useNavigate(); 
   const [showSecondDiv, setShowSecondDiv] = useState(false);
@@ -24,11 +27,11 @@ function ClientNavBarOrderMain() {
     const auth = getAuth();
     signOut(auth).then(() => {
       // Sign-out successful.
-      alert("Sign-out successful.")
+      toast.success("התנתקות הצליחה");
       // setLoggedin(true);
       setTimeout(() => {
         navigate('/client/main')
-      }, 1000);
+      }, 1500);
     
       // ...
     }).catch((error) => {
@@ -50,9 +53,17 @@ function ClientNavBarOrderMain() {
 
   return (
     <div>
+      <ToastContainer
+position="bottom-center"
+autoClose={1000}
+hideProgressBar={false}
+closeOnClick
+rtl={true}
+theme="light"
+/>
       <div className="navBar-Client">
         <Link to={"/order/main"} >
-          <h1>logo</h1>
+          <NavLogo/>
         </Link>
         
 
@@ -67,18 +78,19 @@ function ClientNavBarOrderMain() {
            </button>
            
        
-        <form action="" id="LU">
+        
         {/* <Link to={"/client/main"}> */}
        
           {/* <a href="" id="LU"> */}
             {/* <CgProfile id="LOGOUT"/> */}
-            <button   onClick={(event)=>handleOnSubmit(event)}> 
-             Log Out  
+            <button onClick={(event)=>handleOnSubmit(event)} id="none">
+            <ImExit />
             </button>
+            
              {/* </a> */}
              
         {/* </Link> */}
-        </form>
+        
         </div>
 
       </div>

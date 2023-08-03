@@ -6,8 +6,8 @@ function NewOrderList({item,addServiceProvider}) {
 
   return (
     <div className='workerType-wraper'>
-       <button id='WokerType' onClick={()=>addServiceProvider(item)}>type of worker :  {item.TypeOfService} <br /><br /> 
-      worker Name : {item.WorkerName} </button> 
+       <button id='WokerType' onClick={()=>addServiceProvider(item)}> מקצוע:  {item.TypeOfService} <br /><br /> 
+      שם עובד : {item.WorkerName} </button> 
      
     </div>
   )

@@ -57,7 +57,7 @@ function AcsessPage() {
 
           <div className="registerWraper-conatiner">
           <div className="registerClient-page-title">
-          <h2>Sign In</h2>
+          <h2>התחברות</h2>
            </div>
               <form onSubmit={(event)=>handleOnSubmit(event)}>
                 <div className="form-group">
@@ -65,7 +65,7 @@ function AcsessPage() {
                     type="email"
                     id="Email"
                     name="Email"
-                    placeholder="Email"
+                    placeholder="אימייל"
                     required
                   />
  
@@ -76,7 +76,7 @@ function AcsessPage() {
                     type="password"
                     id="password"
                     name="password"
-                    placeholder="password"
+                    placeholder="סיסמה"
                     required
                   />
                 </div>
@@ -90,10 +90,10 @@ function AcsessPage() {
   )}
                 <div className="form-group forgot-password" style={{marginTop:'2em'}}>
                  
-                <Link to={'/client/forgetPassword'}>  <a href="#">Forgot password?</a>  </Link>  
+                <Link to={'/client/forgetPassword'}>  <a href="#">שכחת סיסמה?</a>  </Link>  
                 </div>
                 <button className="signin-button" type="submit">
-                  Sign In
+                  התחבר
                 </button>
               </form>
               </div>

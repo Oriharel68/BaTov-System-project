@@ -13,7 +13,13 @@
    justify-content: center;
    /* padding: 1em 0em; */
  }
-
+ .navBar-Main h1{
+ 
+    /* background-color: red; */
+    /* text-align: center; */
+ 
+    
+ }
 
 
 
@@ -56,6 +62,7 @@ max-width: 28.3%;
 #information{
   all:unset;
   margin: 25px 0;
+  cursor: pointer;
   /* padding: 25px 0; */
   /* border: 0; */
   /* font-size: 55px; */
@@ -74,6 +81,12 @@ max-width: 28.3%;
     padding: 2em 2em;
     font-size: 15px;
     font-family: 'Courier New', Courier, monospace;
+ }
+ #none{
+  all:unset;
+  padding-left: 1em;
+  padding-right: 1em;
+  cursor: pointer;
  }
  /* #LOGOUT{
    position: relative;

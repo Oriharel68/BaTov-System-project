@@ -13,9 +13,9 @@ function ExistingOrderList({order}) {
         
         <div className='workerType-wraper'>
        <button id='WokerType'> 
-     Type Of Service:{order.TypeOfService} <br /><br /> 
-      worker Name : {order.WorkerName}<br /><br/>
-      Chosen Date : {setDate(order.DateTime)}
+    מקצוע:{order.TypeOfService} <br /><br /> 
+      שם עובד : {order.WorkerName}<br /><br/>
+      תאריך : {setDate(order.DateTime)}
        </button> 
 
     </div>

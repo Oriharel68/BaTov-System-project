@@ -25,7 +25,7 @@ function ForgetPassword() {
                
           setTimeout(() => {
             navigate('/client/access');
-          }, 3000);
+          }, 2000);
           // ..
         })
         .catch((error) => {
@@ -79,18 +79,18 @@ function ForgetPassword() {
             {/* -----xxxx---- */}
             <div className="registerWraper-conatiner">
               <div className="registerClient-page-title">
-                <h2>Forgot password?</h2>
+                <h2 style={{direction:'rtl'}}>שכחת סיסמה?</h2>
               </div>
               <form action="" onSubmit={(event) => handleOnSubmit(event)}>
             
 
-                <label for="inp" class="inp1">
-                Reset password on a quick step:
+                <label style={{direction:'rtl'}} for="inp" class="inp1">
+                :הקלד את כתובת המייל לשיחזור
                   <input 
                     type="email"
                     name="Email"
                     id="email"
-                    placeholder="Email"
+                    placeholder="מייל"
                     required
                     
                    />
@@ -116,7 +116,7 @@ function ForgetPassword() {
                 </label>
                 {/* <div className="buttonContainer-client"> */}
                {/* <Link to={'/client/registrationCompalete'}>   */}
-               <button type="submit">Sumbit</button> 
+               <button type="submit">אישור</button> 
                {/* </Link>  */}
                 {/* </div> */}
               </form>

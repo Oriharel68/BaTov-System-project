@@ -67,7 +67,7 @@ function Main() {
       <div className="page-wrap">
         <div className="topFirst-container">
           <div className="insidetopFirst-container">
-            <h2>name of the company </h2>
+            <h2>BaTov</h2>
             <h4>slogen / some text about the company</h4>
           </div>
           <div className="welcome-container">

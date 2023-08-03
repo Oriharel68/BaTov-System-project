@@ -111,7 +111,7 @@ useEffect(() => {
       <div className="bootmCalender-container">
         
       <DatePickerComponent CurrentDate={CurrentDate} Provider={Provider} setSelectedDate ={setSelectedDate}/>
-      <button onClick={handleComplete} id='Calender'> Complete</button>
+      <button onClick={handleComplete} id='Calender'>בחר</button>
       </div>
       </div>
       
