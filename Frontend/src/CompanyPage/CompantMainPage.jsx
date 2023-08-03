@@ -218,9 +218,9 @@ const sumWithInitial = array1.reduce(
       <div className="mainCompanyPage-container">
         <div className="content-wraper">
           <div className="content-title">
-
           <h3>מספר הזמנות</h3>
           </div>
+          {/* cannot commit it flex-box */}
           <div className="main-statistics-page">
           <div className="TotalAmmount">
               <h3> רווחי חברה </h3>
@@ -234,18 +234,45 @@ const sumWithInitial = array1.reduce(
           </div>
 
           <div className="content-wraper">
+          <div className="content-title">
           <h3>דוח הכנסות</h3>
-          <div className="money--statistics">
-            {/* <div className="TotalAmmount">
-              <h3> רווחי חברה </h3>
-              <p id="emphasis" style={{paddingTop:'4em'}}> <b > +₪{(TotalSum).toLocaleString()} </b> </p>
-            </div> */}
+          </div>
 
-            <div className="MoneyStatistics-container">
-
+          <div className="money--statistics">    
+        
             <MoneyStatistics statisticData={LineStatistic} />
+          
+            <div className="list">
+          <Link to={'/company/Orders'}>
 
-            </div>
+          <div className="main-ordeList-container">
+          <div className="orderReceipts-container" >
+          <h3>הכנסות</h3>
+
+          <table>
+            <tr>
+              <th>הזמנה</th>
+              <th>כתובת אלקטרונית</th>
+              <th>סכום</th>
+           
+            </tr> 
+
+         
+             {allClients.map((client)=>{
+              return  (            
+               <tr>
+            <IncomesList client={client} key={client._id}/>
+        
+             </tr>
+             )})}   
+             </table>
+             
+             </div>
+
+          </div>
+
+          </Link>
+          </div>
 
             <table>
               <tr>
@@ -259,6 +286,7 @@ const sumWithInitial = array1.reduce(
                 <td>{`₪${getMoneyByDay(orderData).toLocaleString()}`}</td>
               </tr>
             </table>
+            
           </div>
           </div>
     
@@ -318,7 +346,6 @@ const sumWithInitial = array1.reduce(
            
             </tr> 
 
-            {/* {allClients.map((client)=>{ */}
          
              {allClients.map((client)=>{
               return  (            
@@ -330,8 +357,9 @@ const sumWithInitial = array1.reduce(
              </table>
              
              </div>
-      {/* <OrderOfTheCompany/> */}
+
           </div>
+
           </Link>
           </div>
 

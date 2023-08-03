@@ -1,13 +1,16 @@
 
 .mainCompanyPage-container {
     /* background-color: red; */
+       padding: 7em 0em  ;
+
     }
 
-.mainCompanyPage-container .content-wraper{
+ .mainCompanyPage-container .content-wraper{
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 
     /* flex-flow: column wrap; */
 
@@ -15,7 +18,7 @@
     align-items: center;
     text-align: center;
    /* background-color: red; */
-   padding: 7em 0em  ;
+   /* padding: 7em 0em  ; */
 
 }
 .mainCompanyPage-container .content-wraper .content-title{
@@ -25,11 +28,13 @@
 }
 .mainCompanyPage-container .content-wraper .main-statistics-page{
 width: 80%;
-
+max-width: 100%;
 display: flex;
 justify-content: center;
 
-flex-direction: row;
+
+
+/* flex-direction: row; */
 
 /* flex-wrap: wrap ; */
 
@@ -74,18 +79,16 @@ justify-content: center;
     backdrop-filter: blur(15px);
 
 } */
-.money--statistics{
+.content-wraper .money--statistics{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-
-    background-color: pink;
+    /* background-color: pink; */
     max-width: 80%;
     width: 100%;
-
-padding: 1em;
-display: flex;
+  padding: 1em;
+ 
 }
 .money--statistics table{
 /* width: 100%; */
@@ -105,10 +108,19 @@ direction: ltr;
 border: none;
 }
 
+
+.content-wraper .money--statistics .MoneyStatistics-container{
+    background-color: red;
+}
 /* canvas{
     width: 500px;
 } */
-
+.content-wraper .money--statistics .first-wraper{
+    display: flex;
+    max-width: 100%;
+    background-color: red;
+   
+}
 
 /* .money--statistics .TotalAmmount{
     background-color: rebeccapurple;
