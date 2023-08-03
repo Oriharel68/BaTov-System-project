@@ -19,9 +19,9 @@ import OrderCompelteMessage from "../ClientPage/ClientMessages/OrderCompelteMess
 import ExistingOrder from "../ClientPage/ExistingOrder";
 import ForgetPassword from "../ClientPage/ForgetPassword";
 import Fullcalender from "../CompanyPage/Calenders/Fullcalender";
+import MiddlewareAuth from "../MiddlewareAuth/MiddlewareAuth";
 
 
-export const MyContext = createContext(null);
 
 function RouterServer() {
 const [item,setItem] =useState({})
@@ -29,8 +29,9 @@ const [item,setItem] =useState({})
   
   return (
     <div>
-          <MyContext.Provider value={item}>
+          
       <Router>
+        <MiddlewareAuth>
         {/* <NavBar/> */}
         <Routes>
           <Route path="/*" element={<ErorPage />} />
@@ -43,6 +44,8 @@ const [item,setItem] =useState({})
           <Route path="/order/main" element={<OrderMain/>} />
           <Route path="/order/newOrder" element={<NewOrder/>} />
           <Route path="/order/ExistingOrder" element={<ExistingOrder/>} />
+          {/* checking the Auth of the user^ */}
+
          {/* Check */}
           
           {/*company side  */}
@@ -60,8 +63,9 @@ const [item,setItem] =useState({})
               <Route path="/client/registrationCompalete" element={<UserRegistrationComplete/>} />
               <Route path="/order/orderCompelte" element={<OrderCompelteMessage/>} />
         </Routes>
+        </MiddlewareAuth>
       </Router>
-              </MyContext.Provider>
+              
     </div>
   );
 }

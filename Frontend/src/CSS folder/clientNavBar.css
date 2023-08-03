@@ -55,6 +55,7 @@ cursor: not-allowed; */
   background-color: yellowgreen;
   position: absolute;
 text-align: end;
+z-index: 2;
 max-width: 28.3%;
 /* margin-left: 65%; */
 }

@@ -6,7 +6,6 @@ import ActiceOrdersList from "./order list's/ActiceOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
 import CompantMainPage from "../CompantMainPage";
-import { MyContext } from "../../Router/RouterServer";
 // import AppContext from "../../Helpjs/AppContexxt";
 
 //  AppContext
@@ -21,7 +20,6 @@ function OrderOfTheCompany() {
   const [allClients, setAllClients] = useState([]);
   const TAX_RATE = 0.17;
    
-const context = useContext(MyContext);
 
    const [colspan, setColspan] = useState(1);
   console.log(allClients);

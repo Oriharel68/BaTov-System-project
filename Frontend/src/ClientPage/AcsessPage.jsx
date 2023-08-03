@@ -32,15 +32,12 @@ function AcsessPage() {
         // ...
       })
       .catch((error) => {
-        let errorCode = error.code;
-        const errorMessage = error.message;
-                                           console.log(errorMessage);                  
-        // console.log(`${errorCode}:${errorMessage}`);
+        // let errorCode = error.code;
+        // const errorMessage = error.message;
+        // console.log(errorMessage);                  
+        // // console.log(`${errorCode}:${errorMessage}`);
         const errorbox = document.querySelector("#errorbox");
-        console.log(errorCode);
-        let Message = "" + errorCode.replace('auth/','');
-        Message = Message.replace(':', 'd');
-        errorbox.innerText = `${Message}:`;
+        errorbox.innerText = `משתמש או סיסמה אינם נכונים`;
       });
   }
 
