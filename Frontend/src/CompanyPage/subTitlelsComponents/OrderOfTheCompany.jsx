@@ -64,7 +64,7 @@ function OrderOfTheCompany() {
     }
     getOrdersData();
     const updateColspan = () => {
-      setColspan(window.innerWidth <= 552 ? 3: 2);
+      setColspan(window.innerWidth <= 689 ? 3: 2);
     };
 
     updateColspan(); // Set the initial colspan

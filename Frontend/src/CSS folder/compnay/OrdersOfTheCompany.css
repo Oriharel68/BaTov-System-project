@@ -122,7 +122,7 @@ font-size: 14px; */
 
 /* [colspan="3"] */
   .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container {
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
             /* padding: 10px; */
             
             box-sizing: border-box;
@@ -165,8 +165,9 @@ direction: rtl;
 
 
 
-  /* min width 552 */
-  @media screen and (max-width: 552px) {
+  /* min width 552 -689*/
+
+  @media screen and (max-width: 689px) {
     .main-ordeList-container{
         display: flex;
         justify-content: center;
@@ -189,7 +190,8 @@ direction: rtl;
     }
     
     .main-ordeList-container .orderReceipts-container td .subTotal-Incomes-container{
-        background-color: #f0f0f0;
+        /* background-color: #f0f0f0; */
+        /* background-color: red; */
                 padding: 10px;
                 box-sizing: border-box;
                 width: 100%;

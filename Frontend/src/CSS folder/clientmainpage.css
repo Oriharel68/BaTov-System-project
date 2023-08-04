@@ -139,7 +139,7 @@ body{
 }
 
 
-
+/* 1467px init  820px add fix responability  */
 @media screen and (max-width: 820px)  {
     .page-wraper{
         /* position: fixed; */
