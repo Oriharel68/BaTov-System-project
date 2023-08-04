@@ -1,44 +1,28 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import CompanyNavBar from './CompanyNavBar'
 import Companysubtitle from './Companysubtitle'
 import { RxExit } from 'react-icons/rx';
-import { getAuth,  } from "firebase/auth";
+import { getAuth,signOut  } from "firebase/auth";
 import { Navigate, useNavigate } from 'react-router-dom';
 
 function CombaibnedNavCompany() {
     
-        // const [showSecondDiv, setShowSecondDiv] = useState(false);
-        
-        // const handleMouseEnter = () => {
-        //   setShowSecondDiv(true);
-        // };
-        
-        // const handleMouseLeave = () => {
-        //   setShowSecondDiv(false);
-        // };
-        // cheking the user if in/ out
-
-
-  // useEffect(() => {
-  //   if (userAuth.currentUser == null) {
-  //     navigate("/");
-  //     alert("useer is not assianged");
-  //   }
-  // }, []);
+  
 const navigate = useNavigate();
   const userAuth = getAuth();
-function singOut(){
-  if (userAuth.currentUser !== null)   {
+  const SignOut = useCallback(
+    () => {
+      signOut(userAuth).then(()=>{
         
-    //     alert("useer is not assianged");
-    if (window.confirm("האם את/ה בטוח?")) {
-      window.open( navigate("/company/access"), "Thanks for Visiting!",userAuth.currentUser = null);
-    }
-  }
-  return;
-    }
-console.log(userAuth.currentUser);
-console.log(userAuth);
+        
+        navigate('/company/access');
+      }).catch((error)=>{
+        console.log(error);
+      })
+    },
+    [userAuth]
+  )
+  
   return (
 
     <div
@@ -57,7 +41,7 @@ console.log(userAuth);
         <Companysubtitle/>
         </div>
         <div className="exit-company">
-          <button onClick={()=>singOut()}><RxExit/></button>
+          <button onClick={SignOut}><RxExit/></button>
         </div>
 
         {/* {showSecondDiv && 
