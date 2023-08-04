@@ -172,7 +172,7 @@ function OrderOfTheCompany() {
              )})}    
              <td  colSpan={colspan}>                           
                         
-          <div className="subTotal-Incomes-container">
+          <div id="go-To-there" className="subTotal-Incomes-container">
              
               <div className="right-cotainer">
                 <p> ₪{subtotalSum.toLocaleString() }</p>

@@ -28,7 +28,6 @@ addProvider.put('/',async (req:Request,res:Response)=>{
     res.send({ ok: true, data });
     })
   } catch (error) {
-    console.log(error.message);
     res.send({ ok: false, error: error.message });
   }  
 });

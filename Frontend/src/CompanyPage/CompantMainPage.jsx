@@ -201,7 +201,6 @@ const sumWithInitial = array1.reduce(
 
   const navigate = useNavigate();
   const auth = getAuth();
-  const [userAuth, setUserAuth] = useState(auth);
 
   //cheking the user if in/ out
   // console.log(userIn);
@@ -267,7 +266,6 @@ const sumWithInitial = array1.reduce(
               <th>הזמנה</th>
               <th>כתובת אלקטרונית</th>
               <th>סכום</th>
-           
             </tr> 
 
          

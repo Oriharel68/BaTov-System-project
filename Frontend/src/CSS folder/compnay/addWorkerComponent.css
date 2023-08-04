@@ -110,8 +110,8 @@ text-align: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-   align-items: center;
-   text-align: center;
+    align-items: center; 
+    text-align: center; 
  
   /* background-color: green; */
 }
@@ -119,7 +119,7 @@ text-align: center;
 display: flex;
 /* background-color: red; */
 padding-top: 5.8em;
-width: 60%;
+width: 100%;
 justify-content: space-around;
 }
 .mainAddWorker-Page .main-container form button{
@@ -159,7 +159,11 @@ text-align: start;
 #W2:focus {
   background-color: lightcoral;
 }
-
+#Modal-Form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #W3 {
   width: 100%;
   padding: 12px 20px;
@@ -209,30 +213,44 @@ justify-content: space-between;
 
   padding-bottom: 18.5em;
   width: 100%;
+  display: flex;
+  justify-content: center;
   overflow-x: auto;
   }
   
    .Worker-list-container .main-worker-list-container  table{
     margin-top: 20px;
-    width: 100%;
-    
-    max-width: 100%;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+    width: 80%;
+    max-width: 80%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+   
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+   
   }
 
   
-  .Worker-list-container .main-worker-list-container  table tr{
+  .Worker-list-container .main-worker-list-container  table thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: right;
   }
-  .Worker-list-container .main-worker-list-container  table tr td{
+  .Worker-list-container .main-worker-list-container  table tbody tr td{
     text-align: start;
     padding: 1em;
     /* border-left: 1px solid black;
     border-bottom: 1px solid black; */
-    background-color: lightyellow;
+    background-color: #f3f3f3;
+    border-left: 1px solid #dddddd;
 
   } 
-  .Worker-list-container .main-worker-list-container  table tr td button{
+  .Worker-list-container .main-worker-list-container  table tbody tr{
+    border-bottom: 1px solid #dddddd;
+  }
+  .Worker-list-container .main-worker-list-container  table thead tr th{
+    padding: 1em;
+  }
+  .Worker-list-container .main-worker-list-container  table tbody tr td button{
   border-radius: 12px;
  /* background-color: blue; */
  padding: 5px;
@@ -254,15 +272,15 @@ justify-content: space-between;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1em;
-    width: 60%;
+    padding-top: 0.8em;
+    width: 100%;
     left: 20%;
-    position: absolute;
+    /* position: absolute; */
     /* text-align: center; */
    }
   
    .Editing-container input{
-     max-width: 80%;
+     max-width: 100%;
    }
   
   
@@ -439,8 +457,7 @@ padding-bottom: 18.5em;
   margin-top: 20px;
   width: 80%;
   max-width: 100%;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
+ 
 }
 
   }

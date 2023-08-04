@@ -17,7 +17,6 @@ editWorker.post("/", async (req:Request, res:Response) => {
       res.send({ClientDB,ok:true});
       
     } catch (error) {
-      console.log(error.message);
       res.send({ ok: false, error: error.message });
     }
   });

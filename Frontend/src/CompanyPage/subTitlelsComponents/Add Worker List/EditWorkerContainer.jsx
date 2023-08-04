@@ -52,13 +52,13 @@ function EditWorkerContainer({item,Change,setChange,setShowSecondDiv}) {
   }
   return (
     <div className='Editing-container' >
-                <ToastContainer/>
-          <h3>עריכת שינוי</h3>
-          <input type="text" id="W2" name="workerName" ref={InputWokrerNameref} placeholder=  {`שם + שם משפחה -- ${WorkerName}   `} />
+            <ToastContainer/>
+          <h3>עריכה</h3>
+          <input type="text" id="W2" name="workerName" ref={InputWokrerNameref} placeholder=  {`שם + שם משפחה -- ${WorkerName}`} />
 
-        <input type="text" id="W2" name="serviceType" ref={InputTypeOfServiceref} placeholder= {`סוג איש מקצוע -- ${TypeOfService}   `}/>
+        <input type="text" id="W2" name="serviceType" ref={InputTypeOfServiceref} placeholder= {`סוג איש מקצוע -- ${TypeOfService}`}/>
 
-        <input type="number" id="W3" name="price" ref={InputPriceNameref} placeholder= {`מחיר /עלות בדיקה-- ${Price}   `} min="0"/>
+        <input type="number" id="W3" name="price" ref={InputPriceNameref} placeholder= {`מחיר /עלות בדיקה-- ${Price}`} min="0"/>
         <button onClick={(event)=>handleEdit(event)}>בצע שינוי </button>
         <button id='close' onClick={()=>setShowSecondDiv(false)}>close</button>
     </div>
