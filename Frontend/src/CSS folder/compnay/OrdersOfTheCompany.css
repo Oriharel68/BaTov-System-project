@@ -23,6 +23,7 @@
 
 }
 
+
 .main-ordeList-container .orderReceipts-container .subTititle-container{
     display: flex;
     /* background-color: red; */
@@ -66,24 +67,29 @@ padding-right: 1em;
     background-color: crimson;
     
 }
-
-/* #B{
-    margin-top: 5em;
-   
-} */
-/* font-family: 'Open Sans Hebrew';
-
-width: 100%;
-border-collapse: collapse;
-border-style: hidden;
-border-top-style: none;
-font-size: 14px; */
-
-/* table {
-    width: 80%;
-    max-width: 100%;
-    border: 1px solid black;
-  } */
+.main-ordeList-container .orderReceipts-container table tr.loading{
+  background-image: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, .05) 50%);
+  background-size: 200% 100%;
+  animation: loading 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.main-ordeList-container .orderReceipts-container table tr.loading td {
+  opacity: .45;
+  pointer-events: none;
+}
+@keyframes loading {
+  0% {
+    background-position: 0;
+  }
+  50% {
+    background-position: -30%;
+  }
+  80% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: -200%;
+  }
+}
   .main-ordeList-container .orderReceipts-container table tr{
     /* border-bottom: 1px solid silver  ; */
     position: relative;

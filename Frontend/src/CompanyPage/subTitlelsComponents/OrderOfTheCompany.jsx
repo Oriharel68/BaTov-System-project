@@ -20,7 +20,7 @@ function OrderOfTheCompany() {
   const [allClients, setAllClients] = useState([]);
   const TAX_RATE = 0.17;
    
-
+let inPorgress = true;
    const [colspan, setColspan] = useState(1);
   console.log(allClients);
   // console.log(allClients);
@@ -58,6 +58,7 @@ function OrderOfTheCompany() {
         
         setOldOrders(oldOrders);
         setActiveOrders(OngoingOrders);
+        inPorgress = true;
       } catch (err) {
         console.log(err);
       }
@@ -110,14 +111,23 @@ function OrderOfTheCompany() {
               <th >מספר הזמנה</th>
               <th >סטטוס</th>
             </tr>
-                {activeOrders.map((item)=>{
+                {inPorgress ? activeOrders.map((item)=>{
                   return(
                   <tr >
           
                     <ActiceOrdersList item={item} key={item._id} />
                  </tr>
                   )
-                })}
+                }):
+                <tr className="loading">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                }
        
           </table>
         </div>
@@ -135,13 +145,21 @@ function OrderOfTheCompany() {
 
             </tr>
 
-            {oldOrders.map((item)=>{
+            {inPorgress?oldOrders.map((item)=>{
               return(
               <tr>
               <OldOrdersList item={item} key={item._id}/>
               </tr>
             )
-            })}
+            }):
+            <tr className="loading">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>}
            
           </table>
         </div>
