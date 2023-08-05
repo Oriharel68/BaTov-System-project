@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import CombaibnedNavCompany from "../../nav/CombaibnedNavCompany";
 import axios from "axios";
 import AddWorkerListCompany from "./Add Worker List/AddWorkerListCompany";
@@ -11,13 +11,14 @@ import { toast } from "react-toastify";
 function AddworkerCompany() {
   const [ServiceProviders, setServiceProviders] = useState([]);
   const [Change, setChange] = useState(0);
+  const [Visible, setVisible] = useState(false);
   const ref = useRef();
 
   const [showSecondDiv, setShowSecondDiv] = useState(false);
-  function handleClick() {
-    // setShowSecondDiv(true);
-  setShowSecondDiv(!showSecondDiv);
-  }
+
+  const handleClick = useCallback(() => {
+    setShowSecondDiv(!showSecondDiv);
+  }, [showSecondDiv]);
 
   async function handleOnSubmit(event) {
     try {
@@ -26,7 +27,7 @@ function AddworkerCompany() {
       const WorkerName = formData.get("workerName");
       const TypeOfService = formData.get("serviceType");
       const Price = formData.get("price");
-      
+
       if (!Price || !TypeOfService || !TypeOfService) {
         // alert("missing info");
         ref.current.style.color = "red";
@@ -48,8 +49,8 @@ function AddworkerCompany() {
       } else if (data.ok) {
         setChange(Change + 1);
         handleClick();
-        toast.success('העובד נוסף בהצלחה');
-     
+        setVisible(false);
+        toast.success("העובד נוסף בהצלחה");
       }
     } catch (error) {
       alert(error);
@@ -62,6 +63,7 @@ function AddworkerCompany() {
           "http://localhost:4000/getServiceProvider"
         );
         setServiceProviders(data);
+        setVisible(true);
       } catch (err) {
         console.log(err);
       }
@@ -88,72 +90,86 @@ function AddworkerCompany() {
             </button>
             {/* <button className='TTContent' onClick={()=>handleClick()}>הוספת עובד</button> */}
           </div>
-          {showSecondDiv &&(
-          <Modal isOpen={showSecondDiv} onRequestClose={()=>{
-            setShowSecondDiv(!showSecondDiv);
-          }}
-          style={EditStyle}>
-            <div className="main-container">
-              <form id="Modal-Form" onSubmit={(event) => handleOnSubmit(event)}>
-                <h3>הוספת עובד</h3>
+          {showSecondDiv && (
+            <Modal
+              isOpen={showSecondDiv}
+              onRequestClose={() => {
+                setShowSecondDiv(!showSecondDiv);
+              }}
+              style={EditStyle}
+            >
+              <div className="main-container">
+                <form
+                  id="Modal-Form"
+                  onSubmit={(event) => handleOnSubmit(event)}
+                >
+                  <h3>הוספת עובד</h3>
 
-                <input
-                  type="text"
-                  id="W2"
-                  name="workerName"
-                  placeholder=" שם + שם משפחה"
-                />
-                <input
-                  type="text"
-                  id="W2"
-                  name="serviceType"
-                  placeholder="סוג איש מקצוע"
-                />
-                <input
-                  type="number"
-                  id="W3"
-                  name="price"
-                  placeholder="  מחיר/עלות הבדיקה  ₪"
-                  min="0"
-                />
+                  <input
+                    type="text"
+                    id="W2"
+                    name="workerName"
+                    placeholder=" שם + שם משפחה"
+                  />
+                  <input
+                    type="text"
+                    id="W2"
+                    name="serviceType"
+                    placeholder="סוג איש מקצוע"
+                  />
+                  <input
+                    type="number"
+                    id="W3"
+                    name="price"
+                    placeholder="  מחיר/עלות הבדיקה  ₪"
+                    min="0"
+                  />
 
-                <div className="buttom-contaienr">
-                  <button>הוספה</button>
-                  {/* <button onClick={() => handleClick()}>
+                  <div className="buttom-contaienr">
+                    <button>הוספה</button>
+                    {/* <button onClick={() => handleClick()}>
                     <BiExit />
                   </button> */}
-                </div>
-              </form>
-              <div ref={ref} className=""></div>
-            </div>
-            </Modal> )}
+                  </div>
+                </form>
+                <div ref={ref} className=""></div>
+              </div>
+            </Modal>
+          )}
           <div className="main-worker-list-container">
             <table>
               <thead>
-              <tr>
-                <th>שם עובד</th>
-                <th>סוג עובד</th>
-                <th>מחיר בדיקה</th>
-                <th>עריכה</th>
-                <th>הסרה</th>
-              </tr>
+                <tr>
+                  <th>שם עובד</th>
+                  <th>סוג עובד</th>
+                  <th>מחיר בדיקה</th>
+                  <th>עריכה</th>
+                  <th>הסרה</th>
+                </tr>
               </thead>
               <tbody>
-              {ServiceProviders.length !==1?
-              ServiceProviders.map((item) => {
-                return (
-                  <tr>
-                    <AddWorkerListCompany
-                      item={item}
-                      key={item._id}
-                      setChange={setChange}
-                      Change={Change}
-                    />
+                {Visible ? (
+                  ServiceProviders.map((item) => {
+                    return (
+                      <tr>
+                        <AddWorkerListCompany
+                          item={item}
+                          key={item._id}
+                          setChange={setChange}
+                          Change={Change}
+                        />
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr className="loading">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                   </tr>
-                );
-              }):
-              <tr id="Loading"></tr>
-              }
+                )}
               </tbody>
             </table>
           </div>

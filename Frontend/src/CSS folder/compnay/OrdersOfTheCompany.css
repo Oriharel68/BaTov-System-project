@@ -67,12 +67,13 @@ padding-right: 1em;
     background-color: crimson;
     
 }
-.main-ordeList-container .orderReceipts-container table tr.loading{
+tr.loading{
   background-image: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, .05) 50%);
   background-size: 200% 100%;
   animation: loading 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background-color: aliceblue;
 }
-.main-ordeList-container .orderReceipts-container table tr.loading td {
+tr.loading td {
   opacity: .45;
   pointer-events: none;
 }

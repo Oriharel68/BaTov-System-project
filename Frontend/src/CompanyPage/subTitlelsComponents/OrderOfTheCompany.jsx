@@ -18,9 +18,9 @@ function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
   const [oldOrders, setOldOrders] = useState([]);
   const [allClients, setAllClients] = useState([]);
+  const [Visible, setVisible] = useState(false);
   const TAX_RATE = 0.17;
    
-let inPorgress = true;
    const [colspan, setColspan] = useState(1);
   console.log(allClients);
   // console.log(allClients);
@@ -58,7 +58,7 @@ let inPorgress = true;
         
         setOldOrders(oldOrders);
         setActiveOrders(OngoingOrders);
-        inPorgress = true;
+        setVisible(true)
       } catch (err) {
         console.log(err);
       }
@@ -111,7 +111,7 @@ let inPorgress = true;
               <th >מספר הזמנה</th>
               <th >סטטוס</th>
             </tr>
-                {inPorgress ? activeOrders.map((item)=>{
+                {Visible ? activeOrders.map((item)=>{
                   return(
                   <tr >
           
@@ -145,7 +145,7 @@ let inPorgress = true;
 
             </tr>
 
-            {inPorgress?oldOrders.map((item)=>{
+            {Visible?oldOrders.map((item)=>{
               return(
               <tr>
               <OldOrdersList item={item} key={item._id}/>
