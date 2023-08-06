@@ -581,6 +581,28 @@ padding: 3em 3em;
     /* padding: 5em 5em; */
 }
 /* .content-container .introduction-containerFirst .left-container  */
+.content-container .introduction-containerFirst .left-container .car-icons{
+  /* background-color: red; */
+  width: 170%;
+  display: flex;
+  justify-content: End;
+  
+
+}
+.content-container .introduction-containerFirst .left-container .car-icons ul{
+  
+  display: flex;
+  list-style: none;
+  padding-top: 3em;
+  
+
+}
+.content-container .introduction-containerFirst .left-container .car-icons ul li{
+  padding-left: 1em;
+  font-size: 35px;
+  
+
+}
 .describe-containerFirst{
   opacity: 0;
   transition: opacity 1s ease;
