@@ -86,12 +86,16 @@ function AddWorkerListCompany({ item, setChange, Change }) {
         </Modal>
       )}
       <ToastContainer
-        position="bottom-center"
-        autoClose={1000}
-        hideProgressBar={false}
-        closeOnClick
-        rtl={true}
-        theme="light"
+  position="top-left"
+  autoClose={5000}
+  hideProgressBar={false}
+  newestOnTop={false}
+  closeOnClick
+  rtl={false}
+  pauseOnFocusLoss
+  draggable
+  pauseOnHover
+  theme="colored"
       />
     </>
 

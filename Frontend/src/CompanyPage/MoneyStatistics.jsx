@@ -12,7 +12,7 @@ ChartJS.register(
 
 function MoneyStatistics({statisticData}) {
   return (
-    <div className='statistics-page'>
+    <div >
           <Pie
             data={statisticData}
             

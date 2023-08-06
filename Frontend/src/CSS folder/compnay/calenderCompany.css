@@ -1,7 +1,8 @@
 .calendar-Company-container{
     height: 40em;
-    padding-top: 3em;
-    background-color:	rgb(255,250,250);
+    padding-top: 2.1em;
+    /* background-color:	rgb(255,250,250); */
+   backdrop-filter:blur(50px);
 }
 .button-container{
     display: flex;
@@ -12,5 +13,25 @@
     direction: rtl;
 }
 .rbc-header{
-    text-align:right;
+    text-align:right !important;
+}
+.rbc-time-header , .rbc-overflowing{
+margin-right: 0px !important;
+}
+
+@media screen and (max-width: 1215px) {
+    .calendar-Company-container{
+        /* height: 40em; */
+        /* background-color: red; */
+        padding-top: 2.4em;
+       /* backdrop-filter:blur(50px); */
+    }
+}
+@media screen and (max-width: 769px) {
+    .calendar-Company-container{
+        /* height: 40em; */
+        /* background-color: red; */
+        padding-top: 1.9em;
+       /* backdrop-filter:blur(50px); */
+    }
 }

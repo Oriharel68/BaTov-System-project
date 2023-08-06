@@ -1,10 +1,12 @@
 const Style =  {
     overlay:{
-       
+      // backgroundColor:'red',
+      backdropFilter: 'blur(2px)',
     },
    
 
     content: {
+     
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',

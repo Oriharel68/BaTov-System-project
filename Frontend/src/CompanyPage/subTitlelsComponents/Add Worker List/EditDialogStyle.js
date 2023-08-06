@@ -3,11 +3,12 @@ const EditStyle =  {
         backdropFilter: 'blur(3px)',
     },
     content: {
+     
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        maxWidth: '18em',
-        minWidth:'10em',
+        maxWidth: '100%',
+        minWidth:'80%',
         backgroundColor:'grey',
         display:'flex',
         justifyContent:'center',

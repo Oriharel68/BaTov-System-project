@@ -6,7 +6,7 @@ import AddWorkerListCompany from "./Add Worker List/AddWorkerListCompany";
 import { BiExit } from "react-icons/bi";
 import Modal from "react-modal";
 import EditStyle from "./Add Worker List/EditDialogStyle";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 function AddworkerCompany() {
   const [ServiceProviders, setServiceProviders] = useState([]);
@@ -30,8 +30,10 @@ function AddworkerCompany() {
 
       if (!Price || !TypeOfService || !TypeOfService) {
         // alert("missing info");
-        ref.current.style.color = "red";
-        ref.current.innerText = "חסר מידע -בבקשה השלם את כל המידע הנדרש";
+        // ref.current.style.color = "red";
+        // ref.current.innerText = "חסר מידע -בבקשה השלם את כל המידע הנדרש";
+        toast.error(`חסר מידע -בבקשה השלם את כל המידע הנדרש`);
+
         return;
       }
 
@@ -44,6 +46,8 @@ function AddworkerCompany() {
       if (!data.ok) {
         // alert("the user is alredy in us");
         ref.current.style.color = "red";
+        
+        ref.current.style.fontWeight = "bolder";
         ref.current.innerText = data.error;
         return;
       } else if (data.ok) {
@@ -72,7 +76,7 @@ function AddworkerCompany() {
   }, [Change]);
 
   return (
-    <div>
+    <div >
       <div className="navCompany-container">
         <CombaibnedNavCompany />
       </div>
@@ -124,15 +128,18 @@ function AddworkerCompany() {
                     placeholder="  מחיר/עלות הבדיקה  ₪"
                     min="0"
                   />
+                  <button id='close' onClick={()=>setShowSecondDiv(false)}>close</button>
+                  <div ref={ref} className=""></div>
+                  <div className="bottom-container">
 
-                  <div className="buttom-contaienr">
-                    <button>הוספה</button>
+                    <button className="button-30"
+              role="button">הוספה</button>
                     {/* <button onClick={() => handleClick()}>
                     <BiExit />
                   </button> */}
                   </div>
                 </form>
-                <div ref={ref} className=""></div>
+              
               </div>
             </Modal>
           )}
@@ -175,6 +182,18 @@ function AddworkerCompany() {
           </div>
         </div>
       </div>
+      <ToastContainer
+ position="top-left"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+      />
     </div>
   );
 }

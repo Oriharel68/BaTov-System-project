@@ -20,7 +20,7 @@ function Companysubtitle() {
   }, []);
 
   // Determine whether to show the dropdown based on windowWidth
-  const showDropdown = windowWidth <= 769;
+  const showDropdown = windowWidth <= 786;
 
   return (
     <div className='companySubTitle-conatiner'>
