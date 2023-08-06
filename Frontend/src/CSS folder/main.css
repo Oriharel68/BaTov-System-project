@@ -55,7 +55,7 @@ z-index: 2;
 .topFirst-container h4{
     /* text-align: center; */
     padding-left: 1em;
-
+    
 font-size: 25px;
 
 }
@@ -121,6 +121,35 @@ text-align: center;
 /* meed to fix................................ */
 .card h1 {
   font-weight: normal;
+}
+.card h1 p {
+  width: 65%;
+  margin: 1em;
+	border-radius: 0px 190px 190px 0px;
+
+  -webkit-animation: 1.5s highlight 1.5s 1 normal forwards;
+          animation: 1.5s highlight 1.5s 1 normal forwards;
+  background-color: none;
+  background: linear-gradient(90deg,#FFFF66	 50%, rgba(255, 255, 255, 0) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+ 
+  /* background: var(--underline); */
+ /*  #e6a0fa */
+  
+
+
+}
+@-webkit-keyframes highlight {
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes highlight {
+  to {
+    background-position: 0 0;
+  }
 }
 .card a {
   text-decoration: none;
@@ -713,7 +742,24 @@ padding: 3em 3em;
         
      
         
-       
+        .card h1 p {
+          width: 65%;
+          margin: 1em;
+          border-radius: 0px 190px 190px 0px;
+        
+          -webkit-animation: 1.5s highlight 1.5s 1 normal forwards;
+                  animation: 1.5s highlight 1.5s 1 normal forwards;
+          background-color: none;
+          background: linear-gradient(90deg,#e6a0fa	 50%, rgba(255, 255, 255, 0) 50%);
+          background-size: 200% 100%;
+          background-position: 100% 0;
+         
+          /* background: var(--underline); */
+         /*  #e6a0fa */
+          
+        
+        
+        }
         
      
       .introduction-containerSeconed{

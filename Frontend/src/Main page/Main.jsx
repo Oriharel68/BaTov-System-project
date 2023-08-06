@@ -89,7 +89,8 @@ function Main() {
             <div class="card">
               <h1>
                 {" "}
-                Work with us:
+               <p>   Work with us:</p>
+               {/* Work with us: */}
                 {/* <!-- Scroller Start --> */}
                 <div class="scroller">
                   <span>
