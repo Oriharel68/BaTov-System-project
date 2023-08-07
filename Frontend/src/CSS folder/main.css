@@ -376,8 +376,9 @@ animation: fill-1 5s infinite alternate, colors 5s infinite alternate;
   padding: 4.5em 5em;
   text-align: center;
   padding-top: 5em;
-
+/* -------------------- */
   overflow: hidden;
+
   direction: rtl;
   text-align: start;
   position: relative;
@@ -391,7 +392,14 @@ z-index: 5;
 }
 
 
-
+.content-container .about-container b{
+  text-decoration: none;
+  /* font-size: 1.5rem; */
+  height: 3px;
+  border-bottom: 6px solid #e6a0fa;
+  /* color: var(#e6a0fa); */
+  /* transition: all 200ms ease-out; */
+}
 /* ---------------------------------------------- */
  /* .BDIKA{
     display: flex;
@@ -572,18 +580,18 @@ padding: 3em 3em;
   /* text-align: center;
   background-color: red; */
   
-
+ /* background-color: red; */
   /* border-top: 2px solid black;
   border-top-style:dotted; */
 
     max-width: 70%;
-    /* max-width: 70%; */
+    /* max-width: 90%; */
     /* padding: 5em 5em; */
 }
 /* .content-container .introduction-containerFirst .left-container  */
 .content-container .introduction-containerFirst .left-container .car-icons{
   /* background-color: red; */
-  width: 170%;
+  width: 150%;
   display: flex;
   justify-content: End;
   
@@ -600,12 +608,84 @@ padding: 3em 3em;
 .content-container .introduction-containerFirst .left-container .car-icons ul li{
   padding-left: 1em;
   font-size: 35px;
+   color: #3a3;
+
+}
+/* car-icons-right */
+.car-icons-right{
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  justify-content: End;
+  
+   position: absolute;
+}
+ .car-icons-right ul{
+  
+  display: flex;
+  list-style: none;
+  padding-top: 3em;
   
 
 }
+ .car-icons-right ul li{
+  padding-left: 1em;
+  font-size: 35px;
+   color: antiquewhite;
+
+}
+/* car-icons-right-sec */
+.car-icons-right-sec{
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  justify-content: End;
+  
+   position: absolute;
+}
+ .car-icons-right-sec ul{
+  
+  display: flex;
+  list-style: none;
+  padding-top: 3em;
+  
+
+}
+ .car-icons-right-sec ul li{
+  padding-left: 1em;
+  font-size: 35px;
+   color: aquamarine;
+
+}
+/* car-icons-left-sec */
+.car-icons-left-sec{
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  
+   position: absolute;
+}
+ .car-icons-left-sec ul{
+  
+  display: flex;
+  list-style: none;
+  padding-top: 3em;
+  
+
+}
+ .car-icons-left-sec ul li{
+  padding-left: 1em;
+  font-size: 35px;
+   color: #FFFF66;
+
+}
+
 .describe-containerFirst{
   opacity: 0;
   transition: opacity 1s ease;
+
+
 } 
 .describe-containerFirst.visible {
   opacity: 1;
@@ -634,12 +714,36 @@ padding: 3em 3em;
 }
 .about-wraper{
   /* לפעמים גולש לפעמים לא צריך לבדוק!!! */
-  /* will-change: transform; */
-  transform: translateX(100%);
+  will-change: transform;
+ 
+  transform: translateX(-50%);
   transition: transform 0.5s ease;
-}
+} 
 .about-wraper.afterAbout{
+  /* position: absolute; */
+  /* z-index: 50; */
   transform: translateX(0);
+        }
+
+        .about-lorem{
+          font-feature-settings: "kern";
+          -webkit-font-smoothing: antialiased;
+          text-rendering: optimizelegibility;
+          font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Arimo, "Open Sans", "Helvetica Neue", sans-serif;
+          font-style: normal;
+          font-stretch: normal;
+          text-transform: none;
+          font-weight: 400;
+          font-size: 1.15rem;
+          line-height: 1.43;
+          /* max-width: 48rem;
+          margin: 0px auto;
+          text-align: start; */
+          color: rgb(32, 33, 37);
+      
+        
+          
+          
         }
 
 .TTcontent{
@@ -650,13 +754,16 @@ padding: 3em 3em;
     font-style: normal;
     font-stretch: normal;
     text-transform: none;
-    font-weight: 400;
-    font-size: 1.75rem;
+    font-weight: 450;
+    font-size: 23px;
+    /* on mobl */
+    /* font-size: 10px; */
+
     line-height: 1.43;
     display: block;
     max-width: 48rem;
     margin: 0px auto;
-    text-align: center;
+    /* text-align: center; */
     color: rgb(32, 33, 37);
 
 }
@@ -797,10 +904,18 @@ padding: 3em 3em;
         .TContent{
               line-height: 1.2em;
         }
-        .TTContent{
+        .TTcontent{
               padding-top: 1em;
+              font-size: 13px;
+              
         }
+        .about-lorem{
+           padding-top: 1em;
+      
         
+          
+          
+        }
       }
 
       

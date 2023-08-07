@@ -24,28 +24,39 @@ function Main() {
     false,
     false,
   ]);
-
+  
   useEffect(() => {
-    const handleScroll = () => {
-      domRef.forEach((ref, index) => {
-        if (ref.current) {
-          const rect = ref.current.getBoundingClientRect();
-          setIsVisible((prevVisible) => {
-            const newVisible = [...prevVisible];
-            newVisible[index] =
-              rect.top >= 0 && rect.bottom <= window.innerHeight;
-            return newVisible;
-          });
-        }
+    const handleIntersection = (index, entries) => {
+      setIsVisible((prevVisible) => {
+        const newVisible = [...prevVisible];
+        newVisible[index] = entries[0].isIntersecting;
+        return newVisible;
       });
     };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check initial visibility on mount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+  
+    const observerOptions = {
+      root: null, // Use the viewport as the root
+      rootMargin: "0px", // No margin added
+      threshold: 0.5, // When 50% of the element is visible
     };
-  }, [domRef[0], domRef[1], domRef[2], domRef[3], domRef[4]]);
+  
+    const observers = domRef.map((ref, index) => {
+      const observer = new IntersectionObserver((entries) =>
+        handleIntersection(index, entries)
+      , observerOptions);
+  
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+  
+      return observer;
+    });
+  
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, [domRef]);
+  
 
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -127,72 +138,100 @@ function Main() {
       <div className="content-container">
         <div className="about-container">
           <div
-            className={`about-wraper ${isVisible[4] ? "afterAbout" : ""} `}
-            ref={domRef[4]}
+            className={`about-wraper ${isVisible[0] ? "afterAbout" : ""} `}
+            ref={domRef[0]}
           >
             <h3 className={"TContent"}>קצת עלינו :</h3>
             {/* <div className={`describe-containerFirst ${isVisible[4] ? 'visible'  : ''} `}
                ref={domRef[4]}></div> */}
           </div>
-          <p>
-            אנחנו שני סטדנטים בקורס פול סטאק שהחליטו לייצר מערכת כחלק מהפרוייקט
-            שלנו. לאחר עבודה קשה הצלחנו ליצר מערכת כמו שתיככנו. מערכת זאת אמורה
-            לייצר נוחות ללקוחות ולחברות .
-            <br />
-            <br />
-            לקחנו על עצמנו את הפרוייקט הזה והלכנו איתו בכל הכוח
-            <br />
-            <br />
-            לבסוף, לאחר ניסויים קפדניים, בנינו בהצלחה אב טיפוס עובד של מערכת
-            המרת הפסולת לאנרגיה שלנו. זה היה הישג יוצא דופן שהרשים את הקהילה
-            שלנו ואף משך תשומת לב תקשורתית. הפרויקט שלנו נתפס כמחליף משחק
-            פוטנציאלי בחיפוש אחר פתרונות אנרגיה ברי קיימא.
-            <br />
-            <br />
-            ככל שהתפשטה השמועה, הוזמנו להציג את הפרויקט שלנו ביריד מדע אזורי.
-            התשוקה וההתלהבות שלנו היו מדבקות, והעניקו השראה לתלמידים אחרים לחשוב
-            מחוץ לקופסה ולפעול בנושאי איכות הסביבה.
-            <br />
-            <br />
-            זכייה בהצטיינות מובילה ביריד המדע הייתה אישור מדהים לעבודה הקשה
-            ולמסירות שלנו. יתרה מכך, עסקים מקומיים וארגונים סביבתיים גילו עניין
-            במימון מחקר ופיתוח נוספים, מתוך הכרה בהשפעה הפוטנציאלית של היצירה
-            שלנו.
-            <br />
-            <br />
-            עם זאת, ההיבט המתגמל ביותר היה הידיעה שהפרויקט שלנו יכול לעשות שינוי
-            בקהילה שלנו ומחוצה לה. המסע שלנו לימד אותנו שיעורים יקרי ערך על
-            עבודת צוות, התמדה וכוחה של חדשנות.
-            <br />
-            <br />
-            הפרויקט של שרה וג'ון הוא עדות למה שאנחנו יכולים להשיג כאשר תשוקה
-            ומומחיות טכנית מתאחדים. השמות שלנו לנצח ייחרטו בהיסטוריה של בית
-            הספר, ואנו מקווים להמשיך לעורר את הדורות הבאים להיות סוכנים של שינוי
-            חיובי בקהילות שלהם ובעולם
-            <br />
-            <br />
+          <p className="about-lorem">
+                                                                                  
+אנחנו שני סטדנטים בקורס פול סטאק במכללת 
+INT 
+שהחליטו לייצר מערכת כחלק מהפרוייקט שלנו.
+<br /><br />
+לקחנו על עצמנו את הפרוייקט הזה והלכנו איתו בכל הכוח
+למרות האתגרים של הזמן, השלמת שיעורים תוך כדי ,עבודה והחיי יום-יום.
+
+לאחר עבודה קשה ורצון עז הצלחנו ליצר מערכת כמו שתכננו.
+
+השקענו את מלוא זמננו למטרת הפרוייקט ,בגלל המוטיבציה והרצון להצליח.
+<br /><br />
+את רוב זמננו עשינו בזום על מנת להצליח בפרוייקט, שיתפנו את חוות דעתנו אחד עם השני , נעזרנו אחד בשני בפתירת תקלות בקוד ,שיתפנו אחד עם השני בקוד , עבדנו בצורה מסדורת ואסטטית מבחינת חלקות משימות, שיתוף קוד בגיט, ותכנון הפרוייקט מבחינת וויזואלית ומבחינת תבניתית -דאטה בייסים,בניית תבניות ותכנון נכון של צד שרת. 
+<br /><br />
+  לאחר ההשקעה המרובה , והרצון להצליח הנכם רואים את התוצאה , אין דבר העומד בפני הרצון,
+   {/* &nbsp;  */}
+   <b> מי שרוצה מצליח זה משפט שהוכיח את עצמו בפנינו. </b>
+
+ 
+
           </p>
+          
         </div>
         {/* ---------------------> */}
         {/* <svg xmlns="http://www.w3.org/2000/svg" width="100%"  viewBox="0 0 8452 605" fill="none">
   <path style={{position:'absolute'}} d="M0.589356 261.631L0.0793724 263.042L2.90066 264.062L3.41064 262.651L0.589356 261.631ZM85.9455 213.682L85.4554 212.265L85.9455 213.682ZM417.165 93.2925L417.641 94.715L417.165 93.2925ZM839.63 6.21814L839.473 4.72637L839.63 6.21814ZM1592.4 301.514L1593.27 300.291L1592.4 301.514ZM2454.67 528.664L2454.51 527.172L2454.67 528.664ZM4273.19 432.504L4272.55 433.865L4273.19 432.504ZM5157.35 602.867L5157.33 604.366L5157.35 602.867ZM6133.67 459.005L6133.36 457.537L6133.36 457.537L6133.67 459.005ZM6745.02 330.286L6744.98 331.786L6745.02 330.286ZM6900.13 371.93L6900.27 370.437L6900.13 371.93ZM7044.3 401.46L7044.71 400.018L7044.3 401.46ZM7343.58 432.504L7343.09 433.921L7343.58 432.504ZM7870.07 324.229L7871.11 325.306L7871.11 325.306L7870.07 324.229ZM7911.5 296.5L7910.61 295.296L7911.5 296.5ZM7967.7 265.17L7968.28 266.555L7967.7 265.17ZM8049.82 221.254L8050.59 222.544L8050.59 222.544L8049.82 221.254ZM8210.41 210.654L8209.45 211.808L8209.45 211.808L8210.41 210.654ZM8272.46 349.972L8271.5 351.127L8272.46 349.972ZM8436 384.802C8436 389.22 8439.58 392.802 8444 392.802C8448.42 392.802 8452 389.22 8452 384.802C8452 380.384 8448.42 376.802 8444 376.802C8439.58 376.802 8436 380.384 8436 384.802ZM3.41064 262.651C8.37184 248.928 21.4905 239.584 37.4105 232.363C53.3336 225.14 71.5357 220.252 86.4357 215.1L85.4554 212.265C70.849 217.315 52.2556 222.335 36.1712 229.631C20.0837 236.928 5.98283 246.712 0.589356 261.631L3.41064 262.651ZM86.4357 215.1C142.105 195.852 196.936 175.108 251.824 154.504C306.72 133.898 361.679 113.429 417.641 94.715L416.69 91.8699C360.67 110.603 305.665 131.089 250.77 151.696C195.868 172.304 141.08 193.032 85.4554 212.265L86.4357 215.1ZM417.641 94.715C547.448 51.307 700.118 22.4015 839.787 7.70991L839.473 4.72637C699.65 19.4341 546.756 48.3751 416.69 91.8699L417.641 94.715ZM839.787 7.70991C1153.72 -25.3116 1365.26 141.795 1591.53 302.736L1593.27 300.291C1367.23 139.515 1154.73 -28.4349 839.473 4.72637L839.787 7.70991ZM1591.53 302.736C1831.72 473.574 2134.33 564.108 2454.83 530.156L2454.51 527.172C2134.78 561.043 1832.9 470.73 1593.27 300.291L1591.53 302.736ZM2454.83 530.156C2676.61 506.662 2886.76 433.153 3097.8 365.597C3308.89 298.02 3520.91 236.383 3746.7 236.383V233.383C3520.39 233.383 3307.98 295.162 3096.88 362.739C2885.72 430.337 2675.91 503.719 2454.51 527.172L2454.83 530.156ZM3746.7 236.383C3838.85 236.383 3931.18 267.572 4020.09 307.891C4064.53 328.048 4108.09 350.469 4150.33 372.393C4192.55 394.31 4233.46 415.735 4272.55 433.865L4273.82 431.143C4234.8 413.048 4193.95 391.659 4151.71 369.73C4109.48 347.808 4065.85 325.352 4021.33 305.159C3932.29 264.78 3839.49 233.383 3746.7 233.383V236.383ZM4272.55 433.865C4526.77 551.752 4869.21 601.136 5157.33 604.366L5157.37 601.367C4869.46 598.138 4527.5 548.782 4273.82 431.143L4272.55 433.865ZM5157.33 604.366C5497.57 608.182 5808.8 529.501 6133.98 460.472L6133.36 457.537C5808.02 526.6 5497.19 605.177 5157.37 601.367L5157.33 604.366ZM6133.98 460.472C6235.06 439.015 6334.8 405.565 6435.63 378.166C6536.53 350.747 6638.69 329.336 6744.98 331.786L6745.05 328.786C6638.32 326.326 6535.84 347.827 6434.84 375.271C6333.77 402.736 6234.35 436.1 6133.36 457.537L6133.98 460.472ZM6744.98 331.786C6773.65 332.446 6797.45 341.399 6821.62 350.964C6845.75 360.513 6870.25 370.681 6899.99 373.424L6900.27 370.437C6871.02 367.74 6846.93 357.754 6822.72 348.174C6798.56 338.611 6774.31 329.461 6745.05 328.786L6744.98 331.786ZM6899.99 373.424C6948.69 377.914 6997.76 389.651 7043.89 402.902L7044.71 400.018C6998.51 386.747 6949.24 374.952 6900.27 370.437L6899.99 373.424ZM7043.89 402.902C7090.59 416.318 7143.7 416.485 7195.87 417.116C7248.15 417.747 7299.49 418.844 7343.09 433.921L7344.07 431.086C7299.93 415.822 7248.09 414.746 7195.91 414.116C7143.61 413.484 7090.95 413.3 7044.71 400.018L7043.89 402.902ZM7343.09 433.921C7414.74 458.693 7522.6 454.872 7624.47 433.277C7726.32 411.685 7822.65 372.223 7871.11 325.306L7869.03 323.151C7821.18 369.47 7725.53 408.785 7623.85 430.342C7522.18 451.895 7414.95 455.593 7344.07 431.086L7343.09 433.921ZM7871.11 325.306C7877.26 319.355 7883.97 315.106 7890.98 311.013C7897.95 306.939 7905.28 302.988 7912.39 297.704L7910.61 295.296C7903.66 300.451 7896.55 304.283 7889.47 308.423C7882.41 312.543 7875.44 316.939 7869.03 323.151L7871.11 325.306ZM7912.39 297.704C7930.72 284.1 7944.85 276.273 7968.28 266.555L7967.13 263.784C7943.51 273.583 7929.15 281.526 7910.61 295.296L7912.39 297.704ZM7968.28 266.555C7998.94 253.83 8020.09 240.618 8050.59 222.544L8049.06 219.963C8018.5 238.074 7997.56 251.158 7967.13 263.784L7968.28 266.555ZM8050.59 222.544C8081.82 204.03 8106.11 188.652 8130.36 184.212C8154.38 179.813 8178.54 186.151 8209.45 211.808L8211.37 209.499C8179.99 183.461 8154.96 176.656 8129.82 181.261C8104.91 185.823 8080.05 201.594 8049.06 219.963L8050.59 222.544ZM8209.45 211.808C8229.3 228.277 8234.61 254.109 8240 280.637C8245.33 306.918 8250.74 333.898 8271.5 351.127L8273.42 348.818C8253.61 332.383 8248.32 306.569 8242.94 280.04C8237.6 253.757 8232.17 226.762 8211.37 209.499L8209.45 211.808ZM8271.5 351.127C8320.94 392.148 8379.56 386.302 8444 386.302V383.302C8379.04 383.302 8321.82 388.981 8273.42 348.818L8271.5 351.127Z" fill="#9D29AE"/>
 </svg> */}
+
+
+<div className="car-icons-right">
+                <ul>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                </ul>
+                
+              </div>
         <div className="wraperOne-section">
           <div className="introduction-containerFirst">
             <div className="left-container">
               <div
                 className={`describe-containerFirst ${
-                  isVisible[0] ? "visible" : ""
+                  isVisible[1] ? "visible" : ""
                 } `}
-                ref={domRef[0]}
+                ref={domRef[1]}
               >
                 <h3 className="TContent"> למי אנחנו פונים: </h3>
-                <p className="TTContent">
-                  {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
-        Est illum iusto minima minus doloremque deleniti, distinctio temporibus possimus libero quas aliquid accusantium consectetur, fugiat repudiandae optio quae pariatur ad dolorem. Quae laboriosam, dolore soluta quos expedita necessitatibus mollitia. */}
-                  לחברות הגדולות שיש ללהם טכנאי שטח שצריכים בן אדם שיש על סידור
-                  יום יומי -לוז של טכנאים בודקים וכדומה
-                </p>
+                <p className="TTcontent">
+                  
+                <div>
+  
+  </div>
+
+
+  <div className="TopicTop-A">
+  ברוכים הבאים לפלטפורמה שלנו המיועדת לפשט את תהליך הזמנת ספקי שירות. המטרה העיקרית שלנו היא לספק ללקוחות דרך פשוטה להתחבר ולהזמין ספקי שירות לצרכיהם השונים. כאשר אנחנו מגיעים לחברות גדולות שמחפשות ארגון הזמנות משופר ונוחות ללקוחותיהן, הפלטפורמה שלנו היא פתרון שמטרתו לפשט ולשדרג את חוויית ההזמנה.
+                  
+<br /><br />
+
+אנו מבינים את החשיבות של חוויית המשתמש, ולכן האתר שלנו עוצב בקפיצי התקדמות כדי להיות אינטואיטיבי ונוח לשימוש. במהלך שלושה לחיצות בלבד, לקוחות יכולים לנווט בין קטגוריות שונות של שירותים, לראות ספקי שירות זמינים ולשרוד את הזמן הרצוי שלהם.
+<br />
+עיצובנו המודרני והנקי מבטיח ניווט חלק בכל האתר, ומתמקד בשלבים המרכזיים של תהליך ההזמנה. ממשק המשתמש נוצר בכדי למזער את הקלטת המשתמש ולספק גמישות מרבית והתאמה אישית בעת בחירת השירותים והספקים.
+<br /><br />
+
+  </div>
+<div>
+  
+</div>
+ <b> הזמנה פשוטה:  </b>
+<br />
+ הפלטפורמה שלנו שואפת לפשט משמעותית את תהליך ההזמנה, ולהפטר מטפסים מסובכים והליך מסובך.
+זמינות בזמן אמת: בדקו את זמינות ספקי השירות בזמן אמת ובחרו את הזמן שמתאים לכם ביותר.
+שירותים להתאמה אישית: ניתן להתאים אישית את השירות על פי מגוון אפשרויות להתאמה לדרישות הספציפיות.
+ממשק נוח למשתמש: עיצוב האתר שלנו, הנקי והמודרני, משפר את חוויית המשתמש, והופך את תהליך ההזמנה לחלק ונעים.
+<br /><br />
+<b> תכונות נוספות:           </b>
+
+רישום למערכת: כדי ליהנות משירותינו, על הלקוחות להירשם לפלטפורמה שלנו.
+לוח הבקרה האישי ללקוחות: לאחר ההרשמה, כל לקוח מקבל גישה ללוח הבקרה האישי, המאפשר לו לצפות בהזמנות קודמות, להוסיף חדשות ועוד.
+ניהול ספקי השירות: חברות יכולות להוסיף ספקי שירות חדשים ולראות את ההזמנות בלוח שנה כאירועים. הן יכולות גם לעקוב אחרי כל ההזמנות והרווחים של כל ספק.
+ניתוח נתונים: אנו מספקים כלים מתקדמים לניתוח נתונים, המאפשרים לחברות לעקוב אחרי הזמנות והרווחים לאורך הזמן ולקבל החלטות מבוססות נתונים.
+
+     
+           </p>
               </div>
               <div className="car-icons">
                 <ul>
@@ -219,21 +258,32 @@ function Main() {
             <div className="left-container">
               <div
                 className={`describe-containerFirst ${
-                  isVisible[1] ? "visible" : ""
+                  isVisible[2] ? "visible" : ""
                 } `}
-                ref={domRef[1]}
+                ref={domRef[2]}
               >
                 <h3 className="TContent"> תיאור: </h3>
-                <p className="TTContent">
+                <p className="TTcontent">
                   {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
         Est illum iusto minima minus doloremque deleniti, distinctio temporibus possimus libero quas aliquid accusantium consectetur, fugiat repudiandae optio quae pariatur ad dolorem. Quae laboriosam, dolore soluta quos expedita necessitatibus mollitia. */}
-                  מערכת של תיאום תורים לחברות הגדולות שבדכ מתנהלות מול החברות
-                  קבלן או פרטי מה שיהיה במערכת זה שהלקחות של החברה יכלו לבחור את
-                  הזמן הפנוי לקבלת טכנאי בכך שיוצג לו הרשימה של כל הזמנים
-                  והמקומות הפנויים הצד של החברה הגדולה יסודר הלוז של
-                  הבדיקות/קריאות בצורה מסודרת לפי שעות וימים ביומן עבודה שיהיה
-                  נגיש . בנסוף למסך של היומן עבודה תהיה האופציה לראות
-                  סטטיקסטיקות --כמות כניסות לאתר תכמות לקחות וכדומה.....
+<b >               הזמנה פשוטה:
+</b>
+<br  />               
+                הפלטפורמה שלנו שואפת לפשט משמעותית את תהליך ההזמנה, ולהפטר מטפסים מסובכים והליך מסובך.
+זמינות בזמן אמת: בדקו את זמינות ספקי השירות בזמן אמת ובחרו את הזמן שמתאים לכם ביותר.
+שירותים להתאמה אישית: ניתן להתאים אישית את השירות על פי מגוון אפשרויות להתאמה לדרישות הספציפיות.
+ממשק נוח למשתמש: עיצוב האתר שלנו, הנקי והמודרני, משפר את חוויית המשתמש, והופך את תהליך ההזמנה לחלק ונעים.
+<br /><br />
+<b >תכונות נוספות:</b>
+<br />
+<b style={{fontWeight:'510'}}> רישום למערכת:
+</b>
+<br />
+ כדי ליהנות משירותינו, על הלקוחות להירשם לפלטפורמה שלנו.
+לוח הבקרה האישי ללקוחות: לאחר ההרשמה, כל לקוח מקבל גישה ללוח הבקרה האישי, המאפשר לו לצפות בהזמנות קודמות, להוסיף חדשות ועוד.
+ניהול ספקי השירות: חברות יכולות להוסיף ספקי שירות חדשים ולראות את ההזמנות בלוח שנה כאירועים. הן יכולות גם לעקוב אחרי כל ההזמנות והרווחים של כל ספק.
+ניתוח נתונים: אנו מספקים כלים מתקדמים לניתוח נתונים, המאפשרים לחברות לעקוב אחרי הזמנות והרווחים לאורך הזמן ולקבל החלטות מבוססות נתונים.
+
                 </p>
               </div>
             </div>
@@ -245,6 +295,16 @@ function Main() {
   </div> */}
           </div>
         </div>
+        <div className="car-icons-right-sec">
+                <ul>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                </ul>
+                
+              </div>
         {/* <div class="seporator-fill-line"></div> */}
         <div className="DocumentationiIcons-wraper">
           <div class="spec-icons-wrapper">
@@ -318,25 +378,46 @@ function Main() {
     display: flex; */}
 
         {/* ---------------------> */}
+        <div className="car-icons-left-sec">
+                <ul>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                </ul>
+                
+              </div>
+                  <div className="car-icons-right-sec">
+                <ul>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                </ul>
+                
+              </div>
 
         <div className="wraperTwo-section">
           <div className="introduction-containerFirst">
             <div className="left-container">
               <div
                 className={`describe-containerFirst ${
-                  isVisible[2] ? "visible" : ""
+                  isVisible[3] ? "visible" : ""
                 } `}
-                ref={domRef[2]}
+                ref={domRef[3]}
               >
                 <h3 className="TContent">מטרה:</h3>
-                <p className="TTContent">
+                <p className="TTcontent">
                   {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
                 Est illum iusto minima minus doloremque deleniti, distinctio temporibus possimus libero quas aliquid accusantium consectetur, fugiat repudiandae optio quae pariatur ad dolorem. Quae laboriosam, dolore soluta quos expedita necessitatibus mollitia. */}
-                  * לייעל את הדרישה של הלקוחות לטכנאים-הזמנות-זימון תורים *להפוך
-                  את חווית המשתמש ללקוח לטובה יותר ונגישה יותר וקלה להבנה *לגרום
-                  לחברה להבין כמה כסף נכנס ובעצם אופציה לייצר סטטיסטיקה שמטרתה
-                  לעקוב אחרי הרווחים שלה ובכל מה שקשור ללוקחות שלה --מבחינת
-                  בדיקות(כמות הבדיקות),מבחינת עלויות רווחים וכדומה
+              המשימה שלנו היא לגשר את הפער בין החברות הגדולות שמחפשות ארגון הזמנות מתועשר וללקוחות המחפשים חוויית הזמנה פשוטה ויעילה. באמצעות הצעת פלטפורמה המתאימה לשני הצדדים, אנו שואפים לשנות את האופן בו עסקים ולקוחות נפגשים בענף השירותים.
+
+בין שאתם מחפשים התייעצויות מקצועיות, תורים או שירותים אישיים, הפלטפורמה שלנו מחברת אתכם לספקי השירות האמינים. אנחנו מתרגשים להיות הפתרון להזמנות חלקות ולתוך נתונים ניתוחיים חיוניים.
+
+חפרו באתר שלנו כדי לראות את הנוחות שבהזמנת ספקי השירות בצורה חלקה, וגם לגלות את היכולות הניתוחיות החזקות שאנו מספקים.
+
                 </p>
               </div>
             </div>
@@ -347,7 +428,26 @@ function Main() {
 
           </div> */}
           </div>
-
+          <div className="car-icons-left-sec">
+                <ul>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                </ul>
+                
+              </div>
+                  <div className="car-icons-right-sec">
+                <ul>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaCarSideSolid/> </li>
+                </ul>
+                
+              </div>
           <div className="introduction-containerSeconed">
             <div className="left-container">
               <div className="image-containerSeconed">
@@ -366,17 +466,42 @@ function Main() {
               {/* <div className="describe-containerSeconed"> */}
               <div
                 className={`describe-containerFirst ${
-                  isVisible[3] ? "visible" : ""
+                  isVisible[4] ? "visible" : ""
                 } `}
-                ref={domRef[3]}
+                ref={domRef[4]}
               >
-                <h3 className="TContent">תהליך השימוש של האפליקציה:</h3>
-                <p className="TTContent">
+                <h3 className="TContent">איך להשתמש באפליקציה:
+
+
+</h3>
+                <p className="TTcontent">
                   {/* orem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos nesciunt voluptatum tenetur minus quia quo eius, rerum et inventore expedita necessitatibus, delectus nam, provident vel ducimus ipsam libero blanditiis consequuntur.
                 Est illum iusto minima minus doloremque deleniti, distinctio temporibus possimus libero quas aliquid accusantium consectetur, fugiat repudiandae optio quae pariatur ad dolorem. Quae laboriosam, dolore soluta quos expedita necessitatibus mollitia. */}
-                  האתר יבנה כאתר שיהיה לו את האופציה להוסיף למסף הבית ובכך ישמש
-                  את הלקחות *האתר יהיה רספונסיבי לנייד ולמחשב *שם משתמש וסיסמא
-                  ללקוח -----ולחברה יהיה שם משתמש ראשי
+     
+<ul>
+  <li><b>הרשמה:</b>
+ הירשמו לחשבון בפלטפורמה שלנו כדי לגשת לשירותים שלנו.
+</li>
+  <li><b>חקרו קטגוריות:</b>
+ עיינו במגוון הקטגוריות השונות למציאת מה שאתם צריכים.
+</li>
+  <li><b>צפו בספקים:</b> 
+ראו רשימה של ספקי שירות זמינים בתוך הקטגוריה שבחרתם.
+בדקו זמינות: בחרו ספק ובדקו את הזמינות בזמן אמת.
+</li>
+  <li><b>הזמינו תור:</b>
+ בחרו חריט זמן מתאים ואשרו את ההזמנה שלכם.
+</li>
+  <li><b>ניהול הזמנות: </b>
+לאחר ההזמנה, גשו ללוח הבקרה האישי שלכם כדי לראות ולנהל את ההזמנות שלכם.
+</li>
+  <li><b>ספקי השירות:</b> לחברות, הוסיפו ספקי שירות חדשים ונהלו את ההזמנות שלהם ביומן.
+</li>
+<li><b>ניתוח נתונים: </b>
+השתמשו בכלי הניתוחים המתקדמים כדי לעקוב אחרי הזמנות ורווחים לאורך הזמן.:
+</li>
+</ul>
+
                 </p>
               </div>
             </div>
