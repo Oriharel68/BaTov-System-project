@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 function ExistingOrder() {
 const [ordersData,setOrdersData]= useState([]);
 const [OldOrders, setOldOrders] = useState([]);
+const [Changed, setChanged] = useState(0);
 const [Auth] = useState(getAuth());
 const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ const navigate = useNavigate();
           getOrdersData();
         
         
-      }, [])
+      }, [Changed])
       
     return (
     <div>
@@ -56,13 +57,13 @@ const navigate = useNavigate();
    <div>
     {ordersData.map((order)=>{
     return(
-        <ExistingOrderList order={order} key={order._id}/>
+        <ExistingOrderList Changed={Changed} setChanged={setChanged} order={order} key={order._id}/>
     );
   })}
   <h4 style={{direction:'rtl'}}>הזמנות ישנות:</h4>
    {OldOrders.map((order)=>{
     return(
-      <ExistingOrderList order={order} key={order._id}/>
+      <ExistingOrderList Changed={Changed} setChanged={setChanged} order={order} key={order._id}/>
   );
    })}
    </div>

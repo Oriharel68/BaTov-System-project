@@ -15,11 +15,10 @@ getSumOfClientsOrder.get('/',async (req:Request,res:Response)=>{
         const ClientWithPrice = Promise.all(
             ClientDB.map(async (Client)=>{
             const OrderOfClient = await OrdersModel.find({ClientId:Client._id});
-            //    console.log(OrderOfClient);
-            //    if(OrderOfClient.length === 0)return;
+            
             
                const TotalMoney = OrderOfClient.reduce((acc,currnetValue)=>acc+(currnetValue.Price as number),0);
-            //    console.log(TotalMoney);
+      
                
                return {ClientName:`${Client.FirstName} ${Client.LastName}`,Total:TotalMoney,Email:Client.Email};
             })).then((value)=>{
