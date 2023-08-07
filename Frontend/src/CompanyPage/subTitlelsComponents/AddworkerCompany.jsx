@@ -29,9 +29,6 @@ function AddworkerCompany() {
       const Price = formData.get("price");
 
       if (!Price || !TypeOfService || !TypeOfService) {
-        // alert("missing info");
-        // ref.current.style.color = "red";
-        // ref.current.innerText = "חסר מידע -בבקשה השלם את כל המידע הנדרש";
         toast.error(`חסר מידע -בבקשה השלם את כל המידע הנדרש`);
 
         return;
