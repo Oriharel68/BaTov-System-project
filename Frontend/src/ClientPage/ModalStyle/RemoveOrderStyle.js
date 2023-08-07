@@ -7,7 +7,7 @@ const RemoveStyle =  {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         maxWidth: '100%',
-        minWidth:'50%',
+        width:'20em',
         backgroundColor:'#08B2E3',
         display:'flex',
         justifyContent:'center',
