@@ -2,12 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import Footer from "./Footer";
 import NavBar from "../nav/NavBar";
 import { Link } from "react-router-dom";
-import { AiOutlineArrowDown } from "react-icons/ai";
+import { AiOutlineArrowDown,AiOutlineDotChart,AiOutlineMinus } from "react-icons/ai";
 import { FiUser } from "react-icons/fi";
 import { GrInspect, GrSystem } from "react-icons/gr";
 import { SlCalender } from "react-icons/sl";
 import { CiCalculator1 } from "react-icons/ci";
 import { LiaCarSideSolid } from "react-icons/lia";
+import { BsGraphUpArrow,BsBarChartLine,BsClockHistory } from "react-icons/bs";
+import { LiaStarSolid } from "react-icons/lia";
+import { PiChartLineUpBold } from "react-icons/pi";
+import { MdAttachMoney } from "react-icons/md";
+import { FcComboChart } from "react-icons/fc";
 
 function Main() {
   const domRef = [
@@ -18,44 +23,44 @@ function Main() {
     useRef(null),
   ];
   const [isVisible, setIsVisible] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
+    true,
+    true,
+    true,
+    true,
+    true,
   ]);
   
-  useEffect(() => {
-    const handleIntersection = (index, entries) => {
-      setIsVisible((prevVisible) => {
-        const newVisible = [...prevVisible];
-        newVisible[index] = entries[0].isIntersecting;
-        return newVisible;
-      });
-    };
+  // useEffect(() => {
+  //   const handleIntersection = (index, entries) => {
+  //     setIsVisible((prevVisible) => {
+  //       const newVisible = [...prevVisible];
+  //       newVisible[index] = entries[0].isIntersecting;
+  //       return newVisible;
+  //     });
+  //   };
   
-    const observerOptions = {
-      root: null, // Use the viewport as the root
-      rootMargin: "0px", // No margin added
-      threshold: 0.5, // When 50% of the element is visible
-    };
+  //   const observerOptions = {
+  //     root: null, // Use the viewport as the root
+  //     rootMargin: "0px", // No margin added
+  //     threshold: 0.5, // When 50% of the element is visible
+  //   };
   
-    const observers = domRef.map((ref, index) => {
-      const observer = new IntersectionObserver((entries) =>
-        handleIntersection(index, entries)
-      , observerOptions);
+  //   const observers = domRef.map((ref, index) => {
+  //     const observer = new IntersectionObserver((entries) =>
+  //       handleIntersection(index, entries)
+  //     , observerOptions);
   
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
+  //     if (ref.current) {
+  //       observer.observe(ref.current);
+  //     }
   
-      return observer;
-    });
+  //     return observer;
+  //   });
   
-    return () => {
-      observers.forEach((observer) => observer.disconnect());
-    };
-  }, [domRef]);
+  //   return () => {
+  //     observers.forEach((observer) => observer.disconnect());
+  //   };
+  // }, [domRef]);
   
 
   // useEffect(() => {
@@ -82,7 +87,7 @@ function Main() {
             <h2>BaTov</h2>
 
             <h4> Work Smart Not Hard </h4>
-                  <span> --------------------------> </span>  
+                  <span className="BGR" >    <AiOutlineMinus/>   <AiOutlineMinus/><AiOutlineMinus/><AiOutlineMinus/><AiOutlineMinus/><AiOutlineMinus/><AiOutlineMinus/><AiOutlineMinus/><AiOutlineMinus/><AiOutlineMinus/><AiOutlineMinus/>   <BsGraphUpArrow className="BGR" /> </span>  
           </div>
           <div className="welcome-container">
             <div class="logo-holder">
@@ -132,6 +137,11 @@ function Main() {
       <li class="content__container__list__item">everybody !</li>
     </ul> */}
           </div>
+          <div className="chart-image">
+            {/* <img src="https://images.pexels.com/photos/7947671/pexels-photo-7947671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /> */}
+          {/* <FcComboChart/> */}
+          </div>
+
         </div>
       </div>
 
@@ -178,11 +188,11 @@ INT
 
 <div className="car-icons-right">
                 <ul>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
+                  <li><BsClockHistory/> </li>
+                  <li><PiChartLineUpBold/> </li>
+                  <li><MdAttachMoney/> </li>
+                <li><SlCalender/> </li>
+                  <li><BsBarChartLine/> </li>
                 </ul>
                 
               </div>
@@ -254,11 +264,11 @@ INT
               </div>
               <div className="car-icons">
                 <ul>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
+                  <li><PiChartLineUpBold/> </li>
+                  <li><BsBarChartLine/> </li>
+                  <li><BsClockHistory/> </li>
+                  <li><MdAttachMoney/> </li>
+                <li><SlCalender/> </li>
                 </ul>
                 
               </div>
@@ -309,11 +319,11 @@ INT
         </div>
         <div className="car-icons-right-sec">
                 <ul>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
+                  <li><SlCalender/> </li>
+                  <li><MdAttachMoney/> </li>
+                  <li><PiChartLineUpBold/> </li>
+                  <li><BsBarChartLine/> </li>
+                  <li><BsClockHistory/> </li>
                 </ul>
                 
               </div>
@@ -392,21 +402,21 @@ INT
         {/* ---------------------> */}
         <div className="car-icons-left-sec">
                 <ul>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
+                <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
                 </ul>
                 
               </div>
                   <div className="car-icons-right-sec">
                 <ul>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
+                <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
                 </ul>
                 
               </div>
@@ -439,27 +449,28 @@ INT
             </div>
 
           </div> */}
-          </div>
           <div className="car-icons-left-sec">
                 <ul>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
                 </ul>
                 
               </div>
                   <div className="car-icons-right-sec">
                 <ul>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
-                  <li><LiaCarSideSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
+                  <li><LiaStarSolid/> </li>
                 </ul>
                 
               </div>
+          </div>
+          
           <div className="introduction-containerSeconed">
             <div className="left-container">
               <div className="image-containerSeconed">
@@ -499,7 +510,8 @@ INT
 </li>
   <li><b className="marker">צפו בספקים:</b> 
 ראו רשימה של ספקי שירות זמינים בתוך הקטגוריה שבחרתם.
-בדקו זמינות: בחרו ספק ובדקו את הזמינות בזמן אמת.
+<li><b className="marker">בדקו זמינות:</b>
+ בחרו ספק ובדקו את הזמינות בזמן אמת.</li>
 </li>
   <li><b className="marker">הזמינו תור:</b>
  בחרו חריט זמן מתאים ואשרו את ההזמנה שלכם.
