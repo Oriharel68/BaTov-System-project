@@ -12,7 +12,6 @@ function MiddlewareAuth({children}) {
         }
     },[location]);
 
-
   return children;
 }
 
