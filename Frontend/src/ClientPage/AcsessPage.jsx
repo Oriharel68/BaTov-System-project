@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword ,setPersistence,browserSessionPersistence } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -19,26 +19,22 @@ function AcsessPage() {
     const password = formData.get('password');
 
   
-   
-    signInWithEmailAndPassword(auth, email, password)
+    
+      return signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
         setLoggedin(true);
-
         setTimeout(() => {
           navigate('/order/main')
         }, 3000);
         // ...
       })
       .catch((error) => {
-        // let errorCode = error.code;
-        // const errorMessage = error.message;
-        // console.log(errorMessage);                  
-        // // console.log(`${errorCode}:${errorMessage}`);
         const errorbox = document.querySelector("#errorbox");
         errorbox.innerText = `משתמש או סיסמה אינם נכונים`;
       });
+   
   }
 
   return (

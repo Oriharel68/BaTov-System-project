@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../nav/NavBar";
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword  ,setPersistence,browserSessionPersistence} from "firebase/auth";
 import { AiOutlineMail } from 'react-icons/ai';
 import axios from "axios";
 
@@ -47,7 +47,8 @@ if(showSecondDiv == false){
         alert('user in not a company user ,please contact the administrator ')
         return;
       }
-    signInWithEmailAndPassword(auth, email, password)
+      
+       return signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
@@ -69,6 +70,9 @@ if(showSecondDiv == false){
         Message = Message.replace(":", "d");
         errorbox.innerText = `${Message}:`;
       });
+        
+      
+    
   }
 
   return (
