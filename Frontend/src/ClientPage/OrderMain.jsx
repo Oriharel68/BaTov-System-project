@@ -6,7 +6,7 @@ import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 
 function OrderMain() {
   const navigate = useNavigate();
-const [userAuth,setUserAuth] =useState(getAuth());
+  const [userAuth,setUserAuth] =useState(getAuth());
 
 
 
@@ -14,8 +14,7 @@ const [userAuth,setUserAuth] =useState(getAuth());
   return (
     <div>
      <div className="page-wraper">
-        {/* bdika vdika */}
-        {/* <ClientNavBar/> */}
+        
 
         <div className="mainClient-page-wraper">
         <ClientNavBarOrderMain/>

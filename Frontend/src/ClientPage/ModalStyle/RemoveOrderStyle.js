@@ -8,7 +8,7 @@ const RemoveStyle =  {
         transform: 'translate(-50%, -50%)',
         maxWidth: '100%',
         width:'20em',
-        backgroundColor:'#08B2E3',
+        backgroundColor:'rgb(211,211,211)',
         display:'flex',
         justifyContent:'center',
         paddingTop:'1em',

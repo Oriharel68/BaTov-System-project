@@ -3,11 +3,13 @@ import { setDate } from "../Helpjs/help";
 import Modal from "react-modal";
 import RemoveStyle from "./ModalStyle/RemoveOrderStyle";
 import axios from "axios";
+import { FiSettings } from 'react-icons/fi';
 import { MdRemoveCircleOutline } from "react-icons/md";
 import { BiExit } from "react-icons/bi";
 function ExistingOrderList({ order, setChanged, Changed, isExpired }) {
   const [showModal, setShowModal] = useState(false);
   const [Expired, setExpired] = useState(isExpired);
+
   const handleClick = useCallback(() => {
     setShowModal(!showModal);
   }, [showModal]);
@@ -32,16 +34,11 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }) {
   return (
     <div>
       <div className="workerType-wraper">
-        <button onClick={handleClick} id="WokerType">
+        <button onClick={handleClick}  id="WokerType">
           <span className="marker"> מקצוע: </span>{order.TypeOfService}<br />
           <span className="marker">שם עובד :</span> {order.WorkerName}<br />
           <span className="marker"> תאריך :</span>{setDate(order.DateTime)}
-         
-          
-          
-          
-          
-          
+         <FiSettings  >אפשרויות</FiSettings>
         </button>
         {showModal && (
           <Modal
