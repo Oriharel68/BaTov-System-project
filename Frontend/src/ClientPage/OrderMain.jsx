@@ -5,9 +5,9 @@ import { getAuth } from 'firebase/auth'
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 
 function OrderMain() {
-  const auth = getAuth();
   const navigate = useNavigate();
-const [userAuth,setUserAuth] =useState(auth)
+const [userAuth,setUserAuth] =useState(getAuth());
+
 
 
 

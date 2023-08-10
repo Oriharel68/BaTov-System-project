@@ -12,7 +12,8 @@
     /* overflow-y: visible; */
 }
 .page-wraper .mainClient-page-wraper .mainClient-page .clientbuttonContainer-client .clientNewOrderPage{
-    padding-top:5em ;
+
+    /* padding-top:5em ; */
 }
 
 
@@ -20,6 +21,7 @@
     max-width: 100%;
     width: 22em;
     z-index: 0;
+    text-align: end;
     -webkit-animation: bounce-top 0.9s both;
 	        animation: bounce-top 0.9s both;
 }

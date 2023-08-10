@@ -7,7 +7,7 @@ function MiddlewareAuth({children}) {
     const navigate = useNavigate();
     const location = useLocation().pathname;
     useEffect(()=>{
-        if((location.indexOf("/order") !== -1 || (location.indexOf("/company") !== -1 && (location !== '/company/access'))) && Auth.currentUser===null){
+        if(((location.indexOf("/company") !== -1 && (location !== '/company/access'))) && Auth.currentUser===null){
             navigate('/');
         }
     },[location]);
