@@ -98,17 +98,32 @@ function RegestrationPage() {
             {/* -----xxxx---- */}
             <div className="registerWraper-conatiner">
               <div className="registerClient-page-title">
-                <h2>Register</h2>
+                <h2>הרשמה</h2>
               </div>
               <form action="" onSubmit={(event) => handleOnSubmit(event)}>
             
 
                 <label for="inp" class="inp1">
+
+                <input
+                    type="text"
+                    name="FirstName"
+                    id="FirstName"
+                    placeholder="שם פרטי"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="LastName"
+                    id="LastName"
+                    placeholder="שם משפחה "
+                    required
+                  />
                   <input 
                     type="email"
                     name="Email"
                     id="email"
-                    placeholder="Email"
+                    placeholder="כתובת דואר אלקטרוני"
                     required
                     
                    />
@@ -116,7 +131,7 @@ function RegestrationPage() {
                   <input
                     type="password"
                     name="Password"
-                    placeholder="Enter New Password"
+                    placeholder="סיסמא"
                     id="passowrd"
                     required
                     pattern=".{6,}"
@@ -125,31 +140,19 @@ function RegestrationPage() {
                   <input
                     type="password"
                     name="RepeatYourPassword"
-                    placeholder="Repeat Your Password"
+                    placeholder="אימות סיסמא"
                     id="passowrd"
                     required
                     pattern=".{6,}"
                   />
   
-                  <input
-                    type="text"
-                    name="FirstName"
-                    id="FirstName"
-                    placeholder="First Name"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="LastName"
-                    id="LastName"
-                    placeholder="Last Name"
-                    required
-                  />
+               
                   <input
                     type="tel"
                     name="PhoneNumber"
                     id="PhoneNumber"
-                    placeholder="PhoneNumber"
+                    placeholder="טלפון נייד"
+                    min={10}
                     required
                   />
 
@@ -162,7 +165,7 @@ function RegestrationPage() {
                 </label>
                 {/* <div className="buttonContainer-client"> */}
                {/* <Link to={'/client/registrationCompalete'}>   */}
-               <button>Sumbit</button> 
+               <button>הרשמה</button> 
                {/* </Link>  */}
                 {/* </div> */}
               </form>

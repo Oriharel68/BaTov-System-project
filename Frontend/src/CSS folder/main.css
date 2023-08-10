@@ -1009,12 +1009,14 @@ padding: 3em 3em;
     }
 
 /* 1380 */
-    @media screen and (max-width: 900px ) {
+    @media screen and (max-width: 900px ) 
+    and (-webkit-min-device-pixel-ratio: 2)
+    {
       .page-wrap .topFirst-container .insidetopFirst-container{
        
        background-color: transparent;
        /* color: white; */
-      
+       
 
       }
     
@@ -1025,7 +1027,7 @@ padding: 3em 3em;
         text-align: start;
         /* padding: 7em 0 0 5em; */
         left: 35px;
-        top: 320px;
+        /* top: 320px; */
         background-color: transparent;
       
         /* color: white; */
@@ -1033,9 +1035,14 @@ padding: 3em 3em;
   
         }
         
-     
+        .logo-holder {
+          /* background: #f2f2f2; */
+     display: none;
+        }
 
-        
+        /* .card{
+          padding-top: 0px;
+        } */
 /* .describe-containerFirst{
   opacity: 0;
   transition: opacity 1s ease;
@@ -1097,9 +1104,30 @@ width:100% ;
               font-size: 13px;
               
         }
+        .content-container .about-container{
+          /* width: 100%; */
+          background-color: rgb(151, 151, 151);
+          padding: 4.5em 15px;
+          text-align: center;
+          padding-top: 5em;
+        /* -------------------- */
+          overflow: hidden;
+        
+          direction: rtl;
+          text-align: start;
+          position: relative;
+        z-index: 5;
+        -webkit-border-top-left-radius: 80px;
+          -webkit-border-top-right-radius: 80px;
+          -moz-border-radius-topleft: 80px;
+          -moz-border-radius-topright: 80px;
+          border-top-left-radius: 80px;
+          border-top-right-radius: 80px;
+        }
+        
         .about-lorem{
            padding-top: 1em;
-      
+         width: 100%;
         
           
           

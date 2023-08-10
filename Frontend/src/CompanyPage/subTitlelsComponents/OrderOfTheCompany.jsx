@@ -175,6 +175,7 @@ function OrderOfTheCompany() {
             <tr>
               <th>הזמנה</th>
               <th>כתובת אלקטרונית</th>
+              <th>מספר פאלפון</th>
               <th>סכום</th>
            
             </tr> 

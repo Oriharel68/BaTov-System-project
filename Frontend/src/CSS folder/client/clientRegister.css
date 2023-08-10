@@ -14,7 +14,8 @@
 
 }
 .page-wraper .mainClient-page-wraper .mainClient-page .registerWraper-conatiner form{
-padding: 5em;
+padding: 5em 5em 0 5em ;
+
 /* margin-right: 25px; */
 /* align-items: center; */
 overflow: hidden;
@@ -167,3 +168,23 @@ margin: 0 15px;
     margin: 0em;
 
 }
+
+
+/*  */
+@media screen and (max-width: 820px)  
+and (-webkit-min-device-pixel-ratio: 2){
+
+
+
+  .page-wraper .mainClient-page-wraper .mainClient-page .registerWraper-conatiner form{
+    padding-bottom: 3em;
+    
+    /* margin-right: 25px; */
+    /* align-items: center; */
+    overflow: hidden;
+    
+    }
+
+
+}
+

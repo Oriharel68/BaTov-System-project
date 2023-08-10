@@ -20,7 +20,7 @@ getSumOfClientsOrder.get('/',async (req:Request,res:Response)=>{
                const TotalMoney = OrderOfClient.reduce((acc,currnetValue)=>acc+(currnetValue.Price as number),0);
       
                
-               return {ClientName:`${Client.FirstName} ${Client.LastName}`,Total:TotalMoney,Email:Client.Email};
+               return {ClientName:`${Client.FirstName} ${Client.LastName}`,Total:TotalMoney,Email:Client.Email,PhoneNumber:Client.PhoneNumber};
             })).then((value)=>{
                 res.status(200).send(value);
             })

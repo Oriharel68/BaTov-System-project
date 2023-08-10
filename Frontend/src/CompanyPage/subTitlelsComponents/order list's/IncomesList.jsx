@@ -1,7 +1,7 @@
 import React from 'react'
 
 function IncomesList({client}) {
-    const {ClientName,Total,Email} = client;
+    const {ClientName,Total,Email,PhoneNumber} = client;
     console.log(client);
 
 
@@ -11,6 +11,7 @@ function IncomesList({client}) {
     <>
            <td id="emphasis" > {ClientName}</td>
            <td >{Email}</td>
+           <td >{PhoneNumber}</td>
               <td>{Total} ₪</td>
               
     </>

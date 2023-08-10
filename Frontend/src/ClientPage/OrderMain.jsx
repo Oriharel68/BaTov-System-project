@@ -9,11 +9,7 @@ function OrderMain() {
   const navigate = useNavigate();
 const [userAuth,setUserAuth] =useState(auth)
 
-useEffect(()=>{
-  if(userAuth.currentUser === null){
-    navigate('/');
-  }  
-},[])
+
 
   return (
     <div>

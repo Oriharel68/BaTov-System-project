@@ -28,8 +28,10 @@ text-align: start;
 
  .exit-company-container{
     position: absolute;
+      position: fixed;
+    z-index: 15;
     top: 68px;
-    right: 0;
+    right: 5px;
     padding: 3em;
     direction: rtl;
     background-color: white;

@@ -54,7 +54,7 @@ function ClientNavBarOrderMain() {
   return (
     <div>
       <ToastContainer
-position="bottom-center"
+position="top-center"
 autoClose={1000}
 hideProgressBar={false}
 closeOnClick
