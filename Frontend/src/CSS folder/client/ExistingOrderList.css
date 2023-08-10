@@ -4,3 +4,8 @@
     align-items: center;
     justify-content: space-around;
 }
+
+.over-flow-oldOrders, .over-flow-existingOrders {
+overflow-y: auto;  
+height:250px; 
+}

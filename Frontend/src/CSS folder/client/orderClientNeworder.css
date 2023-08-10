@@ -9,7 +9,7 @@
 
 }
 .page-wraper .mainClient-page-wraper .mainClient-page .clientbuttonContainer-client {
-    
+    /* overflow-y: visible; */
 }
 .page-wraper .mainClient-page-wraper .mainClient-page .clientbuttonContainer-client .clientNewOrderPage{
     padding-top:5em ;

@@ -8,17 +8,17 @@
     display: flex;
     justify-content: center; 
     text-align: center;
-
+  /* overflow-y: auto; */
     align-items: center;
     /* justify-content: space-around; */
 
 }
 .page-wraper .mainClient-page-wraper .mainClient-page .registerWraper-conatiner form{
-padding: 5em 5em 0 5em ;
+padding: 0em 5em ;
 
 /* margin-right: 25px; */
 /* align-items: center; */
-overflow: hidden;
+/* overflow: hidden; */
 
 }
 
@@ -181,7 +181,7 @@ and (-webkit-min-device-pixel-ratio: 2){
     
     /* margin-right: 25px; */
     /* align-items: center; */
-    overflow: hidden;
+    /* overflow: hidden; */
     
     }
 

@@ -53,21 +53,29 @@ const navigate = useNavigate();
     <div className='clientNewOrderPage'>
    <h3>:הזמנות קיימות</h3>
 
-   {ordersData ? 
-   <div>
+     { ordersData ? 
+     <> 
+     
+   <div  className="over-flow-existingOrders " >
     {ordersData.map((order)=>{
     return(
         <ExistingOrderList Changed={Changed} setChanged={setChanged} order={order} key={order._id}/>
     );
   })}
-  <h4 style={{direction:'rtl'}}>הזמנות ישנות:</h4>
-   {OldOrders.map((order)=>{
-    return(
-      <ExistingOrderList Changed={Changed} setChanged={setChanged} order={order} key={order._id}/>
-  );
-   })}
    </div>
-   
+     <h4 style={{direction:'rtl'}}>הזמנות ישנות:</h4>
+   <div className="over-flow-oldOrders">     
+      {OldOrders.map((order)=>{
+       return(
+         <ExistingOrderList Changed={Changed} setChanged={setChanged} order={order} key={order._id}/>
+     );
+      })}
+
+   </div>
+     
+     
+     
+     </>
   :
   <h4>No Orders</h4>
 }

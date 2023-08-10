@@ -189,3 +189,25 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 }
 
+
+
+@media screen and (max-width: 1038px)
+and (min-width: 821px) 
+and (-webkit-min-device-pixel-ratio: 2) {
+    .page-wraper{
+        /* position: fixed; */
+        /* height: 100%;  */
+        /* overflow: hidden ; */
+        padding-top: 0px;
+        overflow-y: hidden;
+    }
+    .page-wraper .mainClient-page-wraper{
+         /* padding-bottom: 40%;          */
+        width: 40%;
+        margin-bottom: 0;
+    }   
+    
+        
+
+
+    }
