@@ -6,15 +6,13 @@ import { getAuth,signOut  } from "firebase/auth";
 import { Navigate, useNavigate } from 'react-router-dom';
 
 function CombaibnedNavCompany() {
-    
-  
+  const [showDiv, setshowDiv] = useState(false);
+
 const navigate = useNavigate();
   const userAuth = getAuth();
   const SignOut = useCallback(
     () => {
       signOut(userAuth).then(()=>{
-        
-        
         navigate('/company/access');
       }).catch((error)=>{
         console.log(error);
@@ -24,7 +22,7 @@ const navigate = useNavigate();
   )
   
   return (
-
+<>
     <div
     //  className="companyMainpage-nav-container" 
     className="companyMainpage-nav-container"
@@ -41,7 +39,7 @@ const navigate = useNavigate();
         <Companysubtitle/>
         </div>
         <div className="exit-company">
-          <button onClick={SignOut}><RxExit/></button>
+          <button onClick={()=>{setshowDiv(!showDiv)}}><RxExit/></button>
         </div>
 
         {/* {showSecondDiv && 
@@ -52,8 +50,17 @@ const navigate = useNavigate();
 
        
     </div>
-  
-  
+    {showDiv &&
+    <div className='exit-company-container'>
+    <h3>האם את/ה בטוח?</h3>
+    <div className='exit-company-button-container'>
+    <button className='button-30' onClick={SignOut}>יציאה</button>
+    <button style={{marginRight:'1.2em'}} className='button-30' onClick={()=>{setshowDiv(!showDiv)}}>ביטול</button>
+    </div>
+   
+    </div>
+    }
+    </>
    
   )
 }

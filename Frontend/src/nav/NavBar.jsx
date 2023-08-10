@@ -18,7 +18,10 @@ function NavBar() {
   return (
     <div>
     <div className='navBar-Main'>
-    <NavLogo/>
+      <Link to={'/'}>
+      <NavLogo/>
+      </Link>
+    
    <div className="insideNavTopFirst-container">
    <div className="btn-container">
    <Link to={'/company/access'} id='T'><button >חברה</button></Link>

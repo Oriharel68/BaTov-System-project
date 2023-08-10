@@ -18,17 +18,31 @@
 }
 
 
+
 .nav-logo-container{
 /* background-color: green; */
 width: 30%;
 text-align: start;
 
 }
-/* .navCompany-container{
-    top: 0;
-    position: relative;
-}
-.company-Main{
- } */
 
- 
+ .exit-company-container{
+    position: absolute;
+    top: 68px;
+    right: 0;
+    padding: 3em;
+    direction: rtl;
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid black;
+    
+
+ }
+ .exit-company-container .exit-company-button-container{
+    display: flex;
+    padding-top: 1.3em;
+    justify-content: space-around;
+    width: 100%;
+    
+ }
