@@ -21,7 +21,11 @@
     max-width: 100%;
     width: 22em;
     z-index: 0;
-    text-align: end;
+    display: flex;
+    direction: rtl;
+   
+    justify-content: space-around;
+    padding: 0.2em; 
     -webkit-animation: bounce-top 0.9s both;
 	        animation: bounce-top 0.9s both;
 }
