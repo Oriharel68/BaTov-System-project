@@ -195,15 +195,33 @@ and (-webkit-min-device-pixel-ratio: 2) {
 and (min-width: 821px) 
 and (-webkit-min-device-pixel-ratio: 2) {
     .page-wraper{
-        /* position: fixed; */
-        /* height: 100%;  */
-        /* overflow: hidden ; */
+     
         padding-top: 0px;
         overflow-y: hidden;
     }
     .page-wraper .mainClient-page-wraper{
-         /* padding-bottom: 40%;          */
+      
         width: 40%;
+        margin-bottom: 0;
+    }   
+    
+        
+
+
+    }
+
+    /* 280 */
+    
+@media screen and (max-width: 281px)
+and (-webkit-min-device-pixel-ratio: 1) {
+    .page-wraper{
+     
+        padding-top: 0px;
+        overflow-y: hidden;
+    }
+    .page-wraper .mainClient-page-wraper{
+      
+        width: 100%;
         margin-bottom: 0;
     }   
     
