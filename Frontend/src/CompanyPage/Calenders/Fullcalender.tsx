@@ -11,7 +11,6 @@ function Fullcalender() {
     const [Events, setEvents] = useState([])
     const [EventData,setEventData] :any = useState(null);
     const [isOpen,setIsOpen] = useState(false);
-    const StyleOfModal:any = Style;
     useEffect(()=>{
         const getAllOrders = async ()=>{
             const {data} = await axios.get('http://localhost:4000/getAllOrders');
@@ -60,7 +59,7 @@ function Fullcalender() {
     
    
     {isOpen ?
-    <Modal isOpen={isOpen} onRequestClose={CloseDia} style={StyleOfModal}>
+    <Modal isOpen={isOpen} onRequestClose={CloseDia} style={Style as any}>
         <h3>{EventData.title}</h3>
         <p>בתאריך:<br/>{setDate(EventData.start.getTime())}</p>
         <div className='button-container'>

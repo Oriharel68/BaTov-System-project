@@ -4,13 +4,13 @@ import { Request,Response,Router} from 'express';
 
 
 const express = require('express');
-const getExistingOrders:Router = express.Router();
+const router:Router = express.Router();
 const OrdersModel:Model<Order> = require('../models/OrderModel');
 
 
 
 
-getExistingOrders.post('/',async(req:Request,res:Response)=>{
+router.post('/',async(req:Request,res:Response)=>{
     try {
         let {TypeOfService , WorkerName} = req.body;
         if(!TypeOfService || !WorkerName){
@@ -23,4 +23,4 @@ getExistingOrders.post('/',async(req:Request,res:Response)=>{
           res.send({ ok: false, error: error.message });
         }
 });
-export default getExistingOrders;
+export default router;

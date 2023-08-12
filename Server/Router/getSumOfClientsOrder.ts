@@ -4,12 +4,12 @@ import {Client,Order} from '../models/interface'
 
 
 const express = require('express');
-const getSumOfClientsOrder = express.Router();
+const router = express.Router();
 const ClientModel:Model<Client> = require('../models/ClientsModel');
 const OrdersModel:Model<Order> = require('../models/OrderModel');
 
 
-getSumOfClientsOrder.get('/',async (req:Request,res:Response)=>{
+router.get('/',async (req:Request,res:Response)=>{
     try {
         const ClientDB = await ClientModel.find();
         const ClientWithPrice = Promise.all(
@@ -30,4 +30,4 @@ getSumOfClientsOrder.get('/',async (req:Request,res:Response)=>{
 
 })
 
-export default getSumOfClientsOrder;
+export default router;

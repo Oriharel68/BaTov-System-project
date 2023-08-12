@@ -5,12 +5,12 @@ import { Request,Response } from "express";
 
 
 const express = require('express');
-const register = express.Router();
+const router = express.Router();
 const ClientsModel:Model<Client> = require('../models/ClientsModel');
 
 
 
-register.post('/',async(req:Request,res:Response)=>{
+router.post('/',async(req:Request,res:Response)=>{
     try {
         let { FirstName, LastName, Email, PhoneNumber } = req.body;
         if (!FirstName || !LastName || !Email || !PhoneNumber)
@@ -34,4 +34,4 @@ register.post('/',async(req:Request,res:Response)=>{
 });
 
 
-export default register;
+export default router;

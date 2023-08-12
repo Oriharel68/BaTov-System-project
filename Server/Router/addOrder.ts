@@ -3,12 +3,12 @@ import { Order,Client } from "../models/interface";
 import { Request,Response,Router} from 'express';
 
 const express = require('express');
-const addOrder:Router = express.Router();
+const router:Router = express.Router();
 const OrdersModel:Model<Order> = require('../models/OrderModel');
 const ClientsModel:Model<Client> = require('../models/ClientsModel');
 
 
-addOrder.post('/',async(req:Request,res:Response)=>{
+router.post('/',async(req:Request,res:Response)=>{
     try {
         let {TypeOfService, WorkerName,Email,DateTime,Price} = req.body;
         if(!TypeOfService ||!WorkerName||!Email||!DateTime||!Price){
@@ -37,4 +37,4 @@ addOrder.post('/',async(req:Request,res:Response)=>{
 });
 
 
-export default addOrder;
+export default router;

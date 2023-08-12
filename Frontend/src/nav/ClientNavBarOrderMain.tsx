@@ -7,6 +7,9 @@ import { IoExit } from "react-icons/io5";
 import NavLogo from "../Main page/NavLogo";
 import { toast, ToastContainer } from "react-toastify";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
+import Modal from 'react-modal';
+import NavStyle from "./NavModal";
+
 
 function ClientNavBarOrderMain() {
   const navigate = useNavigate();
@@ -32,7 +35,6 @@ function ClientNavBarOrderMain() {
       .then(() => {
         // Sign-out successful.
         toast.success("התנתקות הצליחה");
-        // setLoggedin(true);
         setTimeout(() => {
           navigate("/client/main");
         }, 1500);
@@ -102,8 +104,16 @@ function ClientNavBarOrderMain() {
           {/* </Link> */}
         </div>
       </div>
-      {showSecondDiv && (
+      {showSecondDiv &&
+      
+      
+      (
+        <Modal onRequestClose={()=>{setShowSecondDiv((prev)=>!prev)}} style={NavStyle as any} isOpen={showSecondDiv}>
+          <div className="close-information-client-container">
+            <span onClick={()=>setShowSecondDiv((prev)=>!prev)}>&times;</span>
+          </div>
           <div className="client-order-message">
+            
           <ul>
             <li>
               <b className="marker">חקרו קטגוריות:</b>
@@ -128,6 +138,7 @@ function ClientNavBarOrderMain() {
             </li>
           </ul>
           </div>
+      </Modal>
       )}
     </div>
   );

@@ -4,13 +4,13 @@ import { Request,Response } from "express";
 
 
 const express = require('express');
-const findAllClients = express.Router();
+const router = express.Router();
 const ClientsModel:Model<Client> = require('../models/ClientsModel');
 
 
 
 
-findAllClients.get("/", async (req:Request, res:Response) => {
+router.get("/", async (req:Request, res:Response) => {
     try {
       const ClientDB = await ClientsModel.find();
       res.send(ClientDB);
@@ -20,4 +20,4 @@ findAllClients.get("/", async (req:Request, res:Response) => {
     }
   });
 
-export default findAllClients;
+export default router;

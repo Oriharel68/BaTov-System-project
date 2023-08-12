@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
 import ErorPage from "../ErorPage/ErorPage";
 import Main from "../Main page/Main";
-import NavBar from "../nav/NavBar";
 import Clientmainpage from "../ClientPage/Clientmainpage";
 import RegestrationPage from "../ClientPage/RegestrationPage";
 import AcsessPage from "../ClientPage/AcsessPage";
@@ -18,8 +17,6 @@ import UserRegistrationComplete from "../ClientPage/ClientMessages/UserRegistrat
 import OrderCompelteMessage from "../ClientPage/ClientMessages/OrderCompelteMessage";
 import ExistingOrder from "../ClientPage/ExistingOrder";
 import ForgetPassword from "../ClientPage/ForgetPassword";
-import Fullcalender from "../CompanyPage/Calenders/Fullcalender";
-import MiddlewareAuth from "../MiddlewareAuth/MiddlewareAuth";
 
 
 function RouterServer() {

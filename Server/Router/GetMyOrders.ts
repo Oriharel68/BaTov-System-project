@@ -4,11 +4,11 @@ import { Request,Response,Router} from 'express';
 
 
 const express = require('express');
-const GetMyOrders:Router = express.Router();
+const router:Router = express.Router();
 const OrdersModel:Model<Order> = require('../models/OrderModel');
 const ClientsModel:Model<Client> = require('../models/ClientsModel');
 
-GetMyOrders.post('/',async(req:Request,res:Response)=>{
+router.post('/',async(req:Request,res:Response)=>{
     try {
         const {Email} = req.body;
         if(!Email)throw new Error("No email(in post /GetMyOrders)");
@@ -25,4 +25,4 @@ GetMyOrders.post('/',async(req:Request,res:Response)=>{
 });
 
 
-export default GetMyOrders;
+export default router;

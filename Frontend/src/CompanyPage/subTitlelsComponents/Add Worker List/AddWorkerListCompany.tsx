@@ -12,7 +12,6 @@ import EditStyle from "./EditDialogStyle";
 function AddWorkerListCompany({ item, setChange, Change }: any) {
   // console.log(item);
   const { Price, TypeOfService, WorkerName } = item;
-  const EditS: any = EditStyle;
   const [showSecondDiv, setShowSecondDiv] = useState(false);
   function handleClick() {
     // setShowSecondDiv(true);
@@ -63,7 +62,7 @@ function AddWorkerListCompany({ item, setChange, Change }: any) {
           onRequestClose={() => {
             setShowSecondDiv(!showSecondDiv);
           }}
-          style={EditS}
+          style={EditStyle as any}
         >
           <EditWorkerContainer
             setShowSecondDiv={setShowSecondDiv}
