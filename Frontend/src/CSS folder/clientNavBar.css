@@ -79,13 +79,11 @@ cursor: not-allowed; */
 /* client help message */
 .client-order-message{
   padding: 1em;
-  backdrop-filter: blur(1.5rem);
-  /* background-color: yellowgreen; */
+  background-color: yellowgreen;
   position: absolute;
-/* text-align: end; */
+text-align: end;
 z-index: 2;
-direction: rtl;
-max-width: 25em;
+max-width: 28.3%;
 /* margin-left: 65%; */
 }
 /* need to complete */
@@ -135,9 +133,9 @@ max-width: 25em;
  }
   .client-order-message{
     padding: 1em;
-    /* background-color: yellowgreen; */
+    background-color: yellowgreen;
     position: absolute;
-  /* text-align: end; */
+  text-align: end;
   max-width: 100%;
 
   /* margin-left: 65%; */

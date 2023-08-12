@@ -50,14 +50,14 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }) {
           <ul>
           <li  >           {order.TypeOfService} </li>
           <li >        {order.WorkerName}</li> 
-          <li >     {setDate(order.DateTime)}</li>
+          <li style={{borderLeft:"none"}} >     {setDate(order.DateTime)}</li>
 
             </ul>
   
       
           </div>
           </div>
-         <FiSettings style={{padding:'0.5em'}} >אפשרויות</FiSettings>
+         <FiSettings >אפשרויות</FiSettings>
         </button>
         {showModal && (
           <Modal

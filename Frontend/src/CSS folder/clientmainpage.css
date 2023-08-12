@@ -1,5 +1,6 @@
 *{
     text-decoration: none;
+    /* box-sizing: border-box; */
 }
 body{
 
@@ -64,6 +65,7 @@ body{
 }
 
 .page-wraper{
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     height: 100vh;
