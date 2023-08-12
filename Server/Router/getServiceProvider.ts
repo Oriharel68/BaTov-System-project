@@ -3,10 +3,10 @@ import {Service } from '../models/interface';
 import {Request,Response} from 'express';
 
 const express = require('express');
-const getServiceProvider = express.Router();
+const router = express.Router();
 const ServiceProvidersModel:Model<Service> = require('../models/ServiceProviderModel');
 
-getServiceProvider.get('/',async(req:Request,res:Response)=>{
+router.get('/',async(req:Request,res:Response)=>{
     try {
         const ServiceDB = await ServiceProvidersModel.find();
         res.send(ServiceDB);
@@ -16,4 +16,4 @@ getServiceProvider.get('/',async(req:Request,res:Response)=>{
       }
 });
 
-export default getServiceProvider;
+export default router;

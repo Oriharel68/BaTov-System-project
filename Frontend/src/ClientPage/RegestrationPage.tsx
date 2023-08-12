@@ -7,7 +7,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import axios from "axios";
-import ServerStatus from "../FireBase/ServerStatus";
 import { Link, useNavigate } from "react-router-dom";
 
 function RegestrationPage() {
@@ -33,10 +32,6 @@ function RegestrationPage() {
       alert('password not the same');
       return;
       } 
-      if (!(await ServerStatus())) {
-        alert("Server down");
-        return;
-      }
 
       createUserWithEmailAndPassword(auth, Email, password)
         .then(async (userCred) => {

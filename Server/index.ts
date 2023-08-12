@@ -11,10 +11,8 @@ import register from './Router/register';
 import companyCheck from './Router/companyCheck';
 import getSumOfClientsOrder from './Router/getSumOfClientsOrder';
 import removeOrder from './Router/RemoveOrder';
-
 import removeWork from './Router/removeWorker';
 import EditCompanyWorker from './Router/EditCompanyWorker';
-import getTime from './Router/getTime';
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -61,12 +59,8 @@ mongoose
   app.use('/removeworker',removeWork);
   app.use('/EditCompanyWorker',EditCompanyWorker);
   app.use('/getSumOfClientsOrder',getSumOfClientsOrder); 
-  app.use('/getTime',getTime);
   app.use('/RemoveOrder',removeOrder);
 
-app.get('/ServerStatus', (req:Request,res:Response)=>{
-  res.send(true);
-});
 
  
 app.use('/*',(req:Request,res:Response)=>{

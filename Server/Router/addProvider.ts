@@ -5,10 +5,10 @@ import {Router ,Request,Response} from 'express'
 const ServiceProviderModel:Model<Service> = require('../models/ServiceProviderModel');
 const express = require('express');
 
-const addProvider:Router = express.Router();
+const router:Router = express.Router();
 
 
-addProvider.put('/',async (req:Request,res:Response)=>{
+router.put('/',async (req:Request,res:Response)=>{
    try {
     let { Price, WorkerName, TypeOfService } = req.body;
 
@@ -32,7 +32,7 @@ addProvider.put('/',async (req:Request,res:Response)=>{
   }  
 });
 
-export default addProvider;
+export default router;
 
 
 

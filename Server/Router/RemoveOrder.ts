@@ -3,11 +3,11 @@ import { Order } from "../models/interface";
 import {Router ,Request,Response} from 'express'
 
 const express = require('express');
-const removeOrder:Router = express.Router();
+const router:Router = express.Router();
 const Orders:Model<Order> = require('../models/OrderModel');
 
 
-removeOrder.delete('/',async (req:Request,res:Response)=>{
+router.delete('/',async (req:Request,res:Response)=>{
     try {
         const {orderId} = req.query;
         console.log(req.query);
@@ -20,4 +20,4 @@ removeOrder.delete('/',async (req:Request,res:Response)=>{
         
     }
 })
-export default removeOrder;
+export default router;

@@ -5,10 +5,10 @@ import {Router ,Request,Response} from 'express'
 const ServiceProviderModel:Model<Service> = require('../models/ServiceProviderModel');
 const express = require('express');
 
-const editWorker:Router = express.Router();
+const router:Router = express.Router();
 
 
-editWorker.post("/", async (req:Request, res:Response) => {
+router.post("/", async (req:Request, res:Response) => {
     try {
         const { _id,WorkerName,TypeOfService,Price} = req.body;
         // console.log(req.body);
@@ -21,4 +21,4 @@ editWorker.post("/", async (req:Request, res:Response) => {
     }
   });
 
-export default editWorker;
+export default router;

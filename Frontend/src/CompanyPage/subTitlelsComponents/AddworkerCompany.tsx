@@ -13,7 +13,6 @@ function AddworkerCompany() {
   const [Change, setChange] = useState(0);
   const [Visible, setVisible] = useState(false);
   const ref: any = useRef();
-  const ModalStyle: any = EditStyle;
   const [showSecondDiv, setShowSecondDiv] = useState(false);
 
   const handleClick = useCallback(() => {
@@ -97,7 +96,7 @@ function AddworkerCompany() {
               onRequestClose={() => {
                 setShowSecondDiv(!showSecondDiv);
               }}
-              style={ModalStyle}
+              style={EditStyle as any}
             >
               <div className="main-container">
                 <form

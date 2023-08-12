@@ -4,11 +4,11 @@ import { Service } from "../models/interface";
 import {Router ,Request,Response} from 'express'
 
 const express = require('express');
-const removeWorker:Router = express.Router();
+const router:Router = express.Router();
 const ServiceProvider:Model<Service> = require('../models/ServiceProviderModel');
 
 
-removeWorker.post('/',async (req:Request,res:Response)=>{
+router.post('/',async (req:Request,res:Response)=>{
     try {
         const { WorkerName } = req.body;
         
@@ -29,5 +29,5 @@ removeWorker.post('/',async (req:Request,res:Response)=>{
      }
 });
 
-export default removeWorker;
+export default router;
 

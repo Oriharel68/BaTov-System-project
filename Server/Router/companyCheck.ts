@@ -3,11 +3,11 @@ import { Company } from "../models/interface";
 import {Router ,Request,Response} from 'express'
 
 const express = require('express');
-const companyCheck:Router = express.Router();
+const router:Router = express.Router();
 const CompanyModel:Model<Company> = require('../models/CompanyModel');
 
 
-companyCheck.post('/',async (req:Request,res:Response)=>{
+router.post('/',async (req:Request,res:Response)=>{
     try {
         const {email} = req.body;
         if(!email)throw new Error("No email(in post /GetMyOrders)");
@@ -23,5 +23,5 @@ companyCheck.post('/',async (req:Request,res:Response)=>{
      }
 });
 
-export default companyCheck;
+export default router;
 
