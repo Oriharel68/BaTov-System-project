@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { Link, useNavigate  } from 'react-router-dom'
 import ClientNavBar from '../nav/ClientNavBar'
 import { getAuth } from 'firebase/auth'
@@ -7,7 +7,18 @@ import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 function OrderMain() {
   const navigate = useNavigate();
   const [userAuth,setUserAuth] =useState(getAuth());
+  const [UserName, setUserName] = useState('');
 
+
+  
+  useEffect(() => {
+    const getUserName = () => {
+      userAuth.onAuthStateChanged((user) => {
+        setUserName(user.displayName)
+      });
+    }
+    getUserName() 
+  }, [])
 
 
 
@@ -19,7 +30,7 @@ function OrderMain() {
         <div className="mainClient-page-wraper">
         <ClientNavBarOrderMain/>
         <div className="clientName-conatier">
-        <h2 style={{direction:'rtl'}}>ברוך הבא👋 <h4>{userAuth?.currentUser?.displayName} </h4></h2>
+        <h2 style={{direction:'rtl'}}>ברוך הבא👋 <h4>{UserName} </h4></h2>
         
 
         </div>

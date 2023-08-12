@@ -240,6 +240,7 @@ const sumWithInitial = array1.reduce(
                     <tr>
                       <th>הזמנה</th>
                       <th>כתובת אלקטרונית</th>
+                      <th>מספר טלפון</th>
                       <th>סכום</th>
                     </tr>
 
