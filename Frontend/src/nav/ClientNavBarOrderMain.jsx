@@ -3,13 +3,18 @@ import { Link ,useNavigate} from "react-router-dom";
 import { CgProfile } from 'react-icons/cg';
 import { getAuth, signOut } from "firebase/auth";
 import { GrCircleInformation } from 'react-icons/gr';
-import { ImExit } from 'react-icons/im';
+import { IoExit } from 'react-icons/io5';
 import NavLogo from "../Main page/NavLogo";
 import {toast,ToastContainer} from 'react-toastify'
+import { IoChevronBackCircleSharp } from 'react-icons/io5';
+
 function ClientNavBarOrderMain() {
   const navigate = useNavigate(); 
   const [showSecondDiv, setShowSecondDiv] = useState(false);
-
+   
+  function goBack() {
+    window.history.back(); // Navigate to the previous route
+  }
   const handleMouseEnter = () => {
     if(showSecondDiv == false){
       setShowSecondDiv(true)
@@ -62,9 +67,15 @@ rtl={true}
 theme="light"
 />
       <div className="navBar-Client">
+        <div className="go-back">
+          <button onClick={()=>goBack()}><IoChevronBackCircleSharp/></button>
+        </div>
+        <div className="logo-client-icon">
+
         <Link to={"/order/main"} >
           <NavLogo/>
         </Link>
+        </div>
         
 
         <div className="right-orderClient-container">
@@ -83,8 +94,8 @@ theme="light"
        
           {/* <a href="" id="LU"> */}
             {/* <CgProfile id="LOGOUT"/> */}
-            <button onClick={(event)=>handleOnSubmit(event)} id="none">
-            <ImExit />
+            <button onClick={(event)=>handleOnSubmit(event)} id="exit-client">
+            <IoExit />
             </button>
             
              {/* </a> */}

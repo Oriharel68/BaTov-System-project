@@ -85,7 +85,7 @@ useEffect(() => {
         {Choice ? 
           
           <div className="">
-                <h3>:סוג איש מקצוע</h3>
+                <h3> 🧑‍🔧:סוג איש מקצוע</h3>
   
         
               {ServiceProviders.map((item)=>{
@@ -106,7 +106,7 @@ useEffect(() => {
       :
       
       <div className="calender-container">
-      <h3>:בחר תאריך</h3>
+      <h3> 🗓️:בחירת תאריך</h3>
       
       <div className="bootmCalender-container">
         

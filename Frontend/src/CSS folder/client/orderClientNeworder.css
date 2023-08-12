@@ -23,7 +23,7 @@
     z-index: 0;
     display: flex;
     direction: rtl;
-   
+    
     justify-content: space-around;
     padding: 0.2em; 
     -webkit-animation: bounce-top 0.9s both;

@@ -10,12 +10,26 @@
    max-width: 100%;
 
    background-color: #5a607e  ;
+
    justify-content: center;
    /* padding: 1em 0em; */
  }
+ .navBar-Client .go-back{
+  position: absolute;
+  left:3%;
+  top: 22%;
+  
+ }
+ .navBar-Client .go-back button{
+  font-size: 35px;
+  color:	#B0E0E6		;
+  background-color:transparent ;
+  border: none;
+  
+ }
  .navBar-Client .logo-client-icon{
 /* background-color: red; */
-padding-right: 3em;
+padding-right: 5em;
 /* position: absolute; */
 
 
@@ -75,8 +89,9 @@ max-width: 28.3%;
 /* need to complete */
 #information{
   all:unset;
-  margin: 25px 0;
+  margin: 20px 0;
   cursor: pointer;
+  font-size: 20px;
   /* padding: 25px 0; */
   /* border: 0; */
   /* font-size: 55px; */
@@ -96,10 +111,11 @@ max-width: 28.3%;
     font-size: 15px;
     font-family: 'Courier New', Courier, monospace;
  }
- #none{
+ #exit-client{
   all:unset;
   padding-left: 1em;
   padding-right: 1em;
+  font-size: 20px;
   cursor: pointer;
  }
  /* #LOGOUT{
@@ -125,16 +141,27 @@ max-width: 28.3%;
   /* margin-left: 65%; */
   }
   
+  
 @media screen and (max-width: 525px)
 and (-webkit-min-device-pixel-ratio: 2) {
   .navBar-Client .logo-client-icon{
     /* background-color: red; */
-    padding-left: 5em;
+    padding-left: 7em;
     /* position: absolute; */
     
     
      }
 }
+}
+@media screen and (max-width: 525px)
+ {
+  .navBar-Client .logo-client-icon{
+    /* background-color: red; */
+    padding-left: 7em;
+    /* position: absolute; */
+    
+    
+     }
 }
 
 /* 525 */

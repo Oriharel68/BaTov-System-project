@@ -51,7 +51,7 @@ const navigate = useNavigate();
 
   
     <div className='clientNewOrderPage'>
-   <h3>:הזמנות קיימות</h3>
+   <h3>📑:הזמנות קיימות</h3>
 
      { ordersData ? 
      <> 
@@ -63,7 +63,7 @@ const navigate = useNavigate();
     );
   })}
    </div>
-     <h4 style={{direction:'rtl'}}>הזמנות ישנות:</h4>
+     <h4 style={{direction:'rtl'}}>הזמנות ישנות:📇</h4>
    <div className="over-flow-oldOrders">     
       {OldOrders.map((order)=>{
        return(
@@ -77,7 +77,7 @@ const navigate = useNavigate();
      
      </>
   :
-  <h4>No Orders</h4>
+  <h4 >🤔אין הזמנות כלל</h4>
 }
   
 

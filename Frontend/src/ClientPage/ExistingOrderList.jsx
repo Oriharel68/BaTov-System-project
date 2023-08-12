@@ -35,10 +35,29 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }) {
     <div>
       <div className="workerType-wraper">
         <button onClick={handleClick}  id="WokerType">
-          <span className="marker"> מקצוע: </span>{order.TypeOfService}<br />
-          <span className="marker">שם עובד :</span> {order.WorkerName}<br />
-          <span className="marker"> תאריך :</span>{setDate(order.DateTime)}
-         <FiSettings  >אפשרויות</FiSettings>
+          <div className="btn-wraper">
+
+          <div className="top-btn-container">
+            <ul>
+          <li className="marker" > מקצוע: </li>
+          <li className="marker">שם עובד :</li> 
+          <li className="marker"> תאריך :</li>
+
+            </ul>
+
+          </div>
+          <div className="bootom-btn-container">
+          <ul>
+          <li  >           {order.TypeOfService} </li>
+          <li >        {order.WorkerName}</li> 
+          <li >     {setDate(order.DateTime)}</li>
+
+            </ul>
+  
+      
+          </div>
+          </div>
+         <FiSettings style={{padding:'0.5em'}} >אפשרויות</FiSettings>
         </button>
         {showModal && (
           <Modal

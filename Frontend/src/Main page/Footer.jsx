@@ -16,9 +16,9 @@ function Footer() {
       <ul>
         <li><AiOutlineInstagram/></li>
         <li><BsFacebook/></li>
-         <a  href="mailto:admin@gmail.com" >
-         <li  >  <AiOutlineMail/> </li>
-          </a> 
+         
+         <li  > <a  href="mailto:admin@gmail.com" ><AiOutlineMail/></a>  </li>
+        
       </ul>
       </div>
     </div>
