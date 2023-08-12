@@ -20,13 +20,13 @@ function AcsessPage() {
 
   
     
-      return signInWithEmailAndPassword(auth, email, password)
+       signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
         setLoggedin(true);
         setTimeout(() => {
-          navigate('/order/main')
+          navigate('/order/main');
         }, 3000);
         // ...
       })
