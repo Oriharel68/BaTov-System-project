@@ -3,8 +3,7 @@ const EditStyle =  {
         backdropFilter: 'blur(3px)',
     },
     content: {
-     
-        top: '50%',
+        top: '42.5%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         maxWidth: '100%',
@@ -15,7 +14,7 @@ const EditStyle =  {
         paddingTop:'1em',
         paddingRight:'1em',
         direction:'rtl',
-        overflowY:'hidden'
+        overflowY:'hidden',
       },
 };
 export default EditStyle;

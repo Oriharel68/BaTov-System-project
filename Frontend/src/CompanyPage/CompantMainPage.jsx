@@ -96,9 +96,7 @@ const sumWithInitial = array1.reduce(
   initialValue
 );
 */
-
-  const navigate = useNavigate();
-  const auth = getAuth();
+ 
 
   //cheking the user if in/ out
   // console.log(userIn);
