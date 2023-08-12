@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
-import { getAuth, signInWithEmailAndPassword ,setPersistence,browserSessionPersistence } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 
