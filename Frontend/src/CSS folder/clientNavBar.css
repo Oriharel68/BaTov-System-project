@@ -79,17 +79,26 @@ cursor: not-allowed; */
 
 /* client help message */
 .client-order-message{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  /* width: 91%; */
+  width: 100%;
+  position: relative;
+  z-index: 5;
+
   padding: 1em;
   backdrop-filter: blur(1.5rem);
   /* background-color: yellowgreen; */
   border-bottom: 3px dotted black;
-  position: absolute;
+  /* position: absolute; */
 /* text-align: end; */
 z-index: 2;
-max-width: 28.3%;
+/* max-width: 28.3%; */
 /* margin-left: 65%; */
 direction: rtl;
 }
+
 
 .client-order-message ul{
   list-style: none;
@@ -142,13 +151,11 @@ direction: rtl;
  
  }
   .client-order-message{
-    padding: 1em;
+    /* padding: 1em;
     max-width: 300%;
-    /* background-color: yellowgreen; */
     position: absolute;
-  /* text-align: end; */
 
-  margin-left: 65%;
+  margin-left: 65%; */
   }
   
   

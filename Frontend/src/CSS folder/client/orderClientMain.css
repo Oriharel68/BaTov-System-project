@@ -3,12 +3,14 @@
 }
 .page-wraper .mainClient-page-wraper{
 
+  box-sizing: border-box;
 
 }
 .page-wraper .mainClient-page-wraper .clientName-conatier{
 display: flex;
 text-align: center;
-
+/* position: relative;
+z-index: 1; */
 
 align-content: center;
 flex-direction: column;
