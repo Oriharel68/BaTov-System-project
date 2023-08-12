@@ -42,7 +42,7 @@ function AddWorkerListCompany({ item, setChange, Change }) {
     // <div className='workers-list'>
 
     <>
-      <td >
+      <td>
         
         {WorkerName}
       </td>
