@@ -3,13 +3,14 @@ import CompanyNavBar from "./CompanyNavBar";
 import Companysubtitle from "./Companysubtitle";
 import { RxExit } from "react-icons/rx";
 import { getAuth, signOut } from "firebase/auth";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 function CombaibnedNavCompany() {
   const [showDiv, setshowDiv] = useState(false);
 
   const navigate = useNavigate();
   const userAuth = getAuth();
+  
   const SignOut = useCallback(() => {
     signOut(userAuth)
       .then(() => {

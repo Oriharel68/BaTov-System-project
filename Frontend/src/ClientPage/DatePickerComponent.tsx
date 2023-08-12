@@ -43,7 +43,7 @@ function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }:any) {
     const currentDate = new Date();
     const selectedDate = new Date(time);
 
-    OrderData.forEach((item) => {
+    OrderData.forEach((item:any) => {
       if (item == selectedDate.getTime()) {
         isBusy = false;
       }

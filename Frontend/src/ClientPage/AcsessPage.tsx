@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import app from "../FireBase/auth";
 
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
