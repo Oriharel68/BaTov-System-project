@@ -8,7 +8,8 @@
    /* z-index: 15; */
    width:  100%;
    max-width: 100%;
-
+   
+   
    background-color: #5a607e  ;
 
    justify-content: center;
@@ -78,6 +79,64 @@ cursor: not-allowed; */
 }
 
 /* client help message */
+.overlay {
+  position: fixed;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  /* transition: all 5s ease-in-out; */
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  /* font-family: Tahoma, Arial, sans-serif; */
+}
+/* .popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+} */
+/* .popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+} */
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
 .client-order-message{
   box-sizing: border-box;
   display: flex;
@@ -89,14 +148,14 @@ cursor: not-allowed; */
 
   padding: 1em;
   backdrop-filter: blur(1.5rem);
-  /* background-color: yellowgreen; */
-  border-bottom: 3px dotted black;
-  /* position: absolute; */
-/* text-align: end; */
-z-index: 2;
-/* max-width: 28.3%; */
-/* margin-left: 65%; */
+
+    border-bottom: 3px dotted black;
+    position: relative;
+  z-index: 5;
+  width: 91%;
+
 direction: rtl;
+
 }
 
 
