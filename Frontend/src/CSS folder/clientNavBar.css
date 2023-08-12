@@ -138,12 +138,22 @@ cursor: not-allowed; */
 }
 
 .client-order-message{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  /* width: 91%; */
+  width: 100%;
+  position: relative;
+  z-index: 5;
+
   padding: 1em;
   backdrop-filter: blur(1.5rem);
+
     border-bottom: 3px dotted black;
     position: relative;
   z-index: 5;
   width: 91%;
+
 direction: rtl;
 
 }
