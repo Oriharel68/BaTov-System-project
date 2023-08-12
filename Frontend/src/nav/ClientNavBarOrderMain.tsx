@@ -103,7 +103,7 @@ function ClientNavBarOrderMain() {
         </div>
       </div>
       {showSecondDiv && (
-        <div className="client-order-message">
+          <div className="client-order-message">
           <ul>
             <li>
               <b className="marker">חקרו קטגוריות:</b>
@@ -127,7 +127,7 @@ function ClientNavBarOrderMain() {
               שלכם.
             </li>
           </ul>
-        </div>
+          </div>
       )}
     </div>
   );
