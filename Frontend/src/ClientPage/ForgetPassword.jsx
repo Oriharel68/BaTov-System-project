@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import ClientNavBar from '../nav/ClientNavBar';
-import {  useNavigate } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
+import { BiArrowBack } from 'react-icons/bi';
 
 function ForgetPassword() {
     const navigate = useNavigate(); 
@@ -125,7 +126,11 @@ function ForgetPassword() {
         
           </div>
        <div className="back-toAccess-container">
-        חזור לדף הכניסה <button> </button>  
+        <span> לא משנה נזכרתי בסיסמא </span>
+      <Link to={'/client/access'}>
+         <button> <BiArrowBack/></button>  
+      
+      </Link>
        </div>
         </div>
       </div>

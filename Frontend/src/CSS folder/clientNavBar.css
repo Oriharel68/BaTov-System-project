@@ -76,15 +76,25 @@ text-align: center;
 cursor: not-allowed; */
 
 }
+
 /* client help message */
 .client-order-message{
   padding: 1em;
-  background-color: yellowgreen;
+  backdrop-filter: blur(1.5rem);
+  /* background-color: yellowgreen; */
+  border-bottom: 3px dotted black;
   position: absolute;
-text-align: end;
+/* text-align: end; */
 z-index: 2;
 max-width: 28.3%;
 /* margin-left: 65%; */
+direction: rtl;
+}
+
+.client-order-message ul{
+  list-style: none;
+}
+.client-order-message ul li{
 }
 /* need to complete */
 #information{
@@ -133,12 +143,12 @@ max-width: 28.3%;
  }
   .client-order-message{
     padding: 1em;
-    background-color: yellowgreen;
+    max-width: 300%;
+    /* background-color: yellowgreen; */
     position: absolute;
-  text-align: end;
-  max-width: 100%;
+  /* text-align: end; */
 
-  /* margin-left: 65%; */
+  margin-left: 65%;
   }
   
   

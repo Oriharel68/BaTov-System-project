@@ -168,9 +168,28 @@ margin: 0 15px;
     margin: 0em;
 
 }
-
+/* move to access/login page Client  --{forget password}*/
 .back-toAccess-container{
-  background-color: red;
+  margin-top: 15em;
+  padding: 1em;
+ text-align: end;
+ align-items: center;
+ display: flex;
+ justify-content: end;
+  /* background-color: red; */
+  direction: rtl;
+  font-size:15px;
+}
+.back-toAccess-container span{
+font-size: 15px;
+font-family: Ploni aaa,sans-serif
+}
+.back-toAccess-container button{
+font-size:30px;
+border: none;
+background-color:transparent ;
+  cursor: pointer;
+  padding-right: 0.5em;
 }
 
 /*  */
