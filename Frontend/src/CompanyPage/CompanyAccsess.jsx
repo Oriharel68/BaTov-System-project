@@ -48,7 +48,7 @@ if(showSecondDiv == false){
         return;
       }
       
-       return signInWithEmailAndPassword(auth, email, password)
+       signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
@@ -80,29 +80,6 @@ if(showSecondDiv == false){
       <div className="CompanyNav-container">
         <NavBar />
       </div>
-
-      {/*   {Loggedin ? (
-
-<div class="custom-loader"></div>
-
-
-  ) : (
-    <h4 id="errorbox"></h4>
-  )}
-                <div className="form-group forgot-password" style={{marginTop:'2em'}}>
-                 
-                <Link to={'/client/forgetPassword'}>  <a href="#">Forgot password?</a>  </Link>  
-                </div>
-                <button className="signin-button" type="submit">
-                  Sign In
-                </button> 
-                
-                
-                
-                
-                 <form action=""  onSubmit={(e) => handeleSingIn(e)}>
-         </form>
-                */}
 
       <div className="CompanyMain-access-container">
       <form action=""  onSubmit={(e) => handeleSingIn(e)}>
