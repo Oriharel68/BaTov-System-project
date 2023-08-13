@@ -6,13 +6,7 @@ import ActiceOrdersList from "./order list's/ActiceOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
 import CompantMainPage from "../CompantMainPage";
-// import AppContext from "../../Helpjs/AppContexxt";
-
-//  AppContext
-// to pass this object we have some methods:
-// 1. redux
-// 2. context
-// export const AppContext = React.createContext();
+import Url from "../../ApiUrl/Url";
 
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
@@ -29,9 +23,9 @@ function OrderOfTheCompany() {
       let Clients:any, Orders:any;
       try {
         await Promise.all([
-          axios.get("http://localhost:4000/findAllClients"),
-          axios.get("http://localhost:4000/getAllOrders"),
-          axios.get("http://localhost:4000/getSumOfClientsOrder"),
+          axios.get(`${Url}/findAllClients`),
+          axios.get(`${Url}/getSumOfClientsOrder`),
+          axios.get(`${Url}/getAllOrders`),
         ]).then((values) => {
           Clients = values[0].data;
           Orders = values[1].data.Orders;

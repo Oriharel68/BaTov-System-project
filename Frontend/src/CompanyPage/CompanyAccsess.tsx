@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { AiOutlineMail } from "react-icons/ai";
 import axios from "axios";
-
+import Url from "../ApiUrl/Url";
 function CompanyAccsess() {
   const [showSecondDiv, setShowSecondDiv] = useState(false);
 
@@ -39,7 +39,7 @@ function CompanyAccsess() {
     const password: any = formData.get("password");
     console.log(email);
     console.log(password);
-    const { data } = await axios.post("http://localhost:4000/companyCheck", {
+    const { data } = await axios.post(`${Url}/companyCheck`, {
       email,
     });
     if (data.ok == false) {

@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
+import Url from "../ApiUrl/Url";
 function RegestrationPage() {
   const auth = getAuth();
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ function RegestrationPage() {
       createUserWithEmailAndPassword(auth, Email, password)
         .then(async (userCred) => {
           //what happen after a user register
-          const { data } = await axios.post("http://localhost:4000/register", {
+          const { data } = await axios.post(`${Url}/register`, {
             FirstName,
             LastName,
             Email,

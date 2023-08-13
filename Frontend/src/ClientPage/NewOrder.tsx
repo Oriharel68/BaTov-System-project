@@ -6,7 +6,7 @@ import NewOrderList from "./NewOrderList";
 import DatePickerComponent from "./DatePickerComponent";
 import ClientNavBarOrderMain from "../nav/ClientNavBarOrderMain";
 import { getAuth } from "firebase/auth";
-
+import Url from "../ApiUrl/Url";
 function NewOrder() {
   const navigate = useNavigate();
   const [auth, setAuth]: any = useState(getAuth());
@@ -28,7 +28,7 @@ function NewOrder() {
       return;
     }
 
-    const message = await axios.post("http://localhost:4000/addOrder", {
+    const message = await axios.post(`${Url}/addOrder`, {
       TypeOfService,
       WorkerName,
       Email: auth.currentUser.email,
@@ -51,7 +51,7 @@ function NewOrder() {
     async function getServiceProviders() {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/getServiceProvider"
+          `${Url}/getServiceProvider`
         );
         setServiceProviders(data);
       } catch (err) {

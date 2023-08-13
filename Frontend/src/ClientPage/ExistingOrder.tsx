@@ -4,7 +4,7 @@ import ExistingOrderList from "./ExistingOrderList";
 import ClientNavBarOrderMain from "../nav/ClientNavBarOrderMain";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
+import Url from "../ApiUrl/Url";
 function ExistingOrder() {
   const [ordersData, setOrdersData] = useState([]);
   const [OldOrders, setOldOrders] = useState([]);
@@ -15,7 +15,7 @@ function ExistingOrder() {
   useEffect(() => {
     async function getOrdersData() {
       try {
-        const { data } = await axios.post("http://localhost:4000/GetMyOrders", {
+        const { data } = await axios.post(`${Url}/GetMyOrders`, {
           Email: Auth?.currentUser?.email,
         });
         console.log(data);

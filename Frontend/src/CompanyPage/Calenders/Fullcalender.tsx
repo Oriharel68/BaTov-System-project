@@ -6,14 +6,14 @@ import Modal from 'react-modal';
 import {setDate} from '../../Helpjs/help'
 import {BiExit} from 'react-icons/bi'
 import Style from './dialogStyle';
-
+import Url from '../../ApiUrl/Url';
 function Fullcalender() {
     const [Events, setEvents] = useState([])
     const [EventData,setEventData] :any = useState(null);
     const [isOpen,setIsOpen] = useState(false);
     useEffect(()=>{
         const getAllOrders = async ()=>{
-            const {data} = await axios.get('http://localhost:4000/getAllOrders');
+            const {data} = await axios.get(`${Url}/getAllOrders`);
             if(!(data.ok)){
                 alert('data couldnt be retreived');
                 return;

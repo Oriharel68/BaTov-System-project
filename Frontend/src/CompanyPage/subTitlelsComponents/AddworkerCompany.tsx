@@ -7,7 +7,7 @@ import { BiExit } from "react-icons/bi";
 import Modal from "react-modal";
 import EditStyle from "./Add Worker List/EditDialogStyle";
 import { ToastContainer, toast } from "react-toastify";
-
+import Url from "../../ApiUrl/Url";
 function AddworkerCompany() {
   const [ServiceProviders, setServiceProviders] = useState([]);
   const [Change, setChange] = useState(0);
@@ -33,7 +33,7 @@ function AddworkerCompany() {
         return;
       }
 
-      const { data } = await axios.put("http://localhost:4000/addProvider", {
+      const { data } = await axios.put(`${Url}/addProvider`, {
         Price,
         WorkerName,
         TypeOfService,
@@ -60,7 +60,7 @@ function AddworkerCompany() {
     async function getServiceProviders() {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/getServiceProvider"
+          `${Url}/getServiceProvider`
         );
         setServiceProviders(data);
         setVisible(true);

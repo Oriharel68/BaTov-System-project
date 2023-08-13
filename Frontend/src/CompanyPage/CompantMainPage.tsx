@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import IncomesList from "./subTitlelsComponents/order list's/IncomesList";
 import CombaibnedNavCompany from "../nav/CombaibnedNavCompany";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
   getOrderWithDate,
@@ -21,13 +19,10 @@ import {
   AiOutlineInstagram,
   AiOutlineMail,
 } from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
-import Fullcalender from "./Calenders/Fullcalender";
-import ActiceOrdersList from "./subTitlelsComponents/order list's/ActiceOrdersList";
 import MoneyStatistics from "./MoneyStatistics";
-import Footer from "../Main page/Footer";
-import NavLogo from "../Main page/NavLogo";
 
+import NavLogo from "../Main page/NavLogo";
+import Url from "../ApiUrl/Url";
 function CompantMainPage() {
   // fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   const [orderData, setOrdersData]: any = useState([]);
@@ -41,9 +36,9 @@ function CompantMainPage() {
     async function getOrdersData() {
       try {
         const Promises = await Promise.all([
-          axios.get("http://localhost:4000/getAllOrders"),
-          axios.get("http://localhost:4000/findAllClients"),
-          axios.get("http://localhost:4000/getSumOfClientsOrder"),
+          axios.get(`${Url}/getAllOrders`),
+          axios.get(`${Url}/findAllClients`),
+          axios.get(`${Url}/getSumOfClientsOrder`),
         ]);
         const Clients = Promises[1].data;
         const { Orders } = Promises[0].data;
