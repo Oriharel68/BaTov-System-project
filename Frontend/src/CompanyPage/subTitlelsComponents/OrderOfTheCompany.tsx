@@ -5,7 +5,6 @@ import ActiceOrdersList from "./order list's/ActiceOrdersList";
 // import OldOrders from "./order list's/OldOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
-import CompantMainPage from "../CompantMainPage";
 import Url from "../../ApiUrl/Url";
 
 function OrderOfTheCompany() {
@@ -13,10 +12,9 @@ function OrderOfTheCompany() {
   const [oldOrders, setOldOrders] = useState([]);
   const [allClients, setAllClients] = useState([]);
   const [Visible, setVisible] = useState(false);
-  const TAX_RATE = 0.17;
-
+  // const TAX_RATE = 0.17;
   const [colspan, setColspan] = useState(1);
-  console.log(allClients);
+
   // console.log(allClients);
   useEffect(() => {
     async function getOrdersData() {
@@ -27,27 +25,35 @@ function OrderOfTheCompany() {
           axios.get(`${Url}/getSumOfClientsOrder`),
           axios.get(`${Url}/getAllOrders`),
         ]).then((values) => {
-          Clients = values[0].data;
-          Orders = values[1].data.Orders;
-          setAllClients(values[2].data);
-          // console.log(Orders);
-          // console.log(allClients);
-          // console.log(allClients);
+          values.forEach((item:any,index:number)=>{
+            if(item.request.responseURL.includes('/findAllClients')){
+              Clients = values[index].data;
+            }
+            else if(item.request.responseURL.includes('/getSumOfClientsOrder')){
+              setAllClients(values[index].data);
+            }
+            else{
+              Orders = values[index].data.Orders;
+            }
+          })
+          
+          
+          
         });
         // console.log(Clients);
         const currdate = new Date().getTime();
 
         const oldOrders:any = [];
-        const OngoingOrders:any = []; ///do with splice to save memory
+        const OngoingOrders:any = []; 
 
         const OrdersWithName = Orders.map((item:any) => {
           const With = Clients.find((value:any) => {
             return value._id === item.ClientId;
           });
+          
           return { ...item, ClientName: `${With.FirstName} ${With.LastName}` };
         });
         // setAllClients(OrdersWithName)
-        console.log(allClients);
 
         OrdersWithName.forEach((item:any) => {
           if (currdate > item.DateTime) oldOrders.push(item);
@@ -56,7 +62,9 @@ function OrderOfTheCompany() {
 
         setOldOrders(oldOrders);
         setActiveOrders(OngoingOrders);
+       
         setVisible(true);
+
       } catch (err) {
         console.log(err);
       }
@@ -76,27 +84,26 @@ function OrderOfTheCompany() {
       window.removeEventListener("resize", updateColspan);
     };
   }, []);
-
+  
   // מעמ
   // 17%
+  // const subtotalSum = allClients.reduce(
+  //   (accumulator, currentValue:any) => accumulator + currentValue.Total,
+  //   0
+  // );
 
-  const subtotalSum = allClients.reduce(
-    (accumulator, currentValue:any) => accumulator + currentValue.Total,
-    0
-  );
+  // const ordersWithTax = oldOrders.map((order:any) => ({
+  //   ...order,
+  //   PriceWithTax: (order.Price * (1 + TAX_RATE)).toFixed(2),
+  // }));
+  // const subtotalSumTAX = ordersWithTax.reduce(
+  //   (accumulator, currentValue) =>
+  //     accumulator + (currentValue.PriceWithTax - currentValue.Price),
+  //   0
+  // );
 
-  const ordersWithTax = oldOrders.map((order:any) => ({
-    ...order,
-    PriceWithTax: (order.Price * (1 + TAX_RATE)).toFixed(2),
-  }));
-  const subtotalSumTAX = ordersWithTax.reduce(
-    (accumulator, currentValue) =>
-      accumulator + (currentValue.PriceWithTax - currentValue.Price),
-    0
-  );
 
-  // const AppContext = React.createContext();
-  const TOTAL_VALUE = subtotalSum - subtotalSumTAX;
+  // const TOTAL_VALUE = subtotalSum - subtotalSumTAX;
 
   return (
     <div>
@@ -182,23 +189,25 @@ function OrderOfTheCompany() {
               <th>סכום</th>
             </tr>
 
-            {/* {allClients.map((client)=>{ */}
+           
 
-            {allClients.map((client:any) => {
+            {Visible? allClients.map((client:any) => {
               return (
                 <tr>
                   <IncomesList client={client} key={client._id} />
                 </tr>
               );
-            })}
+            }):
+            <></>
+            }
             <td colSpan={colspan}>
-              <div id="go-To-there" className="subTotal-Incomes-container">
+              <div className="subTotal-Incomes-container">
                 <div className="right-cotainer">
-                  <p> ₪{subtotalSum.toLocaleString()}</p>
-                  <p> ₪{subtotalSumTAX.toLocaleString()}</p>
+                  {/* <p> ₪{subtotalSum?.toLocaleString()}</p> */}
+                  {/* <p> ₪{subtotalSumTAX?.toLocaleString()}</p> */}
                   <p id="emphasis">
                     {" "}
-                    <b> ₪{TOTAL_VALUE.toLocaleString()} </b>{" "}
+                    {/* <b> ₪{TOTAL_VALUE?.toLocaleString()} </b>{" "} */}
                   </p>
                 </div>
                 <div className="left-conatiner">

@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   getAuth,
   signInWithEmailAndPassword,
-  setPersistence,
-  browserSessionPersistence,
 } from "firebase/auth";
 import { AiOutlineMail } from "react-icons/ai";
 import axios from "axios";
