@@ -12,4 +12,5 @@ Installation steps:
 3) if you run mongo in Atlas - update MONGO_URI in your .env file
 4) run `npm start`
 
-
+### Web:
+1) the project is in the web in https://batov.netlify.app/
