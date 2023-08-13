@@ -8,7 +8,7 @@ const Nav =  {
         transform: 'translate(-50%, -50%)',
         maxWidth: '80%',
         minWidth:'50%',
-        backgroundColor:'grey',
+        backgroundColor:'rgb(211,211,211)',
         display:'flex',
         justifyContent:'center',
         paddingTop:'1em',
