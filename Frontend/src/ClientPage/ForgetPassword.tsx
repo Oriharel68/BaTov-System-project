@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import ClientNavBar from '../nav/ClientNavBar';
+
 import {  Link, useNavigate } from "react-router-dom";
 import { BiArrowBack } from 'react-icons/bi';
+import auth from '../FireBase/auth';
 
 function ForgetPassword() {
     const navigate = useNavigate(); 
-    const auth = getAuth();
     const [sendEmail, SetSendEmail] = useState(false);
  
       

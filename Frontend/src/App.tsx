@@ -3,10 +3,10 @@ import React from 'react'
 import RouterServer from './Router/RouterServer'
 import 'normalize.css';
 
-import { initializeApp } from 'firebase/app';
+
 import firebaseConfig from './FireBase/auth';
 
-initializeApp(firebaseConfig);
+import app from './FireBase/auth';
 
 function App() {
   return (

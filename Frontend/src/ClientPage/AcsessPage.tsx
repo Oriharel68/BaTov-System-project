@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import auth from "../FireBase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Url from "../ApiUrl/Url";
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
-  const auth = getAuth();
+
 
   function handleOnSubmit(event:any) {
     event.preventDefault();
@@ -19,6 +20,8 @@ function AcsessPage() {
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
+        console.log(userCredential);
+        
         setLoggedin(true);
         setTimeout(() => {
           navigate("/order/main");

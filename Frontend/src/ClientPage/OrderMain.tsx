@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import ClientNavBar from "../nav/ClientNavBar";
 import { getAuth } from "firebase/auth";
 import ClientNavBarOrderMain from "../nav/ClientNavBarOrderMain";
-
+import Auth from "../FireBase/auth";
 function OrderMain() {
   const navigate = useNavigate();
-  const [userAuth, setUserAuth] = useState(getAuth());
+  const [userAuth, setUserAuth] = useState(Auth);
   const [UserName, setUserName] = useState("");
 
   useEffect(() => {

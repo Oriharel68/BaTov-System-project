@@ -4,22 +4,22 @@ import Companysubtitle from "./Companysubtitle";
 import { RxExit } from "react-icons/rx";
 import { getAuth, signOut } from "firebase/auth";
 import {  useNavigate } from "react-router-dom";
+import Auth from "../FireBase/auth";
 
 function CombaibnedNavCompany() {
   const [showDiv, setshowDiv] = useState(false);
 
   const navigate = useNavigate();
-  const userAuth = getAuth();
   
   const SignOut = useCallback(() => {
-    signOut(userAuth)
+    signOut(Auth)
       .then(() => {
         navigate("/company/access");
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [userAuth]);
+  }, [Auth]);
 
   return (
     <>

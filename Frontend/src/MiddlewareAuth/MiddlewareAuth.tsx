@@ -1,9 +1,10 @@
 import { getAuth } from "firebase/auth";
+import Auth from "../FireBase/auth";
 import React, { PropsWithChildren, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function MiddlewareAuth({ children }: { children: PropsWithChildren }) {
-  const Auth = getAuth();
+
   const navigate = useNavigate();
   const location = useLocation().pathname;
   useEffect(() => {

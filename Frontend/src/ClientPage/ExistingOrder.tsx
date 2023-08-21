@@ -3,13 +3,14 @@ import axios from "axios";
 import ExistingOrderList from "./ExistingOrderList";
 import ClientNavBarOrderMain from "../nav/ClientNavBarOrderMain";
 import { getAuth } from "firebase/auth";
+import auth from "../FireBase/auth";
 import { useNavigate } from "react-router-dom";
 import Url from "../ApiUrl/Url";
 function ExistingOrder() {
   const [ordersData, setOrdersData] = useState([]);
   const [OldOrders, setOldOrders] = useState([]);
   const [Changed, setChanged] = useState(0);
-  const [Auth] = useState(getAuth());
+  const [Auth] = useState(auth);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,7 +48,7 @@ function ExistingOrder() {
               <div className="clientNewOrderPage">
                 <h3>📑:הזמנות קיימות</h3>
 
-                {ordersData ? (
+                {ordersData.length > 0 ? (
                   <>
                     <div className="over-flow-existingOrders ">
                       {ordersData.map((order:any) => {

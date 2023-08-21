@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
 import app from "../FireBase/auth";
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
+
 } from "firebase/auth";
+
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Url from "../ApiUrl/Url";
+import auth from "../FireBase/auth";
 function RegestrationPage() {
-  const auth = getAuth();
   const navigate = useNavigate();
   
 
@@ -49,28 +50,19 @@ function RegestrationPage() {
             return;
           }
 
-          updateProfile(userCred.user, {
+         await updateProfile(userCred.user, {
             displayName: `${FirstName} ${LastName}`,
           })
 
-
-            .then(() => {
               // alert("user was created Succsesfuly");
               navigate("/client/registrationCompalete")
               setTimeout(() => {
                 navigate("/client/access");
               }, 3000);
 
-            })
-
-
-            .catch((err) => {
-              alert(err);
-            });
+           
         })
-        .catch((err) => {
-          alert(err);
-        });
+      
     } catch (error) {
       alert(error);
     }

@@ -6,10 +6,12 @@ import NewOrderList from "./NewOrderList";
 import DatePickerComponent from "./DatePickerComponent";
 import ClientNavBarOrderMain from "../nav/ClientNavBarOrderMain";
 import { getAuth } from "firebase/auth";
+
 import Url from "../ApiUrl/Url";
+import Auth from "../FireBase/auth";
 function NewOrder() {
   const navigate = useNavigate();
-  const [auth, setAuth]: any = useState(getAuth());
+  const [auth, setAuth]: any = useState(Auth);
   const [ServiceProviders, setServiceProviders] = useState([]);
   const [Provider, setProvider]: any = useState(null);
   const [Choice, setChoice] = useState(true);

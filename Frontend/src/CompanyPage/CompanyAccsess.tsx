@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import NavBar from "../nav/NavBar";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  getAuth,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import auth from "../FireBase/auth";
 import { AiOutlineMail } from "react-icons/ai";
 import axios from "axios";
 import Url from "../ApiUrl/Url";
@@ -27,7 +27,6 @@ function CompanyAccsess() {
 
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
-  const auth = getAuth();
 
   async function handeleSingIn(e: any) {
     e.preventDefault();

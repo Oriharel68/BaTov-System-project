@@ -9,6 +9,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
 import Modal from 'react-modal';
 import NavStyle from "./NavModal";
+import auth from "../FireBase/auth";
 
 
 function ClientNavBarOrderMain() {
@@ -30,7 +31,6 @@ function ClientNavBarOrderMain() {
   function handleOnSubmit(event: any) {
     event.preventDefault();
 
-    const auth = getAuth();
     signOut(auth)
       .then(() => {
         // Sign-out successful.
