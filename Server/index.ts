@@ -4,7 +4,7 @@ import getServiceProvider from './Router/getServiceProvider';
 import addprovider from './Router/addProvider';
 import getExistingOrders from './Router/getExistingOrders';
 import { Request, Response,Express } from "express";
-import {rate5Limiter,rate10Limiter,rate20Limiter,rate30Limiter,rate60Limiter} from './RateLimit/rateLimit'
+
 import getAllOrders from './Router/getAllOrders';
 import addOrder from './Router/addOrder';
 import GetMyOrders from './Router/GetMyOrders';
@@ -29,7 +29,7 @@ var mongo_uri = process.env.MONGO_URI;
 
 app.use(express.json());
 app.use(cors({origin:['http://localhost:3000','https://batov.netlify.app']}));
-app.use(rate5Limiter,rate10Limiter,rate20Limiter,rate30Limiter,rate60Limiter);
+
 
 
 
