@@ -18,7 +18,7 @@ router.get('/',async (req:Request,res:Response)=>{
             
             
                const TotalMoney = OrderOfClient.reduce((acc,currnetValue)=>acc+(currnetValue.Price as number),0);
-      
+      //returns the sum of all the orders for all of the clients using promise all to wait for finding the order
                
                return {ClientName:`${Client.FirstName} ${Client.LastName}`,Total:TotalMoney,Email:Client.Email,PhoneNumber:Client.PhoneNumber};
             })).then((value)=>{

@@ -18,9 +18,9 @@ router.post('/',async (req:Request,res:Response)=>{
     
        
         if(!result){
-          res.send({ok: false})
+          res.status(401).send({ok: false})
         } else{
-          res.send({ok:true})
+          res.status(200).send({ok:true})
         }
 
       } catch (error) {

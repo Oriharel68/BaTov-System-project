@@ -12,7 +12,7 @@ const ClientsModel:Model<Client> = require('../models/ClientsModel');
 
 router.get("/", async (req:Request, res:Response) => {
     try {
-      const ClientDB = await ClientsModel.find();
+      const ClientDB = await ClientsModel.find(); //find all of the clients in the company
       res.send(ClientDB);
     } catch (error) {
       console.log(error.message);

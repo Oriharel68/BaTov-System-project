@@ -9,7 +9,7 @@ const ServiceProvidersModel:Model<Service> = require('../models/ServiceProviderM
 router.get('/',async(req:Request,res:Response)=>{
     try {
         const ServiceDB = await ServiceProvidersModel.find();
-        res.send(ServiceDB);
+        res.status(200).send(ServiceDB);
       } catch (error) {
         console.log(error.message);
         res.status(500).send({ ok: false, error: error.message });

@@ -75,7 +75,7 @@ function CompantMainPage() {
       setOrdersActive(OngoingOrders);
     }
     function SumOfClients(Clients: any) {
-      console.log(Clients);
+      
       const Total = Clients.reduce(
         (accumulator: any, currentValue: any) =>
           accumulator + currentValue.Total,

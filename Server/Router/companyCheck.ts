@@ -10,12 +10,13 @@ const CompanyModel:Model<Company> = require('../models/CompanyModel');
 router.post('/',async (req:Request,res:Response)=>{
     try {
         const {email} = req.body;
-        if(!email)throw new Error("No email(in post /GetMyOrders)");
+        if(!email)
+        res.status(400).send({ ok: false, error:'missing info'})
         const Client = await CompanyModel.findOne({email});
         if(!Client){
-          res.send({ok: false})
+          res.status(401).send({ok: false})
         } else{
-          res.send({ok:true})
+          res.status(200).send({ok:true})// checking if a email is autorized to go to comapny side
         }
       } catch (error) {
         console.log(error.message);

@@ -14,13 +14,13 @@ router.post('/',async(req:Request,res:Response)=>{
     try {
         let {TypeOfService , WorkerName} = req.body;
         if(!TypeOfService || !WorkerName){
-          throw new Error("missing info complete required info(in get /getExistingOrders)");
+          res.status(400).send({ ok: false, error: 'missing info' })
         }
         const Orders = await OrdersModel.find({$and:[{TypeOfService},{WorkerName}]});
-        res.send(Orders);
+        res.status(200).send(Orders);
         } catch (error) {
           console.log(error.message);
-          res.send({ ok: false, error: error.message });
+          res.status(500).send({ ok: false, error: error.message });
         }
 });
 export default router;

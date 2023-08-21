@@ -10,7 +10,7 @@ const OrdersModel:Model<Order> = require('../models/OrderModel');
 
 router.get('/',async (req:Request,res:Response)=>{
     try {
-        const OrdersDB = await OrdersModel.find();
+        const OrdersDB = await OrdersModel.find();// find the orders of the company
         res.send({ok:true,Orders:OrdersDB})
       } catch (error) {
         console.log(error.message);

@@ -13,10 +13,12 @@ router.put('/',async (req:Request,res:Response)=>{
     let { Price, WorkerName, TypeOfService } = req.body;
 
     if (!Price || !WorkerName || !TypeOfService )
-    throw new Error("missing info complete required info");
+    res.status(400).send({ ok: false, error:'invalid info'});
     
-  if (await ServiceProviderModel.findOne({ WorkerName }))
-    throw new Error("העובד קיים במערכת ");
+  if (await ServiceProviderModel.findOne({ WorkerName }))//checking if a service provider exists if not adding him
+    res.status(409).send({ ok: false, error:'exists'});
+
+
     const ServiceDB = new ServiceProviderModel({
       Price,
       WorkerName,

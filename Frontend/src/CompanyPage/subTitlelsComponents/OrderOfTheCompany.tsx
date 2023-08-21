@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import CombaibnedNavCompany from "../../nav/CombaibnedNavCompany";
 import axios from "axios";
 import ActiceOrdersList from "./order list's/ActiceOrdersList";
@@ -10,11 +10,24 @@ import Url from "../../ApiUrl/Url";
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
   const [oldOrders, setOldOrders] = useState([]);
-  const [allClients, setAllClients] = useState([]);
+  const [allClients, setAllClients]:any = useState([]);
   const [Visible, setVisible] = useState(false);
+  const [totalmoney,setTotalMoney] = useState<number>(0);
   // const TAX_RATE = 0.17;
   const [colspan, setColspan] = useState(1);
 
+
+
+  const totalSum = useCallback(
+    (allOrders:any) => {
+      console.log(allOrders);
+      
+      const Total:number = allOrders.reduce((acc:any,value:any)=> acc + value.Total,0 );
+      console.log(Total);
+      setTotalMoney(Total);
+    },[]
+  );
+  
   // console.log(allClients);
   useEffect(() => {
     async function getOrdersData() {
@@ -30,15 +43,13 @@ function OrderOfTheCompany() {
               Clients = values[index].data;
             }
             else if(item.request.responseURL.includes('/getSumOfClientsOrder')){
+              totalSum(values[index].data);
               setAllClients(values[index].data);
             }
             else{
               Orders = values[index].data.Orders;
             }
           })
-          
-          
-          
         });
         // console.log(Clients);
         const currdate = new Date().getTime();
@@ -59,10 +70,8 @@ function OrderOfTheCompany() {
           if (currdate > item.DateTime) oldOrders.push(item);
           else OngoingOrders.push(item);
         });
-
         setOldOrders(oldOrders);
         setActiveOrders(OngoingOrders);
-       
         setVisible(true);
 
       } catch (err) {
@@ -204,10 +213,13 @@ function OrderOfTheCompany() {
               <div className="subTotal-Incomes-container">
                 <div className="right-cotainer">
                   {/* <p> ₪{subtotalSum?.toLocaleString()}</p> */}
+                  <p>₪{totalmoney.toLocaleString()}</p>
                   {/* <p> ₪{subtotalSumTAX?.toLocaleString()}</p> */}
+                  <p>₪{(totalmoney*0.17).toLocaleString()}</p>
                   <p id="emphasis">
                     {" "}
                     {/* <b> ₪{TOTAL_VALUE?.toLocaleString()} </b>{" "} */}
+                    <b>₪{(totalmoney-(totalmoney*0.17)).toLocaleString()}</b>
                   </p>
                 </div>
                 <div className="left-conatiner">

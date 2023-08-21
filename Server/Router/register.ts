@@ -14,9 +14,9 @@ router.post('/',async(req:Request,res:Response)=>{
     try {
         let { FirstName, LastName, Email, PhoneNumber } = req.body;
         if (!FirstName || !LastName || !Email || !PhoneNumber)
-          throw new Error("missing info complete required info(in post /register)");
+          res.status(400).send({ok:false,error:'missing/invalid info'})
         if (await ClientsModel.findOne({ $or: [{ Email }, { PhoneNumber }] }))
-          throw new Error("Email or Phone Number already exists in the system ");
+        res.status(404).send({ok:false,error:'missing/invalid info'})
         const ClientDB = new ClientsModel({
           FirstName,
           LastName,
