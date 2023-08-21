@@ -35,26 +35,29 @@ function CompanyAccsess() {
     const formData = new FormData(e.target);
     const email: any = formData.get("Email");
     const password: any = formData.get("password");
-    setLoggedin(true);
-    const { data } = await axios.post(`${Url}/companyCheck`, {
-      email,
-    });
-    if (data.ok === false) {
-      alert("user in not a company user ,please contact the administrator ");
+    try {
+      const { data } = await axios.post(`${Url}/companyCheck`, {
+        email,
+      });
+      if(data.ok ===false) throw Error('err');
+    } catch (error) {
+      alert("invalid user");
       return;
     }
+  
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
-       
+        setLoggedin(true);
 
         setTimeout(() => {
           navigate("/company/mainpage");
         }, 3000);
       })
       .catch((error) => {
+        
         let errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);

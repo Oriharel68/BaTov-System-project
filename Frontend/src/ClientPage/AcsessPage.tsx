@@ -14,12 +14,12 @@ function AcsessPage() {
 
     const email:any = formData.get("Email");
     const password:any = formData.get("password");
-    setLoggedin(true);
+    
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
-        
+        setLoggedin(true);
         setTimeout(() => {
           navigate("/order/main");
         }, 3000);
