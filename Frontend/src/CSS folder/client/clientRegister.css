@@ -210,3 +210,15 @@ and (-webkit-min-device-pixel-ratio: 2){
 
 }
 
+@media screen and (min-width: 912px) and (max-width: 1368px) {
+
+  .page-wraper .mainClient-page-wraper .mainClient-page{
+    /* padding: 15em 0; */
+ padding-top: 0;
+
+}
+  .page-wraper .mainClient-page-wraper .mainClient-page .registerWraper-conatiner button{
+  
+  margin-top: 15px;
+  } 
+}
