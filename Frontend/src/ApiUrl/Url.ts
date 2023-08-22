@@ -4,4 +4,4 @@ const Url = 'https://batov.onrender.com';
 const local = 'http://localhost:4000';
 
 
-export default local;
+export default Url;
