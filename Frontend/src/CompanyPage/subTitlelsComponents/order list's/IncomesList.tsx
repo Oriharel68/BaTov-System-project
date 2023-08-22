@@ -9,7 +9,7 @@ function IncomesList({ client }:any) {
       <td id="emphasis"> {ClientName}</td>
       <td>{Email}</td>
       <td>{PhoneNumber}</td>
-      <td>{Total?.toLocaleString()} ₪</td>
+      <td>₪{Total?.toLocaleString()}</td>
     </>
   );
 }
