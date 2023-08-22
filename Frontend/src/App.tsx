@@ -4,10 +4,6 @@ import RouterServer from './Router/RouterServer'
 import 'normalize.css';
 
 
-import firebaseConfig from './FireBase/auth';
-
-import app from './FireBase/auth';
-
 function App() {
   return (
     <div>
