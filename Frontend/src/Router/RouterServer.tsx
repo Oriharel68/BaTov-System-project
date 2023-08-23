@@ -11,16 +11,13 @@ import CompanyAccsess from "../CompanyPage/CompanyAccsess";
 import CompantMainPage from "../CompanyPage/CompantMainPage";
 import AddworkerCompany from "../CompanyPage/subTitlelsComponents/AddworkerCompany";
 import CompnatCalenderDetaills from "../CompanyPage/subTitlelsComponents/CompnatCalenderDetaills";
-import StatisticCompany from "../CompanyPage/subTitlelsComponents/StatisticCompany";
 import OrderOfTheCompany from "../CompanyPage/subTitlelsComponents/OrderOfTheCompany";
 import UserRegistrationComplete from "../ClientPage/ClientMessages/UserRegistrationComplete";
 import OrderCompelteMessage from "../ClientPage/ClientMessages/OrderCompelteMessage";
 import ExistingOrder from "../ClientPage/ExistingOrder";
 import ForgetPassword from "../ClientPage/ForgetPassword";
 
-
 function RouterServer() {
-const [item,setItem] =useState({})
   
   return (
     <div>
