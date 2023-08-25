@@ -54,17 +54,17 @@ mongoose
   app.use('/register',register);
   app.use('/companyCheck',companyCheck);
 
-  app.use("/findAllClients",Autnticate,findAllClients); 
-  app.use("/addProvider",Autnticate,addprovider);   
-  app.use("/getServiceProvider",Autnticate,getServiceProvider); 
-  app.use('/getExistingOrders',Autnticate,getExistingOrders);
-  app.use('/getAllOrders',Autnticate,getAllOrders);
-  app.use('/addOrder',Autnticate,addOrder);
-  app.use('/GetMyOrders',Autnticate,GetMyOrders);
-  app.use('/removeworker',Autnticate,removeWork);
-  app.use('/EditCompanyWorker',Autnticate,EditCompanyWorker);
-  app.use('/getSumOfClientsOrder',Autnticate,getSumOfClientsOrder); 
-  app.use('/RemoveOrder',Autnticate,removeOrder);
+  app.use("/findAllClients",findAllClients); 
+  app.use("/addProvider",addprovider);   
+  app.use("/getServiceProvider",getServiceProvider); 
+  app.use('/getExistingOrders',getExistingOrders);
+  app.use('/getAllOrders',getAllOrders);
+  app.use('/addOrder',addOrder);
+  app.use('/GetMyOrders',GetMyOrders);
+  app.use('/removeworker',removeWork);
+  app.use('/EditCompanyWorker',EditCompanyWorker);
+  app.use('/getSumOfClientsOrder',getSumOfClientsOrder); 
+  app.use('/RemoveOrder',removeOrder);
 
 
  
