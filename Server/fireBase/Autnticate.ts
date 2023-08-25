@@ -6,6 +6,8 @@ import { Request, Response,NextFunction } from "express";
 
 const Verify = async (req:Request,res:Response,next:NextFunction) =>{
     const IdToken = req.cookies?.IdToken;
+    console.log(IdToken);
+    
     if(!IdToken){
         return res.status(401).send('not Autorized');
     }
