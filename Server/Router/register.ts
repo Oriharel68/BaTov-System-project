@@ -25,11 +25,11 @@ router.post('/',async(req:Request,res:Response)=>{
         });
         
         await ClientDB.save().then((data) => {
-          res.send({ ok: true, data });
+          return res.send({ ok: true, data });
         });
       } catch (err) {
         console.log(err.message);
-        res.send({ ok: false, error: err.message });
+        return res.send({ ok: false, error: err.message });
       }
 });
 

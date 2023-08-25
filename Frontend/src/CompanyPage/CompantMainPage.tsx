@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import IncomesList from "./subTitlelsComponents/order list's/IncomesList";
 import CombaibnedNavCompany from "../nav/CombaibnedNavCompany";
-import axios from "axios";
 import {
   getOrderWithDate,
   getMoneyByDay,
@@ -22,7 +21,10 @@ import {
 import MoneyStatistics from "./MoneyStatistics";
 
 import NavLogo from "../Main page/NavLogo";
-import Url from "../ApiUrl/Url";
+import Url from "../ApiClient/Url";
+import AxiosClient from "../ApiClient/AxiosClient";
+
+
 function CompantMainPage() {
   // fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   const [orderData, setOrdersData]: any = useState([]);
@@ -36,9 +38,9 @@ function CompantMainPage() {
     async function getOrdersData() {
       try {
         const Promises = await Promise.all([
-          axios.get(`${Url}/getAllOrders`),
-          axios.get(`${Url}/findAllClients`),
-          axios.get(`${Url}/getSumOfClientsOrder`),
+          AxiosClient.get(`${Url}/getAllOrders`),
+          AxiosClient.get(`${Url}/findAllClients`),
+          AxiosClient.get(`${Url}/getSumOfClientsOrder`),
         ]);
         const Clients = Promises[1].data;
         const { Orders } = Promises[0].data;

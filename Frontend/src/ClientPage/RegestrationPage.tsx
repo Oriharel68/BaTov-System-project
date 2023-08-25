@@ -6,11 +6,11 @@ import {
   updateProfile,
 
 } from "firebase/auth";
-
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import Url from "../ApiUrl/Url";
+import Url from "../ApiClient/Url";
 import auth from "../FireBase/auth";
+import AxiosClient from "../ApiClient/AxiosClient";
 function RegestrationPage() {
   const navigate = useNavigate();
   
@@ -37,7 +37,7 @@ function RegestrationPage() {
       createUserWithEmailAndPassword(auth, Email, password)
         .then(async (userCred) => {
           //what happen after a user register
-          const { data } = await axios.post(`${Url}/register`, {
+          const { data } = await AxiosClient.post(`${Url}/register`, {
             FirstName,
             LastName,
             Email,

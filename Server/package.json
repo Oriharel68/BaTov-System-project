@@ -12,9 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
+    "firebase-admin": "^11.10.1",
     "mongoose": "^7.1.1",
     "ts-node": "^10.9.1"
   },

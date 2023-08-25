@@ -3,7 +3,6 @@ import CombaibnedNavCompany from "../../nav/CombaibnedNavCompany";
 import StatisticCompanyList from "./Statistic Compant List/StatisticCompanyList";
 import StatisticCompanyLine from "./Statistic Compant List/StatisticCompanyLine";
 
-import axios from "axios";
 import { GetOrdersByMonth } from "./Statistic Compant List/GetData";
 import {
   getOrderWithDate,
@@ -11,6 +10,7 @@ import {
   getMoneyByMonth,
   getMoneyByYear,
 } from "../../Helpjs/help";
+import AxiosClient from "../../ApiClient/AxiosClient";
 function StatisticCompany() {
   const [ServiceProviders, setServiceProviders] = useState([]);
   // const [orderReady,setOrderReady] = useState(false)
@@ -46,7 +46,7 @@ function StatisticCompany() {
   useEffect(() => {
     async function getServiceProviders() {
       try {
-        const { data } = await axios.get(
+        const { data } = await AxiosClient.get(
           "http://localhost:4000/getServiceProvider"
         );
         setServiceProviders(data);
@@ -56,7 +56,7 @@ function StatisticCompany() {
     }
     async function getOrdersData() {
       try {
-        const { data } = await axios.get("http://localhost:4000/getAllOrders");
+        const { data } = await AxiosClient.get("http://localhost:4000/getAllOrders");
         const { Orders } = data;
         setOrdersData(getOrderWithDate(Orders));
         const OrderByM = GetOrdersByMonth(Orders);

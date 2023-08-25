@@ -3,7 +3,8 @@ import React, { memo, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import he from "date-fns/locale/he";
-import Url from "../ApiUrl/Url";
+import Url from "../ApiClient/Url";
+import AxiosClient from "../ApiClient/AxiosClient";
 
 function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }:any) {
   const [startDate, setStartDate]:any = useState(null);
@@ -12,7 +13,7 @@ function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }:any) {
   useEffect(() => {
     async function getorders() {
       const { TypeOfService, WorkerName } = Provider;
-      const { data } = await axios.post(
+      const { data } = await AxiosClient.post(
         `${Url}/getExistingOrders`,
         {
           TypeOfService,

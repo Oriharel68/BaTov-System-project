@@ -11,9 +11,9 @@ router.delete('/',async (req:Request,res:Response)=>{
     try {
         const {orderId} = req.query;
         const removed = await Orders.findByIdAndRemove(orderId);
-        res.status(200).send({deleted:true});
+        return res.status(200).send({deleted:true});
     } catch (error) {
-        res.status(500).send({deleted:false});
+        return res.status(500).send({deleted:false});
         
     }
 })

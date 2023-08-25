@@ -16,15 +16,15 @@ import UserRegistrationComplete from "../ClientPage/ClientMessages/UserRegistrat
 import OrderCompelteMessage from "../ClientPage/ClientMessages/OrderCompelteMessage";
 import ExistingOrder from "../ClientPage/ExistingOrder";
 import ForgetPassword from "../ClientPage/ForgetPassword";
-
+import MiddlewareAuth from '../MiddlewareAuth/MiddlewareAuth'
 function RouterServer() {
 
   
   return (
     <div>
-          
+    
       <Router>
-        {/* <MiddlewareAuth> */}
+      <MiddlewareAuth>
         {/* <NavBar/> */}
         <Routes>
           <Route path="/*" element={<ErorPage />} />
@@ -56,9 +56,9 @@ function RouterServer() {
               <Route path="/client/registrationCompalete" element={<UserRegistrationComplete/>} />
               <Route path="/order/orderCompelte" element={<OrderCompelteMessage/>} />
         </Routes>
-        {/* </MiddlewareAuth> */}
+        </MiddlewareAuth> 
       </Router>
-              
+       
     </div>
   );
 }

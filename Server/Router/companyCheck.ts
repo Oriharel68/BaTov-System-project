@@ -11,16 +11,16 @@ router.post('/',async (req:Request,res:Response)=>{
     try {
         const {email} = req.body;
         if(!email)
-        res.status(400).send({ ok: false, error:'missing info'})
+        return  res.status(400).send({ ok: false, error:'missing info'})
         const Client = await CompanyModel.findOne({email});
         if(!Client){
-          res.status(401).send({ok: false})
+          return res.status(401).send({ok: false})
         } else{
-          res.status(200).send({ok:true})// checking if a email is autorized to go to comapny side
+          return res.status(200).send({ok:true})// checking if a email is autorized to go to comapny side
         }
       } catch (error) {
         console.log(error.message);
-        res.send({ ok: false, error: error.message });
+        return res.send({ ok: false, error: error.message });
      }
 });
 
