@@ -13,7 +13,7 @@ import removeOrder from './Router/RemoveOrder';
 import removeWork from './Router/removeWorker';
 import EditCompanyWorker from './Router/EditCompanyWorker';
 import login from './Router/login'
-import Init from './fireBase/FireBaseInit'
+// import Init from './fireBase/FireBaseInit'
 import Autnticate from './fireBase/Autnticate'
 import  findAllClients from './Router/FindAllClient';
 import getServiceProvider from './Router/getServiceProvider';
@@ -32,7 +32,7 @@ const app:Express = express();
 
 var port = process.env.PORT;
 var mongo_uri = process.env.MONGO_URI;
-Init();
+// Init();
 
 app.use(express.json());
 app.use(cors({origin:['http://localhost:3000','https://batov.netlify.app'],credentials: true}));
