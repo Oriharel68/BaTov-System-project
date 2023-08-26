@@ -50,7 +50,7 @@ function CompanyAccsess() {
       .then(async (userCredential) => {
         
         
-       const uid = userCredential.user
+       const uid = userCredential.user.uid;
         const response = await AxiosClient.post(`${Url}/login`,{uid});
         if(response.status === 200){
         setLoggedin(true);
