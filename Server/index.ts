@@ -32,7 +32,6 @@ const app:Express = express();
 
 var port = process.env.PORT;
 var mongo_uri = process.env.MONGO_URI;
-console.log(process.env.ACCESS_TOKEN_SECRET);
 
 app.use(express.json());
 app.use(cors({origin:['http://localhost:3000','https://batov.netlify.app'],credentials: true}));
