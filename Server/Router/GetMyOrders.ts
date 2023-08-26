@@ -11,16 +11,16 @@ const ClientsModel:Model<Client> = require('../models/ClientsModel');
 router.post('/',async(req:Request,res:Response)=>{
     try {
         const {Email} = req.body;
-        if(!Email)res.status(400).send({ok:false,error:"No email(in post /GetMyOrders)"});
+        if(!Email)return res.status(400).send({ok:false,error:"No email(in post /GetMyOrders)"});
         
         const Client = await ClientsModel.findOne({Email});
-        if(!Client) res.status(400).send({ok:false,error:"No email(in post /GetMyOrders)"});
+        if(!Client)return res.status(400).send({ok:false,error:"No email(in post /GetMyOrders)"});
         
         const MyOrders = await OrdersModel.find({ClientId:Client._id.toString()});
-        res.status(200).send(MyOrders);
+        return res.status(200).send(MyOrders);
       } catch (error) {
         console.log(error.message);
-        res.status(500).send({ok:false,error:error});
+        return res.status(500).send({ok:false,error:error});
       }    
 });
 

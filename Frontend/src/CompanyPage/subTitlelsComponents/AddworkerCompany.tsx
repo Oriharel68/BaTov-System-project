@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import CombaibnedNavCompany from "../../nav/CombaibnedNavCompany";
-import axios from "axios";
 import AddWorkerListCompany from "./Add Worker List/AddWorkerListCompany";
 // import ServerStatus from "../FireBase/ServerStatus";
-import { BiExit } from "react-icons/bi";
+
 import Modal from "react-modal";
 import EditStyle from "./Add Worker List/EditDialogStyle";
 import { ToastContainer, toast } from "react-toastify";
-import Url from "../../ApiUrl/Url";
+import Url from "../../ApiClient/Url";
+import AxiosClient from "../../ApiClient/AxiosClient";
 function AddworkerCompany() {
   const [ServiceProviders, setServiceProviders] = useState([]);
   const [Change, setChange] = useState(0);
@@ -33,7 +33,7 @@ function AddworkerCompany() {
         return;
       }
 
-      const { data } = await axios.put(`${Url}/addProvider`, {
+      const { data } = await AxiosClient.put(`${Url}/addProvider`, {
         Price,
         WorkerName,
         TypeOfService,
@@ -59,16 +59,18 @@ function AddworkerCompany() {
   useEffect(() => {
     async function getServiceProviders() {
       try {
-        const { data } = await axios.get(
+        const { data } = await AxiosClient.get(
           `${Url}/getServiceProvider`
         );
         setServiceProviders(data);
+       
         setVisible(true);
       } catch (err) {
         console.log(err);
       }
     }
     getServiceProviders();
+    
   }, [Change]);
 
   return (

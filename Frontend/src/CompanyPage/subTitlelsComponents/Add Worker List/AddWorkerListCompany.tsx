@@ -8,7 +8,8 @@ import { FiEdit3, FiDelete } from "react-icons/fi";
 import { AiOutlineUserDelete } from "react-icons/ai";
 import Modal from "react-modal";
 import EditStyle from "./EditDialogStyle";
-import Url from "../../../ApiUrl/Url";
+import Url from "../../../ApiClient/Url";
+import AxiosClient from "../../../ApiClient/AxiosClient";
 function AddWorkerListCompany({ item, setChange, Change }: any) {
   // console.log(item);
   const { Price, TypeOfService, WorkerName } = item;
@@ -20,7 +21,7 @@ function AddWorkerListCompany({ item, setChange, Change }: any) {
 
   async function handleRemove(event: any) {
     try {
-      const { data } = await axios.post(`${Url}/removeworker`, {
+      const { data } = await AxiosClient.post(`${Url}/removeworker`, {
         // TypeOfService,
         WorkerName,
         // Price,

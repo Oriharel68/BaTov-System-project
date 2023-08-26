@@ -1,24 +1,26 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Calender from './Calender'
-import axios from 'axios'
 import moment from 'moment'
 import Modal from 'react-modal';
 import {setDate} from '../../Helpjs/help'
 import {BiExit} from 'react-icons/bi'
 import Style from './dialogStyle';
-import Url from '../../ApiUrl/Url';
+import Url from '../../ApiClient/Url';
+import AxiosClient from '../../ApiClient/AxiosClient';
+
 function Fullcalender() {
     const [Events, setEvents] = useState([])
     const [EventData,setEventData] :any = useState(null);
     const [isOpen,setIsOpen] = useState(false);
     useEffect(()=>{
         const getAllOrders = async ()=>{
-            const {data} = await axios.get(`${Url}/getAllOrders`);
-            if(!(data.ok)){
+          try {
+            const response = await AxiosClient.get(`${Url}/getAllOrders`);
+            if(response.status !==200){
                 alert('data couldnt be retreived');
                 return;
             }
-            const {Orders} = data;
+            const {Orders} = response.data;
             const AllEvents = Orders.map((item:any)=>{
             const date = new Date();
             date.setTime(item.DateTime);
@@ -31,6 +33,10 @@ function Fullcalender() {
             }
             })
             setEvents(AllEvents)
+          } catch (error) {
+            console.log(error);
+          }
+            
         }
     getAllOrders();
     },[])

@@ -18,14 +18,14 @@ router.post('/',async (req:Request,res:Response)=>{
     
        
         if(!result){
-          res.status(401).send({ok: false})
+          return res.status(400).send({ok: false})
         } else{
-          res.status(200).send({ok:true})
+          return res.status(200).send({ok:true})
         }
 
       } catch (error) {
         console.log(error.message);
-        res.send({ ok: false, error: error.message });
+        return res.status(500).send({ ok: false, error: error.message });
      }
 });
 

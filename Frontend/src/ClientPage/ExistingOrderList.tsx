@@ -6,7 +6,8 @@ import axios from "axios";
 import { FiSettings } from "react-icons/fi";
 import { MdRemoveCircleOutline } from "react-icons/md";
 import { BiExit } from "react-icons/bi";
-import Url from "../ApiUrl/Url";
+import Url from "../ApiClient/Url";
+import AxiosClient from "../ApiClient/AxiosClient";
 function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
   const [showModal, setShowModal] = useState(false);
   const [Expired, setExpired] = useState(isExpired);
@@ -17,7 +18,7 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
 
   async function handleRemove() {
     try {
-      const { data } = await axios.delete(
+      const { data } =  await AxiosClient.delete(
         `${Url}/RemoveOrder?orderId=${order._id}`
       );
       if (data.deleted) {

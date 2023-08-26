@@ -5,7 +5,8 @@ import { RxExit } from "react-icons/rx";
 import { getAuth, signOut } from "firebase/auth";
 import {  useNavigate } from "react-router-dom";
 import Auth from "../FireBase/auth";
-
+import AxiosClient from "../ApiClient/AxiosClient";
+import Url from '../ApiClient/Url'
 function CombaibnedNavCompany() {
   const [showDiv, setshowDiv] = useState(false);
 
@@ -13,11 +14,17 @@ function CombaibnedNavCompany() {
   
   const SignOut = useCallback(() => {
     signOut(Auth)
-      .then(() => {
+      .then(async () => {
+        const response = await AxiosClient.post(`${Url}/logout`);
+        if(response.status ===200 ){
         navigate("/company/access");
+        }
+        else{
+          throw new Error('failed logout');
+        }
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }, [Auth]);
 

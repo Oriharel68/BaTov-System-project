@@ -5,7 +5,9 @@ import ClientNavBarOrderMain from "../nav/ClientNavBarOrderMain";
 import { getAuth } from "firebase/auth";
 import auth from "../FireBase/auth";
 import { useNavigate } from "react-router-dom";
-import Url from "../ApiUrl/Url";
+import Url from "../ApiClient/Url";
+import AxiosClient from "../ApiClient/AxiosClient";
+
 function ExistingOrder() {
   const [ordersData, setOrdersData] = useState([]);
   const [OldOrders, setOldOrders] = useState([]);
@@ -16,10 +18,10 @@ function ExistingOrder() {
   useEffect(() => {
     async function getOrdersData() {
       try {
-        const { data } = await axios.post(`${Url}/GetMyOrders`, {
+        const { data } = await AxiosClient.post(`${Url}/GetMyOrders`, {
           Email: Auth?.currentUser?.email,
         });
-        console.log(data);
+        
         const currdate:any = new Date().getTime();
         const oldOrders:any = [];
         const OngoingOrders:any = []; ///do with splice to save memory

@@ -22,10 +22,10 @@ router.get('/',async (req:Request,res:Response)=>{
                
                return {ClientName:`${Client.FirstName} ${Client.LastName}`,Total:TotalMoney,Email:Client.Email,PhoneNumber:Client.PhoneNumber};
             })).then((value)=>{
-                res.status(200).send(value);
+                return res.status(200).send(value);
             })
     } catch (error) {
-        res.status(500).send(error);
+        return res.status(500).send(error);
     }
 
 })
