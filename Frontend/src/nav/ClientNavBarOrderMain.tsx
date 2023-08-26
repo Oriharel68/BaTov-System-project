@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
+import Url from '../ApiClient/Url'
 import { getAuth, signOut } from "firebase/auth";
 import { GrCircleInformation } from "react-icons/gr";
 import { IoExit } from "react-icons/io5";
@@ -10,6 +10,7 @@ import { IoChevronBackCircleSharp } from "react-icons/io5";
 import Modal from 'react-modal';
 import NavStyle from "./NavModal";
 import auth from "../FireBase/auth";
+import AxiosClient from "../ApiClient/AxiosClient";
 
 
 function ClientNavBarOrderMain() {
@@ -28,30 +29,25 @@ function ClientNavBarOrderMain() {
       return;
     }
   };
-  function handleOnSubmit(event: any) {
+  async function handleOnSubmit(event: any) {
     event.preventDefault();
 
-    signOut(auth)
-      .then(() => {
+    await signOut(auth)
+      .then(async () => {
         // Sign-out successful.
-        toast.success("התנתקות הצליחה");
-        setTimeout(() => {
-          navigate("/client/main");
-        }, 1500);
-
-        // ...
+        const response =await AxiosClient.post(`${Url}/logout`);
+        if(response.status === 200){
+          toast.success("התנתקות הצליחה");
+          setTimeout(() => {
+            navigate("/client/main");
+          }, 1500);
+        }
+        else{throw new Error('no authorized')}
+      
       })
       .catch((error) => {
-        // An error happened.
-        // let errorCode = error.code;
-        //       const errorMessage = error.message;
-        //                                          console.log(errorMessage);
-        //       // console.log(`${errorCode}:${errorMessage}`);
-        //       const errorbox = document.querySelector("#errorbox");
-        //       console.log(errorCode);
-        //       let Message = "" + errorCode.replace('auth/','');
-        //       Message = Message.replace(':', 'd');
-        //       errorbox.innerText = `${Message}:`;
+        alert(error);
+        
       });
   }
 

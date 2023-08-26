@@ -48,11 +48,10 @@ function CompanyAccsess() {
 
    await signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
-        // Signed in
-        // const user = userCredential.user;
         
-        const IdToken = await userCredential.user.getIdToken(true);
-        const response = await AxiosClient.post(`${Url}/login`,{IdToken});
+        
+       const uid = userCredential.user.uid;
+        const response = await AxiosClient.post(`${Url}/login`,{uid});
         if(response.status === 200){
         setLoggedin(true);
         setTimeout(() => {

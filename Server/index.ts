@@ -13,8 +13,8 @@ import removeOrder from './Router/RemoveOrder';
 import removeWork from './Router/removeWorker';
 import EditCompanyWorker from './Router/EditCompanyWorker';
 import login from './Router/login'
-// import Init from './fireBase/FireBaseInit'
-import Autnticate from './fireBase/Autnticate'
+import authenticator from './fireBase/authenticator'
+import logout from './Router/logout'
 import  findAllClients from './Router/FindAllClient';
 import getServiceProvider from './Router/getServiceProvider';
 import addprovider from './Router/addProvider';
@@ -32,7 +32,7 @@ const app:Express = express();
 
 var port = process.env.PORT;
 var mongo_uri = process.env.MONGO_URI;
-// Init();
+
 
 app.use(express.json());
 app.use(cors({origin:['http://localhost:3000','https://batov.netlify.app'],credentials: true}));
@@ -54,17 +54,18 @@ mongoose
   app.use('/register',register);
   app.use('/companyCheck',companyCheck);
 
-  app.use("/findAllClients",findAllClients); 
-  app.use("/addProvider",addprovider);   
-  app.use("/getServiceProvider",getServiceProvider); 
-  app.use('/getExistingOrders',getExistingOrders);
-  app.use('/getAllOrders',getAllOrders);
-  app.use('/addOrder',addOrder);
-  app.use('/GetMyOrders',GetMyOrders);
-  app.use('/removeworker',removeWork);
-  app.use('/EditCompanyWorker',EditCompanyWorker);
-  app.use('/getSumOfClientsOrder',getSumOfClientsOrder); 
-  app.use('/RemoveOrder',removeOrder);
+  app.use("/findAllClients",authenticator,findAllClients); 
+  app.use("/addProvider",authenticator,addprovider);   
+  app.use("/getServiceProvider",authenticator,getServiceProvider); 
+  app.use('/getExistingOrders',authenticator,getExistingOrders);
+  app.use('/getAllOrders',authenticator,getAllOrders);
+  app.use('/addOrder',authenticator,addOrder);
+  app.use('/GetMyOrders',authenticator,GetMyOrders);
+  app.use('/removeworker',authenticator,removeWork);
+  app.use('/EditCompanyWorker',authenticator,EditCompanyWorker);
+  app.use('/getSumOfClientsOrder',authenticator,getSumOfClientsOrder); 
+  app.use('/RemoveOrder',authenticator,removeOrder);
+  app.use('/logout',authenticator,logout);
 
 
  

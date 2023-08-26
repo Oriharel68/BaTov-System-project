@@ -1,20 +1,19 @@
+
 import { Request,Response,Router} from 'express';
-import {getAuth} from 'firebase-admin/auth'
+
+
+
 
 const express = require('express');
 const router:Router = express.Router();
-
+const jwt = require('jsonwebtoken');
 
 router.post('/',async(req:Request,res:Response)=>{
-    const Auth = getAuth();
-    const IdToken = req.body?.IdToken;
-     Auth.verifyIdToken(IdToken).then((decode)=>{
-        res.cookie('IdToken',IdToken,{maxAge:60*60000,httpOnly:true});
-        res.status(200).send('cookie set');
-    }).catch((err)=>{
-        res.status(401).json({err});
-    })
-    
+    const uid = req.body?.uid;
+    if(!uid)return res.status(401).send();
+    const token = jwt.sign(uid,process.env.ACCESS_TOKEN_SECRET || '');
+    res.cookie('accessToken',token,{httpOnly:true});
+    res.sendStatus(200);
 })
 
 
