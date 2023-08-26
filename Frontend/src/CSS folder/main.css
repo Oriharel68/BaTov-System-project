@@ -9,7 +9,10 @@
 .page-wrap{
     height: 800px;
 }
-
+button{
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
 .page-wrap .topFirst-container{
     position: sticky;
     overflow: hidden;
