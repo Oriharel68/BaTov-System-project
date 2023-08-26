@@ -18,7 +18,7 @@ router.post('/',async(req:Request,res:Response)=>{
     if(!client)return res.sendStatus(400);
     const token = jwt.sign(uid,process.env.ACCESS_TOKEN_SECRET || '');
     res.cookie('accessToken',token,{httpOnly:true ,sameSite:'none',secure:true});
-    res.sendStatus(200);
+    return res.sendStatus(200);
 })
 
 
