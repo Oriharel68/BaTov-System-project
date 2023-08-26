@@ -20,6 +20,8 @@ router.post('/',async(req:Request,res:Response)=>{
         res.cookie('accessToken',token,{httpOnly:true ,sameSite:'none',secure:true});
         return res.sendStatus(200);
     } catch (error) {
+        console.log(error);
+        
         return res.sendStatus(500);
     }
   
