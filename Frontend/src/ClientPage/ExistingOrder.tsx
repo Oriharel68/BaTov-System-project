@@ -21,7 +21,7 @@ function ExistingOrder() {
         const { data } = await AxiosClient.post(`${Url}/GetMyOrders`, {
           Email: Auth?.currentUser?.email,
         });
-        console.log(data);
+        
         const currdate:any = new Date().getTime();
         const oldOrders:any = [];
         const OngoingOrders:any = []; ///do with splice to save memory

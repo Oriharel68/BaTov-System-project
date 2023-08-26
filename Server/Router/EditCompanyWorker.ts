@@ -16,7 +16,7 @@ router.post("/", async (req:Request, res:Response) => {
       const ClientDB = await ServiceProviderModel.findOneAndUpdate({_id},{WorkerName:WorkerName,TypeOfService:TypeOfService,Price:Price});
       return res.status(200).send({ClientDB,ok:true});//updating the service provider info
     } catch (error) {
-      return res.send({ ok: false, error: error.message });
+      return res.status(500).send({ ok: false, error: error.message });
     }
   });
 

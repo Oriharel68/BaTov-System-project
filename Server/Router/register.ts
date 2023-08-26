@@ -12,8 +12,8 @@ const ClientsModel:Model<Client> = require('../models/ClientsModel');
 
 router.post('/',async(req:Request,res:Response)=>{
     try {
-        let { FirstName, LastName, Email, PhoneNumber } = req.body;
-        if (!FirstName || !LastName || !Email || !PhoneNumber)
+        let { FirstName, LastName, Email, PhoneNumber,firebaseUid } = req.body;
+        if (!FirstName || !LastName || !Email || !PhoneNumber||!firebaseUid)
           return res.status(400).send({ok:false,error:'missing/invalid info'})
         if (await ClientsModel.findOne({ $or: [{ Email }, { PhoneNumber }] }))
         return res.status(404).send({ok:false,error:'missing/invalid info'})
@@ -22,6 +22,7 @@ router.post('/',async(req:Request,res:Response)=>{
           LastName,
           Email,
           PhoneNumber,
+          firebaseUid,
         });
         
         await ClientDB.save().then((data) => {

@@ -13,16 +13,21 @@ function MiddlewareAuth({ children }: { children:any }) {
     },(err)=>{
       return err;
     })
-    // const responseinter = AxiosClient.interceptors.response.use((res)=>{
-    //   return res;
+    const responseinter = AxiosClient.interceptors.response.use(
+      (res)=>{
+      return res;
 
-    // },(err)=>{
-    //   return navigate('/');
-    // })
+    },(err)=>{
+      if(err.response.status===401){
+        return navigate('/');
+      }
+      
+      
+    })
   
     return () => {
       AxiosClient.interceptors.request.eject(requstinter);
-      // AxiosClient.interceptors.response.eject(responseinter);
+      AxiosClient.interceptors.response.eject(responseinter);
     };
   }, [])
 

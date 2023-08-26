@@ -21,10 +21,9 @@ function OrderOfTheCompany() {
 
   const totalSum = useCallback(
     (allOrders:any) => {
-      console.log(allOrders);
       
       const Total:number = allOrders.reduce((acc:any,value:any)=> acc + value.Total,0 );
-      console.log(Total);
+    
       setTotalMoney(Total);
     },[]
   );

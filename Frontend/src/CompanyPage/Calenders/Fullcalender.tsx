@@ -14,12 +14,13 @@ function Fullcalender() {
     const [isOpen,setIsOpen] = useState(false);
     useEffect(()=>{
         const getAllOrders = async ()=>{
-            const {data} = await AxiosClient.get(`${Url}/getAllOrders`);
-            if(!(data.ok)){
+          try {
+            const response = await AxiosClient.get(`${Url}/getAllOrders`);
+            if(response.status !==200){
                 alert('data couldnt be retreived');
                 return;
             }
-            const {Orders} = data;
+            const {Orders} = response.data;
             const AllEvents = Orders.map((item:any)=>{
             const date = new Date();
             date.setTime(item.DateTime);
@@ -32,6 +33,10 @@ function Fullcalender() {
             }
             })
             setEvents(AllEvents)
+          } catch (error) {
+            console.log(error);
+          }
+            
         }
     getAllOrders();
     },[])

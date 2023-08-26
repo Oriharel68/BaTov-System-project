@@ -19,7 +19,6 @@ const firebaseConfig = {
 
 
 // Initialize Firebase
-console.log(firebaseConfig);
 
 initializeApp(firebaseConfig);
 const Auth = getAuth();
