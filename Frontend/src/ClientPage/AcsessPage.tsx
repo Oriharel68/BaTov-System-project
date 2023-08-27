@@ -1,45 +1,38 @@
-import React, { useState } from "react";
-import ClientNavBar from "../nav/ClientNavBar";
-import { getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import auth from "../FireBase/auth";
-import { Link, useNavigate } from "react-router-dom";
-import Url from '../ApiClient/Url'
-import AxiosClient from "../ApiClient/AxiosClient";
-
-
+import React, { useState } from 'react';
+import ClientNavBar from '../nav/ClientNavBar';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import auth from '../FireBase/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import Url from '../ApiClient/Url';
+import AxiosClient from '../ApiClient/AxiosClient';
 
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
 
-
-  function handleOnSubmit(event:any) {
+  function handleOnSubmit(event: any) {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    const email:any = formData.get("Email");
-    const password:any = formData.get("password");
+    const email: any = formData.get('Email');
+    const password: any = formData.get('password');
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
-
-        
-        const uid = userCredential.user.uid
-        const response = await AxiosClient.post(`${Url}/login`,{uid});
-        if(response.status === 200){
+        const uid = userCredential.user.uid;
+        const response = await AxiosClient.post(`${Url}/login`, { uid });
+        if (response.status === 200) {
           setLoggedin(true);
           setTimeout(() => {
-            navigate("/order/main");
+            navigate('/order/main');
           }, 3000);
-        }
-        else{
+        } else {
           throw new Error('couldnt login');
         }
-        
-       
+
         // ...
       })
       .catch((error) => {
-        const errorbox:any = document.querySelector("#errorbox");
+        const errorbox: any = document.querySelector('#errorbox');
         errorbox.innerText = `משתמש או סיסמה אינם נכונים`;
       });
   }
@@ -83,11 +76,11 @@ function AcsessPage() {
                 )}
                 <div
                   className="form-group forgot-password"
-                  style={{ marginTop: "2em" }}
+                  style={{ marginTop: '2em' }}
                 >
-                  <Link to={"/client/forgetPassword"}>
-                    {" "}
-                    <a href="#">שכחת סיסמה?</a>{" "}
+                  <Link to={'/client/forgetPassword'}>
+                    {' '}
+                    <a href="#">שכחת סיסמה?</a>{' '}
                   </Link>
                 </div>
                 <button className="signin-button" type="submit">

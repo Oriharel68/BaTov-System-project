@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-function IncomesList({ client }:any) {
+function IncomesList({ client }: any) {
   const { ClientName, Total, Email, PhoneNumber } = client;
   // console.log(client);
   // add styling : diraction--- RTL

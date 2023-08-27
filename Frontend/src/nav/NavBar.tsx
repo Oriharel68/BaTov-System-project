@@ -10,25 +10,25 @@
 // }
 
 // export default NavBar
-import React from "react";
-import { Link } from "react-router-dom";
-import NavLogo from "../Main page/NavLogo";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import NavLogo from '../Main page/NavLogo';
 
 function NavBar() {
   return (
     <div>
       <div className="navBar-Main">
-        <Link to={"/"}>
+        <Link to={'/'}>
           <NavLogo />
         </Link>
 
         <div className="insideNavTopFirst-container">
           <div className="btn-container">
-            <Link to={"/company/access"} id="T">
+            <Link to={'/company/access'} id="T">
               <button>חברה</button>
             </Link>
-            <Link to={"/client/main"} id="T">
-              {" "}
+            <Link to={'/client/main'} id="T">
+              {' '}
               <button>לקוח</button>
             </Link>
           </div>

@@ -12,13 +12,13 @@ export function setDate(dat: number) {
 
 function ToAday(numDay: number) {
   const DaysInString = [
-    "ראשון",
-    "שני",
-    "שלישי",
-    "רביעי",
-    "חמישי",
-    "שישי",
-    "שבת",
+    'ראשון',
+    'שני',
+    'שלישי',
+    'רביעי',
+    'חמישי',
+    'שישי',
+    'שבת',
   ];
   return DaysInString[numDay];
 }

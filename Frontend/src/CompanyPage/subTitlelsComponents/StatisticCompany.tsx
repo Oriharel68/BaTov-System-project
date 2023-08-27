@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import CombaibnedNavCompany from "../../nav/CombaibnedNavCompany";
-import StatisticCompanyList from "./Statistic Compant List/StatisticCompanyList";
-import StatisticCompanyLine from "./Statistic Compant List/StatisticCompanyLine";
+import React, { useEffect, useState } from 'react';
+import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany';
+import StatisticCompanyList from './Statistic Compant List/StatisticCompanyList';
+import StatisticCompanyLine from './Statistic Compant List/StatisticCompanyLine';
 
-import { GetOrdersByMonth } from "./Statistic Compant List/GetData";
+import { GetOrdersByMonth } from './Statistic Compant List/GetData';
 import {
   getOrderWithDate,
   getMoneyByDay,
   getMoneyByMonth,
   getMoneyByYear,
-} from "../../Helpjs/help";
-import AxiosClient from "../../ApiClient/AxiosClient";
+} from '../../Helpjs/help';
+import AxiosClient from '../../ApiClient/AxiosClient';
 function StatisticCompany() {
   const [ServiceProviders, setServiceProviders] = useState([]);
   // const [orderReady,setOrderReady] = useState(false)
@@ -19,24 +19,24 @@ function StatisticCompany() {
   console.log(orderData);
   const [statisticData, setStatisticData] = useState({
     labels: [
-      "ינואר",
-      "פברואר",
-      "מרץ",
-      "אפריל",
-      "מאי",
-      "יוני",
-      "יולי",
-      "אוגוסט",
-      "ספטמבר",
-      "אוקטובר",
-      "נובמבר",
-      "דצמבר",
+      'ינואר',
+      'פברואר',
+      'מרץ',
+      'אפריל',
+      'מאי',
+      'יוני',
+      'יולי',
+      'אוגוסט',
+      'ספטמבר',
+      'אוקטובר',
+      'נובמבר',
+      'דצמבר',
     ],
     datasets: [
       {
-        label: "מספר הזמנות",
+        label: 'מספר הזמנות',
         data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        borderColor: "black",
+        borderColor: 'black',
         borderWidth: 2,
       },
     ],
@@ -47,7 +47,7 @@ function StatisticCompany() {
     async function getServiceProviders() {
       try {
         const { data } = await AxiosClient.get(
-          "http://localhost:4000/getServiceProvider"
+          'http://localhost:4000/getServiceProvider'
         );
         setServiceProviders(data);
       } catch (err) {
@@ -56,28 +56,30 @@ function StatisticCompany() {
     }
     async function getOrdersData() {
       try {
-        const { data } = await AxiosClient.get("http://localhost:4000/getAllOrders");
+        const { data } = await AxiosClient.get(
+          'http://localhost:4000/getAllOrders'
+        );
         const { Orders } = data;
         setOrdersData(getOrderWithDate(Orders));
         const OrderByM = GetOrdersByMonth(Orders);
         setStatisticData({
           labels: [
-            "ינואר",
-            "פברואר",
-            "מרץ",
-            "אפריל",
-            "מאי",
-            "יוני",
-            "יולי",
-            "אוגוסט",
-            "ספטמבר",
-            "אוקטובר",
-            "נובמבר",
-            "דצמבר",
+            'ינואר',
+            'פברואר',
+            'מרץ',
+            'אפריל',
+            'מאי',
+            'יוני',
+            'יולי',
+            'אוגוסט',
+            'ספטמבר',
+            'אוקטובר',
+            'נובמבר',
+            'דצמבר',
           ],
           datasets: [
             {
-              label: "מספר הזמנות",
+              label: 'מספר הזמנות',
               data: OrderByM,
               // backgroundColor: [
               //   "rgba(75,192,192,1)",
@@ -86,7 +88,7 @@ function StatisticCompany() {
               //   "#f3ba2f",
               //   "#2a71d0",
               // ],
-              borderColor: "black",
+              borderColor: 'black',
               borderWidth: 2,
             },
           ],

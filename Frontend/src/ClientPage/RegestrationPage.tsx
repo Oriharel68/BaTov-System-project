@@ -1,40 +1,43 @@
-import React, { useState } from "react";
-import ClientNavBar from "../nav/ClientNavBar";
-import app from "../FireBase/auth";
-import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import Url from "../ApiClient/Url";
-import auth from "../FireBase/auth";
-import AxiosClient from "../ApiClient/AxiosClient";
+import React, { useState } from 'react';
+import ClientNavBar from '../nav/ClientNavBar';
+import app from '../FireBase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import Url from '../ApiClient/Url';
+import auth from '../FireBase/auth';
+import AxiosClient from '../ApiClient/AxiosClient';
 
 function RegestrationPage() {
   const navigate = useNavigate();
-  
 
-  async function handleOnSubmit(event:any) {
+  async function handleOnSubmit(event: any) {
     try {
       event.preventDefault();
       const formData = new FormData(event.target);
-      const Email:any = formData.get("Email");
-      const password:any = formData.get("Password");
-      const FirstName:any = formData.get("FirstName");
-      const LastName:any = formData.get("LastName");
-      const PhoneNumber:any = formData.get("PhoneNumber");
-      const rPassword:any = formData.get("RepeatYourPassword")
-      if (!FirstName || !LastName || !Email || !PhoneNumber || !password || !rPassword) {
-        alert("missing info");
+      const Email: any = formData.get('Email');
+      const password: any = formData.get('Password');
+      const FirstName: any = formData.get('FirstName');
+      const LastName: any = formData.get('LastName');
+      const PhoneNumber: any = formData.get('PhoneNumber');
+      const rPassword: any = formData.get('RepeatYourPassword');
+      if (
+        !FirstName ||
+        !LastName ||
+        !Email ||
+        !PhoneNumber ||
+        !password ||
+        !rPassword
+      ) {
+        alert('missing info');
         return;
       }
-      if(rPassword !== password){
-      alert('password not the same');
-      return;
-      } 
-      await createUserWithEmailAndPassword(auth, Email, password)
-        .then(async (userCred) => {
+      if (rPassword !== password) {
+        alert('password not the same');
+        return;
+      }
+      await createUserWithEmailAndPassword(auth, Email, password).then(
+        async (userCred) => {
           //what happen after a user register
           const firebaseUid = userCred.user.uid;
           const { data } = await AxiosClient.post(`${Url}/register`, {
@@ -50,19 +53,17 @@ function RegestrationPage() {
             userCred.user.delete();
             return;
           }
-         await updateProfile(userCred.user, {
+          await updateProfile(userCred.user, {
             displayName: `${FirstName} ${LastName}`,
-          })
+          });
 
-              // alert("user was created Succsesfuly");
-              navigate("/client/registrationCompalete")
-              setTimeout(() => {
-                navigate("/client/access");
-              }, 3000);
-
-           
-        })
-      
+          // alert("user was created Succsesfuly");
+          navigate('/client/registrationCompalete');
+          setTimeout(() => {
+            navigate('/client/access');
+          }, 3000);
+        }
+      );
     } catch (error) {
       alert(error);
     }
@@ -88,11 +89,8 @@ function RegestrationPage() {
                 <h2>הרשמה</h2>
               </div>
               <form action="" onSubmit={(event) => handleOnSubmit(event)}>
-            
-
-                <label  className="inp1">
-
-                <input
+                <label className="inp1">
+                  <input
                     type="text"
                     name="FirstName"
                     id="FirstName"
@@ -106,14 +104,13 @@ function RegestrationPage() {
                     placeholder="שם משפחה "
                     required
                   />
-                  <input 
+                  <input
                     type="email"
                     name="Email"
                     id="email"
                     placeholder="כתובת דואר אלקטרוני"
                     required
-                    
-                   />
+                  />
 
                   <input
                     type="password"
@@ -123,7 +120,7 @@ function RegestrationPage() {
                     required
                     pattern=".{6,}"
                   />
-  
+
                   <input
                     type="password"
                     name="RepeatYourPassword"
@@ -132,8 +129,7 @@ function RegestrationPage() {
                     required
                     pattern=".{6,}"
                   />
-  
-               
+
                   <input
                     type="tel"
                     name="PhoneNumber"
@@ -151,14 +147,12 @@ function RegestrationPage() {
   </svg> */}
                 </label>
                 {/* <div className="buttonContainer-client"> */}
-               {/* <Link to={'/client/registrationCompalete'}>   */}
-               <button>הרשמה</button> 
-               {/* </Link>  */}
+                {/* <Link to={'/client/registrationCompalete'}>   */}
+                <button>הרשמה</button>
+                {/* </Link>  */}
                 {/* </div> */}
               </form>
             </div>
-
-        
           </div>
         </div>
       </div>

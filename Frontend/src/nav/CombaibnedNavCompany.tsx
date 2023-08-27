@@ -1,25 +1,24 @@
-import React, { useCallback, useState } from "react";
-import CompanyNavBar from "./CompanyNavBar";
-import Companysubtitle from "./Companysubtitle";
-import { RxExit } from "react-icons/rx";
-import { getAuth, signOut } from "firebase/auth";
-import {  useNavigate } from "react-router-dom";
-import Auth from "../FireBase/auth";
-import AxiosClient from "../ApiClient/AxiosClient";
-import Url from '../ApiClient/Url'
+import React, { useCallback, useState } from 'react';
+import CompanyNavBar from './CompanyNavBar';
+import Companysubtitle from './Companysubtitle';
+import { RxExit } from 'react-icons/rx';
+import { getAuth, signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import Auth from '../FireBase/auth';
+import AxiosClient from '../ApiClient/AxiosClient';
+import Url from '../ApiClient/Url';
 function CombaibnedNavCompany() {
   const [showDiv, setshowDiv] = useState(false);
 
   const navigate = useNavigate();
-  
+
   const SignOut = useCallback(() => {
     signOut(Auth)
       .then(async () => {
         const response = await AxiosClient.post(`${Url}/logout`);
-        if(response.status ===200 ){
-        navigate("/company/access");
-        }
-        else{
+        if (response.status === 200) {
+          navigate('/company/access');
+        } else {
           throw new Error('failed logout');
         }
       })
@@ -67,7 +66,7 @@ function CombaibnedNavCompany() {
               יציאה
             </button>
             <button
-              style={{ marginRight: "1.2em" }}
+              style={{ marginRight: '1.2em' }}
               className="button-30"
               onClick={() => {
                 setshowDiv(!showDiv);

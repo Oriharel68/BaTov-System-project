@@ -1,14 +1,14 @@
-import React, { useEffect, useMemo, useState } from "react";
-import ClientNavBar from "../nav/ClientNavBar";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import NewOrderList from "./NewOrderList";
-import DatePickerComponent from "./DatePickerComponent";
-import ClientNavBarOrderMain from "../nav/ClientNavBarOrderMain";
-import { getAuth } from "firebase/auth";
-import Url from "../ApiClient/Url";
-import Auth from "../FireBase/auth";
-import AxiosClient from "../ApiClient/AxiosClient";
+import React, { useEffect, useMemo, useState } from 'react';
+import ClientNavBar from '../nav/ClientNavBar';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import NewOrderList from './NewOrderList';
+import DatePickerComponent from './DatePickerComponent';
+import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
+import { getAuth } from 'firebase/auth';
+import Url from '../ApiClient/Url';
+import Auth from '../FireBase/auth';
+import AxiosClient from '../ApiClient/AxiosClient';
 
 function NewOrder() {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ function NewOrder() {
   const handleComplete = async () => {
     const { TypeOfService, WorkerName, Price } = Provider;
     if (!SelectedDate || !Provider) {
-      alert("date or Provider is empty or invalid");
+      alert('date or Provider is empty or invalid');
       return;
     }
 
@@ -39,10 +39,10 @@ function NewOrder() {
       Price,
     });
     if (!message.data.ok) {
-      alert("order could not be placed");
+      alert('order could not be placed');
       return;
     }
-    navigate("/order/orderCompelte");
+    navigate('/order/orderCompelte');
   };
 
   const addServiceProvider = (item: any) => {
@@ -53,9 +53,7 @@ function NewOrder() {
   useEffect(() => {
     async function getServiceProviders() {
       try {
-        const { data } = await AxiosClient.get(
-          `${Url}/getServiceProvider`
-        );
+        const { data } = await AxiosClient.get(`${Url}/getServiceProvider`);
         setServiceProviders(data);
       } catch (err) {
         console.log(err);

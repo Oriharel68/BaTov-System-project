@@ -1,19 +1,23 @@
-import axios from "axios";
-import React, { Ref, RefObject, useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Url from "../../../ApiClient/Url";
-import AxiosClient from "../../../ApiClient/AxiosClient";
+import axios from 'axios';
+import React, { Ref, RefObject, useRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Url from '../../../ApiClient/Url';
+import AxiosClient from '../../../ApiClient/AxiosClient';
 
-
-function EditWorkerContainer({ item, Change, setChange, setShowSecondDiv }:any) {
+function EditWorkerContainer({
+  item,
+  Change,
+  setChange,
+  setShowSecondDiv,
+}: any) {
   const { Price, TypeOfService, WorkerName, _id } = item;
 
-  const InputWokrerNameref:any = useRef();
-  const InputTypeOfServiceref:any = useRef();
-  const InputPriceNameref:any = useRef();
+  const InputWokrerNameref: any = useRef();
+  const InputTypeOfServiceref: any = useRef();
+  const InputPriceNameref: any = useRef();
 
-  async function handleEdit(event:any) {
+  async function handleEdit(event: any) {
     event.preventDefault();
     const WorkerName = InputWokrerNameref?.current?.value;
     const TypeOfService = InputTypeOfServiceref.current.value;
@@ -25,7 +29,7 @@ function EditWorkerContainer({ item, Change, setChange, setShowSecondDiv }:any) 
         // alert("missing info");
         // ref.current.style.color = "red";
         // ref.current.innerText = "חסר מידע -בבקשה השלם את כל המידע הנדרש";
-        toast.error("אנא השלם את המידע הנדרש", {
+        toast.error('אנא השלם את המידע הנדרש', {
           // position: "bottom-center",
           // autoClose: 2000,
           // hideProgressBar: false,
@@ -35,25 +39,22 @@ function EditWorkerContainer({ item, Change, setChange, setShowSecondDiv }:any) 
         });
         return;
       }
-      let { data } = await AxiosClient.post(
-        `${Url}/EditCompanyWorker`,
-        {
-          _id,
-          WorkerName,
-          TypeOfService,
-          Price,
-        }
-      );
+      let { data } = await AxiosClient.post(`${Url}/EditCompanyWorker`, {
+        _id,
+        WorkerName,
+        TypeOfService,
+        Price,
+      });
       console.log(data);
       setChange(Change + 1);
       setShowSecondDiv(false);
-      toast.success("עודכן בהצלחה", {
-        position: "bottom-center",
+      toast.success('עודכן בהצלחה', {
+        position: 'bottom-center',
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         progress: undefined,
-        theme: "dark",
+        theme: 'dark',
       });
     } catch (error) {
       alert(error);
@@ -92,7 +93,7 @@ function EditWorkerContainer({ item, Change, setChange, setShowSecondDiv }:any) 
         className="button-30"
         role="button"
       >
-        בצע שינוי{" "}
+        בצע שינוי{' '}
       </button>
       <button id="close" onClick={() => setShowSecondDiv(false)}>
         close

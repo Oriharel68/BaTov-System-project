@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import logo from './assets/BaTov system.png'
 // import logo from './assets/pexels-fauxels-3183197.jpg'
 function NavLogo() {

@@ -1,4 +1,4 @@
-@import "normalize.css";
+@import 'normalize.css';
 /* defanition */
 /* מה שזה עושה זה הופך את כל הדפדפנים  שלנו לאותה צורה---לא משנה איזה דפדפן ניקח הטקסט ישאר אותו טקסט */
 
@@ -15,45 +15,42 @@ https://gist.github.com/vre2h/4bad1d3b836f6a18c9bd5a8ca68ab1d9
 /* ------------------------------------ */
 /* main */
 /* nav */
-@import"nav.css";
-@import"NavLogo.css";
+@import 'nav.css';
+@import 'NavLogo.css';
 
 /* pages */
-@import"main.css";
-@import"footer.css";
+@import 'main.css';
+@import '404.scss';
+@import 'footer.css';
 /* -------------------------------------- */
 /* client pages */
 /* nav */
-@import"clientNavBar.css";
+@import 'clientNavBar.css';
 /* pages */
-@import"client/ExistingOrderList.css";
-@import"clientmainpage.css";
-@import"client/clientRegister.css";
-@import"client/AccessClient.css";
-@import"client/orderClientMain.css";
-@import"client/orderClientNeworder.css";
-
-
+@import 'client/ExistingOrderList.css';
+@import 'clientmainpage.css';
+@import 'client/clientRegister.css';
+@import 'client/AccessClient.css';
+@import 'client/orderClientMain.css';
+@import 'client/orderClientNeworder.css';
 
 /* -----------items styling---------------------- */
 /* loader */
-@import"loader.css";
-
-
+@import 'loader.css';
 
 /* -----------messsages pages---------------------- */
 
-@import "messages/OrderComplete.css";
-@import"messages/RegisterMessage.css";
+@import 'messages/OrderComplete.css';
+@import 'messages/RegisterMessage.css';
 
 /* -----------company styling---------------------- */
 
-@import"compnay/companyAccess.css";
-@import"compnay/CompanyNavBar.css";
-@import"compnay/companySubTitle.css";
+@import 'compnay/companyAccess.css';
+@import 'compnay/CompanyNavBar.css';
+@import 'compnay/companySubTitle.css';
 
-@import"compnay/MainCompany.css";
+@import 'compnay/MainCompany.css';
 /* -------/sub-titels company\--- */
-@import"compnay/addWorkerComponent.css";
-@import"compnay/OrdersOfTheCompany.css";
-@import"compnay/calenderCompany.css";
+@import 'compnay/addWorkerComponent.css';
+@import 'compnay/OrdersOfTheCompany.css';
+@import 'compnay/calenderCompany.css';

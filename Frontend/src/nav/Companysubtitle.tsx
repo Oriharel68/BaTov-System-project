@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { FaEllipsisV } from "react-icons/fa";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import { FaEllipsisV } from 'react-icons/fa';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 function Companysubtitle() {
-  const path = window.location.pathname.replace("/company", "");
+  const path = window.location.pathname.replace('/company', '');
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
@@ -13,9 +13,9 @@ function Companysubtitle() {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -30,7 +30,7 @@ function Companysubtitle() {
           <li>
             <NavLink
               to="/company/Orders"
-              className={`T ${path === "/Orders" ? "mainO" : ""}`}
+              className={`T ${path === '/Orders' ? 'mainO' : ''}`}
             >
               הזמנות
             </NavLink>
@@ -46,7 +46,7 @@ function Companysubtitle() {
           <li>
             <NavLink
               to="/company/Calender"
-              className={`T ${path === "/Calender" ? "main" : ""}`}
+              className={`T ${path === '/Calender' ? 'main' : ''}`}
             >
               יומן עבודה
             </NavLink>
@@ -54,7 +54,7 @@ function Companysubtitle() {
           <li>
             <NavLink
               to="/company/AddWorker"
-              className={`T ${path === "/AddWorker" ? "main" : ""}`}
+              className={`T ${path === '/AddWorker' ? 'main' : ''}`}
             >
               ניהול עובדים
             </NavLink>
@@ -71,7 +71,7 @@ function Companysubtitle() {
       {showDropdown && (
         <>
           <div
-            className={`more-button ${dropdownVisible ? "active" : ""}`}
+            className={`more-button ${dropdownVisible ? 'active' : ''}`}
             onClick={() => setDropdownVisible(!dropdownVisible)}
           >
             <FaEllipsisV />
@@ -93,7 +93,7 @@ function Companysubtitle() {
                 <li>
                   <NavLink
                     to="/company/Orders"
-                    className={`T ${path === "/Orders" ? "mainO" : ""}`}
+                    className={`T ${path === '/Orders' ? 'mainO' : ''}`}
                   >
                     הזמנות
                   </NavLink>
@@ -109,7 +109,7 @@ function Companysubtitle() {
                 <li>
                   <NavLink
                     to="/company/Calender"
-                    className={`T ${path === "/Calender" ? "main" : ""}`}
+                    className={`T ${path === '/Calender' ? 'main' : ''}`}
                   >
                     יומן עבודה
                   </NavLink>
@@ -117,7 +117,7 @@ function Companysubtitle() {
                 <li>
                   <NavLink
                     to="/company/AddWorker"
-                    className={`T ${path === "/AddWorker" ? "main" : ""}`}
+                    className={`T ${path === '/AddWorker' ? 'main' : ''}`}
                   >
                     ניהול עובדים
                   </NavLink>

@@ -1,29 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from 'react';
 import IncomesList from "./subTitlelsComponents/order list's/IncomesList";
-import CombaibnedNavCompany from "../nav/CombaibnedNavCompany";
+import CombaibnedNavCompany from '../nav/CombaibnedNavCompany';
 import {
   getOrderWithDate,
   getMoneyByDay,
   getMoneyByMonth,
   getMoneyByYear,
-} from "../Helpjs/help";
+} from '../Helpjs/help';
 import {
   GetOrdersByMonth,
   MoneyByMonth,
-} from "./subTitlelsComponents/Statistic Compant List/GetData";
-import StatisticCompanyLine from "./subTitlelsComponents/Statistic Compant List/StatisticCompanyLine";
+} from './subTitlelsComponents/Statistic Compant List/GetData';
+import StatisticCompanyLine from './subTitlelsComponents/Statistic Compant List/StatisticCompanyLine';
 
 import {
   AiFillFacebook,
   AiOutlineInstagram,
   AiOutlineMail,
-} from "react-icons/ai";
-import MoneyStatistics from "./MoneyStatistics";
+} from 'react-icons/ai';
+import MoneyStatistics from './MoneyStatistics';
 
-import NavLogo from "../Main page/NavLogo";
-import Url from "../ApiClient/Url";
-import AxiosClient from "../ApiClient/AxiosClient";
-
+import NavLogo from '../Main page/NavLogo';
+import Url from '../ApiClient/Url';
+import AxiosClient from '../ApiClient/AxiosClient';
 
 function CompantMainPage() {
   // fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -77,7 +76,6 @@ function CompantMainPage() {
       setOrdersActive(OngoingOrders);
     }
     function SumOfClients(Clients: any) {
-      
       const Total = Clients.reduce(
         (accumulator: any, currentValue: any) =>
           accumulator + currentValue.Total,
@@ -114,9 +112,9 @@ const sumWithInitial = array1.reduce(
           <div className="main-content">
             <div className="left-container">
               <h3> :רווחי חברה </h3>
-              <p id="emphasis" style={{ paddingTop: "2em", color: "#3a3" }}>
-                {" "}
-                <b> +₪{TotalSum.toLocaleString()} </b>{" "}
+              <p id="emphasis" style={{ paddingTop: '2em', color: '#3a3' }}>
+                {' '}
+                <b> +₪{TotalSum.toLocaleString()} </b>{' '}
               </p>
               <div className="money-satus-content">
                 <table>
@@ -139,38 +137,38 @@ const sumWithInitial = array1.reduce(
                 <StatisticCompanyLine
                   statisticData={{
                     labels: [
-                      "ינואר",
-                      "פברואר",
-                      "מרץ",
-                      "אפריל",
-                      "מאי",
-                      "יוני",
-                      "יולי",
-                      "אוגוסט",
-                      "ספטמבר",
-                      "אוקטובר",
-                      "נובמבר",
-                      "דצמבר",
+                      'ינואר',
+                      'פברואר',
+                      'מרץ',
+                      'אפריל',
+                      'מאי',
+                      'יוני',
+                      'יולי',
+                      'אוגוסט',
+                      'ספטמבר',
+                      'אוקטובר',
+                      'נובמבר',
+                      'דצמבר',
                     ],
                     datasets: [
                       {
                         backgroundColor: [
-                          "#e74c3c", // Alizarin Red
-                          "#3498db", // Curious Blue
-                          "#9b59b6", // Amethyst Purple
-                          "#f39c12", // Orange Yellow
-                          "#1abc9c", // Mountain Meadow
-                          "#d35400", // Pumpkin Orange
-                          "rgba(75,192,192,1)",
-                          "#8e44ad", // Wisteria Purple
-                          "#f1c40f", // Sunglow Yellow
-                          "#16a085", // Ocean Green
-                          "#c0392b", // Pomegranate Red
-                          "#27ae60", // Eucalyptus Green
+                          '#e74c3c', // Alizarin Red
+                          '#3498db', // Curious Blue
+                          '#9b59b6', // Amethyst Purple
+                          '#f39c12', // Orange Yellow
+                          '#1abc9c', // Mountain Meadow
+                          '#d35400', // Pumpkin Orange
+                          'rgba(75,192,192,1)',
+                          '#8e44ad', // Wisteria Purple
+                          '#f1c40f', // Sunglow Yellow
+                          '#16a085', // Ocean Green
+                          '#c0392b', // Pomegranate Red
+                          '#27ae60', // Eucalyptus Green
                         ],
-                        label: "מספר הזמנות",
+                        label: 'מספר הזמנות',
                         data: statisticData,
-                        borderColor: "black",
+                        borderColor: 'black',
                         borderWidth: 2,
                       },
                     ],
@@ -188,38 +186,38 @@ const sumWithInitial = array1.reduce(
               <MoneyStatistics
                 statisticData={{
                   labels: [
-                    "ינואר",
-                    "פברואר",
-                    "מרץ",
-                    "אפריל",
-                    "מאי",
-                    "יוני",
-                    "יולי",
-                    "אוגוסט",
-                    "ספטמבר",
-                    "אוקטובר",
-                    "נובמבר",
-                    "דצמבר",
+                    'ינואר',
+                    'פברואר',
+                    'מרץ',
+                    'אפריל',
+                    'מאי',
+                    'יוני',
+                    'יולי',
+                    'אוגוסט',
+                    'ספטמבר',
+                    'אוקטובר',
+                    'נובמבר',
+                    'דצמבר',
                   ],
                   datasets: [
                     {
                       label: `₪סה"כ`,
                       data: LineStatistic,
                       backgroundColor: [
-                        "#e74c3c", // Alizarin Red
-                        "#3498db", // Curious Blue
-                        "#9b59b6", // Amethyst Purple
-                        "#f39c12", // Orange Yellow
-                        "#1abc9c", // Mountain Meadow
-                        "#d35400", // Pumpkin Orange
-                        "rgba(75,192,192,1)",
-                        "#8e44ad", // Wisteria Purple
-                        "#f1c40f", // Sunglow Yellow
-                        "#16a085", // Ocean Green
-                        "#c0392b", // Pomegranate Red
-                        "#27ae60", // Eucalyptus Green
+                        '#e74c3c', // Alizarin Red
+                        '#3498db', // Curious Blue
+                        '#9b59b6', // Amethyst Purple
+                        '#f39c12', // Orange Yellow
+                        '#1abc9c', // Mountain Meadow
+                        '#d35400', // Pumpkin Orange
+                        'rgba(75,192,192,1)',
+                        '#8e44ad', // Wisteria Purple
+                        '#f1c40f', // Sunglow Yellow
+                        '#16a085', // Ocean Green
+                        '#c0392b', // Pomegranate Red
+                        '#27ae60', // Eucalyptus Green
                       ],
-                      borderColor: "black",
+                      borderColor: 'black',
                       borderWidth: 2,
                     },
                   ],
@@ -265,8 +263,8 @@ const sumWithInitial = array1.reduce(
         <li><BsFacebook/></li> */}
             <a href="mailto:admin@gmail.com">
               <li>
-                {" "}
-                <AiOutlineMail />{" "}
+                {' '}
+                <AiOutlineMail />{' '}
               </li>
             </a>
             <li>תצרו איתנו קשר</li>

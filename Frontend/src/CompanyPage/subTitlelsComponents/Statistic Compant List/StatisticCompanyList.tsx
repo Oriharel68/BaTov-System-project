@@ -1,7 +1,7 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
-function StatisticCompanyList({ item }:any) {
+function StatisticCompanyList({ item }: any) {
   //  console.log(item);
   const { Price, TypeOfService, WorkerName, _id } = item;
 

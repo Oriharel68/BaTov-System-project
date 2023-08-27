@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
   AiFillFacebook,
   AiOutlineInstagram,
   AiOutlineMail,
-} from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
-import NavLogo from "./NavLogo";
+} from 'react-icons/ai';
+import { BsFacebook } from 'react-icons/bs';
+import NavLogo from './NavLogo';
 function Footer() {
   return (
     <div className="Footer">
@@ -25,10 +25,13 @@ function Footer() {
           </li>
 
           <li>
-            {" "}
-            <a href="mailto:admin@gmail.com">
+            {' '}
+            <a
+              style={{ textDecoration: 'none', color: '#a9a9a9' }}
+              href="mailto:admin@gmail.com"
+            >
               <AiOutlineMail />
-            </a>{" "}
+            </a>{' '}
           </li>
         </ul>
       </div>

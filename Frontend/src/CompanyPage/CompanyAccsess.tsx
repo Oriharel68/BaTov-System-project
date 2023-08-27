@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-import NavBar from "../nav/NavBar";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import auth from "../FireBase/auth";
-import { AiOutlineMail } from "react-icons/ai";
-import axios from "axios";
-import Url from "../ApiClient/Url";
-import AxiosClient from "../ApiClient/AxiosClient";
+import React, { useState } from 'react';
+import NavBar from '../nav/NavBar';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import auth from '../FireBase/auth';
+import { AiOutlineMail } from 'react-icons/ai';
+import axios from 'axios';
+import Url from '../ApiClient/Url';
+import AxiosClient from '../ApiClient/AxiosClient';
 function CompanyAccsess() {
   const [showSecondDiv, setShowSecondDiv] = useState(false);
 
@@ -33,48 +31,43 @@ function CompanyAccsess() {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const email: any = formData.get("Email");
-    const password: any = formData.get("password");
+    const email: any = formData.get('Email');
+    const password: any = formData.get('password');
     try {
       const { data } = await AxiosClient.post(`${Url}/companyCheck`, {
         email,
       });
-      if(data.ok ===false) throw Error('err');
+      if (data.ok === false) throw Error('err');
     } catch (error) {
-      alert("invalid user");
+      alert('invalid user');
       return;
     }
-  
 
-   await signInWithEmailAndPassword(auth, email, password)
+    await signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
-        
-        
-       const uid = userCredential.user.uid;
-        const response = await AxiosClient.post(`${Url}/login`,{uid});
-        if(response.status === 200){
-        setLoggedin(true);
-        setTimeout(() => {
-          navigate("/company/mainpage");
-        }, 3000);
-      }
-      else{
-        throw new Error('couldnt login');
-      }
+        const uid = userCredential.user.uid;
+        const response = await AxiosClient.post(`${Url}/login`, { uid });
+        if (response.status === 200) {
+          setLoggedin(true);
+          setTimeout(() => {
+            navigate('/company/mainpage');
+          }, 3000);
+        } else {
+          throw new Error('couldnt login');
+        }
       })
-      
+
       .catch((error) => {
-        
         let errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
         // console.log(`${errorCode}:${errorMessage}`);
         const errorbox: any = document.querySelector(
-          "#errorbox"
+          '#errorbox'
         ) as HTMLElement;
         console.log(errorCode);
-        let Message = "" + errorCode.replace("auth/", "");
-        Message = Message.replace(":", "d");
+        let Message = '' + errorCode.replace('auth/', '');
+        Message = Message.replace(':', 'd');
         errorbox.innerText = `${Message}:`;
       });
   }
@@ -125,7 +118,7 @@ function CompanyAccsess() {
             // pattern=".{6,}"
             required
           />
-     
+
           {Loggedin ? (
             <div className="custom-loader"></div>
           ) : (

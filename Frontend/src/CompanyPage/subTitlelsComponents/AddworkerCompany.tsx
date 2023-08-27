@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import CombaibnedNavCompany from "../../nav/CombaibnedNavCompany";
-import AddWorkerListCompany from "./Add Worker List/AddWorkerListCompany";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany';
+import AddWorkerListCompany from './Add Worker List/AddWorkerListCompany';
 // import ServerStatus from "../FireBase/ServerStatus";
 
-import Modal from "react-modal";
-import EditStyle from "./Add Worker List/EditDialogStyle";
-import { ToastContainer, toast } from "react-toastify";
-import Url from "../../ApiClient/Url";
-import AxiosClient from "../../ApiClient/AxiosClient";
+import Modal from 'react-modal';
+import EditStyle from './Add Worker List/EditDialogStyle';
+import { ToastContainer, toast } from 'react-toastify';
+import Url from '../../ApiClient/Url';
+import AxiosClient from '../../ApiClient/AxiosClient';
 function AddworkerCompany() {
   const [ServiceProviders, setServiceProviders] = useState([]);
   const [Change, setChange] = useState(0);
@@ -23,9 +23,9 @@ function AddworkerCompany() {
     try {
       event.preventDefault();
       const formData = new FormData(event.target);
-      const WorkerName = formData.get("workerName");
-      const TypeOfService = formData.get("serviceType");
-      const Price = formData.get("price");
+      const WorkerName = formData.get('workerName');
+      const TypeOfService = formData.get('serviceType');
+      const Price = formData.get('price');
 
       if (!Price || !TypeOfService || !TypeOfService) {
         toast.error(`חסר מידע -בבקשה השלם את כל המידע הנדרש`);
@@ -41,16 +41,16 @@ function AddworkerCompany() {
 
       if (!data.ok) {
         // alert("the user is alredy in us");
-        ref.current.style.color = "red";
+        ref.current.style.color = 'red';
 
-        ref.current.style.fontWeight = "bolder";
+        ref.current.style.fontWeight = 'bolder';
         ref.current.innerText = data.error;
         return;
       } else if (data.ok) {
         setChange(Change + 1);
         handleClick();
         setVisible(false);
-        toast.success("העובד נוסף בהצלחה");
+        toast.success('העובד נוסף בהצלחה');
       }
     } catch (error) {
       alert(error);
@@ -59,18 +59,15 @@ function AddworkerCompany() {
   useEffect(() => {
     async function getServiceProviders() {
       try {
-        const { data } = await AxiosClient.get(
-          `${Url}/getServiceProvider`
-        );
+        const { data } = await AxiosClient.get(`${Url}/getServiceProvider`);
         setServiceProviders(data);
-       
+
         setVisible(true);
       } catch (err) {
         console.log(err);
       }
     }
     getServiceProviders();
-    
   }, [Change]);
 
   return (

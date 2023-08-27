@@ -1,99 +1,89 @@
-.Footer{
-    display: flex;
-    justify-content: space-between;
-    /* width: 100%; */
-    max-width: 100%;
-    /* flex-wrap: wrap-reverse; */
-    /* flex-wrap: wrap; */
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  /* width: 100%; */
+  max-width: 100%;
+  /* flex-wrap: wrap-reverse; */
+  /* flex-wrap: wrap; */
 
-     /* position: relative;
+  /* position: relative;
     align-items: center;
     text-align: center;
     z-index: 2; */
-    background-color: #2F3C7E    ;
-    
-    padding: 2em 3.5em; 
+  background-color: #2f3c7e;
 
+  padding: 2em 3.5em;
 }
-.Footer .left-Fotter-container{
-    /* padding-top: 1em;
+.Footer .left-Fotter-container {
+  /* padding-top: 1em;
     padding-left: 1em; */
-    display: flex;
-    justify-content: start;
-    /* --------------------------------for the logo */
-    align-items: center;
+  display: flex;
+  justify-content: start;
+  /* --------------------------------for the logo */
+  align-items: center;
 
-width: 50%;
-/* background-color: red; */
-align-items: center;
+  width: 50%;
+  /* background-color: red; */
+  align-items: center;
 }
-.Footer .left-Fotter-container p{
-color: #C0C0C0		;
-font-size: 10px;
-/* padding-left: 2.8em; */
-}
-
-.Footer .right-Fotter-container{
-width: 50%;
-display: flex;
-justify-content: end;
-/* background-color: blue; */
-
-}
-.Footer .right-Fotter-container ul{
-display: flex;
-/* background-color: red; */
-align-items: center;
-justify-content: space-around;
-
-}
-.Footer .right-Fotter-container ul a{
-text-decoration: none;
-/* color: #A9A9A9	; */
-/* padding-right: 4.8em; */
-
-}
-.Footer .right-Fotter-container ul li{
-list-style: none;
-padding-left: 1em;
-color: #A9A9A9		;
-font-size:25px;
-/* justify-content: space-around; */
-
-}
-.Footer .right-Fotter-container ul li :hover{
-
-color: #C0C0C0			;
-
-/* justify-content: space-around; */
-
+.Footer .left-Fotter-container p {
+  color: #c0c0c0;
+  font-size: 10px;
+  /* padding-left: 2.8em; */
 }
 
+.Footer .right-Fotter-container {
+  width: 50%;
+  display: flex;
+  justify-content: end;
+  /* background-color: blue; */
+}
+.Footer .right-Fotter-container ul {
+  display: flex;
+  /* background-color: red; */
+  align-items: center;
+  justify-content: space-around;
+}
+.Footer .right-Fotter-container ul a {
+  text-decoration: none;
+  /* color: #A9A9A9	; */
+  /* padding-right: 4.8em; */
+}
+.Footer .right-Fotter-container ul li {
+  list-style: none;
+  padding-left: 1em;
+  color: #a9a9a9;
+  font-size: 25px;
+  /* justify-content: space-around; */
+}
+.Footer .right-Fotter-container ul li :hover {
+  color: #c0c0c0;
+
+  /* justify-content: space-around; */
+}
 
 /* max widh 590 */
 @media screen and (max-width: 590px) {
-    .Footer{
-        display: flex;
-        flex-direction: column-reverse;
-        /* justify-content: center; */
-    
-    }
-    .Footer .left-Fotter-container{
-        /* padding-top: 1em;
+  .Footer {
+    display: flex;
+    flex-direction: column-reverse;
+    /* justify-content: center; */
+  }
+  .Footer .left-Fotter-container {
+    /* padding-top: 1em;
         padding-left: 1em; */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     /* background-color: red; */
     align-items: center;
-    }
-    .Footer .right-Fotter-container{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        /* background-color: blue; */
-        
-        }
+  }
+  .Footer .right-Fotter-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* background-color: blue; */
+  }
 }

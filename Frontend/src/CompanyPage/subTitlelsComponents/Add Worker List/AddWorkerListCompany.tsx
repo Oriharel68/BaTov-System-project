@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 // import { log } from 'console';
-import React, { useState } from "react";
-import EditWorkerContainer from "./EditWorkerContainer";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { FiEdit3, FiDelete } from "react-icons/fi";
-import { AiOutlineUserDelete } from "react-icons/ai";
-import Modal from "react-modal";
-import EditStyle from "./EditDialogStyle";
-import Url from "../../../ApiClient/Url";
-import AxiosClient from "../../../ApiClient/AxiosClient";
+import React, { useState } from 'react';
+import EditWorkerContainer from './EditWorkerContainer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FiEdit3, FiDelete } from 'react-icons/fi';
+import { AiOutlineUserDelete } from 'react-icons/ai';
+import Modal from 'react-modal';
+import EditStyle from './EditDialogStyle';
+import Url from '../../../ApiClient/Url';
+import AxiosClient from '../../../ApiClient/AxiosClient';
 function AddWorkerListCompany({ item, setChange, Change }: any) {
   // console.log(item);
   const { Price, TypeOfService, WorkerName } = item;
@@ -32,7 +32,7 @@ function AddWorkerListCompany({ item, setChange, Change }: any) {
         toast.error(`מחיקת העובד נכשלה`);
       } else if (data.ok) {
         setChange(Change + 1);
-        toast.success("העובד נמחק בהצלחה");
+        toast.success('העובד נמחק בהצלחה');
       }
     } catch (error) {
       toast.error(`מחיקת העובד נכשלה`);

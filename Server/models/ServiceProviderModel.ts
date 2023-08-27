@@ -1,13 +1,16 @@
 // const mongooseProvider = require("mongoose");
-import mongooseProvider from  "mongoose"
-import { Service } from "../models/interface";
+import mongooseProvider from 'mongoose';
+import { Service } from '../models/interface';
 
 const ServiceScehma = new mongooseProvider.Schema<Service>({
-  TypeOfService:String,
-  WorkerName:String,
-  Price:Number,
+  TypeOfService: String,
+  WorkerName: String,
+  Price: Number,
 });
 
-var ServiceProvidersModel = mongooseProvider.model<Service>("ServiceProviders", ServiceScehma);
+var ServiceProvidersModel = mongooseProvider.model<Service>(
+  'ServiceProviders',
+  ServiceScehma
+);
 
 module.exports = ServiceProvidersModel;

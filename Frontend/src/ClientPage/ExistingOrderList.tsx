@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from "react";
-import { setDate } from "../Helpjs/help";
-import Modal from "react-modal";
-import RemoveStyle from "./ModalStyle/RemoveOrderStyle";
-import axios from "axios";
-import { FiSettings } from "react-icons/fi";
-import { MdRemoveCircleOutline } from "react-icons/md";
-import { BiExit } from "react-icons/bi";
-import Url from "../ApiClient/Url";
-import AxiosClient from "../ApiClient/AxiosClient";
+import React, { useCallback, useState } from 'react';
+import { setDate } from '../Helpjs/help';
+import Modal from 'react-modal';
+import RemoveStyle from './ModalStyle/RemoveOrderStyle';
+import axios from 'axios';
+import { FiSettings } from 'react-icons/fi';
+import { MdRemoveCircleOutline } from 'react-icons/md';
+import { BiExit } from 'react-icons/bi';
+import Url from '../ApiClient/Url';
+import AxiosClient from '../ApiClient/AxiosClient';
 function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
   const [showModal, setShowModal] = useState(false);
   const [Expired, setExpired] = useState(isExpired);
@@ -18,14 +18,14 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
 
   async function handleRemove() {
     try {
-      const { data } =  await AxiosClient.delete(
+      const { data } = await AxiosClient.delete(
         `${Url}/RemoveOrder?orderId=${order._id}`
       );
       if (data.deleted) {
         setChanged(Changed + 1);
         handleClick(); //closing the Modal
       } else {
-        throw new Error("not deleted");
+        throw new Error('not deleted');
       }
     } catch (error) {
       console.log(error);
@@ -49,8 +49,8 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
               <ul>
                 <li> {order.TypeOfService} </li>
                 <li> {order.WorkerName}</li>
-                <li style={{ borderLeft: "none" }}>
-                  {" "}
+                <li style={{ borderLeft: 'none' }}>
+                  {' '}
                   {setDate(order.DateTime)}
                 </li>
               </ul>
@@ -66,39 +66,36 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
             ariaHideApp={false}
           >
             <div className="Remove-Modal">
-              <div className="rows">   
-              <h3 className="marker">מקצוע:</h3>
-              <p>  {order.TypeOfService}  </p></div>
-              <div className="rows"> 
-              <h3 className="marker">שם עובד :</h3>
-              <p>{order.WorkerName}  </p>
+              <div className="rows">
+                <h3 className="marker">מקצוע:</h3>
+                <p> {order.TypeOfService} </p>
               </div>
               <div className="rows">
-               <h3 className="marker">תאריך : </h3>
-              <p>{setDate(order.DateTime)}   </p>
-             </div>
-        
-              
-          
-            
-          
+                <h3 className="marker">שם עובד :</h3>
+                <p>{order.WorkerName} </p>
+              </div>
+              <div className="rows">
+                <h3 className="marker">תאריך : </h3>
+                <p>{setDate(order.DateTime)} </p>
+              </div>
+
               <div
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  maxWidth: "100%",
-                  width: "80%",
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  maxWidth: '100%',
+                  width: '80%',
                 }}
               >
                 <div
                   style={{
-                    cursor: "pointer",
-                    display: "flex",
-                    flexDirection: "column",
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
                   }}
                 >
                   <BiExit
-                    style={{ width: "3em", height: "3em" }}
+                    style={{ width: '3em', height: '3em' }}
                     onClick={handleClick}
                   >
                     יציאה
@@ -108,13 +105,13 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
                 {Expired && (
                   <div
                     style={{
-                      cursor: "pointer",
-                      display: "flex",
-                      flexDirection: "column",
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'column',
                     }}
                   >
                     <MdRemoveCircleOutline
-                      style={{ width: "3em", height: "3em" }}
+                      style={{ width: '3em', height: '3em' }}
                       onClick={handleRemove}
                     >
                       מחיקה
