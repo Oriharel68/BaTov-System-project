@@ -66,9 +66,22 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
             ariaHideApp={false}
           >
             <div className="Remove-Modal">
-              <h3>מקצוע:{order.TypeOfService}</h3>
-              <h3>שם עובד : {order.WorkerName}</h3>
-              <h3>תאריך : {setDate(order.DateTime)}</h3>
+              <div className="rows">   
+              <h3 className="marker">מקצוע:</h3>
+              <p>  {order.TypeOfService}  </p></div>
+              <div className="rows"> 
+              <h3 className="marker">שם עובד :</h3>
+              <p>{order.WorkerName}  </p>
+              </div>
+              <div className="rows">
+               <h3 className="marker">תאריך : </h3>
+              <p>{setDate(order.DateTime)}   </p>
+             </div>
+        
+              
+          
+            
+          
               <div
                 style={{
                   display: "flex",
