@@ -14,7 +14,7 @@ router.get('/',async (req:Request,res:Response)=>{
         res.send({ok:true,Orders:OrdersDB})
       } catch (error) {
         console.log(error.message);
-        res.status(500).send({ ok: false, error: error.message });
+        return res.status(500).send({ ok: false, error: error.message });
       }
 });
 export default router;

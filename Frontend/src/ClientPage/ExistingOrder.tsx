@@ -5,7 +5,9 @@ import ClientNavBarOrderMain from "../nav/ClientNavBarOrderMain";
 import { getAuth } from "firebase/auth";
 import auth from "../FireBase/auth";
 import { useNavigate } from "react-router-dom";
-import Url from "../ApiUrl/Url";
+import Url from "../ApiClient/Url";
+import AxiosClient from "../ApiClient/AxiosClient";
+
 function ExistingOrder() {
   const [ordersData, setOrdersData] = useState([]);
   const [OldOrders, setOldOrders] = useState([]);
@@ -16,10 +18,10 @@ function ExistingOrder() {
   useEffect(() => {
     async function getOrdersData() {
       try {
-        const { data } = await axios.post(`${Url}/GetMyOrders`, {
+        const { data } = await AxiosClient.post(`${Url}/GetMyOrders`, {
           Email: Auth?.currentUser?.email,
         });
-        console.log(data);
+        
         const currdate:any = new Date().getTime();
         const oldOrders:any = [];
         const OngoingOrders:any = []; ///do with splice to save memory
@@ -48,9 +50,9 @@ function ExistingOrder() {
               <div className="clientNewOrderPage">
                 <h3>📑:הזמנות קיימות</h3>
 
-                {ordersData.length > 0 ? (
+                
                   <>
-                    <div className="over-flow-existingOrders ">
+                  {ordersData.length > 0 ?<div className="over-flow-existingOrders ">
                       {ordersData.map((order:any) => {
                         return (
                           <ExistingOrderList
@@ -61,10 +63,13 @@ function ExistingOrder() {
                             key={order._id}
                           />
                         );
-                      })}
-                    </div>
+                      })
+                      }
+                    </div>:<h4 className="marker" style={{marginTop:'1em',marginBottom:'1em'}}>💀אין הזמנות כלל</h4>
+                    }
+                    
                     <h4 style={{ direction: "rtl" }}>הזמנות ישנות:📇</h4>
-                    <div className="over-flow-oldOrders">
+                    {OldOrders.length >0 ? <div className="over-flow-oldOrders">
                       {OldOrders.map((order:any) => {
                         return (
                           <ExistingOrderList
@@ -75,12 +80,13 @@ function ExistingOrder() {
                             key={order._id}
                           />
                         );
-                      })}
-                    </div>
+                      })
+                      }
+                    </div>:
+                   <h4 className="marker" style={{marginTop:'4em'}}>👻אין הזמנות כלל</h4> }
+                   
                   </>
-                ) : (
-                  <h4>🤔אין הזמנות כלל</h4>
-                )}
+               
               </div>
             </div>
           </div>

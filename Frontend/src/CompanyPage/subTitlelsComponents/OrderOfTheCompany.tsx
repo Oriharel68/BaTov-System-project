@@ -5,7 +5,8 @@ import ActiceOrdersList from "./order list's/ActiceOrdersList";
 // import OldOrders from "./order list's/OldOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
-import Url from "../../ApiUrl/Url";
+import Url from "../../ApiClient/Url";
+import AxiosClient from "../../ApiClient/AxiosClient";
 
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
@@ -20,10 +21,9 @@ function OrderOfTheCompany() {
 
   const totalSum = useCallback(
     (allOrders:any) => {
-      console.log(allOrders);
       
       const Total:number = allOrders.reduce((acc:any,value:any)=> acc + value.Total,0 );
-      console.log(Total);
+    
       setTotalMoney(Total);
     },[]
   );
@@ -34,9 +34,9 @@ function OrderOfTheCompany() {
       let Clients:any, Orders:any;
       try {
         await Promise.all([
-          axios.get(`${Url}/findAllClients`),
-          axios.get(`${Url}/getSumOfClientsOrder`),
-          axios.get(`${Url}/getAllOrders`),
+          AxiosClient.get(`${Url}/findAllClients`),
+          AxiosClient.get(`${Url}/getSumOfClientsOrder`),
+          AxiosClient.get(`${Url}/getAllOrders`),
         ]).then((values) => {
           values.forEach((item:any,index:number)=>{
             if(item.request.responseURL.includes('/findAllClients')){

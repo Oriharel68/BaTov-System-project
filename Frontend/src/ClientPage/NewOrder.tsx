@@ -6,9 +6,10 @@ import NewOrderList from "./NewOrderList";
 import DatePickerComponent from "./DatePickerComponent";
 import ClientNavBarOrderMain from "../nav/ClientNavBarOrderMain";
 import { getAuth } from "firebase/auth";
-
-import Url from "../ApiUrl/Url";
+import Url from "../ApiClient/Url";
 import Auth from "../FireBase/auth";
+import AxiosClient from "../ApiClient/AxiosClient";
+
 function NewOrder() {
   const navigate = useNavigate();
   const [auth, setAuth]: any = useState(Auth);
@@ -30,7 +31,7 @@ function NewOrder() {
       return;
     }
 
-    const message = await axios.post(`${Url}/addOrder`, {
+    const message = await AxiosClient.post(`${Url}/addOrder`, {
       TypeOfService,
       WorkerName,
       Email: auth.currentUser.email,
@@ -52,7 +53,7 @@ function NewOrder() {
   useEffect(() => {
     async function getServiceProviders() {
       try {
-        const { data } = await axios.get(
+        const { data } = await AxiosClient.get(
           `${Url}/getServiceProvider`
         );
         setServiceProviders(data);

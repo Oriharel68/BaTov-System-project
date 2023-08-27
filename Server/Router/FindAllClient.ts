@@ -13,10 +13,10 @@ const ClientsModel:Model<Client> = require('../models/ClientsModel');
 router.get("/", async (req:Request, res:Response) => {
     try {
       const ClientDB = await ClientsModel.find(); //find all of the clients in the company
-      res.send(ClientDB);
+      return res.send(ClientDB);
     } catch (error) {
       console.log(error.message);
-      res.status(500).send({ ok: false, error: error.message });
+      return res.status(500).send({ ok: false, error: error.message });
     }
   });
 

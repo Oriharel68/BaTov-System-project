@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import ClientNavBar from "../nav/ClientNavBar";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import auth from "../FireBase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import Url from "../ApiUrl/Url";
+import Url from '../ApiClient/Url'
+import AxiosClient from "../ApiClient/AxiosClient";
+
+
+
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
@@ -15,17 +19,23 @@ function AcsessPage() {
 
     const email:any = formData.get("Email");
     const password:any = formData.get("password");
-    
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        // const user = userCredential.user;
-        console.log(userCredential);
+      .then(async (userCredential) => {
+
         
-        setLoggedin(true);
-        setTimeout(() => {
-          navigate("/order/main");
-        }, 3000);
+        const uid = userCredential.user.uid
+        const response = await AxiosClient.post(`${Url}/login`,{uid});
+        if(response.status === 200){
+          setLoggedin(true);
+          setTimeout(() => {
+            navigate("/order/main");
+          }, 3000);
+        }
+        else{
+          throw new Error('couldnt login');
+        }
+        
+       
         // ...
       })
       .catch((error) => {

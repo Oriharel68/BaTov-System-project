@@ -2,7 +2,10 @@ import axios from "axios";
 import React, { Ref, RefObject, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Url from "../../../ApiUrl/Url";
+import Url from "../../../ApiClient/Url";
+import AxiosClient from "../../../ApiClient/AxiosClient";
+
+
 function EditWorkerContainer({ item, Change, setChange, setShowSecondDiv }:any) {
   const { Price, TypeOfService, WorkerName, _id } = item;
 
@@ -32,7 +35,7 @@ function EditWorkerContainer({ item, Change, setChange, setShowSecondDiv }:any) 
         });
         return;
       }
-      let { data } = await axios.post(
+      let { data } = await AxiosClient.post(
         `${Url}/EditCompanyWorker`,
         {
           _id,

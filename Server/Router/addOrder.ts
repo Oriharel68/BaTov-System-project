@@ -12,11 +12,11 @@ router.post('/',async(req:Request,res:Response)=>{
     try {
         let {TypeOfService, WorkerName,Email,DateTime,Price} = req.body;
         if(!TypeOfService ||!WorkerName||!Email||!DateTime||!Price){
-          res.status(400).send({ ok: false ,error:'missing info complete required info(in get /addOrder)'});//checking if one of them empty
+          return res.status(400).send({ ok: false ,error:'missing info complete required info(in get /addOrder)'});//checking if one of them empty
         }
         const clientId = await ClientsModel.findOne({Email});//finding the client that want to add an order
         if(!clientId){
-          res.status(404).send({ ok: false ,error:'client not found'});
+         return res.status(404).send({ ok: false ,error:'client not found'});
         }
         const orderDB = new OrdersModel({
           TypeOfService, 
@@ -27,12 +27,12 @@ router.post('/',async(req:Request,res:Response)=>{
         })//adding the order to the database
         // // const combinedObject = { ...dbObject, ...stateObject }; // Merge using the spread operator (shallow merge)
         await orderDB.save().then(()=>{
-          res.send({ok:true});
+         return res.send({ok:true});
         });
     
       } catch (error) {
         console.log(error.message);
-        res.status(500).send({ ok: false, error: error.message })
+        return res.status(500).send({ ok: false, error: error.message })
       }
 });
 

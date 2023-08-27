@@ -10,7 +10,8 @@ export interface Client{
     FirstName:String,
   LastName:String,
   Email:String,
-  PhoneNumber:String
+  PhoneNumber:String,
+  firebaseUid:String
 }
 
 export interface Service{

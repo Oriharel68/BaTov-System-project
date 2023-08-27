@@ -6,7 +6,8 @@ const clientScehma = new mongooseClient.Schema<Client>({
   FirstName:String,
   LastName:String,
   Email:String,
-  PhoneNumber:String
+  PhoneNumber:String,
+  firebaseUid:String
 });
 
 var ClientsModel = mongooseClient.model<Client>("Clients", clientScehma);

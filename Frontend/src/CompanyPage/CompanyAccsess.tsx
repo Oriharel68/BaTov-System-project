@@ -7,7 +7,8 @@ import {
 import auth from "../FireBase/auth";
 import { AiOutlineMail } from "react-icons/ai";
 import axios from "axios";
-import Url from "../ApiUrl/Url";
+import Url from "../ApiClient/Url";
+import AxiosClient from "../ApiClient/AxiosClient";
 function CompanyAccsess() {
   const [showSecondDiv, setShowSecondDiv] = useState(false);
 
@@ -35,7 +36,7 @@ function CompanyAccsess() {
     const email: any = formData.get("Email");
     const password: any = formData.get("password");
     try {
-      const { data } = await axios.post(`${Url}/companyCheck`, {
+      const { data } = await AxiosClient.post(`${Url}/companyCheck`, {
         email,
       });
       if(data.ok ===false) throw Error('err');
@@ -45,16 +46,23 @@ function CompanyAccsess() {
     }
   
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        // const user = userCredential.user;
+   await signInWithEmailAndPassword(auth, email, password)
+      .then(async (userCredential) => {
+        
+        
+       const uid = userCredential.user.uid;
+        const response = await AxiosClient.post(`${Url}/login`,{uid});
+        if(response.status === 200){
         setLoggedin(true);
-
         setTimeout(() => {
           navigate("/company/mainpage");
         }, 3000);
+      }
+      else{
+        throw new Error('couldnt login');
+      }
       })
+      
       .catch((error) => {
         
         let errorCode = error.code;

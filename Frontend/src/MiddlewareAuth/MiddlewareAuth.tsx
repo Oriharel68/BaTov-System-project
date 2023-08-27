@@ -1,23 +1,37 @@
-import { getAuth } from "firebase/auth";
-import Auth from "../FireBase/auth";
-import React, { PropsWithChildren, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 
-function MiddlewareAuth({ children }: { children: PropsWithChildren }) {
+import React, { useLayoutEffect } from "react";
+import AxiosClient from "../ApiClient/AxiosClient";
+import { useNavigate } from "react-router-dom";
 
+function MiddlewareAuth({ children }: { children:any }) {
   const navigate = useNavigate();
-  const location = useLocation().pathname;
-  useEffect(() => {
-    if (
-      location.indexOf("/company") !== -1 &&
-      location !== "/company/access" &&
-      Auth.currentUser === null
-    ) {
-      navigate("/");
-    }
-  }, [location]);
+  useLayoutEffect(() => {
+    
+    const requstinter = AxiosClient.interceptors.request.use((config)=>{
+      config.withCredentials = true;
+      return config;
+    },(err)=>{
+      return err;
+    })
+    const responseinter = AxiosClient.interceptors.response.use(
+      (res)=>{
+      return res;
 
-  return children;
+    },(err)=>{
+      if(err.response.status===401){
+        return navigate('/');
+      }
+      
+      
+    })
+  
+    return () => {
+      AxiosClient.interceptors.request.eject(requstinter);
+      AxiosClient.interceptors.response.eject(responseinter);
+    };
+  }, [])
+
+  return <>{children}</>;
 }
 
 export default MiddlewareAuth;
