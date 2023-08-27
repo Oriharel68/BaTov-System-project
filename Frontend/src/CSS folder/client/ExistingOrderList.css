@@ -8,6 +8,17 @@
 
 }
 
+.Remove-Modal .rows{
+    display: flex;
+  /* justify-content: space-between; */
+  width: 100%;
+
+}
+.Remove-Modal .rows p{
+padding-right: 0.5em;   
+
+}
+
 .over-flow-existingOrders{
     overflow-y: scroll; 
     border: 3px solid white; 
