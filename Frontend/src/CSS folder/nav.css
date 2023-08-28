@@ -1,124 +1,151 @@
-.navBar-Main{
-   display: flex;
+.navBar-Main {
+  display: flex;
   position: sticky;
   /* background-color: white; */
   position: fixed;
   z-index: 15;
-  width:  100%;
-  background-color: #5a607e  ;
+  width: 100%;
+  background-color: #5a607e;
   justify-content: center;
   /* padding: 1em 0em; */
   padding-left: 2em;
   /* padding-right: 7em; */
   justify-content: space-between;
 }
-.navBar-Main h1{
-
-   /* background-color: red;
+.navBar-Main h1 {
+  /* background-color: red;
    text-align: center;
    padding-left: 9%; */
-
-   
 }
 
-.navBar-Main .insideNavTopFirst-container{
-   display: flex;
-   /* background-color: red; */
-   justify-content: right;
-   align-items: center;
-   /* padding-left: 22em; */
-     padding-right: 3.5em;
+.navBar-Main .insideNavTopFirst-container {
+  display: flex;
+  /* background-color: red; */
+  justify-content: right;
+  align-items: center;
+  /* padding-left: 22em; */
+  padding-right: 3.5em;
+}
+/*btn nav  */
+.insideNavTopFirst-container .btn-container button {
+  background-color: white;
+  border: none;
+  color: #4caf50;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /* font-size: 16px; */
+  /* margin: 4px 2px; */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+}
 
-        } 
-               /*btn nav  */
-               .insideNavTopFirst-container .btn-container button{
-    
-                  background-color: white; 
-                  border: none;
-                  color: #4CAF50;
-                  padding: 5px 32px;
-                  text-align: center;
-                  text-decoration: none;
-                  display: inline-block;
-                  /* font-size: 16px; */
-                  /* margin: 4px 2px; */
-                  transition-duration: 0.4s;
-                  cursor: pointer;
-                  border-radius: 20px;
+.insideNavTopFirst-container .btn-container button:hover {
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: 2px solid #4caf50;
+}
 
-              }
-              
-              .insideNavTopFirst-container .btn-container button:hover {
-               border-radius: 10px;
-               background-color: #4CAF50; 
-                  color: white; 
-                  border: 2px solid #4CAF50;
-                 
-                }
-              
-
-        @media screen and (max-width: 525px) {
-         
-         .navBar-Main{
-            display: flex;
-           position: sticky;
-           /* background-color: white; */
-           position: fixed;
-           z-index: 15;
-           width:  100%;
-           background-color: #5a607e  ;
-           justify-content: center;
-           /* padding: 1em 0em; */
-           padding-left: 1em;
-           /* padding-right: 7em; */
-           justify-content: space-between;
-         }
-         .navBar-Main h1{
-         
-            /* background-color: red;
+@media screen and (max-width: 525px) {
+  .navBar-Main {
+    display: flex;
+    position: sticky;
+    /* background-color: white; */
+    position: fixed;
+    z-index: 15;
+    width: 100%;
+    background-color: #5a607e;
+    justify-content: center;
+    /* padding: 1em 0em; */
+    padding-left: 1em;
+    /* padding-right: 7em; */
+    justify-content: space-between;
+  }
+  .navBar-Main h1 {
+    /* background-color: red;
             text-align: center;
             padding-left: 5%; */
-         
-            
-         }
-         
-         .navBar-Main .insideNavTopFirst-container{
-            display: flex;
-            /* background-color: red; */
-            justify-content: right;
-            align-items: center;
-            /* padding-left: 22em; */
-              padding-right: 2.5em;
-         
-                 } 
-                 .btn-container{
-                  /* padding-left: 5em;
-                      color: green; */
-                 }
-                        /*btn nav  */
-        .insideNavTopFirst-container .btn-container button{
-    
-         background-color: white; 
-         border: none;
-         color: #4CAF50;
-         padding: 8px 5px;
-         text-align: center;
-         text-decoration: none;
-         display: inline-block;
-         /* font-size: 16px; */
-         margin: 4px 2px;
-         transition-duration: 0.4s;
-         cursor: pointer;
-     }
-     
-     .insideNavTopFirst-container .btn-container button:hover {
-     
-         background-color: #4CAF50; 
-         color: white; 
-         border: 2px solid #4CAF50;
-       }
-     
-        }
-        
+  }
 
- 
+  .navBar-Main .insideNavTopFirst-container {
+    display: flex;
+    /* background-color: red; */
+    width: 50%;
+    justify-content: right;
+    align-items: center;
+    /* padding-left: 22em; */
+    padding-right: 1.5em;
+  }
+  .btn-container {
+    /* background-color: blue; */
+    width: 100%;
+    /* padding-left: 5em;
+                      color: green; */
+  }
+  /*btn nav  */
+  .insideNavTopFirst-container .btn-container button {
+    background-color: white;
+    width: 45%;
+    border: none;
+    color: #4caf50;
+    padding: 8px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    /* font-size: 16px; */
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .insideNavTopFirst-container .btn-container button:hover {
+    background-color: #4caf50;
+    color: white;
+    border: 2px solid #4caf50;
+  }
+
+  .insideNavTopFirst-container .btn-container .r1 {
+  }
+}
+
+@media screen and (max-width: 347px) {
+  #disapeare-on-small-sizes {
+    display: none;
+  }
+  .navBar-Main {
+    max-width: 100%;
+  }
+  .navBar-Main .insideNavTopFirst-container {
+    display: flex;
+    /* background-color: red; */
+    width: 40%;
+    justify-content: right;
+    align-items: center;
+    /* padding-left: 22em; */
+    padding-right: 2.5em;
+  }
+  .btn-container {
+    /* background-color: blue; */
+    width: 100%;
+    /* padding-left: 5em;
+                        color: green; */
+  }
+  /*btn nav  */
+  .insideNavTopFirst-container .btn-container button {
+    background-color: white;
+    width: 100%;
+    border: none;
+    color: #4caf50;
+    padding: 8px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    /* font-size: 16px; */
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+}
