@@ -5,6 +5,7 @@ import auth from '../FireBase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
+import { FiSun } from 'react-icons/fi';
 
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
@@ -37,6 +38,13 @@ function AcsessPage() {
       });
   }
 
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  // Password toggle handler
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
   return (
     <div>
       <div className="page-wraper">
@@ -61,8 +69,11 @@ function AcsessPage() {
                   />
                 </div>
                 <div className="form-group">
+                  <i className="show-passwordd">
+                    <FiSun onClick={togglePassword} />
+                  </i>
                   <input
-                    type="password"
+                    type={passwordShown ? 'text' : 'password'}
                     id="password"
                     name="password"
                     placeholder="סיסמה"
