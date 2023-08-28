@@ -17,6 +17,7 @@ function CombaibnedNavCompany() {
       .then(async () => {
         const response = await AxiosClient.post(`${Url}/logout`);
         if (response.status === 200) {
+          window.localStorage.removeItemItem('accessToken');
           navigate('/company/access');
         } else {
           throw new Error('failed logout');

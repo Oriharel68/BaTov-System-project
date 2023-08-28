@@ -36,6 +36,7 @@ function ClientNavBarOrderMain() {
         // Sign-out successful.
         const response = await AxiosClient.post(`${Url}/logout`);
         if (response.status === 200) {
+          window.localStorage.removeItem('accessToken');
           toast.success('התנתקות הצליחה');
           setTimeout(() => {
             navigate('/client/main');
