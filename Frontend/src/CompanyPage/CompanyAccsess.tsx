@@ -5,19 +5,23 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import auth from '../FireBase/auth';
 import { AiOutlineMail } from 'react-icons/ai';
 import axios from 'axios';
+import { PiHandEyeDuotone } from 'react-icons/pi';
+import Modal from 'react-modal';
+import style from '../ClientPage/ModalStyle/RemoveOrderStyle';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
+
 function CompanyAccsess() {
   const [showSecondDiv, setShowSecondDiv] = useState(false);
 
   const handleMouseEnter = () => {
-    if (showSecondDiv == false) {
-      setShowSecondDiv(true);
-      return;
-    } else {
-      setShowSecondDiv(false);
-      return;
-    }
+    setShowSecondDiv(!showSecondDiv);
+  };
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  // Password toggle handler
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
   };
 
   // const handleMouseLeave = () => {
@@ -111,8 +115,11 @@ function CompanyAccsess() {
           {/* <input type="text" placeholder='סיסמא' /> */}
           <label className="inp"> סיסמא </label>
 
+          <i className="show-password">
+            <PiHandEyeDuotone onClick={togglePassword} />
+          </i>
           <input
-            type="password"
+            type={passwordShown ? 'text' : 'password'}
             name="password"
             id="inp"
             placeholder="סיסמא"
@@ -135,14 +142,22 @@ function CompanyAccsess() {
             </a>
 
             {showSecondDiv && (
-              <div className="companyAccess-Message">
-                <h3 className="T">
-                  בבקשה תפנו למערכות התמיכה
+              <Modal
+                isOpen={showSecondDiv}
+                onRequestClose={handleMouseEnter}
+                style={style as any}
+                ariaHideApp={false}
+              >
+                <div className="companyAccess-Message">
+                  <h3 className="T">בבקשה תפנו למערכות התמיכה</h3>
+                  <p> שלחו מייל ונענה בהקדם ☏</p>
                   <a href="mailto:admin@gmail.com">
+                    {' '}
                     <AiOutlineMail />
                   </a>
-                </h3>
-              </div>
+                  <h4 onClick={handleMouseEnter}>חזור</h4>
+                </div>
+              </Modal>
             )}
           </div>
           <button className="signin-button" type="submit">

@@ -1,74 +1,63 @@
-.CompanyMain-access-container{
-    display: flex;
-   flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 15em;
-    background-color: 	rgb(255,250,250);
-    box-sizing: border-box;
-padding: 22.5em 15em;   
-padding-bottom: 0;
+.CompanyMain-access-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15em;
+  background-color: rgb(255, 250, 250);
+  box-sizing: border-box;
+  padding: 22.5em 15em;
+  padding-bottom: 0;
 }
-.CompanyMain-access-container form{ 
-  
+.CompanyMain-access-container form {
   margin-top: 2.5em;
   /* display: flex;
   flex-direction: column;
   justify-content: start; */
-    height: 520px;
-    width: 400px;
-    max-width: 80%;
-    
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+  height: 520px;
+  width: 400px;
+  max-width: 80%;
 
-    
-
-     
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
 }
-.CompanyMain-access-container form h3{ 
-padding: 2em;  
-text-align: center;
-
+.CompanyMain-access-container form h3 {
+  padding: 2em;
+  text-align: center;
 }
-.CompanyMain-access-container form 
-label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-    direction: rtl;
-
+.CompanyMain-access-container form label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  direction: rtl;
 }
-.CompanyMain-access-container form 
-input{
+.CompanyMain-access-container form input {
   display: block;
   height: 50px;
   width: 100%;
   max-width: 94%;
-  background-color: rgba(255,255,255,0.07);
+  background-color: rgba(255, 255, 255, 0.07);
   border-radius: 3px;
   padding: 0 10px;
   margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
 
-   direction: rtl;
-
+  direction: rtl;
 }
-::placeholder{
+::placeholder {
   color: #e5e5e5;
 }
-.CompanyMain-access-container form 
-button{
+.CompanyMain-access-container form button {
   margin-top: 50px;
   width: 100%;
   background-color: #ffffff;
@@ -80,92 +69,85 @@ button{
   cursor: pointer;
 }
 
-
-
-.CompanyMain-access-container .topAccess-container{
+.CompanyMain-access-container .topAccess-container {
   /* background-color: blue; */
-
 }
 /* .CompanyMain-access-container .topAccess-container input{
 padding: 1em 2em;
 } */
 
-
-.CompanyMain-access-container .bootomAccess-container{
-margin-top: 35px;
-/* background-color: red; */
+.CompanyMain-access-container .bootomAccess-container {
+  margin-top: 35px;
+  /* background-color: red; */
 }
 /*  .forgot-password --- options */
- .forgot-password{
-  margin-top:'2em';
-  direction:rtl;
+.forgot-password {
+  margin-top: '2em';
+  direction: rtl;
   /* background-color: red; */
-
-
 }
- .forgot-password :hover{
- /* text-decoration: underline; */
-
-
+.forgot-password :hover {
+  /* text-decoration: underline; */
 }
 
-#forget :hover{
-text-decoration: underline;
+#forget :hover {
+  text-decoration: underline;
 }
-.companyAccess-Message{
-background-color: white;
-display: flex;
-/* flex-direction: column; */
-position: absolute;
-border: 1px solid black;
-width:90%;
-max-width: 83%;
-margin-top: 1em;
-
+.companyAccess-Message {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  border: 1px solid black;
+  width: 90%;
+  height: 80%;
+  max-width: 83%;
+  margin-top: 1em;
+  /* animation: color-change-5x 8s linear infinite alternate both; */
 }
 .companyAccess-Message a {
-   padding-right: 1em;
-   padding-top: 1.5em;
-   font-size: 25px;
-   -webkit-animation: color-change-5x 8s linear infinite alternate both;
-            animation: color-change-5x 8s linear infinite alternate both;
-
-
+  /* padding-right: 1em; */
+  padding-top: 1.5em;
+  font-size: 25px;
+  -webkit-animation: color-change-5x 8s linear infinite alternate both;
+  animation: color-change-5x 8s linear infinite alternate both;
 }
+
 @-webkit-keyframes color-change-5x {
-   0% {
-     background: #19dcea;
-   }
-   25% {
-     background: #b22cff;
-   }
-   50% {
-     background: #ea2222;
-   }
-   75% {
-     background: #f5be10;
-   }
-   100% {
-     background: #3bd80d;
-   }
- }
- @keyframes color-change-5x {
-   0% {
-     background: #19dcea;
-   }
-   25% {
-     background: #b22cff;
-   }
-   50% {
-     background: #ea2222;
-   }
-   75% {
-     background: #f5be10;
-   }
-   100% {
-     background: #3bd80d;
-   }
- }
+  0% {
+    background: #19dcea;
+  }
+  25% {
+    background: #b22cff;
+  }
+  50% {
+    background: #ea2222;
+  }
+  75% {
+    background: #f5be10;
+  }
+  100% {
+    background: #3bd80d;
+  }
+}
+@keyframes color-change-5x {
+  0% {
+    background: #19dcea;
+  }
+  25% {
+    background: #b22cff;
+  }
+  50% {
+    background: #ea2222;
+  }
+  75% {
+    background: #f5be10;
+  }
+  100% {
+    background: #3bd80d;
+  }
+}
 @-webkit-keyframes color-change-5x {
   0% {
     color: #19dcea;
@@ -200,16 +182,27 @@ margin-top: 1em;
     color: #3bd80d;
   }
 }
-
-@media only screen
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-
-.CompanyMain-access-container{
- 
-/* padding: 22.5em 15em;    */
-padding-right: 0;
+.companyAccess-Message h4 {
+  padding-top: 6.5em;
+  cursor: pointer;
+  color: #b22cff;
 }
 
-    
+@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .CompanyMain-access-container {
+    /* padding: 22.5em 15em;    */
+    padding-right: 0;
+  }
+}
+
+.show-password {
+  position: absolute;
+  top: 53.5%;
+  left: 47px;
+  right: 0;
+  transform: rotateY('-50%');
+  cursor: pointer;
+  width: 1rem;
+  display: flex;
+  align-items: center;
 }

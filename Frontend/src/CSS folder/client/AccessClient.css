@@ -1,19 +1,41 @@
-
-
-.mainClient-page{
-    
+.mainClient-page {
 }
-.mainClient-page .registerWraper-conatiner{
-
+.mainClient-page .registerWraper-conatiner {
 }
-.mainClient-page .registerWraper-conatiner .registerClient-page-title{
-/* margin-right: 1em; */
+.mainClient-page .registerWraper-conatiner .registerClient-page-title {
+  /* margin-right: 1em; */
 }
-.mainClient-page .registerWraper-conatiner .registerClient-page-title h2{
-
+.mainClient-page .registerWraper-conatiner .registerClient-page-title h2 {
+}
+.mainClient-page .registerWraper-conatiner form {
+}
+#errorbox {
+  color: red;
+}
+.form-group {
+  box-sizing: border-box;
 }
 
+.password-input-container {
+  position: relative;
+}
 
-#errorbox{
-    color: red;
+.password-input-container input[type='password'] {
+  padding-right: 2.5rem; /* Make space for the toggle button */
+}
+
+.show-passwordd {
+  position: sticky;
+  /* padding-top: 5em; */
+  top: 40%;
+  right: 10.5rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  /* 
+  margin: 5px; */
+  width: 1rem;
+  margin-bottom: 7px;
+  margin-left: 7px;
 }
