@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon index.ts",
+    "start": "ts-node index.ts",
     "restart": "ts-node index.ts",
     "build": "npm install --omit=dev",
     "vercel-build": "echo hello",
