@@ -63,18 +63,10 @@ app.use('/getSumOfClientsOrder', authenticator, getSumOfClientsOrder);
 app.use('/RemoveOrder', authenticator, removeOrder);
 app.use('/logout', authenticator, logout);
 
+app.use('/*', (req: Request, res: Response) => {
+  res.status(404).send('Doesnt exists');
+});
 
-app.get('/',(req,res)=>{
-  res.status(200).send('hello');
-})
-app.get('/hello',(req,res)=>{
-  res.send('hello again');
-})
-
-// app.use('/*', (req: Request, res: Response) => {
-//   res.status(404).send('Doesnt exists');
-// });
-
-// app.listen(port, () => {
-//   console.log('server is on port ' + port);
-// });
+app.listen(port, () => {
+  console.log('server is on port ' + port);
+});
