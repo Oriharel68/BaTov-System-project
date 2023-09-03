@@ -43,7 +43,8 @@ function CompanyAccsess() {
       });
       if (data.ok === false) throw Error('err');
     } catch (error) {
-      alert('invalid user');
+      console.log(error);
+      alert("שם משתמש או סיסמא אינם נכונים");
       return;
     }
 
@@ -58,7 +59,8 @@ function CompanyAccsess() {
             navigate('/company/mainpage');
           }, 3000);
         } else {
-          throw new Error('couldnt login');
+          console.log('couldnt login');
+          alert('הכניסה נכשלה');
         }
       })
 
@@ -86,8 +88,7 @@ function CompanyAccsess() {
       <div className="CompanyMain-access-container">
         <form action="" onSubmit={(e) => handeleSingIn(e)}>
           <h3>כניסה למערכת</h3>
-          {/* <div className="topAccess-container"> */}
-          {/* <input type="text" placeholder='שם משתמש' /> */}
+
           <label className="inp">שם משתמש</label>
           <input
             type="email"
@@ -97,22 +98,7 @@ function CompanyAccsess() {
             // pattern=".{6,}"
             required
           />
-          {/* <svg
-              width="280px"
-              height="18px"
-              viewBox="0 0 280 18"
-              class="border"
-            >
-              <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>
-            </svg>
-
-            <svg width="14px" height="12px" viewBox="0 0 14 12" class="check">
-              <path d="M1 7 5.5 11 L13 1"></path>
-            </svg> */}
-
-          {/* </div> */}
-          {/* <div className="bootomAccess-container"> */}
-          {/* <input type="text" placeholder='סיסמא' /> */}
+    
           <label className="inp"> סיסמא </label>
 
           <i className="show-password">

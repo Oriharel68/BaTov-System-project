@@ -29,11 +29,11 @@ function RegestrationPage() {
         !password ||
         !rPassword
       ) {
-        alert('missing info');
+        alert('חסר מידע - השלם מחדש');
         return;
       }
       if (rPassword !== password) {
-        alert('password not the same');
+        alert('הסיסמא לא נכונה');
         return;
       }
       await createUserWithEmailAndPassword(auth, Email, password).then(
@@ -49,7 +49,8 @@ function RegestrationPage() {
           });
 
           if (!data.ok) {
-            alert(data.error);
+            alert('הזן את הפרטים מחדש');
+            console.log(data)
             userCred.user.delete();
             return;
           }
@@ -65,7 +66,9 @@ function RegestrationPage() {
         }
       );
     } catch (error) {
-      alert(error);
+      console.log(error);
+      alert('הזן את הפרטים מחחדש');
+      
     }
   }
   // check how errors are being exported
