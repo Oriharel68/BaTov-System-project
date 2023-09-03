@@ -10,6 +10,7 @@ import { FiSun } from 'react-icons/fi';
 function AcsessPage() {
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
+  const [passwordShown, setPasswordShown] = useState(false);
 
   function handleOnSubmit(event: any) {
     event.preventDefault();
@@ -28,7 +29,8 @@ function AcsessPage() {
             navigate('/order/main');
           }, 3000);
         } else {
-          throw new Error('couldnt login');
+          console.log('couldnt login');
+         alert("לא הצליח להיכנס")
         }
 
         // ...
@@ -39,7 +41,6 @@ function AcsessPage() {
       });
   }
 
-  const [passwordShown, setPasswordShown] = useState(false);
 
   // Password toggle handler
   const togglePassword = () => {
