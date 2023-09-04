@@ -12,11 +12,11 @@ router.put('/', async (req: Request, res: Response) => {
     let { Price, WorkerName, TypeOfService } = req.body;
 
     if (!Price || !WorkerName || !TypeOfService)
-      return res.status(400).send({ ok: false, error: 'invalid info' });
+      return res.status(400).json({ error: 'invalid info' });
 
     if (await ServiceProviderModel.findOne({ WorkerName }))
       //checking if a service provider exists if not adding him
-      return res.status(409).send({ ok: false, error: 'exists' });
+      return res.status(409).json({ error: 'exists' });
 
     const ServiceDB = new ServiceProviderModel({
       Price,
@@ -26,10 +26,10 @@ router.put('/', async (req: Request, res: Response) => {
     // console.log(ServiceDB);
 
     await ServiceDB.save().then((data) => {
-      return res.send({ ok: true, data });
+      return res.json({ data });
     });
   } catch (error) {
-    return res.send({ ok: false, error: error.message });
+    return res.send({error: error.message });
   }
 });
 

@@ -16,9 +16,9 @@ router.post('/', async (req: Request, res: Response) => {
       { _id },
       { WorkerName: WorkerName, TypeOfService: TypeOfService, Price: Price }
     );
-    return res.status(200).send({ ClientDB, ok: true }); //updating the service provider info
+    return res.status(200).json({ ClientDB }); //updating the service provider info
   } catch (error) {
-    return res.status(500).send({ ok: false, error: error.message });
+    return res.status(500).json({error: error.message });
   }
 });
 

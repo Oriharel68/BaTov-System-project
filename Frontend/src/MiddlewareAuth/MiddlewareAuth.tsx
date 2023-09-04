@@ -20,7 +20,7 @@ function MiddlewareAuth({ children }: { children: any }) {
         return res;
       },
       (err) => {
-        if (err.response.status === 401) {
+        if (err?.response?.status === 401) {
           return navigate('/');
         }
       }

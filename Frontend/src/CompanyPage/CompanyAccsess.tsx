@@ -38,10 +38,10 @@ function CompanyAccsess() {
     const email: any = formData.get('Email');
     const password: any = formData.get('password');
     try {
-      const { data } = await AxiosClient.post(`${Url}/companyCheck`, {
+      const response = await AxiosClient.post(`${Url}/companyCheck`, {
         email,
       });
-      if (data.ok === false) throw Error('err');
+      if (response?.status !==  200 ) return alert("שם משתמש או סיסמא אינם נכונים");
     } catch (error) {
       console.log(error);
       alert("שם משתמש או סיסמא אינם נכונים");
