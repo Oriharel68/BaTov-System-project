@@ -31,7 +31,7 @@ var mongo_uri = process.env.MONGO_URI;
 app.use(express.json());
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://batov.netlify.app'],
+    origin:true,
   })
 );
 app.use(cookie());

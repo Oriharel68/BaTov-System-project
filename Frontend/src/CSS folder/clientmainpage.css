@@ -1,275 +1,250 @@
-*{
-    text-decoration: none;
-    /* box-sizing: border-box; */
-}
-body{
-
-    /* background-color:rgb(190, 190, 190); */
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    --blue: #007bff;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #e83e8c;
-    --red: #dc3545;
-    --orange: #fd7e14;
-    --yellow: #ffc107;
-    --green: #28a745;
-    --teal: #20c997;
-    --cyan: #17a2b8;
-    --gray: #6c757d;
-    --gray-dark: #343a40;
-    --ws-red: #e83b45;
-    --dc-teal: #21e496;
-    --op-violet: #2b388f;
-    --hs-yellow: #fabd2f;
-    --dm-royalblue: #0078f6;
-    --primary: #313131;
-    --secondary: #954bff;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --light: #f8f9fa;
-    --dark: #343a40;
-    --coral: #f37460;
-    --smoke: #f9f9f9;
-    --white: #fff;
-    --black: #000;
-    --action: #006dff;
-    --support: #21e496;
-    background: linear-gradient(88.99deg, #FFDADA 20.95%, rgba(255, 235, 164, 0.35) 88.38%);
-    background-size: cover;
- 
+* {
+  text-decoration: none;
+  /* box-sizing: border-box; */
 }
 
-.page-wraper{
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    padding-top: 0.5%;
-    background-color:rgb(190, 190, 190);
-
-
+body {
+  /* background-color:rgb(190, 190, 190); */
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --ws-red: #e83b45;
+  --dc-teal: #21e496;
+  --op-violet: #2b388f;
+  --hs-yellow: #fabd2f;
+  --dm-royalblue: #0078f6;
+  --primary: #313131;
+  --secondary: #954bff;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --coral: #f37460;
+  --smoke: #f9f9f9;
+  --white: #fff;
+  --black: #000;
+  --action: #006dff;
+  --support: #21e496;
+  background: linear-gradient(
+    88.99deg,
+    #ffdada 20.95%,
+    rgba(255, 235, 164, 0.35) 88.38%
+  );
+  background-size: cover;
 }
 
-.page-wraper .mainClient-page-wraper{
-    /* padding: 15em; */
-    background-color:  #E0E0DE;
-    /* border: 1px solid black; */
-    width: 30%;
-    margin-bottom: 1.3em;
-    /* padding-bottom: 7.7%; */
+.page-wraper {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 0.5%;
+  background-color: rgb(190, 190, 190);
+}
 
-}  
+.page-wraper .mainClient-page-wraper {
+  /* padding: 15em; */
+  background-color: #e0e0de;
+  /* border: 1px solid black; */
+  width: 30%;
+  margin-bottom: 1.3em;
+  position: relative;
+  /* padding-bottom: 7.7%; */
+}
 
-.page-wraper .mainClient-page-wraper .mainClient-page .buttonContainer-client{
-    padding: 10em 0em ;
-       display: flex;
-       flex-direction: column;
-      justify-content: space-evenly;
-      max-width: 20%;
-      
-   }
+.page-wraper .mainClient-page-wraper .content-mainclient {
+  position: absolute;
+  padding-top: 4em;
+  width: 100%;
+  text-align: center;
+}
+.page-wraper .mainClient-page-wraper .content-mainclient h1 {
+}
+
+.page-wraper .mainClient-page-wraper .mainClient-page .buttonContainer-client {
+  padding: 10em 0em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-width: 20%;
+}
 
 .page-wraper .mainClient-page .buttonContainer-client button {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    max-width: 100%;
-    font-size: 24px;  
-   width: 9em;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-width: 100%;
+  font-size: 24px;
+  width: 9em;
 }
 
 /* -----------responsive page----------------- */
 /* 1467px init  820px add fix responability  */
 
-
-
-
-@media screen and (max-width: 1038px)
-and (min-width: 821px) 
-and (-webkit-min-device-pixel-ratio: 2) {
-    .page-wraper{
-     
-        padding-top: 0px;
-        overflow-y: hidden;
-    }
-    .page-wraper .mainClient-page-wraper{
-      
-        width: 40%;
-        margin-bottom: 0;
-    }   
-    
-        
-
-
-    }
-    
-
-
-    @media screen and (min-width: 912px) and (max-width: 1368px) 
-    {
-       .page-wraper{
-           /* position: fixed; */
-           /* height: 100%;  */
-           /* overflow: hidden ; */
-           padding-top: 0px;
-           overflow-y: hidden;
-       }
-       .page-wraper .mainClient-page-wraper{
-            /* padding-bottom: 40%;          */
-           width: 70%;
-           margin-bottom: 3em;
-           margin-top: 3em;
-       }   
-       .page-wraper .mainClient-page-wraper .mainClient-page{
-           padding: 15em 0 ;
-           /* padding-bottom: 100em; */
-   
-           max-width: 100%;
-           display: flex;
-           justify-content: center; 
-       
-   
-       }
-   
-   
-   
-       .page-wraper .mainClient-page-wraper .mainClient-page .buttonContainer-client{
-        /* padding: 10em 0em ; */
-        padding-left:5em 0em ;
-     
-           display: flex;
-           flex-direction: column;
-          justify-content: space-evenly;
-          max-width: 20%;
-          
-       }
-   
-   
-       .page-wraper .mainClient-page .buttonContainer-client button {
-           box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-           /* max-width: 100%; */
-           font-size: 24px;  
-          width: 9em;
-           }
-   
-   }
-
-
-    @media screen and (max-width: 820px) 
-    {
-       .page-wraper{
-           /* position: fixed; */
-           /* height: 100%;  */
-           /* overflow: hidden ; */
-           padding-top: 0px;
-           overflow-y: hidden;
-       }
-       .page-wraper .mainClient-page-wraper{
-            /* padding-bottom: 40%;          */
-           width: 100%;
-           margin-bottom: 0;
-       }   
-       .page-wraper .mainClient-page-wraper .mainClient-page{
-           padding: 15em 0 ;
-           /* padding-bottom: 100em; */
-   
-           max-width: 100%;
-           display: flex;
-           justify-content: center; 
-       
-   
-       }
-   
-   
-   
-       .page-wraper .mainClient-page-wraper .mainClient-page .buttonContainer-client{
-        /* padding: 10em 0em ; */
-        padding-left:5em 0em ;
-     
-           display: flex;
-           flex-direction: column;
-          justify-content: space-evenly;
-          max-width: 20%;
-          
-       }
-   
-   
-       .page-wraper .mainClient-page .buttonContainer-client button {
-           box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-           /* max-width: 100%; */
-           font-size: 24px;  
-          width: 9em;
-           }
-   
-   }
-   
-
-
-   @media screen and (max-width: 820px) 
-and (-webkit-min-device-pixel-ratio: 2) {
-    .page-wraper{
-        /* position: fixed; */
-        /* height: 100%;  */
-        /* overflow: hidden ; */
-        padding-top: 0px;
-        overflow-y: hidden;
-    }
-    .page-wraper .mainClient-page-wraper{
-         /* padding-bottom: 40%;          */
-        width: 100%;
-        margin-bottom: 0;
-    }   
-    .page-wraper .mainClient-page-wraper .mainClient-page{
-        padding: 15em 0 ;
-        /* padding-bottom: 100em; */
-
-        max-width: 100%;
-        display: flex;
-        justify-content: center; 
-    
-
-    }
-
-
-
-    .page-wraper .mainClient-page-wraper .mainClient-page .buttonContainer-client{
-     /* padding: 10em 0em ; */
-     padding-left:5em 0em ;
-  
-        display: flex;
-        flex-direction: column;
-       justify-content: space-evenly;
-       max-width: 20%;
-       
-    }
-
-
-    .page-wraper .mainClient-page .buttonContainer-client button {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        /* max-width: 100%; */
-        font-size: 24px;  
-       width: 9em;
-        }
-
+@media screen and (max-width: 1038px) and (min-width: 821px) and (-webkit-min-device-pixel-ratio: 2) {
+  .page-wraper {
+    padding-top: 0px;
+    overflow-y: hidden;
+  }
+  .page-wraper .mainClient-page-wraper {
+    width: 40%;
+    margin-bottom: 0;
+  }
 }
 
+@media screen and (min-width: 912px) and (max-width: 1368px) {
+  .page-wraper {
+    /* position: fixed; */
+    /* height: 100%;  */
+    /* overflow: hidden ; */
+    padding-top: 0px;
+    overflow-y: hidden;
+  }
+  .page-wraper .mainClient-page-wraper {
+    /* padding-bottom: 40%;          */
+    width: 70%;
+    margin-bottom: 3em;
+    margin-top: 3em;
+  }
+  .page-wraper .mainClient-page-wraper .mainClient-page {
+    padding: 15em 0;
+    /* padding-bottom: 100em; */
 
-    /* 280 */
-    
-    
-    @media screen and (max-width: 281px)
-    and (-webkit-min-device-pixel-ratio: 1) {
-        .page-wraper{
-         
-            padding-top: 0px;
-            overflow-y: hidden;
-        }
-        .page-wraper .mainClient-page-wraper{
-          
-            width: 100%;
-            margin-bottom: 0;
-        }   
-    
-    }
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-wraper
+    .mainClient-page-wraper
+    .mainClient-page
+    .buttonContainer-client {
+    /* padding: 10em 0em ; */
+    padding-left: 5em 0em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 20%;
+  }
+
+  .page-wraper .mainClient-page .buttonContainer-client button {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* max-width: 100%; */
+    font-size: 24px;
+    width: 9em;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .page-wraper {
+    /* position: fixed; */
+    /* height: 100%;  */
+    /* overflow: hidden ; */
+    padding-top: 0px;
+    overflow-y: hidden;
+  }
+  .page-wraper .mainClient-page-wraper {
+    /* padding-bottom: 40%;          */
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .page-wraper .mainClient-page-wraper .mainClient-page {
+    padding: 15em 0;
+    /* padding-bottom: 100em; */
+
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-wraper
+    .mainClient-page-wraper
+    .mainClient-page
+    .buttonContainer-client {
+    /* padding: 10em 0em ; */
+    padding-left: 5em 0em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 20%;
+  }
+
+  .page-wraper .mainClient-page .buttonContainer-client button {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* max-width: 100%; */
+    font-size: 24px;
+    width: 9em;
+  }
+}
+
+@media screen and (max-width: 820px) and (-webkit-min-device-pixel-ratio: 2) {
+  .page-wraper {
+    /* position: fixed; */
+    /* height: 100%;  */
+    /* overflow: hidden ; */
+    padding-top: 0px;
+    overflow-y: hidden;
+  }
+  .page-wraper .mainClient-page-wraper {
+    /* padding-bottom: 40%;          */
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .page-wraper .mainClient-page-wraper .mainClient-page {
+    padding: 15em 0;
+    /* padding-bottom: 100em; */
+
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-wraper
+    .mainClient-page-wraper
+    .mainClient-page
+    .buttonContainer-client {
+    /* padding: 10em 0em ; */
+    padding-left: 5em 0em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 20%;
+  }
+
+  .page-wraper .mainClient-page .buttonContainer-client button {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* max-width: 100%; */
+    font-size: 24px;
+    width: 9em;
+  }
+}
+
+/* 280 */
+
+@media screen and (max-width: 281px) and (-webkit-min-device-pixel-ratio: 1) {
+  .page-wraper {
+    padding-top: 0px;
+    overflow-y: hidden;
+  }
+  .page-wraper .mainClient-page-wraper {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
