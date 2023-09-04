@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React, { memo, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -13,10 +13,7 @@ function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }: any) {
   useEffect(() => {
     async function getorders() {
       const { TypeOfService, WorkerName } = Provider;
-      const { data } = await AxiosClient.post(`${Url}/getExistingOrders`, {
-        TypeOfService,
-        WorkerName,
-      });
+      const { data } = await AxiosClient.get(`${Url}/getExistingOrders?TypeOfService=${TypeOfService}&WorkerName=${WorkerName}`);
       const FilterTime = data.map((item: any) => {
         return item.DateTime;
       });
@@ -32,17 +29,17 @@ function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }: any) {
     setSelectedDate(a.getTime());
   }, [startDate]);
 
-  const isWeekday = (date: any) => {
+  const isWeekday = (date: Date) => {
     const day = date.getDay();
     return day !== 5 && day !== 6; // without saturday and friday
   };
 
-  const filterPassedTime = (time: any) => {
+  const filterPassedTime = (time: number) => {
     let isBusy = true;
     const currentDate = new Date();
     const selectedDate = new Date(time);
 
-    OrderData.forEach((item: any) => {
+    OrderData.forEach((item: number) => {
       if (item == selectedDate.getTime()) {
         isBusy = false;
       }
@@ -58,7 +55,7 @@ function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }: any) {
       locale={he}
       minDate={CurrentDate}
       filterDate={(date) => isWeekday(date)}
-      filterTime={filterPassedTime}
+      filterTime={filterPassedTime as any}
       dateFormat="d MMMM, yyyy h:mm aa"
     />
   );

@@ -9,7 +9,7 @@ const OrdersModel: Model<Order> = require('../models/OrderModel');
 router.get('/', async (req: Request, res: Response) => {
   try {
     const OrdersDB = await OrdersModel.find(); // find the orders of the company
-    res.send({ ok: true, Orders: OrdersDB });
+    return res.status(200).send({Orders: OrdersDB });
   } catch (error) {
     console.log(error.message);
     return res.status(500).send({ ok: false, error: error.message });

@@ -22,7 +22,7 @@ function AcsessPage() {
       .then(async (userCredential) => {
         const uid = userCredential.user.uid;
         const response = await AxiosClient.post(`${Url}/login`, { uid });
-        if (response.status === 200 && response.data.token) {
+        if (response?.status === 200 && response?.data?.token) {
           window.localStorage.setItem('accessToken',response?.data?.token);
           setLoggedin(true);
           setTimeout(() => {
@@ -36,6 +36,7 @@ function AcsessPage() {
         // ...
       })
       .catch((error) => {
+        alert(error);
         const errorbox: any = document.querySelector('#errorbox');
         errorbox.innerText = `משתמש או סיסמה אינם נכונים`;
       });

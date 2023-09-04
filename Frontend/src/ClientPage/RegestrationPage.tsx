@@ -40,7 +40,7 @@ function RegestrationPage() {
         async (userCred) => {
           //what happen after a user register
           const firebaseUid = userCred.user.uid;
-          const { data } = await AxiosClient.post(`${Url}/register`, {
+          const response = await AxiosClient.post(`${Url}/register`, {
             FirstName,
             LastName,
             Email,
@@ -48,9 +48,8 @@ function RegestrationPage() {
             firebaseUid,
           });
 
-          if (!data.ok) {
+          if (response?.status !== 200) {
             alert('הזן את הפרטים מחדש');
-            console.log(data)
             userCred.user.delete();
             return;
           }

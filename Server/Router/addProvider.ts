@@ -26,10 +26,10 @@ router.put('/', async (req: Request, res: Response) => {
     // console.log(ServiceDB);
 
     await ServiceDB.save().then((data) => {
-      return res.json({ data });
+      return res.status(200).json({ data });
     });
   } catch (error) {
-    return res.send({error: error.message });
+    return res.status(500).send({error: error.message });
   }
 });
 
