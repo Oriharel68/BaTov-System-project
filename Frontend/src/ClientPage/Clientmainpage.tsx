@@ -1,8 +1,6 @@
 import React from 'react';
 import ClientNavBar from '../nav/ClientNavBar';
 import { Link } from 'react-router-dom';
-import RegestrationPage from './RegestrationPage';
-import app from '../FireBase/auth';
 
 function Clientmainpage() {
   return (
@@ -14,6 +12,9 @@ function Clientmainpage() {
 
         <div className="mainClient-page-wraper">
           <ClientNavBar />
+          <div className="content-mainclient">
+            <h1 className="TContent">BaTov system</h1>
+          </div>
 
           <div className="mainClient-page">
             <div className="buttonContainer-client">

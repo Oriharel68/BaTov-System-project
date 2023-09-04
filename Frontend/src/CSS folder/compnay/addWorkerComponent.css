@@ -436,14 +436,40 @@ display: flex;
 justify-content: center;
 /* padding-top: 1em; */
 width: 100%;
+
 padding-bottom: 18.5em;
 
 }
 .Worker-list-container .main-worker-list-container  table{
   margin-top: 20px;
-  width: 80%;
+  width: 90%;
   max-width: 100%;
+ 
  
 }
 
+
+  }
+
+
+  @media screen and (min-width: 280px) 
+  and (max-width: 653px){
+    .Worker-list-container .main-worker-list-container  table{
+      margin-top: 20px;
+      width: 90%;
+      max-width: 100%;
+      overflow-x: scroll;
+      font-size: 10px;
+     
+     
+    }
+   .topics-container .button-30{
+   
+    font-size: 10px;
+
+      
+    }
+    .topics-container .TContent{
+      width: 38.5%;
+    }
   }

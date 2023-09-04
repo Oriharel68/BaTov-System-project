@@ -8,7 +8,7 @@ import AcsessPage from '../ClientPage/AcsessPage';
 import OrderMain from '../ClientPage/OrderMain';
 import NewOrder from '../ClientPage/NewOrder';
 import CompanyAccsess from '../CompanyPage/CompanyAccsess';
-import CompantMainPage from '../CompanyPage/CompantMainPage';
+import CompantMainPage from '../CompanyPage/CompanyMainPage';
 import AddworkerCompany from '../CompanyPage/subTitlelsComponents/AddworkerCompany';
 import CompnatCalenderDetaills from '../CompanyPage/subTitlelsComponents/CompnatCalenderDetaills';
 import OrderOfTheCompany from '../CompanyPage/subTitlelsComponents/OrderOfTheCompany';
