@@ -42,11 +42,7 @@ function CompanyAccsess() {
         email,
       });
       if (response?.status !==  200 ) return alert("שם משתמש או סיסמא אינם נכונים");
-    } catch (error) {
-      console.log(error);
-      alert("שם משתמש או סיסמא אינם נכונים");
-      return;
-    }
+  
 
     await signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
@@ -77,6 +73,10 @@ function CompanyAccsess() {
         Message = Message.replace(':', 'd');
         errorbox.innerText = `${Message}:`;
       });
+    } catch (error) {
+      console.log(error);
+      return alert("שם משתמש או סיסמא אינם נכונים");
+    }
   }
 
   return (

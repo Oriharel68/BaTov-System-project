@@ -59,9 +59,10 @@ function AddworkerCompany() {
   useEffect(() => {
     async function getServiceProviders() {
       try {
-        const { data } = await AxiosClient.get(`${Url}/getServiceProvider`);
+        const response = await AxiosClient.get(`${Url}/getServiceProvider`);
+        if(response?.status !== 200)return alert('שגיאה בעת בקשת עובדים');
+        const {data} = response;
         setServiceProviders(data);
-
         setVisible(true);
       } catch (err) {
         console.log(err);

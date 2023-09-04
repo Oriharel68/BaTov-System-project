@@ -13,13 +13,13 @@ router.post('/', async (req: Request, res: Response) => {
     const result = await ServiceProvider.deleteOne({ WorkerName });
 
     if (!result) {
-      return res.status(400).send({ ok: false });
+      return res.sendStatus(400);
     } else {
-      return res.status(200).send({ ok: true });
+      return res.sendStatus(200);
     }
   } catch (error) {
     console.log(error.message);
-    return res.status(500).send({ ok: false, error: error.message });
+    return res.status(500).send({ error: error.message });
   }
 });
 

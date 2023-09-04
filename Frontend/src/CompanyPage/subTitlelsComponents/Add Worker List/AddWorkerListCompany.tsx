@@ -11,29 +11,29 @@ import EditStyle from './EditDialogStyle';
 import Url from '../../../ApiClient/Url';
 import AxiosClient from '../../../ApiClient/AxiosClient';
 function AddWorkerListCompany({ item, setChange, Change }: any) {
-  // console.log(item);
+
   const { Price, TypeOfService, WorkerName } = item;
   const [showSecondDiv, setShowSecondDiv] = useState(false);
   function handleClick() {
-    // setShowSecondDiv(true);
+    
     setShowSecondDiv(!showSecondDiv);
   }
 
   async function handleRemove(event: any) {
     try {
-      const { data } = await AxiosClient.post(`${Url}/removeworker`, {
+      const response = await AxiosClient.post(`${Url}/removeworker`, {
         // TypeOfService,
         WorkerName,
         // Price,
       });
 
-      if (!data.ok) {
-        alert(data.error);
-        toast.error(`מחיקת העובד נכשלה`);
-      } else if (data.ok) {
+      if (response.status !== 200) {
+        alert(response.data.error);
+        return toast.error(`מחיקת העובד נכשלה`);
+      } 
         setChange(Change + 1);
         toast.success('העובד נמחק בהצלחה');
-      }
+      
     } catch (error) {
       toast.error(`מחיקת העובד נכשלה`);
     }

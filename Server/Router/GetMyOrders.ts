@@ -7,27 +7,27 @@ const router: Router = express.Router();
 const OrdersModel: Model<Order> = require('../models/OrderModel');
 const ClientsModel: Model<Client> = require('../models/ClientsModel');
 
-router.post('/', async (req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
   try {
-    const { Email } = req.body;
+    const { Email } = req.query;
     if (!Email)
       return res
         .status(400)
-        .send({ ok: false, error: 'No email(in post /GetMyOrders)' });
+        .json({error: 'No email(in post /GetMyOrders)' });
 
     const Client = await ClientsModel.findOne({ Email });
     if (!Client)
       return res
         .status(400)
-        .send({ ok: false, error: 'No email(in post /GetMyOrders)' });
+        .json({error: 'No email(in post /GetMyOrders)' });
 
     const MyOrders = await OrdersModel.find({
       ClientId: Client._id.toString(),
     });
-    return res.status(200).send(MyOrders);
+    return res.status(200).json(MyOrders);
   } catch (error) {
     console.log(error.message);
-    return res.status(500).send({ ok: false, error: error });
+    return res.status(500).json({ error: error });
   }
 });
 

@@ -13,15 +13,13 @@ function ExistingOrder() {
   const [OldOrders, setOldOrders] = useState([]);
   const [Changed, setChanged] = useState(0);
   const [Auth] = useState(auth);
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function getOrdersData() {
       try {
-        const { data } = await AxiosClient.post(`${Url}/GetMyOrders`, {
-          Email: Auth?.currentUser?.email,
-        });
-
+        const response = await AxiosClient.get(`${Url}/GetMyOrders?Email=${Auth?.currentUser?.email}`);
+        if(response.status!==200)return alert('שגיאה בעת יבוא ההזמנות');
+        const {data} =response
         const currdate: any = new Date().getTime();
         const oldOrders: any = [];
         const OngoingOrders: any = []; ///do with splice to save memory

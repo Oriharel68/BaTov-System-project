@@ -28,7 +28,7 @@ router.get('/', async (req: Request, res: Response) => {
         };
       })
     ).then((value) => {
-      return res.status(200).send(value);
+      return res.status(200).json(value);
     });
   } catch (error) {
     return res.status(500).send(error);

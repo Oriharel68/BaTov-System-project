@@ -31,16 +31,15 @@ function NewOrder() {
       return;
     }
 
-    const message = await AxiosClient.post(`${Url}/addOrder`, {
+    const response = await AxiosClient.post(`${Url}/addOrder`, {
       TypeOfService,
       WorkerName,
       Email: auth.currentUser.email,
       DateTime: SelectedDate,
       Price,
     });
-    if (!message.data.ok) {
-      alert('order could not be placed');
-      return;
+    if (response?.status !== 200) {
+     return alert('order could not be placed');
     }
     navigate('/order/orderCompelte');
   };
@@ -53,7 +52,10 @@ function NewOrder() {
   useEffect(() => {
     async function getServiceProviders() {
       try {
-        const { data } = await AxiosClient.get(`${Url}/getServiceProvider`);
+        const response = await AxiosClient.get(`${Url}/getServiceProvider`);
+        
+        if(response?.status !== 200)return alert('שגיאה בעת בקשת עובדים');
+        const {data} = response;
         setServiceProviders(data);
       } catch (err) {
         console.log(err);
