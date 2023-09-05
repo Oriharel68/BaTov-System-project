@@ -67,7 +67,6 @@ function RegestrationPage() {
     } catch (error) {
       console.log(error);
       alert('הזן את הפרטים מחחדש');
-      
     }
   }
   // check how errors are being exported
@@ -75,12 +74,8 @@ function RegestrationPage() {
   // console.log(app);
   //   const onSubmit = (values) => {...};
   return (
-    <div>
-      {/* nav component */}
+    <>
       <div className="page-wraper">
-        {/* bdika vdika */}
-        {/* <ClientNavBar/> */}
-
         <div className="mainClient-page-wraper">
           <ClientNavBar />
           {}
@@ -140,25 +135,21 @@ function RegestrationPage() {
                     min={10}
                     required
                   />
-
-                  {/* <svg width="280px" height="18px" viewBox="0 0 280 18" class="border">
-    <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>
-  </svg>
-  <svg width="14px" height="12px" viewBox="0 0 14 12" class="check">
-    <path d="M1 7 5.5 11 L13 1"></path>
-  </svg> */}
                 </label>
-                {/* <div className="buttonContainer-client"> */}
-                {/* <Link to={'/client/registrationCompalete'}>   */}
+                <div className="register-btn-Container go-To-Access-page">
+                  כבר יש לך חשבון?{' '}
+                  <Link to={'/client/access'} className="hoverMe">
+                    {' '}
+                    היכנס{' '}
+                  </Link>{' '}
+                </div>
                 <button>הרשמה</button>
-                {/* </Link>  */}
-                {/* </div> */}
               </form>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -73,11 +73,6 @@ body {
   text-align: center;
 }
 .page-wraper .mainClient-page-wraper .content-mainclient span {
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 5em;
-  letter-spacing: -2px;
-  border-bottom: 2px solid black;
-  text-transform: uppercase;
 }
 
 /* ***************************************** */

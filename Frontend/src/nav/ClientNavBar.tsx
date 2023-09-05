@@ -7,7 +7,7 @@ function ClientNavBar() {
     <div>
       <div className="navBar-Client">
         <div className="logo-client-icon">
-          <Link to={'/client/main'}>
+          <Link to={'/client/access'}>
             {' '}
             <NavLogo />
           </Link>
