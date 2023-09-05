@@ -12,8 +12,9 @@ function Clientmainpage() {
 
         <div className="mainClient-page-wraper">
           <ClientNavBar />
+
           <div className="content-mainclient">
-            <h1 className="TContent">BaTov system</h1>
+            <span className="TContent">BaTov system-היכנס ל</span>
           </div>
 
           <div className="mainClient-page">

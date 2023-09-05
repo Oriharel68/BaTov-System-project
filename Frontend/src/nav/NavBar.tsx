@@ -27,7 +27,7 @@ function NavBar() {
             <Link to={'/company/access'} id="T">
               <button>חברה</button>
             </Link>
-            <Link to={'/client/main'} id="T" className="r1">
+            <Link to={'/client/access'} id="T" className="r1">
               {' '}
               <button>לקוח</button>
             </Link>

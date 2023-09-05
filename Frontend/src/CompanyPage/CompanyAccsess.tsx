@@ -41,41 +41,41 @@ function CompanyAccsess() {
       const response = await AxiosClient.post(`${Url}/companyCheck`, {
         email,
       });
-      if (response?.status !==  200 ) return alert("שם משתמש או סיסמא אינם נכונים");
-  
+      if (response?.status !== 200)
+        return alert('שם משתמש או סיסמא אינם נכונים');
 
-    await signInWithEmailAndPassword(auth, email, password)
-      .then(async (userCredential) => {
-        const uid = userCredential.user.uid;
-        const response = await AxiosClient.post(`${Url}/login`, { uid });
-        if (response.status === 200 && response.data.token) {
-          window.localStorage.setItem('accessToken',response?.data?.token);
-          setLoggedin(true);
-          setTimeout(() => {
-            navigate('/company/mainpage');
-          }, 3000);
-        } else {
-          console.log('couldnt login');
-          alert('הכניסה נכשלה');
-        }
-      })
+      await signInWithEmailAndPassword(auth, email, password)
+        .then(async (userCredential) => {
+          const uid = userCredential.user.uid;
+          const response = await AxiosClient.post(`${Url}/login`, { uid });
+          if (response.status === 200 && response.data.token) {
+            window.localStorage.setItem('accessToken', response?.data?.token);
+            setLoggedin(true);
+            setTimeout(() => {
+              navigate('/company/mainpage');
+            }, 3000);
+          } else {
+            console.log('couldnt login');
+            alert('הכניסה נכשלה');
+          }
+        })
 
-      .catch((error) => {
-        let errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        // console.log(`${errorCode}:${errorMessage}`);
-        const errorbox: any = document.querySelector(
-          '#errorbox'
-        ) as HTMLElement;
-        console.log(errorCode);
-        let Message = '' + errorCode.replace('auth/', '');
-        Message = Message.replace(':', 'd');
-        errorbox.innerText = `${Message}:`;
-      });
+        .catch((error) => {
+          let errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          // console.log(`${errorCode}:${errorMessage}`);
+          const errorbox: any = document.querySelector(
+            '#errorbox'
+          ) as HTMLElement;
+          console.log(errorCode);
+          let Message = '' + errorCode.replace('auth/', '');
+          Message = Message.replace(':', 'd');
+          errorbox.innerText = `${Message}:`;
+        });
     } catch (error) {
       console.log(error);
-      return alert("שם משתמש או סיסמא אינם נכונים");
+      return alert('שם משתמש או סיסמא אינם נכונים');
     }
   }
 
@@ -98,7 +98,7 @@ function CompanyAccsess() {
             // pattern=".{6,}"
             required
           />
-    
+
           <label className="inp"> סיסמא </label>
 
           <i className="show-password">
@@ -123,7 +123,7 @@ function CompanyAccsess() {
             onClick={handleMouseEnter}
             //  onMouseLeave={handleMouseLeave}
           >
-            <a id="forget" href="#">
+            <a id="forget" href="#" className="hoverMe">
               שכחתי סיסמה
             </a>
 

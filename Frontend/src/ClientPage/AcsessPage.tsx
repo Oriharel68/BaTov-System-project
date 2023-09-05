@@ -23,14 +23,14 @@ function AcsessPage() {
         const uid = userCredential.user.uid;
         const response = await AxiosClient.post(`${Url}/login`, { uid });
         if (response?.status === 200 && response?.data?.token) {
-          window.localStorage.setItem('accessToken',response?.data?.token);
+          window.localStorage.setItem('accessToken', response?.data?.token);
           setLoggedin(true);
           setTimeout(() => {
             navigate('/order/main');
           }, 3000);
         } else {
           console.log('couldnt login');
-         alert("לא הצליח להיכנס")
+          alert('לא הצליח להיכנס');
         }
 
         // ...
@@ -41,7 +41,6 @@ function AcsessPage() {
         errorbox.innerText = `משתמש או סיסמה אינם נכונים`;
       });
   }
-
 
   // Password toggle handler
   const togglePassword = () => {
@@ -57,7 +56,20 @@ function AcsessPage() {
           <ClientNavBar />
 
           <div className="mainClient-page">
-            <div className="registerWraper-conatiner">
+            <div className="registerWraper-conatiner ">
+              <div className=" content-client-header TContent">
+                <p className="">היכנס ל - </p>
+                <p
+                  className="marker"
+                  style={{
+                    textDecoration: 'underLine',
+                    transform: 'rotate(-4deg)',
+                  }}
+                >
+                  BaTov system{' '}
+                </p>
+              </div>
+
               <div className="registerClient-page-title">
                 <h2>התחברות</h2>
               </div>
@@ -94,9 +106,19 @@ function AcsessPage() {
                 >
                   <Link to={'/client/forgetPassword'}>
                     {' '}
-                    <a href="#">שכחת סיסמה?</a>{' '}
+                    <a href="#" className="hoverMe">
+                      שכחת את הסיסמה?
+                    </a>{' '}
                   </Link>
                 </div>
+                <div className="register-btn-Container">
+                  אין לך חשבון?{' '}
+                  <Link to={'/client/registration'} className="hoverMe">
+                    {' '}
+                    המשך להרשמה{' '}
+                  </Link>{' '}
+                </div>
+
                 <button className="signin-button" type="submit">
                   התחבר
                 </button>

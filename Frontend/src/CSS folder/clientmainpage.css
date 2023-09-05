@@ -65,15 +65,17 @@ body {
   /* padding-bottom: 7.7%; */
 }
 
+/* ***************************************** */
 .page-wraper .mainClient-page-wraper .content-mainclient {
   position: absolute;
-  padding-top: 4em;
+  padding-top: 1em;
   width: 100%;
   text-align: center;
 }
-.page-wraper .mainClient-page-wraper .content-mainclient h1 {
+.page-wraper .mainClient-page-wraper .content-mainclient span {
 }
 
+/* ***************************************** */
 .page-wraper .mainClient-page-wraper .mainClient-page .buttonContainer-client {
   padding: 10em 0em;
   display: flex;
@@ -237,7 +239,13 @@ body {
 }
 
 /* 280 */
-
+/* not sure if the buttn works on the small screen need to check */
+@media screen and (max-width: 281px) and (max-width: 654px) {
+  #button-30 {
+    font-size: 0.5px important!;
+    padding: 5.8em;
+  }
+}
 @media screen and (max-width: 281px) and (-webkit-min-device-pixel-ratio: 1) {
   .page-wraper {
     padding-top: 0px;
@@ -246,5 +254,8 @@ body {
   .page-wraper .mainClient-page-wraper {
     width: 100%;
     margin-bottom: 0;
+  }
+  .button-30 {
+    font-size: 1em important!;
   }
 }
