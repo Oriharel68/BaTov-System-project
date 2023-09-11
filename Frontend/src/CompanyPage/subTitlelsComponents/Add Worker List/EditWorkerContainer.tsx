@@ -1,16 +1,10 @@
-import axios from 'axios';
-import React, { Ref, RefObject, useRef } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { useRef } from 'react';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Url from '../../../ApiClient/Url';
 import AxiosClient from '../../../ApiClient/AxiosClient';
 
-function EditWorkerContainer({
-  item,
-  Change,
-  setChange,
-  setShowSecondDiv,
-}: any) {
+function EditWorkerContainer({ item, Change, setChange, setShowSecondDiv }: any) {
   const { Price, TypeOfService, WorkerName, _id } = item;
 
   const InputWokrerNameref: any = useRef();
@@ -26,17 +20,7 @@ function EditWorkerContainer({
     // InputPriceNameref
     try {
       if (!Price || !TypeOfService || !TypeOfService) {
-        // alert("missing info");
-        // ref.current.style.color = "red";
-        // ref.current.innerText = "חסר מידע -בבקשה השלם את כל המידע הנדרש";
-        toast.error('אנא השלם את המידע הנדרש', {
-          // position: "bottom-center",
-          // autoClose: 2000,
-          // hideProgressBar: false,
-          // closeOnClick: true,
-          // progress: undefined,
-          // theme: "dark",
-        });
+        toast.error('אנא השלם את המידע הנדרש');
         return;
       }
       let { data } = await AxiosClient.post(`${Url}/EditCompanyWorker`, {
@@ -62,7 +46,6 @@ function EditWorkerContainer({
   }
   return (
     <div className="Editing-container">
-      {/* <ToastContainer /> */}
       <h3>עריכה</h3>
       <input
         type="text"
@@ -88,11 +71,7 @@ function EditWorkerContainer({
         placeholder={`מחיר /עלות בדיקה-- ${Price}`}
         min="0"
       />
-      <button
-        onClick={(event) => handleEdit(event)}
-        className="button-30"
-        role="button"
-      >
+      <button onClick={(event) => handleEdit(event)} className="button-30" role="button">
         בצע שינוי{' '}
       </button>
       <button id="close" onClick={() => setShowSecondDiv(false)}>

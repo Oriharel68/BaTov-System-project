@@ -1,23 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import IncomesList from "./subTitlelsComponents/order list's/IncomesList";
 import CombaibnedNavCompany from '../nav/CombaibnedNavCompany';
-import {
-  getOrderWithDate,
-  getMoneyByDay,
-  getMoneyByMonth,
-  getMoneyByYear,
-} from '../Helpjs/help';
-import {
-  GetOrdersByMonth,
-  MoneyByMonth,
-} from './subTitlelsComponents/Statistic Compant List/GetData';
+import { getOrderWithDate, getMoneyByDay, getMoneyByMonth, getMoneyByYear } from '../Helpjs/help';
+import { GetOrdersByMonth, MoneyByMonth } from './subTitlelsComponents/Statistic Compant List/GetData';
 import StatisticCompanyLine from './subTitlelsComponents/Statistic Compant List/StatisticCompanyLine';
 
-import {
-  AiFillFacebook,
-  AiOutlineInstagram,
-  AiOutlineMail,
-} from 'react-icons/ai';
+import { AiOutlineMail } from 'react-icons/ai';
 import MoneyStatistics from './MoneyStatistics';
 
 import NavLogo from '../Main page/NavLogo';
@@ -25,7 +13,6 @@ import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 
 function CompantMainPage() {
-
   const [orderData, setOrdersData]: any = useState([]);
   const [allClients, SetAllClients]: any = useState([]);
   const [TotalSum, setTotalSum]: any = useState(0);
@@ -42,7 +29,6 @@ function CompantMainPage() {
         const { Orders } = Promises[0].data;
         const SumClients = Promises[1].data;
         SetAllClients(SumClients);
-        // ActiveOrders(Orders, Clients);
         SumOfClients(SumClients);
         setOrdersData(getOrderWithDate(Orders));
         const OrderByM = GetOrdersByMonth(Orders);
@@ -55,8 +41,7 @@ function CompantMainPage() {
     }
     function SumOfClients(Clients: any) {
       const Total = Clients.reduce(
-        (accumulator: any, currentValue: any) =>
-          accumulator + currentValue.Total,
+        (accumulator: any, currentValue: any) => accumulator + currentValue.Total,
         0
       );
       const TotalWithoutTax = Total - Total * 0.17;
@@ -64,7 +49,6 @@ function CompantMainPage() {
     }
     getOrdersData();
   }, []);
-
 
   return (
     <>

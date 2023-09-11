@@ -1,14 +1,13 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import ClientNavBar from '../nav/ClientNavBar';
-import { getAuth } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 import Auth from '../FireBase/auth';
 function OrderMain() {
-  const navigate = useNavigate();
   const [userAuth, setUserAuth] = useState(Auth);
   const [UserName, setUserName] = useState('');
 
+  //אחרי שעושים ריפרש לדף הוא עדיין יהיה מחובר(הצג של השם פרטי+משפחה)--זה הפתרון
   useEffect(() => {
     const getUserName = () => {
       userAuth.onAuthStateChanged((user: any) => {
@@ -19,7 +18,7 @@ function OrderMain() {
   }, []);
 
   return (
-    <div>
+    <>
       <div className="page-wraper">
         <div className="mainClient-page-wraper">
           <ClientNavBarOrderMain />
@@ -33,7 +32,6 @@ function OrderMain() {
               <Link to={'/order/newOrder'}>
                 <button>הזמנה חדשה</button>
               </Link>
-              {/* change the client order list:*/}
               <Link to={'/order/ExistingOrder'}>
                 {' '}
                 <button style={{ marginTop: '25px', paddingRight: '17px' }}>
@@ -44,7 +42,7 @@ function OrderMain() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

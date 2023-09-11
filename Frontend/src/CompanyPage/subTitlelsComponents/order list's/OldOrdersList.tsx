@@ -1,4 +1,3 @@
-import React from 'react';
 import { setDate } from '../../../Helpjs/help';
 
 function OldOrdersList({ item }: any) {

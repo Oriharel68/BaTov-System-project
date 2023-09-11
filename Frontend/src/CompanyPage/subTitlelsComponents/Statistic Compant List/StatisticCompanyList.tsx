@@ -1,8 +1,4 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-
 function StatisticCompanyList({ item }: any) {
-  //  console.log(item);
   const { Price, TypeOfService, WorkerName, _id } = item;
 
   return (
@@ -24,27 +20,6 @@ function StatisticCompanyList({ item }: any) {
           <td>₪ {Price}</td>
           <td>{_id}</td>
         </tr>
-        {/* <tr>
-    <td>Lois</td>
-    <td>Griffin</td>
-    <td>$150</td>
-    <td>$100</td>
-
-  </tr>
-  <tr>
-    <td>Joe</td>
-    <td>Swanson</td>
-    <td>$300</td>
-    <td>$100</td>
-
-  </tr>
-  <tr>
-    <td>Cleveland</td>
-    <td>Brown</td>
-    <td>$250</td>
-    <td>$100</td>
-
-  </tr> */}
       </table>
     </div>
   );

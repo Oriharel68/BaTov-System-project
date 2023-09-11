@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import NavBar from '../nav/NavBar';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import auth from '../FireBase/auth';
 import { AiOutlineMail } from 'react-icons/ai';
-import axios from 'axios';
 import { PiHandEyeDuotone } from 'react-icons/pi';
 import Modal from 'react-modal';
 import style from '../ClientPage/ModalStyle/RemoveOrderStyle';
@@ -13,20 +12,14 @@ import AxiosClient from '../ApiClient/AxiosClient';
 
 function CompanyAccsess() {
   const [showSecondDiv, setShowSecondDiv] = useState(false);
-
   const handleMouseEnter = () => {
     setShowSecondDiv(!showSecondDiv);
   };
   const [passwordShown, setPasswordShown] = useState(false);
-
   // Password toggle handler
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
-
-  // const handleMouseLeave = () => {
-  //   setShowSecondDiv(false);
-  // };
 
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
@@ -41,46 +34,41 @@ function CompanyAccsess() {
       const response = await AxiosClient.post(`${Url}/companyCheck`, {
         email,
       });
-      if (response?.status !== 200)
-        return alert('שם משתמש או סיסמא אינם נכונים');
+      if (response?.status !== 200) return alert('שם משתמש או סיסמא אינם נכונים');
 
       await signInWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {
+          setLoggedin(true);
           const uid = userCredential.user.uid;
           const response = await AxiosClient.post(`${Url}/login`, { uid });
           if (response.status === 200 && response.data.token) {
-            window.localStorage.setItem('accessToken', response?.data?.token);
-            setLoggedin(true);
-            setTimeout(() => {
-              navigate('/company/mainpage');
-            }, 3000);
+            window.sessionStorage.setItem('accessToken', response?.data?.token);
+            navigate('/company/mainpage');
           } else {
-            console.log('couldnt login');
+            setLoggedin(false);
             alert('הכניסה נכשלה');
           }
         })
 
         .catch((error) => {
+          setLoggedin(false);
           let errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorMessage);
-          // console.log(`${errorCode}:${errorMessage}`);
-          const errorbox: any = document.querySelector(
-            '#errorbox'
-          ) as HTMLElement;
+          const errorbox: HTMLElement = document.querySelector('#errorbox') as HTMLElement;
           console.log(errorCode);
           let Message = '' + errorCode.replace('auth/', '');
           Message = Message.replace(':', 'd');
           errorbox.innerText = `${Message}:`;
         });
     } catch (error) {
-      console.log(error);
+      setLoggedin(false);
       return alert('שם משתמש או סיסמא אינם נכונים');
     }
   }
 
   return (
-    <div>
+    <>
       <div className="CompanyNav-container">
         <NavBar />
       </div>
@@ -90,14 +78,7 @@ function CompanyAccsess() {
           <h3>כניסה למערכת</h3>
 
           <label className="inp">שם משתמש</label>
-          <input
-            type="email"
-            name="Email"
-            id="inp"
-            placeholder="שם משתמש"
-            // pattern=".{6,}"
-            required
-          />
+          <input type="email" name="Email" id="inp" placeholder="שם משתמש" required />
 
           <label className="inp"> סיסמא </label>
 
@@ -109,20 +90,11 @@ function CompanyAccsess() {
             name="password"
             id="inp"
             placeholder="סיסמא"
-            // pattern=".{6,}"
             required
           />
 
-          {Loggedin ? (
-            <div className="custom-loader"></div>
-          ) : (
-            <h4 id="errorbox"></h4>
-          )}
-          <div
-            className="form-group forgot-password"
-            onClick={handleMouseEnter}
-            //  onMouseLeave={handleMouseLeave}
-          >
+          {Loggedin ? <div className="custom-loader"></div> : <h4 id="errorbox"></h4>}
+          <div className="form-group forgot-password" onClick={handleMouseEnter}>
             <a id="forget" href="#" className="hoverMe">
               שכחתי סיסמה
             </a>
@@ -132,8 +104,7 @@ function CompanyAccsess() {
                 isOpen={showSecondDiv}
                 onRequestClose={handleMouseEnter}
                 style={style as any}
-                ariaHideApp={false}
-              >
+                ariaHideApp={false}>
                 <div className="companyAccess-Message">
                   <h3 className="T">בבקשה תפנו למערכות התמיכה</h3>
                   <p> שלחו מייל ונענה בהקדם ☏</p>
@@ -151,7 +122,7 @@ function CompanyAccsess() {
           </button>
         </form>
       </div>
-    </div>
+    </>
   );
 }
 

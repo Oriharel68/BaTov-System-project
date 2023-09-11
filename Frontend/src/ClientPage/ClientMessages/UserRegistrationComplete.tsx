@@ -1,14 +1,18 @@
-import React from "react";
-import NavBar from "../../nav/NavBar";
-import ClientNavBar from "../../nav/ClientNavBar";
-
+import { useEffect } from 'react';
+import ClientNavBar from '../../nav/ClientNavBar';
+import { useNavigate } from 'react-router-dom';
 function UserRegistrationComplete() {
-  return (
-    <div>
-      <div className="page-wraper">
-        {/* bdika vdika */}
-        {/* <ClientNavBar/> */}
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    setTimeout(() => {
+      navigate('/client/access');
+    }, 3000);
+  }, []);
+
+  return (
+    <>
+      <div className="page-wraper">
         <div className="mainClient-page-wraper">
           <ClientNavBar />
 
@@ -30,7 +34,7 @@ function UserRegistrationComplete() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

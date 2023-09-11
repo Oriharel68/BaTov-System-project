@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ClientNavBar from '../nav/ClientNavBar';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import auth from '../FireBase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Url from '../ApiClient/Url';
@@ -15,28 +15,25 @@ function AcsessPage() {
   function handleOnSubmit(event: any) {
     event.preventDefault();
     const formData = new FormData(event.target);
-
     const email: any = formData.get('Email');
     const password: any = formData.get('password');
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
+        setLoggedin(true);
         const uid = userCredential.user.uid;
         const response = await AxiosClient.post(`${Url}/login`, { uid });
         if (response?.status === 200 && response?.data?.token) {
-          window.localStorage.setItem('accessToken', response?.data?.token);
-          setLoggedin(true);
-          setTimeout(() => {
-            navigate('/order/main');
-          }, 3000);
+          window.sessionStorage.setItem('accessToken', response?.data?.token);
+          navigate('/order/main');
         } else {
-          console.log('couldnt login');
+          setLoggedin(false);
           alert('לא הצליח להיכנס');
         }
 
         // ...
       })
-      .catch((error) => {
-        alert(error);
+      .catch(() => {
+        setLoggedin(false);
         const errorbox: any = document.querySelector('#errorbox');
         errorbox.innerText = `משתמש או סיסמה אינם נכונים`;
       });
@@ -48,13 +45,10 @@ function AcsessPage() {
   };
 
   return (
-    <div>
+    <>
       <div className="page-wraper">
-        {/* bdika vdika */}
-        {/* <ClientNavBar/> */}
         <div className="mainClient-page-wraper">
           <ClientNavBar />
-
           <div className="mainClient-page">
             <div className="registerWraper-conatiner ">
               <div className=" content-client-header TContent">
@@ -64,8 +58,7 @@ function AcsessPage() {
                   style={{
                     textDecoration: 'underLine',
                     transform: 'rotate(-4deg)',
-                  }}
-                >
+                  }}>
                   BaTov system{' '}
                 </p>
               </div>
@@ -75,13 +68,7 @@ function AcsessPage() {
               </div>
               <form onSubmit={(event) => handleOnSubmit(event)}>
                 <div className="form-group">
-                  <input
-                    type="email"
-                    id="Email"
-                    name="Email"
-                    placeholder="אימייל"
-                    required
-                  />
+                  <input type="email" id="Email" name="Email" placeholder="אימייל" required />
                 </div>
                 <div className="form-group">
                   <i className="show-passwordd">
@@ -95,15 +82,9 @@ function AcsessPage() {
                     required
                   />
                 </div>
-                {Loggedin ? (
-                  <div className="custom-loader"></div>
-                ) : (
-                  <h4 id="errorbox"></h4>
-                )}
-                <div
-                  className="form-group forgot-password"
-                  style={{ marginTop: '2em' }}
-                >
+                {Loggedin ? <div className="custom-loader"></div> : <></>}
+                <h4 id="errorbox"></h4>
+                <div className="form-group forgot-password" style={{ marginTop: '2em' }}>
                   <Link to={'/client/forgetPassword'}>
                     {' '}
                     <a href="#" className="hoverMe">
@@ -127,7 +108,7 @@ function AcsessPage() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

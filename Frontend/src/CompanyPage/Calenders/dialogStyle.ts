@@ -1,6 +1,5 @@
 const Style = {
   overlay: {
-    // backgroundColor:'red',
     backdropFilter: 'blur(2px)',
   },
 

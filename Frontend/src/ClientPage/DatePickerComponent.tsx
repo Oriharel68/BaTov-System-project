@@ -1,5 +1,4 @@
-
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import he from 'date-fns/locale/he';
@@ -13,7 +12,9 @@ function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }: any) {
   useEffect(() => {
     async function getorders() {
       const { TypeOfService, WorkerName } = Provider;
-      const { data } = await AxiosClient.get(`${Url}/getExistingOrders?TypeOfService=${TypeOfService}&WorkerName=${WorkerName}`);
+      const { data } = await AxiosClient.get(
+        `${Url}/getExistingOrders?TypeOfService=${TypeOfService}&WorkerName=${WorkerName}`
+      );
       const FilterTime = data.map((item: any) => {
         return item.DateTime;
       });
