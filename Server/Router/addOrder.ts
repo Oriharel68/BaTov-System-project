@@ -12,7 +12,8 @@ router.post('/', async (req: Request, res: Response) => {
     let { TypeOfService, WorkerName, Email, DateTime, Price } = req.body;
     if (!TypeOfService || !WorkerName || !Email || !DateTime || !Price) {
       return res.status(400).json({
-          error: 'missing info complete required info(in get /addOrder)'}); //checking if one of them empty
+        error: 'missing info complete required info(in get /addOrder)',
+      }); //checking if one of them empty
     }
     const clientId = await ClientsModel.findOne({ Email }); //finding the client that want to add an order
     if (!clientId) {
