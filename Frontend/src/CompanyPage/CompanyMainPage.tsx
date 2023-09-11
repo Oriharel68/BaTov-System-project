@@ -25,9 +25,8 @@ import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 
 function CompantMainPage() {
-  // fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
   const [orderData, setOrdersData]: any = useState([]);
-  const [OrdersActive, setOrdersActive]: any = useState([]);
   const [allClients, SetAllClients]: any = useState([]);
   const [TotalSum, setTotalSum]: any = useState(0);
   const [LineStatistic, SetLineStatistic]: any = useState([]);
@@ -38,14 +37,12 @@ function CompantMainPage() {
       try {
         const Promises = await Promise.all([
           AxiosClient.get(`${Url}/getAllOrders`),
-          AxiosClient.get(`${Url}/findAllClients`),
           AxiosClient.get(`${Url}/getSumOfClientsOrder`),
         ]);
-        const Clients = Promises[1].data;
         const { Orders } = Promises[0].data;
-        const SumClients = Promises[2].data;
+        const SumClients = Promises[1].data;
         SetAllClients(SumClients);
-        ActiveOrders(Orders, Clients);
+        // ActiveOrders(Orders, Clients);
         SumOfClients(SumClients);
         setOrdersData(getOrderWithDate(Orders));
         const OrderByM = GetOrdersByMonth(Orders);
@@ -55,25 +52,6 @@ function CompantMainPage() {
       } catch (error) {
         console.log(error);
       }
-    }
-    function ActiveOrders(Orders: any, Clients: any) {
-      const currdate = new Date().getTime();
-
-      const oldOrders: any = [];
-      const OngoingOrders: any = [];
-
-      const OrdersWithName = Orders.map((item: any) => {
-        const With = Clients.find((value: any) => {
-          return value._id === item.ClientId;
-        });
-        return { ...item, ClientName: `${With.FirstName} ${With.LastName}` };
-      });
-
-      OrdersWithName.forEach((item: any) => {
-        if (currdate > item.DateTime) oldOrders.push(item);
-        else OngoingOrders.push(item);
-      });
-      setOrdersActive(OngoingOrders);
     }
     function SumOfClients(Clients: any) {
       const Total = Clients.reduce(
@@ -86,22 +64,7 @@ function CompantMainPage() {
     }
     getOrdersData();
   }, []);
-  /*
-const sumWithInitial = array1.reduce(
-  (accumulator, currentValue) => accumulator + currentValue,
-  initialValue
-);
-*/
 
-  //cheking the user if in/ out
-  // console.log(userIn);
-
-  // useEffect(() => {
-  //   if (userAuth.currentUser == null) {
-  //     navigate("/");
-  //     alert("useer is not assianged");
-  //   }
-  // }, []);
 
   return (
     <>

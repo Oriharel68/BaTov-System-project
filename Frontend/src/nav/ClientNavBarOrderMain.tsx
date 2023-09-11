@@ -39,10 +39,10 @@ function ClientNavBarOrderMain() {
           window.localStorage.removeItem('accessToken');
           toast.success('התנתקות הצליחה');
           setTimeout(() => {
-            navigate('/client/main');
+            navigate('/client/access');
           }, 1500);
         } else {
-          throw new Error('no authorized');
+          throw new Error('אין הרשאה');
         }
       })
       .catch((error) => {

@@ -1,12 +1,9 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany';
-import axios from 'axios';
 import ActiceOrdersList from "./order list's/ActiceOrdersList";
-// import OldOrders from "./order list's/OldOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
-import Url from '../../ApiClient/Url';
-import AxiosClient from '../../ApiClient/AxiosClient';
+import {getOrdersData} from '../../Helpjs/help'
 
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
@@ -28,54 +25,60 @@ function OrderOfTheCompany() {
 
   // console.log(allClients);
   useEffect(() => {
-    async function getOrdersData() {
-      let Clients: any, Orders: any;
-      try {
-        await Promise.all([
-          AxiosClient.get(`${Url}/findAllClients`),
-          AxiosClient.get(`${Url}/getSumOfClientsOrder`),
-          AxiosClient.get(`${Url}/getAllOrders`),
-        ]).then((values) => {
-          values.forEach((item: any, index: number) => {
-            if (item.request.responseURL.includes('/findAllClients')) {
-              Clients = values[index].data;
-            } else if (
-              item.request.responseURL.includes('/getSumOfClientsOrder')
-            ) {
-              totalSum(values[index].data);
-              setAllClients(values[index].data);
-            } else {
-              Orders = values[index].data.Orders;
-            }
-          });
-        });
-        // console.log(Clients);
-        const currdate = new Date().getTime();
+    // async function getOrdersData() {
+    //   let Clients: any, Orders: any;
+    //   try {
+    //     await Promise.all([
+    //       AxiosClient.get(`${Url}/findAllClients`),
+    //       AxiosClient.get(`${Url}/getSumOfClientsOrder`),
+    //       AxiosClient.get(`${Url}/getAllOrders`),
+    //     ]).then((values) => {
+    //       values.forEach((item: any, index: number) => {
+    //         if (item.request.responseURL.includes('/findAllClients')) {
+    //           Clients = values[index].data;
+    //         } else if (item.request.responseURL.includes('/getSumOfClientsOrder')) {
+    //           totalSum(values[index].data);
+    //           setAllClients(values[index].data);
+    //         } else {
+    //           Orders = values[index].data.Orders;
+    //         }
+    //       });
+    //     });
+    //     // console.log(Clients);
+    //     const currdate = new Date().getTime();
 
-        const oldOrders: any = [];
-        const OngoingOrders: any = [];
+    //     const oldOrders: any = [];
+    //     const OngoingOrders: any = [];
 
-        const OrdersWithName = Orders.map((item: any) => {
-          const With = Clients.find((value: any) => {
-            return value._id === item.ClientId;
-          });
+    //     const OrdersWithName = Orders.map((item: any) => {
+    //       const With = Clients.find((value: any) => {
+    //         return value._id === item.ClientId;
+    //       });
 
-          return { ...item, ClientName: `${With.FirstName} ${With.LastName}` };
-        });
-        // setAllClients(OrdersWithName)
+    //       return { ...item, ClientName: `${With.FirstName} ${With.LastName}` };
+    //     });
+        
 
-        OrdersWithName.forEach((item: any) => {
-          if (currdate > item.DateTime) oldOrders.push(item);
-          else OngoingOrders.push(item);
-        });
-        setOldOrders(oldOrders);
-        setActiveOrders(OngoingOrders);
-        setVisible(true);
-      } catch (err) {
-        console.log(err);
-      }
+    //     OrdersWithName.forEach((item: any) => {
+    //       if (currdate > item.DateTime) oldOrders.push(item);
+    //       else OngoingOrders.push(item);
+    //     });
+    //     setOldOrders(oldOrders);
+    //     setActiveOrders(OngoingOrders);
+    //     setVisible(true);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // }
+    async function getSetData(){
+      const [oldOrders,OngoingOrders,SumClientsMoney,Success] = await getOrdersData();
+      totalSum(SumClientsMoney);
+      setAllClients(SumClientsMoney);
+      setOldOrders(oldOrders);
+      setActiveOrders(OngoingOrders);
+      setVisible(Success);
     }
-    getOrdersData();
+    getSetData();
     const updateColspan = () => {
       setColspan(window.innerWidth <= 689 ? 3 : 2);
     };
@@ -91,24 +94,7 @@ function OrderOfTheCompany() {
     };
   }, []);
 
-  // מעמ
-  // 17%
-  // const subtotalSum = allClients.reduce(
-  //   (accumulator, currentValue:any) => accumulator + currentValue.Total,
-  //   0
-  // );
-
-  // const ordersWithTax = oldOrders.map((order:any) => ({
-  //   ...order,
-  //   PriceWithTax: (order.Price * (1 + TAX_RATE)).toFixed(2),
-  // }));
-  // const subtotalSumTAX = ordersWithTax.reduce(
-  //   (accumulator, currentValue) =>
-  //     accumulator + (currentValue.PriceWithTax - currentValue.Price),
-  //   0
-  // );
-
-  // const TOTAL_VALUE = subtotalSum - subtotalSumTAX;
+ 
 
   return (
     <div>
