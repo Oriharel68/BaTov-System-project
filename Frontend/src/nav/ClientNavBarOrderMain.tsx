@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState, memo } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Url from '../ApiClient/Url';
-import { getAuth, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { GrCircleInformation } from 'react-icons/gr';
 import { IoExit } from 'react-icons/io5';
 import NavLogo from '../Main page/NavLogo';
@@ -30,13 +30,12 @@ function ClientNavBarOrderMain() {
   };
   async function handleOnSubmit(event: any) {
     event.preventDefault();
-
     await signOut(auth)
       .then(async () => {
         // Sign-out successful.
         const response = await AxiosClient.post(`${Url}/logout`);
         if (response.status === 200) {
-          window.localStorage.removeItem('accessToken');
+          window.sessionStorage.removeItem('accessToken');
           toast.success('התנתקות הצליחה');
           setTimeout(() => {
             navigate('/client/access');
@@ -51,7 +50,7 @@ function ClientNavBarOrderMain() {
   }
 
   return (
-    <div>
+    <>
       <ToastContainer
         position="top-center"
         autoClose={1000}
@@ -78,25 +77,13 @@ function ClientNavBarOrderMain() {
         </div>
 
         <div className="right-orderClient-container">
-          <button
-            id="information"
-            onClick={handleMouseEnter}
-            // style={{fontSize:}}
-          >
+          <button id="information" onClick={handleMouseEnter}>
             <GrCircleInformation />
           </button>
 
-          {/* <Link to={"/client/main"}> */}
-
-          {/* <a href="" id="LU"> */}
-          {/* <CgProfile id="LOGOUT"/> */}
           <button onClick={(event) => handleOnSubmit(event)} id="exit-client">
             <IoExit />
           </button>
-
-          {/* </a> */}
-
-          {/* </Link> */}
         </div>
       </div>
       {showSecondDiv && (
@@ -105,12 +92,9 @@ function ClientNavBarOrderMain() {
             setShowSecondDiv((prev) => !prev);
           }}
           style={NavStyle as any}
-          isOpen={showSecondDiv}
-        >
+          isOpen={showSecondDiv}>
           <div className="close-information-client-container">
-            <span onClick={() => setShowSecondDiv((prev) => !prev)}>
-              &times;
-            </span>
+            <span onClick={() => setShowSecondDiv((prev) => !prev)}>&times;</span>
           </div>
           <div className="client-order-message">
             <ul>
@@ -132,15 +116,14 @@ function ClientNavBarOrderMain() {
               </li>
               <li>
                 <b className="marker">ניהול הזמנות: </b>
-                לאחר ההזמנה, גשו ללוח הבקרה האישי שלכם כדי לראות ולנהל את
-                ההזמנות שלכם.
+                לאחר ההזמנה, גשו ללוח הבקרה האישי שלכם כדי לראות ולנהל את ההזמנות שלכם.
               </li>
             </ul>
           </div>
         </Modal>
       )}
-    </div>
+    </>
   );
 }
 
-export default ClientNavBarOrderMain;
+export default memo(ClientNavBarOrderMain);

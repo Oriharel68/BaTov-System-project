@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import NavLogo from '../Main page/NavLogo';
 
@@ -8,10 +7,6 @@ function CompanyNavBar() {
       <Link to={'/company/mainpage'}>
         <div>
           <NavLogo />
-          {/* <div className="subTitle-company" >
-        <Companysubtitle/>
-        </div>
-    */}
         </div>
       </Link>
     </>

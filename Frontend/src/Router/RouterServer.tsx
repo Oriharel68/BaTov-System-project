@@ -1,5 +1,4 @@
-import React, { createContext, useState } from 'react';
-import { Route, Routes, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import ErorPage from '../ErorPage/ErorPage';
 import Main from '../Main page/Main';
 import Clientmainpage from '../ClientPage/Clientmainpage';
@@ -10,7 +9,7 @@ import NewOrder from '../ClientPage/NewOrder';
 import CompanyAccsess from '../CompanyPage/CompanyAccsess';
 import CompantMainPage from '../CompanyPage/CompanyMainPage';
 import AddworkerCompany from '../CompanyPage/subTitlelsComponents/AddworkerCompany';
-import CompnatCalenderDetaills from '../CompanyPage/subTitlelsComponents/CompnatCalenderDetaills';
+import CompnatCalenderDetaills from '../CompanyPage/subTitlelsComponents/CompnayCalenderDetaills';
 import OrderOfTheCompany from '../CompanyPage/subTitlelsComponents/OrderOfTheCompany';
 import UserRegistrationComplete from '../ClientPage/ClientMessages/UserRegistrationComplete';
 import OrderCompelteMessage from '../ClientPage/ClientMessages/OrderCompelteMessage';
@@ -19,7 +18,7 @@ import ForgetPassword from '../ClientPage/ForgetPassword';
 import MiddlewareAuth from '../MiddlewareAuth/MiddlewareAuth';
 function RouterServer() {
   return (
-    <div>
+    <>
       <Router>
         <MiddlewareAuth>
           {/* <NavBar/> */}
@@ -44,26 +43,16 @@ function RouterServer() {
             <Route path="/company/mainpage" element={<CompantMainPage />} />
             {/* subtitels */}
             <Route path="/company/AddWorker" element={<AddworkerCompany />} />
-            <Route
-              path="/company/Calender"
-              element={<CompnatCalenderDetaills />}
-            />
-            {/* <Route path="/company/Statistics" element={<StatisticCompany/>} /> */}
+            <Route path="/company/Calender" element={<CompnatCalenderDetaills />} />
 
             <Route path="/company/Orders" element={<OrderOfTheCompany />} />
             {/* messages */}
-            <Route
-              path="/client/registrationCompalete"
-              element={<UserRegistrationComplete />}
-            />
-            <Route
-              path="/order/orderCompelte"
-              element={<OrderCompelteMessage />}
-            />
+            <Route path="/client/registrationCompalete" element={<UserRegistrationComplete />} />
+            <Route path="/order/orderCompelte" element={<OrderCompelteMessage />} />
           </Routes>
         </MiddlewareAuth>
       </Router>
-    </div>
+    </>
   );
 }
 

@@ -1,11 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import ClientNavBar from '../nav/ClientNavBar';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NewOrderList from './NewOrderList';
 import DatePickerComponent from './DatePickerComponent';
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
-import { getAuth } from 'firebase/auth';
 import Url from '../ApiClient/Url';
 import Auth from '../FireBase/auth';
 import AxiosClient from '../ApiClient/AxiosClient';
@@ -21,8 +18,6 @@ function NewOrder() {
   if (CurrentDate.getDay() === 5 || CurrentDate.getDay() === 6) {
     CurrentDate.setDate(CurrentDate.getDate() + 2);
   }
-  //useMemo
-  //   const calculation = useMemo(() => expensiveCalculation(count), [count]);
 
   const handleComplete = async () => {
     const { TypeOfService, WorkerName, Price } = Provider;
@@ -39,7 +34,7 @@ function NewOrder() {
       Price,
     });
     if (response?.status !== 200) {
-     return alert('order could not be placed');
+      return alert('order could not be placed');
     }
     navigate('/order/orderCompelte');
   };
@@ -53,9 +48,9 @@ function NewOrder() {
     async function getServiceProviders() {
       try {
         const response = await AxiosClient.get(`${Url}/getServiceProvider`);
-        
-        if(response?.status !== 200)return alert('שגיאה בעת בקשת עובדים');
-        const {data} = response;
+
+        if (response?.status !== 200) return alert('שגיאה בעת בקשת עובדים');
+        const { data } = response;
         setServiceProviders(data);
       } catch (err) {
         console.log(err);
@@ -63,10 +58,9 @@ function NewOrder() {
     }
     getServiceProviders();
   }, []);
-  // console.log(ServiceProviders);
 
   return (
-    <div>
+    <>
       <div className="page-wraper">
         <div className="mainClient-page-wraper">
           <ClientNavBarOrderMain />
@@ -80,11 +74,7 @@ function NewOrder() {
                     <div className="New-order-list-wraper">
                       {ServiceProviders.map((item: any) => {
                         return (
-                          <NewOrderList
-                            item={item}
-                            key={item._id}
-                            addServiceProvider={addServiceProvider}
-                          />
+                          <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider} />
                         );
                       })}
                     </div>
@@ -110,7 +100,7 @@ function NewOrder() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,46 +1,36 @@
-import axios from 'axios';
-// import { log } from 'console';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import EditWorkerContainer from './EditWorkerContainer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FiEdit3, FiDelete } from 'react-icons/fi';
+import { FiEdit3 } from 'react-icons/fi';
 import { AiOutlineUserDelete } from 'react-icons/ai';
 import Modal from 'react-modal';
 import EditStyle from './EditDialogStyle';
 import Url from '../../../ApiClient/Url';
 import AxiosClient from '../../../ApiClient/AxiosClient';
 function AddWorkerListCompany({ item, setChange, Change }: any) {
-
   const { Price, TypeOfService, WorkerName } = item;
   const [showSecondDiv, setShowSecondDiv] = useState(false);
   function handleClick() {
-    
     setShowSecondDiv(!showSecondDiv);
   }
 
   async function handleRemove(event: any) {
     try {
       const response = await AxiosClient.post(`${Url}/removeworker`, {
-        // TypeOfService,
         WorkerName,
-        // Price,
       });
 
       if (response.status !== 200) {
-        alert(response.data.error);
         return toast.error(`מחיקת העובד נכשלה`);
-      } 
-        setChange(Change + 1);
-        toast.success('העובד נמחק בהצלחה');
-      
+      }
+      setChange(Change + 1);
+      toast.success('העובד נמחק בהצלחה');
     } catch (error) {
       toast.error(`מחיקת העובד נכשלה`);
     }
   }
   return (
-    // <div className='workers-list'>
-
     <>
       <td>{WorkerName}</td>
       <td>{TypeOfService}</td>
@@ -63,8 +53,7 @@ function AddWorkerListCompany({ item, setChange, Change }: any) {
           onRequestClose={() => {
             setShowSecondDiv(!showSecondDiv);
           }}
-          style={EditStyle as any}
-        >
+          style={EditStyle as any}>
           <EditWorkerContainer
             setShowSecondDiv={setShowSecondDiv}
             item={item}
@@ -86,8 +75,6 @@ function AddWorkerListCompany({ item, setChange, Change }: any) {
         theme="colored"
       />
     </>
-
-    // </div>
   );
 }
 

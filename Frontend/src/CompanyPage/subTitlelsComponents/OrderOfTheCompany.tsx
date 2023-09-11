@@ -1,9 +1,9 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import CombaibnedNavCompany from '../../nav/CombaibnedNavCompany';
 import ActiceOrdersList from "./order list's/ActiceOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
-import {getOrdersData} from '../../Helpjs/help'
+import { getOrdersData } from '../../Helpjs/help';
 
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState([]);
@@ -15,68 +15,19 @@ function OrderOfTheCompany() {
   const [colspan, setColspan] = useState(1);
 
   const totalSum = useCallback((allOrders: any) => {
-    const Total: number = allOrders.reduce(
-      (acc: any, value: any) => acc + value.Total,
-      0
-    );
+    const Total: number = allOrders.reduce((acc: any, value: any) => acc + value.Total, 0);
 
     setTotalMoney(Total);
   }, []);
 
-  // console.log(allClients);
   useEffect(() => {
-    // async function getOrdersData() {
-    //   let Clients: any, Orders: any;
-    //   try {
-    //     await Promise.all([
-    //       AxiosClient.get(`${Url}/findAllClients`),
-    //       AxiosClient.get(`${Url}/getSumOfClientsOrder`),
-    //       AxiosClient.get(`${Url}/getAllOrders`),
-    //     ]).then((values) => {
-    //       values.forEach((item: any, index: number) => {
-    //         if (item.request.responseURL.includes('/findAllClients')) {
-    //           Clients = values[index].data;
-    //         } else if (item.request.responseURL.includes('/getSumOfClientsOrder')) {
-    //           totalSum(values[index].data);
-    //           setAllClients(values[index].data);
-    //         } else {
-    //           Orders = values[index].data.Orders;
-    //         }
-    //       });
-    //     });
-    //     // console.log(Clients);
-    //     const currdate = new Date().getTime();
-
-    //     const oldOrders: any = [];
-    //     const OngoingOrders: any = [];
-
-    //     const OrdersWithName = Orders.map((item: any) => {
-    //       const With = Clients.find((value: any) => {
-    //         return value._id === item.ClientId;
-    //       });
-
-    //       return { ...item, ClientName: `${With.FirstName} ${With.LastName}` };
-    //     });
-        
-
-    //     OrdersWithName.forEach((item: any) => {
-    //       if (currdate > item.DateTime) oldOrders.push(item);
-    //       else OngoingOrders.push(item);
-    //     });
-    //     setOldOrders(oldOrders);
-    //     setActiveOrders(OngoingOrders);
-    //     setVisible(true);
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // }
-    async function getSetData(){
-      const [oldOrders,OngoingOrders,SumClientsMoney,Success] = await getOrdersData();
+    async function getSetData() {
+      const [oldOrders, OngoingOrders, SumClientsMoney] = await getOrdersData();
       totalSum(SumClientsMoney);
       setAllClients(SumClientsMoney);
       setOldOrders(oldOrders);
       setActiveOrders(OngoingOrders);
-      setVisible(Success);
+      setVisible(true);
     }
     getSetData();
     const updateColspan = () => {
@@ -94,10 +45,8 @@ function OrderOfTheCompany() {
     };
   }, []);
 
- 
-
   return (
-    <div>
+    <>
       <CombaibnedNavCompany />
       <div className="main-ordeList-container">
         <div id="not-in-print" className="orderReceipts-container">
@@ -165,7 +114,6 @@ function OrderOfTheCompany() {
             )}
           </table>
         </div>
-        {/* need to add styling  */}
         <div className="orderReceipts-container">
           <div className="subTititle-container">
             <h3>הכנסות</h3>
@@ -194,13 +142,10 @@ function OrderOfTheCompany() {
             <td colSpan={colspan}>
               <div className="subTotal-Incomes-container">
                 <div className="right-cotainer">
-                  {/* <p> ₪{subtotalSum?.toLocaleString()}</p> */}
                   <p>₪{totalmoney.toLocaleString()}</p>
-                  {/* <p> ₪{subtotalSumTAX?.toLocaleString()}</p> */}
                   <p>₪{(totalmoney * 0.17).toLocaleString()}</p>
                   <p id="emphasis">
                     {' '}
-                    {/* <b> ₪{TOTAL_VALUE?.toLocaleString()} </b>{" "} */}
                     <b>₪{(totalmoney - totalmoney * 0.17).toLocaleString()}</b>
                   </p>
                 </div>
@@ -216,7 +161,7 @@ function OrderOfTheCompany() {
           </table>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

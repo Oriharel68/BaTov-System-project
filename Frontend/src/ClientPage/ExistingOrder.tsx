@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
 import ExistingOrderList from './ExistingOrderList';
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
-import { getAuth } from 'firebase/auth';
 import auth from '../FireBase/auth';
-import { useNavigate } from 'react-router-dom';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 
@@ -18,8 +15,8 @@ function ExistingOrder() {
     async function getOrdersData() {
       try {
         const response = await AxiosClient.get(`${Url}/GetMyOrders?Email=${Auth?.currentUser?.email}`);
-        if(response.status!==200)return alert('שגיאה בעת יבוא ההזמנות');
-        const {data} =response
+        if (response.status !== 200) return alert('שגיאה בעת יבוא ההזמנות');
+        const { data } = response;
         const currdate: any = new Date().getTime();
         const oldOrders: any = [];
         const OngoingOrders: any = []; ///do with splice to save memory
@@ -38,7 +35,7 @@ function ExistingOrder() {
   }, [Changed]);
 
   return (
-    <div>
+    <>
       <div className="page-wraper">
         <div className="mainClient-page-wraper">
           <ClientNavBarOrderMain />
@@ -64,10 +61,7 @@ function ExistingOrder() {
                       })}
                     </div>
                   ) : (
-                    <h4
-                      className="marker"
-                      style={{ marginTop: '1em', marginBottom: '1em' }}
-                    >
+                    <h4 className="marker" style={{ marginTop: '1em', marginBottom: '1em' }}>
                       💀אין הזמנות כלל
                     </h4>
                   )}
@@ -98,7 +92,7 @@ function ExistingOrder() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
