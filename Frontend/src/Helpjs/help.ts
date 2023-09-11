@@ -1,13 +1,12 @@
+
+import Url from '../ApiClient/Url'
+import AxiosClient from '../ApiClient/AxiosClient';
+
 export function setDate(dat: number) {
   const targetdate = new Date();
   targetdate.setTime(dat);
-  return ` יום ${ToAday(
-    targetdate.getDay()
-  )} ${targetdate.getHours()}:${AddZero(
-    targetdate.getMinutes()
-  )},${targetdate.getDate()}/${
-    targetdate.getMonth() + 1
-  }/${targetdate.getFullYear()}`;
+  return ` יום ${ToAday(targetdate.getDay())} ${targetdate.getHours()}:${AddZero(targetdate.getMinutes())},${targetdate.getDate()}/${
+    targetdate.getMonth() + 1}/${targetdate.getFullYear()}`;
 }
 
 function ToAday(numDay: number) {
@@ -78,4 +77,53 @@ function calculateSum(orders: any) {
     0
   );
   return sumWithInitial;
+}
+
+
+export async function getOrdersData() :Promise<any> {
+  let Clients: any, Orders: any,SumClientsMoney:any;
+  try {
+    await Promise.all([
+      AxiosClient.get(`${Url}/findAllClients`),
+      AxiosClient.get(`${Url}/getSumOfClientsOrder`),
+      AxiosClient.get(`${Url}/getAllOrders`),
+    ]).then((values) => {
+      values.forEach((item: any, index: number) => {
+        if (item.request.responseURL.includes('/findAllClients')) {
+          Clients = values[index].data;
+        } else if (item.request.responseURL.includes('/getSumOfClientsOrder')) {
+          SumClientsMoney = values[index].data;
+        } else {
+          Orders = values[index].data.Orders;
+        }
+      });
+    });
+    const currdate = new Date().getTime();
+
+    const oldOrders: any = [];
+    const OngoingOrders: any = [];
+
+    const OrdersWithName = Orders.map((item: any) => {
+      const With = Clients.find((value: any) => {
+        return value._id === item.ClientId;
+      });
+
+      return { ...item, ClientName: `${With.FirstName} ${With.LastName}` };
+    });
+    
+
+    OrdersWithName.forEach((item: any) => {
+      if (currdate > item.DateTime) oldOrders.push(item);
+      else OngoingOrders.push(item);
+    });
+    // setOldOrders(oldOrders);
+    // setActiveOrders(OngoingOrders);
+    // setVisible(true);
+    return [oldOrders,OngoingOrders,SumClientsMoney,true];
+  } catch (err:any) {
+    console.log(err);
+    
+    return err;
+  }
+ 
 }
