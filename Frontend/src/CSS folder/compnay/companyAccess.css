@@ -11,13 +11,9 @@
 }
 .CompanyMain-access-container form {
   margin-top: 2.5em;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: start; */
   height: 520px;
   width: 400px;
   max-width: 80%;
-
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
   transform: translate(-50%, -50%);
@@ -51,7 +47,6 @@
   margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
-
   direction: rtl;
 }
 ::placeholder {
@@ -70,24 +65,17 @@
 }
 
 .CompanyMain-access-container .topAccess-container {
-  /* background-color: blue; */
 }
-/* .CompanyMain-access-container .topAccess-container input{
-padding: 1em 2em;
-} */
 
 .CompanyMain-access-container .bootomAccess-container {
   margin-top: 35px;
-  /* background-color: red; */
 }
-/*  .forgot-password --- options */
+/*                                                                   .Forget Password --- options */
 .forgot-password {
   margin-top: '2em';
   direction: rtl;
-  /* background-color: red; */
 }
 .forgot-password :hover {
-  /* text-decoration: underline; */
 }
 
 #forget :hover {
@@ -104,10 +92,8 @@ padding: 1em 2em;
   height: 80%;
   max-width: 83%;
   margin-top: 1em;
-  /* animation: color-change-5x 8s linear infinite alternate both; */
 }
 .companyAccess-Message a {
-  /* padding-right: 1em; */
   padding-top: 1.5em;
   font-size: 25px;
   -webkit-animation: color-change-5x 8s linear infinite alternate both;
@@ -190,7 +176,6 @@ padding: 1em 2em;
 
 @media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
   .CompanyMain-access-container {
-    /* padding: 22.5em 15em;    */
     padding-right: 0;
   }
 }

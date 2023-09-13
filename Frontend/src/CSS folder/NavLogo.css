@@ -1,104 +1,50 @@
-.content-logo{
-    position: relative;
-
-    width: 174px;
-    height: 61px;
-    /* background: #D9D9D9; */
-    padding: 1em;
-    margin-left: 1em; 
-  /* mix-blend-mode: darken; */
-
-
-/* background-color: red; */
-color: #090303;
-display: flex;
-/* width: 116px;
-height: 116px; */
-flex-direction: column;
-justify-content: center;
-box-sizing: border-box;
-/* padding-left: 3.43em; */
-
-}
-/* .content-logo img{
-    padding-top:3em ;
-    height: 110px;
-z-index: 5;
-
-
-
-} */
-/* .content-logo span{
-    color: #090303;
-    font-family: 'Architects Daughter';
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal
+.content-logo {
+  position: relative;
+  width: 174px;
+  height: 61px;
+  padding: 1em;
+  margin-left: 1em;
+  color: #090303;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-#system{
-    color: #090303;
-    font-family:' Architects Daughter';
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    padding-left: 3em;
-} */
-
-.content-logo  svg{
-    position: absolute;
-    top: 0;
-   right: 0;
-   
-   /* padding-right: 52px; */
-    width: 52px;
-    height: 32px;
-/* background-color: red; */
-    color: #33363F;
-} 
-.content-logo  .logo{
-    position: absolute;
-    top: 0;
-    left: 50px;
-
-    /* right: 0; */
-    
-    /* width: 150px;
-    height: 42px; */
-    width: 174px;
-    height: 55px;
-    padding-top: 6px;
-/* background-color: red; */
-    color: #33363F;
+.content-logo svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 52px;
+  height: 32px;
+  color: #33363f;
+}
+.content-logo .logo {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 174px;
+  height: 55px;
+  padding-top: 6px;
+  color: #33363f;
 }
 
 @media screen and (max-width: 525px) {
-    .content-logo  svg{
-        position: absolute;
-        top: 0;
-       right: 50px;
-       
-       /* padding-right: 52px; */
-        width: 52px;
-        height: 32px;
-    /* background-color: red; */
-        color: #33363F;
-    } 
-    .content-logo  .logo{
-        position: absolute;
-        top: 0;
-        left: 0px;
-    
-        /* right: 0; */
-        
-        /* width: 150px;
-        height: 42px; */
-        width: 174px;
-        height: 55px;
-        padding-top: 6px;
-    /* background-color: red; */
-        color: #33363F;
-    }
+  .content-logo svg {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    width: 52px;
+    height: 32px;
+    color: #33363f;
+  }
+  .content-logo .logo {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 174px;
+    height: 55px;
+    padding-top: 6px;
+    color: #33363f;
+  }
 }

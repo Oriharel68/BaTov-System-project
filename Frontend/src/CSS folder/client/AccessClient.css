@@ -3,18 +3,13 @@
 .mainClient-page .registerWraper-conatiner {
 }
 .mainClient-page .registerWraper-conatiner .content-client-header {
-  /* text-align: start; */
   display: flex;
   justify-content: space-evenly;
-  /* background-color: red; */
   direction: rtl;
-  /* transform: rotate(90deg); */
 }
 .mainClient-page .registerWraper-conatiner .content-client-header p {
-  /* text-decoration: underline; */
 }
 .mainClient-page .registerWraper-conatiner .registerClient-page-title {
-  /* margin-right: 1em; */
 }
 .mainClient-page .registerWraper-conatiner .registerClient-page-title h2 {
 }
@@ -29,41 +24,20 @@
 }
 
 .password-input-container {
-  /* position: relative; */
 }
 
 .password-input-container input[type='password'] {
-  padding-right: 2.5rem; /* Make space for the toggle button */
+  padding-right: 2.5rem; /*                                     Make space for the toggle button */
 }
 
 .show-passwordd {
   position: absolute;
-  /* padding-top: 5em; */
   top: 50%;
   left: 10%;
-  /* left: 30%; */
-  /* right: 10.5rem; */
-
-  /* transform: translateY(-50%); */
   cursor: pointer;
   display: flex;
   align-items: center;
-  /* 
-  margin: 5px; */
   width: 1rem;
-  /* margin-bottom: 7px;
-  margin-left: 7px; */
-
-  /* 
-  position: absolute;
-  top: 53.5%;
-  left: 47px;
-  right: 0;
-  transform: rotateY('-50%');
-  cursor: pointer;
-  width: 1rem;
-  display: flex;
-  align-items: center; */
 }
 
 .register-btn-Container {

@@ -227,6 +227,10 @@ function Main() {
           </ul>
         </div>
         <div className="DocumentationiIcons-wraper">
+          <div className="DocumentationiIcons-header">
+            <h3 className="TContent">איך המוצר עובד?</h3>
+            <div className="Empty-border-botoom"></div>
+          </div>
           <div className="spec-icons-wrapper">
             <div className="icon-txt-wrapper">
               <span className="feature-icon">
@@ -272,7 +276,6 @@ function Main() {
             </div>
           </div>
         </div>
-
         <div className="car-icons-left-sec" id="disapeare-on-small-sizes">
           <ul>
             <li>

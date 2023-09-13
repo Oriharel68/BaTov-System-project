@@ -1,37 +1,31 @@
-.calendar-Company-container{
-    height: 40em;
-    padding-top: 2.1em;
-    /* background-color:	rgb(255,250,250); */
-   backdrop-filter:blur(50px);
+.calendar-Company-container {
+  height: 40em;
+  padding-top: 2.1em;
+  backdrop-filter: blur(50px);
 }
-.button-container{
-    display: flex;
-    justify-content: center;
-    align-items: end;
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
-.rbc-calendar{
-    direction: rtl;
+.rbc-calendar {
+  direction: rtl;
 }
-.rbc-header{
-    text-align:right !important;
+.rbc-header {
+  text-align: right !important;
 }
-.rbc-time-header , .rbc-overflowing{
-margin-right: 0px !important;
+.rbc-time-header,
+.rbc-overflowing {
+  margin-right: 0px !important;
 }
 
 @media screen and (max-width: 1215px) {
-    .calendar-Company-container{
-        /* height: 40em; */
-        /* background-color: red; */
-        padding-top: 2.4em;
-       /* backdrop-filter:blur(50px); */
-    }
+  .calendar-Company-container {
+    padding-top: 2.4em;
+  }
 }
 @media screen and (max-width: 769px) {
-    .calendar-Company-container{
-        /* height: 40em; */
-        /* background-color: red; */
-        padding-top: 1.9em;
-       /* backdrop-filter:blur(50px); */
-    }
+  .calendar-Company-container {
+    padding-top: 1.9em;
+  }
 }
