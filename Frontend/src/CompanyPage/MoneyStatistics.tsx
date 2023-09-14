@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> b8e3d8be8bdffb6a6042901734f03c70ad1dc12c
 import { Pie } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
