@@ -1,43 +1,26 @@
-.page-wraper{
-    
+.page-wraper {
 }
-.page-wraper .mainClient-page-wraper{
-
-
+.page-wraper .mainClient-page-wraper {
   box-sizing: border-box;
-
-
 }
-.page-wraper .mainClient-page-wraper .clientName-conatier{
-display: flex;
-text-align: center;
-/* position: relative;
-z-index: 1; */
-
-align-content: center;
-flex-direction: column;
-/* justify-content: space-evenly; */
-
+.page-wraper .mainClient-page-wraper .clientName-conatier {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
 }
-.page-wraper .mainClient-page-wraper .clientName-conatier h4{
-/* padding: 5px; */
-/* border-bottom:1px solid salmon ;
-width: 15%; */
-font-family: 'Courier New', Courier, monospace;
-margin-top:9px ;
+.page-wraper .mainClient-page-wraper .clientName-conatier h4 {
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 9px;
 }
 
-
-
-.page-wraper .mainClient-page-wraper .mainClient-page{
-    
+.page-wraper .mainClient-page-wraper .mainClient-page {
 }
 
-.page-wraper .mainClient-page-wraper .mainClient-page .order-buttonContainer-client{
-display: flex;
-flex-direction: column;
+.page-wraper .mainClient-page-wraper .mainClient-page .order-buttonContainer-client {
+  display: flex;
+  flex-direction: column;
 }
-.page-wraper .mainClient-page-wraper .mainClient-page .order-buttonContainer-client button{
+.page-wraper .mainClient-page-wraper .mainClient-page .order-buttonContainer-client button {
   padding: 1em;
-  /* width: 25em ; */
 }

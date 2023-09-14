@@ -5,40 +5,25 @@
 }
 .page-wraper .mainClient-page-wraper .mainClient-page {
 }
-.page-wraper
-  .mainClient-page-wraper
-  .mainClient-page
-  .clientbuttonContainer-client {
-  /* overflow-y: visible; */
+.page-wraper .mainClient-page-wraper .mainClient-page .clientbuttonContainer-client {
   width: 80%;
 }
-.page-wraper
-  .mainClient-page-wraper
-  .mainClient-page
-  .clientbuttonContainer-client
-  .clientNewOrderPage {
-  /* padding-top:5em ; */
+.page-wraper .mainClient-page-wraper .mainClient-page .clientbuttonContainer-client .clientNewOrderPage {
   width: 100%;
 }
-.mainClient-page
-  .clientbuttonContainer-client
-  .clientNewOrderPage
-  .New-order-list-wraper {
+.mainClient-page .clientbuttonContainer-client .clientNewOrderPage .New-order-list-wraper {
   height: 390px;
   overflow-y: scroll;
   border: 3px solid white;
- width: 100%;
+  width: 100%;
 }
-
 
 #WokerType {
   max-width: 100%;
   width: 100%;
-  /* width: 22em; */
   z-index: 0;
   display: flex;
   direction: rtl;
-
   justify-content: space-around;
   padding: 0.2em;
   -webkit-animation: bounce-top 0.9s both;
@@ -157,28 +142,12 @@
 #Calender {
   margin-top: 3em;
 }
-/* not working on ios app/ sites */
 @media screen and (max-width: 820px) and (-webkit-min-device-pixel-ratio: 2) {
-  .page-wraper
-    .mainClient-page-wraper
-    .mainClient-page
-    .clientbuttonContainer-client
-    .clientNewOrderPage {
-    /* padding-top:5em ; */
+  .page-wraper .mainClient-page-wraper .mainClient-page .clientbuttonContainer-client .clientNewOrderPage {
     max-width: 100%;
   }
-  .mainClient-page
-  .clientbuttonContainer-client
-  .clientNewOrderPage
-  .New-order-list-wraper {
-        height: 360px;
-        width: 100%;
+  .mainClient-page .clientbuttonContainer-client .clientNewOrderPage .New-order-list-wraper {
+    height: 360px;
+    width: 100%;
+  }
 }
-
-}
-
-
-
-
-
-

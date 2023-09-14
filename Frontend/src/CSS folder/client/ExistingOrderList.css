@@ -1,79 +1,63 @@
-
-.Remove-Modal{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-
+.Remove-Modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
 }
 
-.Remove-Modal .rows{
-    display: flex;
-  /* justify-content: space-between; */
+.Remove-Modal .rows {
+  display: flex;
   width: 100%;
-
 }
-.Remove-Modal .rows p{
-padding-right: 0.5em;   
-
+.Remove-Modal .rows p {
+  padding-right: 0.5em;
 }
 
-.over-flow-existingOrders{
-    overflow-y: scroll; 
-    border: 3px solid white; 
-height:150px; 
-
+.over-flow-existingOrders {
+  overflow-y: scroll;
+  border: 3px solid white;
+  height: 150px;
 }
 .over-flow-oldOrders {
-overflow-y: scroll;  
-height:250px;
-border: 3px solid white;  
+  overflow-y: scroll;
+  height: 250px;
+  border: 3px solid white;
 }
 
-.workerType-wraper{
+.workerType-wraper {
 }
-.workerType-wraper button{
-    align-items: center;
-
+.workerType-wraper button {
+  align-items: center;
 }
-.workerType-wraper button .btn-wraper{
-    display: flex;
-    flex-direction: column;
+.workerType-wraper button .btn-wraper {
+  display: flex;
+  flex-direction: column;
 }
-.workerType-wraper button .btn-wraper .top-btn-container{
-    display: flex;
-
+.workerType-wraper button .btn-wraper .top-btn-container {
+  display: flex;
 }
 .workerType-wraper button .btn-wraper .top-btn-container ul {
-display: flex;
-width: 60%;
-/* background-color: red; */
-justify-content: space-evenly;
+  display: flex;
+  width: 60%;
+  justify-content: space-evenly;
 }
-.workerType-wraper button .btn-wraper .top-btn-container ul li{
-    /* padding-right: 3.5em */
-    list-style: none;
-   border-right:1px solid silver ;
-   border-bottom:1px solid silver ;
-    /* display: flex;
-    justify-content: space-evenly; */
+.workerType-wraper button .btn-wraper .top-btn-container ul li {
+  list-style: none;
+  border-right: 1px solid silver;
+  border-bottom: 1px solid silver;
 }
-.workerType-wraper button .btn-wraper .bootom-btn-container{
-    display: flex;
+.workerType-wraper button .btn-wraper .bootom-btn-container {
+  display: flex;
 }
 .workerType-wraper button .btn-wraper .bootom-btn-container ul {
-    display: flex;
-    width: 100%;
-    /* background-color: red; */
-    justify-content: space-between;
-    }
-    .workerType-wraper button .btn-wraper .bootom-btn-container ul li{
-        /* padding-right: 3.5em */
-        list-style: none;
-        padding: 0.5em;
-       border-left:1px solid black ;
-       border-bottom:1px solid silver ;
-        /* display: flex;
-        justify-content: space-evenly; */
-    }
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.workerType-wraper button .btn-wraper .bootom-btn-container ul li {
+  list-style: none;
+  padding: 0.5em;
+  border-left: 1px solid black;
+  border-bottom: 1px solid silver;
+}

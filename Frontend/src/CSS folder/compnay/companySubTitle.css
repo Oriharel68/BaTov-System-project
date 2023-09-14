@@ -1,302 +1,198 @@
- .subTitle-company{
-    width: 70%;
-    /* background-color: blue; */
-    /* max-width: 100%; */
- }
- .subTitle-company .companySubTitle-conatiner{
-    display: flex;
-    justify-content: center;
-    /* background-color: #ff0000; */
-    
-
-   /* width: 100%;
-   max-width: 100%; */
-   
-
+.subTitle-company {
+  width: 70%;
+}
+.subTitle-company .companySubTitle-conatiner {
+  display: flex;
+  justify-content: center;
 }
 
-
-.subTitle-company .companySubTitle-conatiner ul{
-    width: 100%;
-    display: flex;
-   padding-right: 2em;
-    /* justify-content: space-evenly; */
-   /* background-color: black; */
-
-
+.subTitle-company .companySubTitle-conatiner ul {
+  width: 100%;
+  display: flex;
+  padding-right: 2em;
 }
 
-.subTitle-company .companySubTitle-conatiner ul li{
-    position: relative;
-    padding: 1em;
-list-style: none;
-/* color: crimson; */
-color: gainsboro;
-text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
+.subTitle-company .companySubTitle-conatiner ul li {
+  position: relative;
+  padding: 1em;
+  list-style: none;
+  color: gainsboro;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-.companyMainpage-nav-container .exit-company{
-  /* background-color: red; */
-
-
+.companyMainpage-nav-container .exit-company {
   position: absolute;
   right: 6em;
   font-size: 25px;
 }
-.companyMainpage-nav-container .exit-company button{
-  /* background-color: red; */
+.companyMainpage-nav-container .exit-company button {
   all: unset;
   cursor: pointer;
-  /* text-transform: none; */
-  background-color: transparent; 
-
-  
+  background-color: transparent;
 }
 
-/* .subTitle-company .companySubTitle-conatiner ul li:hover{
-
-list-style: none;
-position: relative;
-
-
-border-radius: 1px;
-
-background-color: grey;
-border-radius: 10px;
-text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
-} */
-/* .subTitle-company .companySubTitle-conatiner ul li h3{
-} 
-  */
-
-/* max-width 645px change */
-/* @media screen and (max-width: 757px) {
-    .companySubTitle-conatiner{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-       
-        box-shadow: inset 6em 1em gold; 
-    }
-    .companySubTitle-conatiner ul{
-        display: flex;
-        flex-wrap: wrap;
-        
-  
-
-      
-    }
-    .companySubTitle-conatiner ul li{
-    list-style: none;
- 
-        color: coral;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
-    }
-    .companySubTitle-conatiner ul li h3{
-
-    }
-    
-    
-
+.main {
+  border-radius: 10px;
+  background-color: grey;
+  text-decoration: none;
 }
-
-
-
-@media screen and (max-width: 470px) {
-    .companySubTitle-conatiner{
-        background-color: white;
-    }
-    .companySubTitle-conatiner ul{
-        display: flex;
-        flex-direction: column;
-        
-        padding: 0;
-        
-    }
-   
-    .companySubTitle-conatiner ul li{
-       
-    }
-
-} */
-
-
-
-.main{
-    /* color:white; */
-    border-radius:10px;
-    background-color:grey;
-    text-decoration: none;
+.mainO {
+  border-radius: 10px;
+  background-color: yellow;
+  text-decoration: none;
 }
-.mainO{
-    /* color:white; */
-    border-radius:10px;
-    background-color:yellow;
-    text-decoration: none;
+.mainP {
+  border-radius: 10px;
+  background-color: silver;
+  text-decoration: none;
 }
-.mainP{
-    border-radius:10px;
-    background-color:silver;
-    text-decoration: none;
-}
-.close-page{
+.close-page {
   position: absolute;
   top: 30px;
   right: 25px;
   font-size: 1.8em;
-
 }
 
-/* media quey min width 769px   */
-/* Common styles for larger and smaller screens */
+/*           media qurey min width 769px                 */
+/*    Common  Styles for larger and smaller screens     */
 .subTitle-company .companySubTitle-conatiner ul.desktop-list {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subTitle-company .companySubTitle-conatiner ul li {
+  padding: 0.5rem 1rem;
+}
+
+.subTitle-company .companySubTitle-conatiner ul li a {
+  text-decoration: none;
+  color: gainsboro;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 17px;
+}
+
+.subTitle-company .companySubTitle-conatiner ul li a:hover {
+  color: #fff;
+}
+
+.T {
+  font-family: 'Ploni aaa', sans-serif;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.main {
+  background-color: grey;
+  color: #fff;
+}
+
+.mainO {
+  background-color: yellow;
+}
+
+.mainP {
+  background-color: silver;
+  padding: 1em;
+}
+
+/*             Styles for smaller screens            */
+.subTitle-company .companySubTitle-conatiner div.more-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 0 0 0 10px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.subTitle-company .companySubTitle-conatiner div.more-button.active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.subTitle-company .companySubTitle-conatiner div.more-button svg {
+  color: #000;
+}
+
+@media only screen and (max-width: 1215px) {
+  .companyMainpage-nav-container {
   }
-  
   .subTitle-company .companySubTitle-conatiner ul li {
-    padding: 0.5rem 1rem;
-  }
-  
-  .subTitle-company .companySubTitle-conatiner ul li a {
-    text-decoration: none;
-    color: gainsboro;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-size: 17px;
-  }
-  
-  .subTitle-company .companySubTitle-conatiner ul li a:hover {
-    color: #fff;
-  }
-  
-  .T {
-    font-family: 'Ploni aaa', sans-serif;
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .main {
-    background-color: grey;
-    color: #fff;
-  }
-  
-  .mainO {
-    background-color: yellow;
-  }
-  
-  .mainP {
-    background-color: silver;
-    padding: 1em;
-  }
-  
-  /* Styles for smaller screens */
-  .subTitle-company .companySubTitle-conatiner div.more-button {
     display: flex;
-    align-items: center;
     justify-content: center;
+    text-align: justify;
+    align-items: center;
+    padding: 0.9em;
+    text-align: end;
+  }
+  .mainP {
+    margin-right: 11.5em;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .mainP {
+    margin-right: 0;
+  }
+  .subTitle-company .companySubTitle-conatiner ul.desktop-list {
+    display: none;
+  }
+
+  .subTitle-company .companySubTitle-conatiner button.more-button {
     position: fixed;
     top: 0;
     right: 0;
-    width: 3rem;
-    height: 3rem;
     background-color: #fff;
     border: none;
+    font-size: 17px;
+    padding: 0.5rem 1rem;
     border-radius: 0 0 0 10px;
-    font-size: 24px;
-    cursor: pointer;
+  }
+
+  .subTitle-company .companySubTitle-conatiner div.dropdown-list-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1;
   }
-  
-  .subTitle-company .companySubTitle-conatiner div.more-button.active {
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  
-  .subTitle-company .companySubTitle-conatiner div.more-button svg {
-    color: #000;
-  }
 
-
-  @media only screen and (max-width: 1215px) {
-    
-    .companyMainpage-nav-container{
-
-    }
-    .subTitle-company .companySubTitle-conatiner ul  li{
-      display: flex;
-      justify-content: center;
-     text-align: justify;
-      align-items: center;
-      padding: 0.9em;
-      text-align: end;
-    }
-    .mainP{
-      margin-right: 11.5em ;
-    }
-   
+  .subTitle-company .companySubTitle-conatiner ul.dropdown-list {
+    list-style: none;
+    color: coral;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  
-  @media screen and (max-width: 786px) {
-    .mainP{
-      margin-right: 0 ;
-    }
-    .subTitle-company .companySubTitle-conatiner ul.desktop-list {
-      display: none;
-    }
-  
-    .subTitle-company .companySubTitle-conatiner button.more-button {
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: #fff;
-      border: none;
-      font-size: 17px;
-      padding: 0.5rem 1rem;
-      border-radius: 0 0 0 10px;
-    }
-  
-    .subTitle-company .companySubTitle-conatiner div.dropdown-list-wrapper {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-    }
-  
-    .subTitle-company .companySubTitle-conatiner ul.dropdown-list {
-
-      list-style: none;
-      color: coral;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .subTitle-company .companySubTitle-conatiner ul.dropdown-list li {
-      padding: 0.5rem 1rem;
-    }
-  
-    .subTitle-company .companySubTitle-conatiner ul.dropdown-list li a {
-      color: coral;
-      text-decoration: none;
-      font-size: 17px;
-    }
-  
-    .subTitle-company .companySubTitle-conatiner ul.dropdown-list li a:hover {
-      color: #fff;
-    }
+  .subTitle-company .companySubTitle-conatiner ul.dropdown-list li {
+    padding: 0.5rem 1rem;
   }
-  
+
+  .subTitle-company .companySubTitle-conatiner ul.dropdown-list li a {
+    color: coral;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .subTitle-company .companySubTitle-conatiner ul.dropdown-list li a:hover {
+    color: #fff;
+  }
+}

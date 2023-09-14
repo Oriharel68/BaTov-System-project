@@ -1,80 +1,64 @@
-.main-ordeList-container{
-    padding-top: 1.5em;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    /* the diraction of the fonts */
-    direction: rtl;
+.main-ordeList-container {
+  padding-top: 1.5em;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  direction: rtl;
 }
-.main-ordeList-container .orderReceipts-container{
-    margin-top: 5em ;
-    margin-bottom: 1.9em;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    /* padding-top: 1em; */
-    /* the diraction of the fonts */
-    direction: rtl;
-    overflow-x: hidden;
-
+.main-ordeList-container .orderReceipts-container {
+  margin-top: 5em;
+  margin-bottom: 1.9em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  direction: rtl;
+  overflow-x: hidden;
 }
 
-
-.main-ordeList-container .orderReceipts-container .subTititle-container{
-    display: flex;
-    /* background-color: red; */
-    width: 80%;
-    justify-content: flex-end;
-    justify-content: space-between;
-    align-items:center ;
-    /* padding:0 5em ; */
+.main-ordeList-container .orderReceipts-container .subTititle-container {
+  display: flex;
+  width: 80%;
+  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
 }
-.main-ordeList-container .orderReceipts-container .subTititle-container h3{
-padding-right: 1em;
+.main-ordeList-container .orderReceipts-container .subTititle-container h3 {
+  padding-right: 1em;
 }
 
-.main-ordeList-container .orderReceipts-container button{
-    background-color: darkslateblue;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 0.5em;
-    border-radius: 8px;
-    color: white;
-    width: 65px;
-    
+.main-ordeList-container .orderReceipts-container button {
+  background-color: darkslateblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0.5em;
+  border-radius: 8px;
+  color: white;
+  width: 65px;
 }
-.main-ordeList-container .orderReceipts-container table{
-    margin-top: 20px;
-    border-collapse: collapse;
-    width: 80%;
-    max-width: 100%;
-    background-color: white;
-    border-radius: 14px ;
-   
-    /* border: 1px solid #007bff;
-    box-shadow: 0 0 0 1px #007bff */
+.main-ordeList-container .orderReceipts-container table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 100%;
+  background-color: white;
+  border-radius: 14px;
 }
-#Active{
-    /* background-color: #90EE90    ; */
-    background-color: limegreen;
-    
+#Active {
+  background-color: limegreen;
 }
-#Closed{
-    /* background-color: #90EE90    ; */
-    background-color: crimson;
-    
+#Closed {
+  background-color: crimson;
 }
-tr.loading{
-  background-image: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, .05) 50%);
+tr.loading {
+  background-image: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
   background-size: 200% 100%;
   animation: loading 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   background-color: aliceblue;
 }
 tr.loading td {
-  opacity: .45;
+  opacity: 0.45;
   pointer-events: none;
 }
 @keyframes loading {
@@ -91,137 +75,96 @@ tr.loading td {
     background-position: -200%;
   }
 }
-  .main-ordeList-container .orderReceipts-container table tr{
-    /* border-bottom: 1px solid silver  ; */
-    position: relative;
-
-    
-  }
-  .main-ordeList-container .orderReceipts-container table tr::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 5%; /* Adjust this value to control the starting position of the border */
-    right: 5%;
-    width: 90%; /* Set the width of the bottom border to 80% */
-    height: 1px;
-    background-color: #ccc; /* Set the color of the bottom border */
+.main-ordeList-container .orderReceipts-container table tr {
+  position: relative;
+}
+.main-ordeList-container .orderReceipts-container table tr::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%; /* Adjust this value to control the starting position of the border */
+  right: 5%;
+  width: 90%; /* Set the width of the bottom border to 80% */
+  height: 1px;
+  background-color: #ccc; /* Set the color of the bottom border */
 }
 
-  .main-ordeList-container .orderReceipts-container table tr th {
-    height: 70px;
-    /* border: 1px solid black; */
+.main-ordeList-container .orderReceipts-container table tr th {
+  height: 70px;
+}
+.main-ordeList-container .orderReceipts-container table td {
+  color: dimgray;
+  padding: 0.8em;
+  height: 50px;
+}
 
-  }
-  .main-ordeList-container .orderReceipts-container table  td{
-    /* border: 1px solid black; */
-     color: dimgray ;
-    padding: 0.8em ;
-    height: 50px;
-    
-   
-
-
-  }
-
-
-
-
-/* [colspan="3"] */
-  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container {
-    /* background-color: #f0f0f0; */
-            /* padding: 10px; */
-            
-            box-sizing: border-box;
-            width: 85%;
-            
-            border-radius: 10px 100px / 120px;
-            display: flex;
-          justify-content: end;
-
-         direction: ltr;
-         
-         /* text-align: start; */
-         padding-top: 2.5em;
-         padding-right: 3em;
-         padding-bottom: 1.5em;
-        
-  }
-  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .left-conatiner{
-text-align: start;
-direction: rtl;
-        
-  }
-  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .left-conatiner p{
+/*          [colspan="3"]               */
+.main-ordeList-container .orderReceipts-container .subTotal-Incomes-container {
+  box-sizing: border-box;
+  width: 85%;
+  border-radius: 10px 100px / 120px;
+  display: flex;
+  justify-content: end;
+  direction: ltr;
+  padding-top: 2.5em;
+  padding-right: 3em;
+  padding-bottom: 1.5em;
+}
+.main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .left-conatiner {
+  text-align: start;
+  direction: rtl;
+}
+.main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .left-conatiner p {
   padding: 0.4em;
- color: dimgray  ;
-  }
-  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .right-cotainer{
+  color: dimgray;
+}
+.main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .right-cotainer {
   text-align: start;
   padding-right: 1.9em;
-        
-  }
-  .main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .right-cotainer p{
-    padding: 0.4em;
-    color: dimgray ;
-        
-  }
-  #emphasis{
-    color: black;
-  }
+}
+.main-ordeList-container .orderReceipts-container .subTotal-Incomes-container .right-cotainer p {
+  padding: 0.4em;
+  color: dimgray;
+}
+#emphasis {
+  color: black;
+}
 
-
-
-  /* min width 552 -689*/
-
-  @media screen and (max-width: 689px) {
-    .main-ordeList-container{
-        display: flex;
-        justify-content: center;
-      }
-      
-      .orderReceipts-container{
-        /* background-color: red; */
-        width: 100%;
-        
-        
-
-    }
-    .main-ordeList-container .orderReceipts-container table{
-        font-size: 8px;
-    
-    }
-    .main-ordeList-container .orderReceipts-container table th td{
-        padding: 4px;
-    
-    }
-    
-    .main-ordeList-container .orderReceipts-container td .subTotal-Incomes-container{
-        /* background-color: #f0f0f0; */
-        /* background-color: red; */
-                padding: 10px;
-                box-sizing: border-box;
-                width: 100%;
-              display: flex;
-              justify-content: space-between;
-             direction: ltr;
-             /* padding-top: 1em;
-             padding-right: 2em;
-             padding-bottom: 1.5em; */
-            
-      }
-    
-    
+/* min width 552px -689px*/
+@media screen and (max-width: 689px) {
+  .main-ordeList-container {
+    display: flex;
+    justify-content: center;
   }
 
-  @media print{
-    #not-in-print{
-      display: none;
-    }
-    .companyMainpage-nav-container{
-      display: none;
-    }
-    .main-ordeList-container .orderReceipts-container button{
-      display: none;
-    }
+  .orderReceipts-container {
+    width: 100%;
   }
+  .main-ordeList-container .orderReceipts-container table {
+    font-size: 8px;
+  }
+  .main-ordeList-container .orderReceipts-container table th td {
+    padding: 4px;
+  }
+
+  .main-ordeList-container .orderReceipts-container td .subTotal-Incomes-container {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    direction: ltr;
+  }
+}
+
+@media print {
+  #not-in-print {
+    display: none;
+  }
+  .companyMainpage-nav-container {
+    display: none;
+  }
+  .main-ordeList-container .orderReceipts-container button {
+    display: none;
+  }
+}
