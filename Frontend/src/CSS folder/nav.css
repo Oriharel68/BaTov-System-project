@@ -1,32 +1,24 @@
 .navBar-Main {
   display: flex;
   position: sticky;
-  /* background-color: white; */
   position: fixed;
   z-index: 15;
   width: 100%;
   background-color: #5a607e;
   justify-content: center;
-  /* padding: 1em 0em; */
   padding-left: 2em;
-  /* padding-right: 7em; */
   justify-content: space-between;
 }
 .navBar-Main h1 {
-  /* background-color: red;
-   text-align: center;
-   padding-left: 9%; */
 }
 
 .navBar-Main .insideNavTopFirst-container {
   display: flex;
-  /* background-color: red; */
   justify-content: right;
   align-items: center;
-  /* padding-left: 22em; */
   padding-right: 3.5em;
 }
-/*btn nav  */
+/*            Nav Button             */
 .insideNavTopFirst-container .btn-container button {
   background-color: white;
   border: none;
@@ -35,8 +27,6 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  /* font-size: 16px; */
-  /* margin: 4px 2px; */
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 20px;
@@ -53,39 +43,28 @@
   .navBar-Main {
     display: flex;
     position: sticky;
-    /* background-color: white; */
     position: fixed;
     z-index: 15;
     width: 100%;
     background-color: #5a607e;
     justify-content: center;
-    /* padding: 1em 0em; */
     padding-left: 1em;
-    /* padding-right: 7em; */
     justify-content: space-between;
   }
   .navBar-Main h1 {
-    /* background-color: red;
-            text-align: center;
-            padding-left: 5%; */
   }
 
   .navBar-Main .insideNavTopFirst-container {
     display: flex;
-    /* background-color: red; */
     width: 50%;
     justify-content: right;
     align-items: center;
-    /* padding-left: 22em; */
     padding-right: 1.5em;
   }
   .btn-container {
-    /* background-color: blue; */
     width: 100%;
-    /* padding-left: 5em;
-                      color: green; */
   }
-  /*btn nav  */
+  /*            Nav Button             */
   .insideNavTopFirst-container .btn-container button {
     background-color: white;
     width: 45%;
@@ -95,7 +74,6 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    /* font-size: 16px; */
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
@@ -120,20 +98,15 @@
   }
   .navBar-Main .insideNavTopFirst-container {
     display: flex;
-    /* background-color: red; */
     width: 40%;
     justify-content: right;
     align-items: center;
-    /* padding-left: 22em; */
     padding-right: 2.5em;
   }
   .btn-container {
-    /* background-color: blue; */
     width: 100%;
-    /* padding-left: 5em;
-                        color: green; */
   }
-  /*btn nav  */
+  /*            Nav Button             */
   .insideNavTopFirst-container .btn-container button {
     background-color: white;
     width: 100%;
@@ -143,7 +116,6 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    /* font-size: 16px; */
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;

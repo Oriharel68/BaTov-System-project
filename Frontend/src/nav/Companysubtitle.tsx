@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaEllipsisV } from 'react-icons/fa';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
@@ -28,34 +28,17 @@ function Companysubtitle() {
       {!showDropdown && (
         <ul className="desktop-list">
           <li>
-            <NavLink
-              to="/company/Orders"
-              className={`T ${path === '/Orders' ? 'mainO' : ''}`}
-            >
+            <NavLink to="/company/Orders" className={`T ${path === '/Orders' ? 'mainO' : ''}`}>
               הזמנות
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink
-              to='/company/Statistics'
-              className={`T ${path === '/Statistics' ? 'main' : ''}`}
-            >
-              סטטיסטיקה
-            </NavLink>
-          </li> */}
           <li>
-            <NavLink
-              to="/company/Calender"
-              className={`T ${path === '/Calender' ? 'main' : ''}`}
-            >
+            <NavLink to="/company/Calender" className={`T ${path === '/Calender' ? 'main' : ''}`}>
               יומן עבודה
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/company/AddWorker"
-              className={`T ${path === '/AddWorker' ? 'main' : ''}`}
-            >
+            <NavLink to="/company/AddWorker" className={`T ${path === '/AddWorker' ? 'main' : ''}`}>
               ניהול עובדים
             </NavLink>
           </li>
@@ -72,17 +55,13 @@ function Companysubtitle() {
         <>
           <div
             className={`more-button ${dropdownVisible ? 'active' : ''}`}
-            onClick={() => setDropdownVisible(!dropdownVisible)}
-          >
+            onClick={() => setDropdownVisible(!dropdownVisible)}>
             <FaEllipsisV />
           </div>
           {dropdownVisible && (
             <div className="dropdown-list-wrapper">
               <ul className="dropdown-list">
-                <div
-                  className="close-page"
-                  onClick={() => setDropdownVisible(!dropdownVisible)}
-                >
+                <div className="close-page" onClick={() => setDropdownVisible(!dropdownVisible)}>
                   <AiOutlineCloseCircle />
                 </div>
                 <li>
@@ -91,34 +70,17 @@ function Companysubtitle() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to="/company/Orders"
-                    className={`T ${path === '/Orders' ? 'mainO' : ''}`}
-                  >
+                  <NavLink to="/company/Orders" className={`T ${path === '/Orders' ? 'mainO' : ''}`}>
                     הזמנות
                   </NavLink>
                 </li>
-                {/* <li>
-                  <NavLink
-                    to='/company/Statistics'
-                    className={`T ${path === '/Statistics' ? 'main' : ''}`}
-                  >
-                    סטטיסטיקה
-                  </NavLink>
-                </li> */}
                 <li>
-                  <NavLink
-                    to="/company/Calender"
-                    className={`T ${path === '/Calender' ? 'main' : ''}`}
-                  >
+                  <NavLink to="/company/Calender" className={`T ${path === '/Calender' ? 'main' : ''}`}>
                     יומן עבודה
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to="/company/AddWorker"
-                    className={`T ${path === '/AddWorker' ? 'main' : ''}`}
-                  >
+                  <NavLink to="/company/AddWorker" className={`T ${path === '/AddWorker' ? 'main' : ''}`}>
                     ניהול עובדים
                   </NavLink>
                 </li>
@@ -131,4 +93,4 @@ function Companysubtitle() {
   );
 }
 
-export default Companysubtitle;
+export default memo(Companysubtitle);

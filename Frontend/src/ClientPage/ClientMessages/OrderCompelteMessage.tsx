@@ -1,21 +1,18 @@
-import React, { useEffect } from "react";
-import ClientNavBarOrderMain from "../../nav/ClientNavBarOrderMain";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import ClientNavBarOrderMain from '../../nav/ClientNavBarOrderMain';
+import { useNavigate } from 'react-router-dom';
 
 function OrderCompelteMessage() {
   const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
-      navigate("/order/main");
+      navigate('/order/main');
     }, 3000);
   }, []);
   return (
-    <div>
+    <>
       <div className="page-wraper">
-        {/* bdika vdika */}
-        {/* <ClientNavBar/> */}
-
         <div className="mainClient-page-wraper">
           <ClientNavBarOrderMain />
 
@@ -37,7 +34,7 @@ function OrderCompelteMessage() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

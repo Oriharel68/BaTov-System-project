@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Calender from './Calender';
 import moment from 'moment';
 import Modal from 'react-modal';
@@ -61,10 +61,7 @@ function Fullcalender() {
             {setDate(EventData.start.getTime())}
           </p>
           <div className="button-container">
-            <BiExit
-              style={{ minHeight: '7.5em', width: '5em', cursor: 'pointer' }}
-              onClick={CloseDia}
-            />
+            <BiExit style={{ minHeight: '7.5em', width: '5em', cursor: 'pointer' }} onClick={CloseDia} />
           </div>
         </Modal>
       ) : (

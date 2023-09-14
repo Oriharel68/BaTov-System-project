@@ -1,4 +1,3 @@
-import React from 'react';
 import NavBar from '../nav/NavBar';
 import { BiGhost } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
@@ -10,7 +9,6 @@ function ErorPage() {
         <NavBar />
       </div>
       <div className="err-page">
-        {/* <h1>ErorPage 404!</h1> */}
         <main>
           <h1>
             4
@@ -21,8 +19,8 @@ function ErorPage() {
             </span>
             4
           </h1>
-          <h2>Error: 404 page not found</h2>
-          <p>Sorry, the page you're looking for cannot be accessed</p>
+          <h2>שגיאה 404 - הדף לא נמצא</h2>
+          <p>מצטערים, לא ניתן לגשת לדף שאתה מחפש</p>
           <Link to={'/'}>
             {' '}
             <h4>חזרה לדף הבית</h4>{' '}

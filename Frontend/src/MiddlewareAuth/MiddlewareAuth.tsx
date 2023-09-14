@@ -7,8 +7,8 @@ function MiddlewareAuth({ children }: { children: any }) {
   useLayoutEffect(() => {
     const requstinter = AxiosClient.interceptors.request.use(
       (config) => {
-        const accessToken = window.localStorage.getItem('accessToken');
-        config.headers.Authorization = `Bearer ${accessToken}`
+        const accessToken = window.sessionStorage.getItem('accessToken');
+        config.headers.Authorization = `Bearer ${accessToken}`;
         return config;
       },
       (err) => {

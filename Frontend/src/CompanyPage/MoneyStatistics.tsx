@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> b8e3d8be8bdffb6a6042901734f03c70ad1dc12c
 import { Pie } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -9,24 +12,12 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js/auto';
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function MoneyStatistics({ statisticData }: any) {
   return (
     <div>
-      <Pie
-        data={statisticData}
-
-        //  this is the option to styiling the Bar chart we can see the options in the documinatation
-        // options={}
-      />
+      <Pie data={statisticData} />
     </div>
   );
 }

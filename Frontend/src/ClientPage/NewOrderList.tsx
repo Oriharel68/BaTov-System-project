@@ -1,5 +1,4 @@
-import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { memo } from 'react';
 import { TbHandClick } from 'react-icons/tb';
 
 function NewOrderList({ item, addServiceProvider }: any) {
@@ -28,5 +27,5 @@ function NewOrderList({ item, addServiceProvider }: any) {
     </div>
   );
 }
-
+//אם הקומפננטה מעליו תיתרנדר אז הקומפוננטה הזאת לא תתרנדר
 export default memo(NewOrderList);
