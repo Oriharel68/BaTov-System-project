@@ -11,7 +11,7 @@ router.post('/', async (req: Request, res: Response) => {
     let { FirstName, LastName, Email, PhoneNumber, firebaseUid } = req.body;
     if (!FirstName || !LastName || !Email || !PhoneNumber || !firebaseUid)
       return res.status(400).send({ error: 'missing/invalid info' });
-    if (await ClientsModel.findOne({ $or: [{ Email }, { PhoneNumber }] }))
+    if (await ClientsModel.findOne({ $or: [{ Email }, { PhoneNumber } , {firebaseUid}] }))
       return res.status(404).send({error: 'missing/invalid info' });
     const ClientDB = new ClientsModel({
       FirstName,

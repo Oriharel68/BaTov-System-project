@@ -15,7 +15,7 @@ function Fullcalender() {
   useEffect(() => {
     const getAllOrders = async () => {
       try {
-        const response = await AxiosClient.get(`${Url}/getAllOrders`);
+        const response = await AxiosClient.get(`${Url}/getAllOrders`);// getting all of the orders
         if (response.status !== 200) {
           alert('data couldnt be retreived');
           return;
@@ -24,10 +24,10 @@ function Fullcalender() {
         const AllEvents = Orders.map((item: any) => {
           const date = new Date();
           date.setTime(item.DateTime);
-          const moments = moment(date).toDate();
+          const moments = moment(date).toDate();//setting the date to the event
           const text = `ביקור מ${item.WorkerName} לשירות:${item.TypeOfService}`; //title
           return {
-            start: moments,
+            start: moments,// start and end to the event/order
             end: moments,
             title: text,
           };
@@ -42,8 +42,7 @@ function Fullcalender() {
 
   const OnSelectEvent = useCallback((calEvent: any) => {
     setEventData(calEvent);
-    console.log(calEvent);
-    setIsOpen(true);
+    setIsOpen(true);//opening the Modal and getting the event to the modal
   }, []);
 
   const CloseDia = useCallback(() => {

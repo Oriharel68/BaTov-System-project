@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 function ForgetPassword() {
   const navigate = useNavigate();
-  const [sendEmail, SetSendEmail] = useState(false);
+  const [sendEmail, SetSendEmail] = useState<boolean>(false);
 
   function handleOnSubmit(event: any) {
     event.preventDefault();

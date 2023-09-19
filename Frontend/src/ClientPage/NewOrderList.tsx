@@ -1,13 +1,14 @@
 import { memo } from 'react';
 import { TbHandClick } from 'react-icons/tb';
 
-function NewOrderList({ item, addServiceProvider }: any) {
+function NewOrderList({ Provider, addServiceProvider }: any) {
+  const {TypeOfService,WorkerName} = Provider;
   return (
     <div className="workerType-wraper">
       <button
         style={{ display: 'flex', justifyContent: 'start' }}
         id="WokerType"
-        onClick={() => addServiceProvider(item)}
+        onClick={() => addServiceProvider(Provider)}
       >
         <div className="btn-wraper">
           <div
@@ -15,11 +16,11 @@ function NewOrderList({ item, addServiceProvider }: any) {
             style={{ borderBottom: '1px solid silver' }}
           >
             <span className="marker"> מקצוע: </span>
-            {item.TypeOfService}
+            {TypeOfService}
           </div>
           <div className="bootom-btn-container">
             <span className="marker">שם עובד : </span>
-            {item.WorkerName}
+            {WorkerName}
           </div>
         </div>
         <TbHandClick style={{ position: 'absolute', left: '15px' }} />

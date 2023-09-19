@@ -4,7 +4,7 @@ import moment from 'moment';
 import 'moment/locale/he';
 import messages from './Messages';
 
-moment.locale('he');
+moment.locale('he');// translate to hebrew
 const localizer = momentLocalizer(moment);
 
 function Calender(props: any) {

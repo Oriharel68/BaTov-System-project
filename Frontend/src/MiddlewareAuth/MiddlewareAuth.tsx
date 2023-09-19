@@ -9,7 +9,7 @@ function MiddlewareAuth({ children }: { children: any }) {
       (config) => {
         const accessToken = window.sessionStorage.getItem('accessToken');
         config.headers.Authorization = `Bearer ${accessToken}`;
-        return config;
+        return config; //adding the access token to the request
       },
       (err) => {
         return err;
@@ -20,7 +20,7 @@ function MiddlewareAuth({ children }: { children: any }) {
         return res;
       },
       (err) => {
-        if (err?.response?.status === 401) {
+        if (err?.response?.status === 401) {// if the response comes back with status code 401 your'e unathorized and you being sent to the first page
           return navigate('/');
         }
       }
@@ -28,7 +28,7 @@ function MiddlewareAuth({ children }: { children: any }) {
 
     return () => {
       AxiosClient.interceptors.request.eject(requstinter);
-      AxiosClient.interceptors.response.eject(responseinter);
+      AxiosClient.interceptors.response.eject(responseinter);//clean up 
     };
   }, []);
 

@@ -8,9 +8,9 @@ import AxiosClient from '../ApiClient/AxiosClient';
 import { FiSun } from 'react-icons/fi';
 
 function AcsessPage() {
-  const [Loggedin, setLoggedin] = useState(false);
+  const [Loggedin, setLoggedin] = useState<boolean>(false);
   const navigate = useNavigate();
-  const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordShown, setPasswordShown] = useState<boolean>(false);
 
   function handleOnSubmit(event: any) {
     event.preventDefault();
@@ -19,13 +19,14 @@ function AcsessPage() {
     const password: any = formData.get('password');
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
-        setLoggedin(true);
+        setLoggedin(true);//starting the loader
         const uid = userCredential.user.uid;
-        const response = await AxiosClient.post(`${Url}/login`, { uid });
-        if (response?.status === 200 && response?.data?.token) {
+        const response = await AxiosClient.post(`${Url}/login`, { uid });// login request
+        if (response?.status === 200 && response?.data?.token) { // no token === no entry
           window.sessionStorage.setItem('accessToken', response?.data?.token);
           navigate('/order/main');
         } else {
+          await auth.signOut();// no entry signout from firebase
           setLoggedin(false);
           alert('לא הצליח להיכנס');
         }
@@ -35,7 +36,7 @@ function AcsessPage() {
       .catch(() => {
         setLoggedin(false);
         const errorbox: any = document.querySelector('#errorbox');
-        errorbox.innerText = `משתמש או סיסמה אינם נכונים`;
+        errorbox.innerText = `משתמש או סיסמה אינם נכונים`;//display a generic message on failed auth by firebase
       });
   }
 

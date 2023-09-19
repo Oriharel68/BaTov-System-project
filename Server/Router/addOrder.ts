@@ -7,15 +7,20 @@ const router: Router = express.Router();
 const OrdersModel: Model<Order> = require('../models/OrderModel');
 const ClientsModel: Model<Client> = require('../models/ClientsModel');
 
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', async (req: Request & { uid:string}, res: Response) => {
   try {
-    let { TypeOfService, WorkerName, Email, DateTime, Price } = req.body;
-    if (!TypeOfService || !WorkerName || !Email || !DateTime || !Price) {
+
+    
+    let { TypeOfService, WorkerName, DateTime, Price } = req.body;
+    const { uid } = req
+    if (!TypeOfService || !WorkerName || !uid || !DateTime || !Price) {
       return res.status(400).json({
         error: 'missing info complete required info(in get /addOrder)',
       }); //checking if one of them empty
     }
-    const clientId = await ClientsModel.findOne({ Email }); //finding the client that want to add an order
+    const clientId = await ClientsModel.findOne({ firebaseUid:uid }); //finding the client that want to add an order
+    console.log(clientId);
+    
     if (!clientId) {
       return res.status(404).json({ error: 'client not found' });
     }

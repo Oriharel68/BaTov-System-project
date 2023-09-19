@@ -6,17 +6,16 @@ import IncomesList from "./order list's/IncomesList";
 import { getOrdersData } from '../../Helpjs/help';
 
 function OrderOfTheCompany() {
-  const [activeOrders, setActiveOrders] = useState([]);
-  const [oldOrders, setOldOrders] = useState([]);
-  const [allClients, setAllClients]: any = useState([]);
-  const [Visible, setVisible] = useState(false);
+  const [activeOrders, setActiveOrders] = useState<[]>([]);
+  const [oldOrders, setOldOrders] = useState<[]>([]);
+  const [allClients, setAllClients]: any = useState<[]>([]);
+  const [Visible, setVisible] = useState<boolean>(false);
   const [totalmoney, setTotalMoney] = useState<number>(0);
   // const TAX_RATE = 0.17;
   const [colspan, setColspan] = useState(1);
 
   const totalSum = useCallback((allOrders: any) => {
     const Total: number = allOrders.reduce((acc: any, value: any) => acc + value.Total, 0);
-
     setTotalMoney(Total);
   }, []);
 
@@ -65,7 +64,7 @@ function OrderOfTheCompany() {
               activeOrders.map((item: any) => {
                 return (
                   <tr>
-                    <ActiceOrdersList item={item} key={item._id} />
+                    <ActiceOrdersList order={item} key={item._id} />
                   </tr>
                 );
               })
@@ -98,7 +97,7 @@ function OrderOfTheCompany() {
               oldOrders.map((item: any) => {
                 return (
                   <tr>
-                    <OldOrdersList item={item} key={item._id} />
+                    <OldOrdersList order={item} key={item._id} />
                   </tr>
                 );
               })

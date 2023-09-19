@@ -1,25 +1,23 @@
 import { useEffect, useState } from 'react';
 import ExistingOrderList from './ExistingOrderList';
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
-import auth from '../FireBase/auth';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 
 function ExistingOrder() {
-  const [ordersData, setOrdersData] = useState([]);
-  const [OldOrders, setOldOrders] = useState([]);
-  const [Changed, setChanged] = useState(0);
-  const [Auth] = useState(auth);
+  const [ordersData, setOrdersData] = useState<[]>([]);
+  const [OldOrders, setOldOrders] = useState<[]>([]);
+  const [Changed, setChanged] = useState<boolean>(false);
 
   useEffect(() => {
     async function getOrdersData() {
       try {
-        const response = await AxiosClient.get(`${Url}/GetMyOrders?Email=${Auth?.currentUser?.email}`);
+        const response = await AxiosClient.get(`${Url}/GetMyOrders`);//getting the orders of the client and displaying it
         if (response.status !== 200) return alert('שגיאה בעת יבוא ההזמנות');
         const { data } = response;
         const currdate: any = new Date().getTime();
         const oldOrders: any = [];
-        const OngoingOrders: any = []; ///do with splice to save memory
+        const OngoingOrders: any = []; ///
         data.forEach((item: any) => {
           if (currdate > item.DateTime) oldOrders.push(item);
           else OngoingOrders.push(item);

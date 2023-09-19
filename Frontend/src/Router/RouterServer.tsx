@@ -21,7 +21,6 @@ function RouterServer() {
     <>
       <Router>
         <MiddlewareAuth>
-          {/* <NavBar/> */}
           <Routes>
             <Route path="/*" element={<ErorPage />} />
             <Route path="/" element={<Main />} />
@@ -33,7 +32,6 @@ function RouterServer() {
             <Route path="/order/main" element={<OrderMain />} />
             <Route path="/order/newOrder" element={<NewOrder />} />
             <Route path="/order/ExistingOrder" element={<ExistingOrder />} />
-            {/* checking the Auth of the user^ */}
 
             {/* Check */}
 

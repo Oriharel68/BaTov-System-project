@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios, { Axios } from "axios";
 
-const AxiosClient = axios.create();
+const AxiosClient:Axios = axios.create();
 
 
 export default AxiosClient;

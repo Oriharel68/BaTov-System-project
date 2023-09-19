@@ -17,8 +17,8 @@ function RegestrationPage() {
       const FirstName: any = formData.get('FirstName');
       const LastName: any = formData.get('LastName');
       const PhoneNumber: any = formData.get('PhoneNumber');
-      const rPassword: any = formData.get('RepeatYourPassword');
-      if (!FirstName || !LastName || !Email || !PhoneNumber || !password || !rPassword) {
+      const rPassword: any = formData.get('RepeatYourPassword'); // all of the data that the user typed
+      if (!FirstName || !LastName || !Email || !PhoneNumber || !password || !rPassword) { // not empty
         alert('חסר מידע - השלם מחדש');
         return;
       }
@@ -26,7 +26,7 @@ function RegestrationPage() {
         alert('הסיסמא לא תואמת');
         return;
       }
-      await createUserWithEmailAndPassword(auth, Email, password).then(async (userCred) => {
+      await createUserWithEmailAndPassword(auth, Email, password).then(async (userCred) => { // creating a firebase user
         //what happen after a user register
         const firebaseUid = userCred.user.uid;
         const response = await AxiosClient.post(`${Url}/register`, {
@@ -38,19 +38,19 @@ function RegestrationPage() {
         });
 
         if (response?.status !== 200) {
-          alert('הזן את הפרטים מחדש');
-          userCred.user.delete();
+          alert('אימייל לא תקין/בשימוש');
+          userCred.user.delete();//if it failed at the server it will remove the user
           return;
         }
         await updateProfile(userCred.user, {
-          displayName: `${FirstName} ${LastName}`,
+          displayName: `${FirstName} ${LastName}`, // updating the display name
         });
 
         navigate('/client/registrationCompalete');
       });
     } catch (error) {
       console.log(error);
-      alert('הזן את הפרטים מחחדש');
+      alert('הזן את הפרטים מחדש');
     }
   }
 

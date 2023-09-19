@@ -9,7 +9,7 @@ import AxiosClient from '../../ApiClient/AxiosClient';
 
 function AddworkerCompany() {
   const [ServiceProviders, setServiceProviders] = useState([]);
-  const [Change, setChange] = useState(0);
+  const [Change, setChange] = useState<boolean>(false);
   const [Visible, setVisible] = useState(false);
   const [showSecondDiv, setShowSecondDiv] = useState(false);
 
@@ -40,7 +40,7 @@ function AddworkerCompany() {
         toast.error('לא הצליח להוסיף את נותן השירות');
         return;
       } else {
-        setChange(Change + 1);
+        setChange(!Change);
         handleClick();
         setVisible(false);
         toast.success('העובד נוסף בהצלחה');
@@ -53,7 +53,7 @@ function AddworkerCompany() {
     async function getServiceProviders() {
       try {
         const response = await AxiosClient.get(`${Url}/getServiceProvider`);
-        if (response?.status !== 200) return toast.error('שגיאה בעת בקשת עובדים');
+        if (response?.status !== 200) return toast.error('שגיאה בעת בקשת עובדים');// get the service providers
 
         const { data } = response;
         setServiceProviders(data);
@@ -125,13 +125,12 @@ function AddworkerCompany() {
                           item={item}
                           key={item._id}
                           setChange={setChange}
-                          Change={Change}
                         />
                       </tr>
                     );
                   })
                 ) : (
-                  <tr className="loading">
+                  <tr className="loading"> 
                     <td></td>
                     <td></td>
                     <td></td>

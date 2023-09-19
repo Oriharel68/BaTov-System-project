@@ -12,3 +12,4 @@ export default {
   event: 'אירוע',
   showMore: (total: any) => `+ (${total}) אירועים`,
 };
+//tranlations to hebrew

@@ -4,44 +4,45 @@ import NewOrderList from './NewOrderList';
 import DatePickerComponent from './DatePickerComponent';
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 import Url from '../ApiClient/Url';
-import Auth from '../FireBase/auth';
 import AxiosClient from '../ApiClient/AxiosClient';
+import { toast } from 'react-toastify';
 
 function NewOrder() {
   const navigate = useNavigate();
-  const [auth, setAuth]: any = useState(Auth);
-  const [ServiceProviders, setServiceProviders] = useState([]);
-  const [Provider, setProvider]: any = useState(null);
-  const [Choice, setChoice] = useState(true);
+  const [ServiceProviders, setServiceProviders] = useState<[]>([]);
+  const [Provider, setProvider]: any = useState<object | null>(null);
+  const [Choice, setChoice] = useState<boolean>(true);
   const [SelectedDate, setSelectedDate] = useState(null);
+
+
+
   const CurrentDate = new Date();
   if (CurrentDate.getDay() === 5 || CurrentDate.getDay() === 6) {
-    CurrentDate.setDate(CurrentDate.getDate() + 2);
+    CurrentDate.setDate(CurrentDate.getDate() + 2); //default date may be in a forbidden date 
   }
 
   const handleComplete = async () => {
     const { TypeOfService, WorkerName, Price } = Provider;
     if (!SelectedDate || !Provider) {
-      alert('date or Provider is empty or invalid');
+      toast.error('תאריך או בודק לא נכונים/ריקים אנא תקן את המידע');
       return;
     }
 
     const response = await AxiosClient.post(`${Url}/addOrder`, {
       TypeOfService,
       WorkerName,
-      Email: auth.currentUser.email,
       DateTime: SelectedDate,
       Price,
-    });
+    });// adding the order
     if (response?.status !== 200) {
-      return alert('order could not be placed');
+      return toast.error('order could not be placed');
     }
     navigate('/order/orderCompelte');
   };
 
   const addServiceProvider = (item: any) => {
     setProvider(item);
-    setChoice(false);
+    setChoice(false);//after choosing the provider the provider choices will disapper and the datepicker will appear
   };
 
   useEffect(() => {
@@ -51,7 +52,7 @@ function NewOrder() {
 
         if (response?.status !== 200) return alert('שגיאה בעת בקשת עובדים');
         const { data } = response;
-        setServiceProviders(data);
+        setServiceProviders(data);//getting the provider to display in a list
       } catch (err) {
         console.log(err);
       }
@@ -74,7 +75,7 @@ function NewOrder() {
                     <div className="New-order-list-wraper">
                       {ServiceProviders.map((item: any) => {
                         return (
-                          <NewOrderList item={item} key={item._id} addServiceProvider={addServiceProvider} />
+                          <NewOrderList Provider={item} key={item._id} addServiceProvider={addServiceProvider} />
                         );
                       })}
                     </div>

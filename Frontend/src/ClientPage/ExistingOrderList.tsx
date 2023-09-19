@@ -9,9 +9,11 @@ import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 
 function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
-  const [showModal, setShowModal] = useState(false);
-  const [Expired] = useState(isExpired);
-  const style: any = RemoveStyle;
+
+
+
+  const [showModal, setShowModal] = useState<boolean>(false); 
+
   const handleClick = useCallback(() => {
     setShowModal(!showModal);
   }, [showModal]);
@@ -20,7 +22,7 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
     try {
       const { data } = await AxiosClient.delete(`${Url}/RemoveOrder?orderId=${order._id}`);
       if (data.deleted) {
-        setChanged(Changed + 1);
+        setChanged((prev:boolean)=> !prev);// the data have been change and it needs to request the data again
         handleClick(); //closing the Modal
       } else {
         throw new Error('not deleted');
@@ -54,7 +56,7 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
           <FiSettings>אפשרויות</FiSettings>
         </button>
         {showModal && (
-          <Modal isOpen={showModal} onRequestClose={handleClick} style={style} ariaHideApp={false}>
+          <Modal isOpen={showModal} onRequestClose={handleClick} style={RemoveStyle as any} ariaHideApp={false}>
             <div className="Remove-Modal">
               <div className="rows">
                 <h3 className="marker">מקצוע:</h3>
@@ -87,7 +89,7 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
                   </BiExit>
                   יציאה
                 </div>
-                {Expired && (
+                {isExpired && (
                   <div
                     style={{
                       cursor: 'pointer',

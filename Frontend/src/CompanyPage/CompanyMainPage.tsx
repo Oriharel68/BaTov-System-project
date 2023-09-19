@@ -13,11 +13,11 @@ import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 
 function CompantMainPage() {
-  const [orderData, setOrdersData]: any = useState([]);
-  const [allClients, SetAllClients]: any = useState([]);
-  const [TotalSum, setTotalSum]: any = useState(0);
-  const [LineStatistic, SetLineStatistic]: any = useState([]);
-  const [statisticData, setStatisticData]: any = useState([]);
+  const [orderData, setOrdersData]: any = useState<[]>([]);
+  const [allClients, SetAllClients]: any = useState<[]>([]);
+  const [TotalSum, setTotalSum]: any = useState<number>(0);
+  const [LineStatistic, SetLineStatistic]: any = useState<[]>([]);
+  const [statisticData, setStatisticData]: any = useState<[]>([]);
 
   useEffect(() => {
     async function getOrdersData() {
@@ -28,12 +28,12 @@ function CompantMainPage() {
         ]);
         const { Orders } = Promises[0].data;
         const SumClients = Promises[1].data;
-        SetAllClients(SumClients);
-        SumOfClients(SumClients);
-        setOrdersData(getOrderWithDate(Orders));
-        const OrderByM = GetOrdersByMonth(Orders);
+        SetAllClients(SumClients);//setting the clients
+        SumOfClients(SumClients);//adding the sum of all of the clients
+        setOrdersData(getOrderWithDate(Orders));//getting the orders with date
+        const OrderByM = GetOrdersByMonth(Orders);// ordering orders by months
         setStatisticData(OrderByM);
-        const MoneyBy = MoneyByMonth(Orders);
+        const MoneyBy = MoneyByMonth(Orders);// ordering money by months
         SetLineStatistic(MoneyBy);
       } catch (error) {
         console.log(error);
@@ -44,7 +44,7 @@ function CompantMainPage() {
         (accumulator: any, currentValue: any) => accumulator + currentValue.Total,
         0
       );
-      const TotalWithoutTax = Total - Total * 0.17;
+      const TotalWithoutTax = Total - (Total * 0.17);// calculate with the tax
       setTotalSum(TotalWithoutTax);
     }
     getOrdersData();

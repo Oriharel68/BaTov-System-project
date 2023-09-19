@@ -12,8 +12,6 @@ import { PiChartLineUpBold } from 'react-icons/pi';
 import { MdAttachMoney } from 'react-icons/md';
 
 function Main() {
-  const domRef = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
-  const [isVisible, setIsVisible] = useState([true, true, true, true, true]);
 
   return (
     <div>
@@ -76,7 +74,7 @@ function Main() {
 
       <div className="content-container">
         <div className="about-container">
-          <div className={`about-wraper ${isVisible[0] ? 'afterAbout' : ''} `} ref={domRef[0]}>
+          <div className={`about-wraper afterAbout`} >
             <h3 className={'TContent'}>קצת עלינו :</h3>
           </div>
           <p className="about-lorem">
@@ -122,7 +120,7 @@ function Main() {
         <div className="wraperOne-section">
           <div className="introduction-containerFirst">
             <div className="left-container">
-              <div className={`describe-containerFirst ${isVisible[1] ? 'visible' : ''} `} ref={domRef[1]}>
+              <div className={`describe-containerFirst visible`}>
                 <h3 className="TContent"> Ba-Tov SYSTEM </h3>
                 <p className="TTcontent">
                   <div></div>
@@ -318,7 +316,7 @@ function Main() {
         <div className="wraperTwo-section">
           <div className="introduction-containerFirst">
             <div className="left-container">
-              <div className={`describe-containerFirst ${isVisible[3] ? 'visible' : ''} `} ref={domRef[3]}>
+              <div className={`describe-containerFirst visible`}>
                 <h3 className="TContent">מטרה:</h3>
                 <p className="TTcontent">
                   המשימה שלנו היא לגשר את הפער בין החברות הגדולות שמחפשות ארגון הזמנות עשיר וללקוחות המחפשים
@@ -383,7 +381,7 @@ function Main() {
             </div>
 
             <div className="right-container">
-              <div className={`describe-containerFirst ${isVisible[4] ? 'visible' : ''} `} ref={domRef[4]}>
+              <div className={`describe-containerFirst visible`}>
                 <h3 className="TContent">איך להשתמש באפליקציה:</h3>
                 <p className="TTcontent">
                   <ul style={{ listStyle: 'square' }}>

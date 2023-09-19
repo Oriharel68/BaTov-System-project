@@ -1,7 +1,7 @@
 import { setDate } from '../../../Helpjs/help';
 
-function OldOrdersList({ item }: any) {
-  const { _id, ClientName, WorkerName, DateTime, Price } = item;
+function OldOrdersList({ order }: any) {
+  const { _id, ClientName, WorkerName, DateTime, Price } = order;
 
   return (
     <>

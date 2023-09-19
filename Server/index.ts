@@ -20,7 +20,6 @@ import getExistingOrders from './Router/getExistingOrders';
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const cookie = require('cookie-parser');
 require('dotenv').config();
 
 const app: Express = express();
@@ -34,7 +33,7 @@ app.use(
     origin: ['http://localhost:3000', 'https://batov.netlify.app'],
   })
 );
-app.use(cookie());
+
 mongoose.set('strictQuery', true);
 
 mongoose

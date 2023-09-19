@@ -8,7 +8,7 @@ import Modal from 'react-modal';
 import EditStyle from './EditDialogStyle';
 import Url from '../../../ApiClient/Url';
 import AxiosClient from '../../../ApiClient/AxiosClient';
-function AddWorkerListCompany({ item, setChange, Change }: any) {
+function AddWorkerListCompany({ item, setChange }: any) {
   const { Price, TypeOfService, WorkerName } = item;
   const [showSecondDiv, setShowSecondDiv] = useState(false);
   function handleClick() {
@@ -24,7 +24,7 @@ function AddWorkerListCompany({ item, setChange, Change }: any) {
       if (response.status !== 200) {
         return toast.error(`מחיקת העובד נכשלה`);
       }
-      setChange(Change + 1);
+      setChange((prev:boolean)=>!prev);
       toast.success('העובד נמחק בהצלחה');
     } catch (error) {
       toast.error(`מחיקת העובד נכשלה`);
@@ -57,7 +57,6 @@ function AddWorkerListCompany({ item, setChange, Change }: any) {
           <EditWorkerContainer
             setShowSecondDiv={setShowSecondDiv}
             item={item}
-            Change={Change}
             setChange={setChange}
           />
         </Modal>

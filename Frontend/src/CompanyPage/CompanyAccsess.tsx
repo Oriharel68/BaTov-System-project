@@ -11,11 +11,13 @@ import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 
 function CompanyAccsess() {
-  const [showSecondDiv, setShowSecondDiv] = useState(false);
+  const [showSecondDiv, setShowSecondDiv] = useState<boolean>(false);
+  const [passwordShown, setPasswordShown] = useState<boolean>(false);
+
   const handleMouseEnter = () => {
-    setShowSecondDiv(!showSecondDiv);
+    setShowSecondDiv(!showSecondDiv);//closing and opening the modal
   };
-  const [passwordShown, setPasswordShown] = useState(false);
+  
   // Password toggle handler
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -29,11 +31,11 @@ function CompanyAccsess() {
 
     const formData = new FormData(e.target);
     const email: any = formData.get('Email');
-    const password: any = formData.get('password');
+    const password: any = formData.get('password');//getting the data from the inputs
     try {
       const response = await AxiosClient.post(`${Url}/companyCheck`, {
         email,
-      });
+      });//checking if the email is authorized to access the administrative panel
       if (response?.status !== 200) return alert('שם משתמש או סיסמא אינם נכונים');
 
       await signInWithEmailAndPassword(auth, email, password)
@@ -42,10 +44,10 @@ function CompanyAccsess() {
           const uid = userCredential.user.uid;
           const response = await AxiosClient.post(`${Url}/login`, { uid });
           if (response.status === 200 && response.data.token) {
-            window.sessionStorage.setItem('accessToken', response?.data?.token);
+            window.sessionStorage.setItem('accessToken', response?.data?.token);//token access
             navigate('/company/mainpage');
           } else {
-            setLoggedin(false);
+            setLoggedin(false);//removing the loader
             alert('הכניסה נכשלה');
           }
         })
@@ -53,10 +55,7 @@ function CompanyAccsess() {
         .catch((error) => {
           setLoggedin(false);
           let errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorMessage);
           const errorbox: HTMLElement = document.querySelector('#errorbox') as HTMLElement;
-          console.log(errorCode);
           let Message = '' + errorCode.replace('auth/', '');
           Message = Message.replace(':', 'd');
           errorbox.innerText = `${Message}:`;

@@ -33,7 +33,7 @@ export function getOrderWithDate(orders: any) {
   const ordersWithDate = orders.map((item: any) => {
     const date = new Date();
     date.setTime(item.DateTime);
-    return { ...item, date: date };
+    return { ...item, date: date };// getting a obj with datetime as a number and return it as a Date object
   });
   return ordersWithDate;
 }
@@ -80,7 +80,7 @@ function calculateSum(orders: any) {
 }
 
 
-export async function getOrdersData() :Promise<any> {
+export async function getOrdersData() :Promise<any> {// a function that does all of the calls and sorting by date used in OrderOfTheCompany Component
   let Clients: any, Orders: any,SumClientsMoney:any;
   try {
     await Promise.all([
@@ -94,7 +94,7 @@ export async function getOrdersData() :Promise<any> {
         } else if (item.request.responseURL.includes('/getSumOfClientsOrder')) {
           SumClientsMoney = values[index].data;
         } else {
-          Orders = values[index].data.Orders;
+          Orders = values[index].data.Orders;//fixing a bug that sometimes  the order of the requests changes 
         }
       });
     });
@@ -108,18 +108,16 @@ export async function getOrdersData() :Promise<any> {
         return value._id === item.ClientId;
       });
 
-      return { ...item, ClientName: `${With.FirstName} ${With.LastName}` };
+      return { ...item, ClientName: `${With.FirstName} ${With.LastName}` };//getting all of the orders and making that the order will include the name of the client
     });
     
 
     OrdersWithName.forEach((item: any) => {
       if (currdate > item.DateTime) oldOrders.push(item);
       else OngoingOrders.push(item);
-    });
-    // setOldOrders(oldOrders);
-    // setActiveOrders(OngoingOrders);
-    // setVisible(true);
-    return [oldOrders,OngoingOrders,SumClientsMoney,true];
+    });//old Orders VS New Orders
+    
+    return [oldOrders,OngoingOrders,SumClientsMoney];
   } catch (err:any) {
     console.log(err);
     

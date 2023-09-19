@@ -7,15 +7,15 @@ const router: Router = express.Router();
 const OrdersModel: Model<Order> = require('../models/OrderModel');
 const ClientsModel: Model<Client> = require('../models/ClientsModel');
 
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', async (req: Request & {uid:string}, res: Response) => {
   try {
-    const { Email } = req.query;
-    if (!Email)
+    const { uid } = req;
+    if (!uid)
       return res
         .status(400)
         .json({error: 'No email(in post /GetMyOrders)' });
 
-    const Client = await ClientsModel.findOne({ Email });
+    const Client = await ClientsModel.findOne({ firebaseUid:uid });
     if (!Client)
       return res
         .status(400)

@@ -10,7 +10,7 @@ const OrdersModel: Model<Order> = require('../models/OrderModel');
 router.get('/', async (req: Request, res: Response) => {
   try {
     const ClientDB = await ClientModel.find();
-    const ClientWithPrice = Promise.all(
+    const ClientWithPrice = Promise.all( //not using promise all made an error when returning the data to each cell in the array promise all fixed that
       ClientDB.map(async (Client) => {
         const OrderOfClient = await OrdersModel.find({ ClientId: Client._id });
 

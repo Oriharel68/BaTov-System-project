@@ -4,8 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Url from '../../../ApiClient/Url';
 import AxiosClient from '../../../ApiClient/AxiosClient';
 
-function EditWorkerContainer({ item, Change, setChange, setShowSecondDiv }: any) {
-  const { Price, TypeOfService, WorkerName, _id } = item;
+function EditWorkerContainer({ Provider, setChange, setShowSecondDiv }: any) {
+  const { Price, TypeOfService, WorkerName, _id } = Provider;
 
   const InputWokrerNameref: any = useRef();
   const InputTypeOfServiceref: any = useRef();
@@ -30,7 +30,7 @@ function EditWorkerContainer({ item, Change, setChange, setShowSecondDiv }: any)
         Price,
       });
       console.log(data);
-      setChange(Change + 1);
+      setChange((prev:boolean)=>!prev);
       setShowSecondDiv(false);
       toast.success('עודכן בהצלחה', {
         position: 'bottom-center',

@@ -1,6 +1,8 @@
 import { setDate } from '../../../Helpjs/help';
-function ActiceOrdersList({ item }: any) {
-  const { _id, ClientName, WorkerName, DateTime, Price } = item;
+function ActiceOrdersList({ order }: any) {
+  const { _id, ClientName, WorkerName, DateTime, Price } = order;
+  console.log(order);
+  
 
   return (
     <>

@@ -7,14 +7,14 @@ import AxiosClient from '../ApiClient/AxiosClient';
 
 function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }: any) {
   const [startDate, setStartDate]: any = useState(null);
-  const [OrderData, setOrderData] = useState([]);
+  const [OrderData, setOrderData] = useState<[]>([]);
 
   useEffect(() => {
     async function getorders() {
-      const { TypeOfService, WorkerName } = Provider;
+      const { TypeOfService, WorkerName } = Provider; // the provider that was selceted
       const { data } = await AxiosClient.get(
         `${Url}/getExistingOrders?TypeOfService=${TypeOfService}&WorkerName=${WorkerName}`
-      );
+      );// getting the orders from the workerProvider and filter it by datetime
       const FilterTime = data.map((item: any) => {
         return item.DateTime;
       });
@@ -26,8 +26,8 @@ function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }: any) {
   useEffect(() => {
     const a = new Date(startDate);
     a.setMilliseconds(0);
-    a.setSeconds(0);
-    setSelectedDate(a.getTime());
+    a.setSeconds(0);// to fix a bug that the time wasnt blocked/grey out to indicate that the time is taken
+    setSelectedDate(a.getTime());// updating the selected date
   }, [startDate]);
 
   const isWeekday = (date: Date) => {
@@ -45,7 +45,7 @@ function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }: any) {
         isBusy = false;
       }
     });
-    return currentDate.getTime() < selectedDate.getTime() && isBusy;
+    return currentDate.getTime() < selectedDate.getTime() && isBusy; // the fillter by time
   };
 
   return (
