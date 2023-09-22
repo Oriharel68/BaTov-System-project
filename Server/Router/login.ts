@@ -14,7 +14,7 @@ router.post('/', async (req: Request, res: Response) => {
     const client = await ClientsModel.findOne({ firebaseUid: uid });
     if (!client) return res.sendStatus(400);
     const token = jwt.sign(uid, process.env.ACCESS_TOKEN_SECRET || '');
-    return res.status(200).json({token});
+    return res.status(200).json({ token });
   } catch (error) {
     console.log(error);
 

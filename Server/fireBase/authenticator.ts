@@ -5,17 +5,16 @@ require('dotenv').config();
 
 const Verify = async (req: Request, res: Response, next: NextFunction) => {
   const accessToken = req.headers.authorization.split(' ')[1] || '';
-  if(accessToken){
-  jwt.verify(
-    accessToken,
-    process.env.ACCESS_TOKEN_SECRET || '',
-    async (err, paylod) => {
-      if (!err) return next();
-      else return res.sendStatus(401);
-    }
-  );
-  }
-  else{
+  if (accessToken) {
+    jwt.verify(
+      accessToken,
+      process.env.ACCESS_TOKEN_SECRET || '',
+      async (err, paylod) => {
+        if (!err) return next();
+        else return res.sendStatus(401);
+      }
+    );
+  } else {
     return res.sendStatus(401);
   }
 };
