@@ -45,6 +45,37 @@ body {
   background: linear-gradient(88.99deg, #ffdada 20.95%, rgba(255, 235, 164, 0.35) 88.38%);
   background-size: cover;
 }
+/* ticket company */
+.form-alerts-sec {
+  position: fixed;
+  bottom: 25px;
+   right: 0px;
+   background-color: whitesmoke;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 60px;
+  height: 150px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+.form-alerts-sec .content{
+  font-size: 1rem;
+  color: black;
+  text-align: center;
+  width: 150%;
+  height: 72%;
+  text-transform: lowercase;
+  letter-spacing: 3px;
+  transform: rotate(-90deg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: -30px;
+  
+}
 
 /* CSS specific to iOS devices */
 @supports (-webkit-touch-callout: none) {

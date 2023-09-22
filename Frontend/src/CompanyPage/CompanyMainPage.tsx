@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import IncomesList from "./subTitlelsComponents/order list's/IncomesList";
 import CombaibnedNavCompany from '../nav/CombaibnedNavCompany';
 import { getOrderWithDate, getMoneyByDay, getMoneyByMonth, getMoneyByYear } from '../Helpjs/help';
@@ -11,6 +11,7 @@ import MoneyStatistics from './MoneyStatistics';
 import NavLogo from '../Main page/NavLogo';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
+import { ToastContainer, toast } from 'react-toastify';
 
 function CompantMainPage() {
   const [orderData, setOrdersData]: any = useState<[]>([]);
@@ -18,6 +19,8 @@ function CompantMainPage() {
   const [TotalSum, setTotalSum]: any = useState<number>(0);
   const [LineStatistic, SetLineStatistic]: any = useState<[]>([]);
   const [statisticData, setStatisticData]: any = useState<[]>([]);
+
+  const [message, setMessage]: any = useState(true);
 
   useEffect(() => {
     async function getOrdersData() {
@@ -50,6 +53,33 @@ function CompantMainPage() {
     getOrdersData();
   }, []);
 
+
+  useLayoutEffect(()=>{
+
+    toast.info('בדקו את הכנסות החברה  ', {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+    toast.warn('עבור/י על יומן הבדיקות', {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+      setTimeout(()=>{
+       setMessage(false)
+      },5000)
+  },[])
   return (
     <>
       <CombaibnedNavCompany />
@@ -57,6 +87,35 @@ function CompantMainPage() {
         <div className="statistic-container">
           <h3>מספר הזמנות</h3>
           <div className="main-content">
+      {message == true ? (
+ <div className="form-alerts toasts">
+ <div role="alert" className="fade form-warning alert alert-primary alert-dismissible show">
+   <button id="close" onClick={()=>setMessage(!message)}>x</button>
+   <div className="d-flex align-items-center">
+     <img alt="noti-icon" src="https://brand.workingsolutions.com/components/images/ghost.svg" width="28" className="me-4"/>
+     <p><b className="d-flex">ברוכים השבים למערכת   </b> , שמחים לראותכם  👋</p>
+   </div>
+ </div>
+ <ToastContainer
+ position="top-right"
+ autoClose={5000}
+ hideProgressBar={false}
+ newestOnTop
+ closeOnClick
+ rtl={false}
+ pauseOnFocusLoss
+ draggable
+ pauseOnHover
+ theme="colored"
+ />
+</div>
+      ): null
+
+      }
+         
+
+
+
             <div className="left-container">
               <h3> :רווחי חברה </h3>
               <p id="emphasis" style={{ paddingTop: '2em', color: '#3a3' }}>

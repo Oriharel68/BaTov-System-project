@@ -27,7 +27,8 @@ function Companysubtitle() {
       {/* Show the regular ul for larger screens */}
       {!showDropdown && (
         <ul className="desktop-list">
-          <li>                                                      //classes for the background color stend on the div we clicked 
+              {/* //classes for the background color stend on the div we clicked  */}
+          <li>                                                  
             <NavLink to="/company/Orders" className={`T ${path === '/Orders' ? 'mainO' : ''}`}>    
               הזמנות
             </NavLink>
