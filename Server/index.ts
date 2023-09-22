@@ -28,7 +28,7 @@ var port = process.env.PORT;
 var mongo_uri = process.env.MONGO_URI;
 
 app.use(express.json());
-app.use(
+app.use(                                //cors options 
   cors({
     origin: ['http://localhost:3000', 'https://batov.netlify.app'],
   })
@@ -36,7 +36,7 @@ app.use(
 
 mongoose.set('strictQuery', true);
 
-mongoose
+mongoose                                  //mongosose connetion 
   .connect(mongo_uri)
   .then(() => {
     console.log('Connected to DB');
@@ -45,10 +45,12 @@ mongoose
     console.log(`at mongoose connect: ${err.message}`);
   });
 
+  // the end-point,  the callback file 
 app.use('/login', login);
 app.use('/register', register);
 app.use('/companyCheck', companyCheck);
 
+ // the end-point,-  he middleWare for each and point -, the callback file 
 app.use('/findAllClients', authenticator, findAllClients);
 app.use('/addProvider', authenticator, addprovider);
 app.use('/getServiceProvider', authenticator, getServiceProvider);

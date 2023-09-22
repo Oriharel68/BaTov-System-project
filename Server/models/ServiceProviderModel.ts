@@ -1,7 +1,6 @@
-// const mongooseProvider = require("mongoose");
 import mongooseProvider from 'mongoose';
-import { Service } from '../models/interface';
-
+import { Service } from '../models/interface'; 
+                                                                        
 const ServiceScehma = new mongooseProvider.Schema<Service>({
   TypeOfService: String,
   WorkerName: String,
