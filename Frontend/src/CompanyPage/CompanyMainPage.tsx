@@ -20,7 +20,7 @@ function CompantMainPage() {
   const [LineStatistic, SetLineStatistic]: any = useState<[]>([]);
   const [statisticData, setStatisticData]: any = useState<[]>([]);
 
-  const [message, setMessage]: any = useState(true);
+  const [message, setMessage]: any = useState(false);
 
   useEffect(() => {
     async function getOrdersData() {
@@ -31,12 +31,12 @@ function CompantMainPage() {
         ]);
         const { Orders } = Promises[0].data;
         const SumClients = Promises[1].data;
-        SetAllClients(SumClients);//setting the clients
-        SumOfClients(SumClients);//adding the sum of all of the clients
-        setOrdersData(getOrderWithDate(Orders));//getting the orders with date
-        const OrderByM = GetOrdersByMonth(Orders);// ordering orders by months
+        SetAllClients(SumClients); //setting the clients
+        SumOfClients(SumClients); //adding the sum of all of the clients
+        setOrdersData(getOrderWithDate(Orders)); //getting the orders with date
+        const OrderByM = GetOrdersByMonth(Orders); // ordering orders by months
         setStatisticData(OrderByM);
-        const MoneyBy = MoneyByMonth(Orders);// ordering money by months
+        const MoneyBy = MoneyByMonth(Orders); // ordering money by months
         SetLineStatistic(MoneyBy);
       } catch (error) {
         console.log(error);
@@ -47,39 +47,41 @@ function CompantMainPage() {
         (accumulator: any, currentValue: any) => accumulator + currentValue.Total,
         0
       );
-      const TotalWithoutTax = Total - (Total * 0.17);// calculate with the tax
+      const TotalWithoutTax = Total - Total * 0.17; // calculate with the tax
       setTotalSum(TotalWithoutTax);
     }
     getOrdersData();
   }, []);
 
-
-  useLayoutEffect(()=>{
-
+  useLayoutEffect(() => {
+    if(!document.cookie.includes('firstTime')){
+    setMessage(true);
     toast.info('בדקו את הכנסות החברה  ', {
-      position: "top-left",
+      position: 'top-left',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored",
-      });
+      theme: 'colored',
+    });
     toast.warn('עבור/י על יומן הבדיקות', {
-      position: "top-left",
+      position: 'top-left',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored",
-      });
-      setTimeout(()=>{
-       setMessage(false)
-      },5000)
-  },[])
+      theme: 'colored',
+    });
+    document.cookie = "firstTime =true";
+    setTimeout(() => {
+      setMessage(false);
+    }, 5000);
+  }
+  }, []);
   return (
     <>
       <CombaibnedNavCompany />
@@ -87,34 +89,38 @@ function CompantMainPage() {
         <div className="statistic-container">
           <h3>מספר הזמנות</h3>
           <div className="main-content">
-      {message == true ? (
- <div className="form-alerts toasts">
- <div role="alert" className="fade form-warning alert alert-primary alert-dismissible show">
-   <button id="close" onClick={()=>setMessage(!message)}>x</button>
-   <div className="d-flex align-items-center">
-     <img alt="noti-icon" src="https://brand.workingsolutions.com/components/images/ghost.svg" width="28" className="me-4"/>
-     <p><b className="d-flex">ברוכים השבים למערכת   </b> , שמחים לראותכם  👋</p>
-   </div>
- </div>
- <ToastContainer
- position="top-right"
- autoClose={5000}
- hideProgressBar={false}
- newestOnTop
- closeOnClick
- rtl={false}
- pauseOnFocusLoss
- draggable
- pauseOnHover
- theme="colored"
- />
-</div>
-      ): null
-
-      }
-         
-
-
+            {message == true ? (
+              <div className="form-alerts toasts">
+                <div role="alert" className="fade form-warning alert alert-primary alert-dismissible show">
+                  <button id="close" onClick={() => setMessage(!message)}>
+                    x
+                  </button>
+                  <div className="d-flex align-items-center">
+                    <img
+                      alt="noti-icon"
+                      src="https://brand.workingsolutions.com/components/images/ghost.svg"
+                      width="28"
+                      className="me-4"
+                    />
+                    <p>
+                      <b className="d-flex">ברוכים השבים למערכת </b> , שמחים לראותכם 👋
+                    </p>
+                  </div>
+                </div>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="colored"
+                />
+              </div>
+            ) : <></>}
 
             <div className="left-container">
               <h3> :רווחי חברה </h3>
