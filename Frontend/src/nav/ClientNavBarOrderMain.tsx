@@ -17,9 +17,9 @@ function ClientNavBarOrderMain() {
   const [showSecondDiv, setShowSecondDiv] = useState(false);
   const location = useLocation().pathname;
   function goBack() {
-    window.history.back(); // Navigate to the previous route
+    window.history.back();      // fution that Navigate to the previous route/page that we was before 
   }
-  const handleMouseEnter = () => {
+  const handleMouseEnter = () => {                           //operating the modal close/open 
     if (showSecondDiv == false) {
       setShowSecondDiv(true);
       return;
@@ -28,16 +28,16 @@ function ClientNavBarOrderMain() {
       return;
     }
   };
-  async function handleOnSubmit(event: any) {
+  async function handleOnSubmit(event: any) {               // handle a logout request 
     event.preventDefault();
-    await signOut(auth)
+    await signOut(auth)                                   //function from the firebase 
       .then(async () => {
         // Sign-out successful.
         const response = await AxiosClient.post(`${Url}/logout`);
         if (response.status === 200) {
           window.sessionStorage.removeItem('accessToken');
           toast.success('התנתקות הצליחה');
-          setTimeout(() => {
+          setTimeout(() => {                                    //seting the time before the client exit the system
             navigate('/client/access');
           }, 1500);
         } else {
@@ -51,7 +51,7 @@ function ClientNavBarOrderMain() {
 
   return (
     <>
-      <ToastContainer
+      <ToastContainer                                          //react-tostify 
         position="top-center"
         autoClose={1000}
         hideProgressBar={false}
@@ -87,14 +87,14 @@ function ClientNavBarOrderMain() {
         </div>
       </div>
       {showSecondDiv && (
-        <Modal
+        <Modal                                                                        //modal option 
           onRequestClose={() => {
             setShowSecondDiv((prev) => !prev);
           }}
           style={NavStyle as any}
           isOpen={showSecondDiv}>
           <div className="close-information-client-container">
-            <span onClick={() => setShowSecondDiv((prev) => !prev)}>&times;</span>
+            <span onClick={() => setShowSecondDiv((prev) => !prev)}>&times;</span>           //x - CLOSE modal icon 
           </div>
           <div className="client-order-message">
             <ul>

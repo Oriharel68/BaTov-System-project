@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const Verify = async (req: Request & {uid:string}, res: Response, next: NextFunction) => {
+const Verify = async (req: Request & {uid:string}, res: Response, next: NextFunction) => {            //the middleware that chkeck the token if exist
   const accessToken = req.headers.authorization.split(' ')[1] || null;
   if(accessToken){
   jwt.verify(

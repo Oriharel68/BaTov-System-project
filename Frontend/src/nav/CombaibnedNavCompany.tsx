@@ -10,8 +10,8 @@ import Url from '../ApiClient/Url';
 function CombaibnedNavCompany() {
   const [showDiv, setshowDiv] = useState(false);
   const navigate = useNavigate();
-  const SignOut = useCallback(() => {
-    signOut(Auth)
+  const SignOut = useCallback(() => {                   // a reqest to logout from the system                                                 
+    signOut(Auth)                                       //sign out function from fireBase- 
       .then(async () => {
         const response = await AxiosClient.post(`${Url}/logout`);
         if (response.status === 200) {
@@ -23,8 +23,9 @@ function CombaibnedNavCompany() {
       })
       .catch((error) => {
         alert(error);
-      });
-  }, [Auth]);
+      });  
+  }, [Auth]);                                    
+                                //Auth ->corrent user  
 
   return (
     <>
@@ -38,13 +39,13 @@ function CombaibnedNavCompany() {
         <div className="exit-company">
           <button
             onClick={() => {
-              setshowDiv(!showDiv);
+              setshowDiv(!showDiv);                                   //onclick that close and open a seconed div 
             }}>
             <RxExit />
           </button>
         </div>
       </div>
-      {showDiv && (
+      {showDiv && (                                                 //how we showing/hide the div  
         <div className="exit-company-container">
           <h3>האם את/ה בטוח?</h3>
           <div className="exit-company-button-container">

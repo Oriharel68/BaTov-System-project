@@ -71,6 +71,13 @@ function Main() {
           </div>
         </div>
       </div>
+{/* rigth side-tiket */}
+<div className="form-alerts-sec toasts">
+    <div className="content">
+      <img alt="noti-icon" src="https://brand.workingsolutions.com/components/images/ghost.svg" width="28" className="me-4"/>
+      <p><b className="d-flex">Created By TOMER & ORI </b></p>
+    </div>
+</div>
 
       <div className="content-container">
         <div className="about-container">

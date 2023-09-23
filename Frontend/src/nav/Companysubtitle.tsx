@@ -27,8 +27,9 @@ function Companysubtitle() {
       {/* Show the regular ul for larger screens */}
       {!showDropdown && (
         <ul className="desktop-list">
-          <li>
-            <NavLink to="/company/Orders" className={`T ${path === '/Orders' ? 'mainO' : ''}`}>
+              {/* //classes for the background color stend on the div we clicked  */}
+          <li>                                                  
+            <NavLink to="/company/Orders" className={`T ${path === '/Orders' ? 'mainO' : ''}`}>    
               הזמנות
             </NavLink>
           </li>
@@ -93,4 +94,5 @@ function Companysubtitle() {
   );
 }
 
-export default memo(Companysubtitle);
+export default memo(Companysubtitle);                                                                                 
+ 

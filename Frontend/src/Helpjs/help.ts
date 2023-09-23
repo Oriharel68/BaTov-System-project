@@ -2,14 +2,14 @@
 import Url from '../ApiClient/Url'
 import AxiosClient from '../ApiClient/AxiosClient';
 
-export function setDate(dat: number) {
+export function setDate(dat: number) {                        //seting new date 
   const targetdate = new Date();
   targetdate.setTime(dat);
   return ` יום ${ToAday(targetdate.getDay())} ${targetdate.getHours()}:${AddZero(targetdate.getMinutes())},${targetdate.getDate()}/${
     targetdate.getMonth() + 1}/${targetdate.getFullYear()}`;
 }
 
-function ToAday(numDay: number) {
+function ToAday(numDay: number) {                        //all the days function 
   const DaysInString = [
     'ראשון',
     'שני',
@@ -21,7 +21,7 @@ function ToAday(numDay: number) {
   ];
   return DaysInString[numDay];
 }
-function AddZero(num: number) {
+function AddZero(num: number) {                         //adding zero function
   if (num < 10) {
     return `${num}0`;
   }
@@ -29,7 +29,7 @@ function AddZero(num: number) {
 }
 // timing filter function
 //convert to time
-export function getOrderWithDate(orders: any) {
+export function getOrderWithDate(orders: any) {                       //geting the order by date
   const ordersWithDate = orders.map((item: any) => {
     const date = new Date();
     date.setTime(item.DateTime);
@@ -37,8 +37,8 @@ export function getOrderWithDate(orders: any) {
   });
   return ordersWithDate;
 }
-//filter functions
-export function getMoneyByDay(orders: any) {
+         //filter functions
+export function getMoneyByDay(orders: any) {                 //canculate the money we make per day
   const currentDay = new Date();
   const perDay = orders.filter((item: any) => {
     return (
@@ -51,7 +51,7 @@ export function getMoneyByDay(orders: any) {
   return calculateSum(perDay);
 }
 
-export function getMoneyByMonth(orders: any) {
+export function getMoneyByMonth(orders: any) {                 //canculate the money we make per month
   const currentDay = new Date();
   const perMonth = orders.filter((item: any) => {
     return (
@@ -62,7 +62,7 @@ export function getMoneyByMonth(orders: any) {
   return calculateSum(perMonth);
 }
 
-export function getMoneyByYear(orders: any) {
+export function getMoneyByYear(orders: any) {                 //canculate the money we make per year
   const currentDay = new Date();
   const perYear = orders.filter((item: any) => {
     return item.date.getFullYear() === currentDay.getFullYear();
@@ -70,7 +70,7 @@ export function getMoneyByYear(orders: any) {
   return calculateSum(perYear);
 }
 
-function calculateSum(orders: any) {
+function calculateSum(orders: any) {                    //canculate the total sum of each and each order
   const sumWithInitial = orders.reduce(
     (accumulator: number, currentValue: any) =>
       accumulator + currentValue?.Price,
@@ -87,23 +87,23 @@ export async function getOrdersData() :Promise<any> {// a function that does all
       AxiosClient.get(`${Url}/findAllClients`),
       AxiosClient.get(`${Url}/getSumOfClientsOrder`),
       AxiosClient.get(`${Url}/getAllOrders`),
-    ]).then((values) => {
-      values.forEach((item: any, index: number) => {
-        if (item.request.responseURL.includes('/findAllClients')) {
-          Clients = values[index].data;
-        } else if (item.request.responseURL.includes('/getSumOfClientsOrder')) {
-          SumClientsMoney = values[index].data;
-        } else {
-          Orders = values[index].data.Orders;//fixing a bug that sometimes  the order of the requests changes 
-        }
-      });
+    ]).then((values) => {                                     //fixing a bug that sometimes  the order of the requests changes 
+      values.forEach((item: any, index: number) => {                                                                         //
+        if (item.request.responseURL.includes('/findAllClients')) {                                                           //
+          Clients = values[index].data;                                                                                         //
+        } else if (item.request.responseURL.includes('/getSumOfClientsOrder')) {                                                 //
+          SumClientsMoney = values[index].data;                                                                                  //
+        } else {                                                                                                                //
+          Orders = values[index].data.Orders;                                                                                 //                  
+        }                                                                                                                    //
+      });                                                                                                                   //
     });
     const currdate = new Date().getTime();
 
     const oldOrders: any = [];
     const OngoingOrders: any = [];
 
-    const OrdersWithName = Orders.map((item: any) => {
+    const OrdersWithName = Orders.map((item: any) => {                      //connecting all orders with clients names funcion 
       const With = Clients.find((value: any) => {
         return value._id === item.ClientId;
       });
@@ -115,7 +115,7 @@ export async function getOrdersData() :Promise<any> {// a function that does all
     OrdersWithName.forEach((item: any) => {
       if (currdate > item.DateTime) oldOrders.push(item);
       else OngoingOrders.push(item);
-    });//old Orders VS New Orders
+    }); //old Orders VS New Orders
     
     return [oldOrders,OngoingOrders,SumClientsMoney];
   } catch (err:any) {
