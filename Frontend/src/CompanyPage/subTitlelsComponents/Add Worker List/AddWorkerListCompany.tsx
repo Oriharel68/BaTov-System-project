@@ -8,14 +8,22 @@ import Modal from 'react-modal';
 import EditStyle from './EditDialogStyle';
 import Url from '../../../ApiClient/Url';
 import AxiosClient from '../../../ApiClient/AxiosClient';
-function AddWorkerListCompany({ item, setChange }: any) {
+import { Provider } from '../../../Types/Types';
+
+interface AddWorkerListCompanyProps {
+  item:Provider,
+  setChange:(a:(prev:boolean)=>void)=>void
+}
+
+
+function AddWorkerListCompany({ item, setChange }: AddWorkerListCompanyProps) {
   const { Price, TypeOfService, WorkerName } = item;
   const [showSecondDiv, setShowSecondDiv] = useState(false);
   function handleClick() {
     setShowSecondDiv(!showSecondDiv);
   }
 
-  async function handleRemove(event: any) {
+  async function handleRemove() {
     try {
       const response = await AxiosClient.post(`${Url}/removeworker`, {
         WorkerName,
@@ -42,7 +50,7 @@ function AddWorkerListCompany({ item, setChange }: any) {
       </td>
 
       <td id="btnAddRemove">
-        <button onClick={(event: any) => handleRemove(event)} name="WorkerName">
+        <button onClick={() => handleRemove()} name="WorkerName">
           <AiOutlineUserDelete />
         </button>
       </td>

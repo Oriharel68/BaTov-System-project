@@ -7,8 +7,16 @@ import { MdRemoveCircleOutline } from 'react-icons/md';
 import { BiExit } from 'react-icons/bi';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
+import { Order } from '../Types/Types';
 
-function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
+interface existingOrderListProps {
+  order:Order,
+  setChanged:(a:(prev:boolean)=>void)=>void,
+  Changed:boolean,
+  isExpired:boolean;
+}
+
+function ExistingOrderList({ order, setChanged, Changed, isExpired }: existingOrderListProps) {
 
 
 
@@ -49,7 +57,7 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
               <ul>
                 <li> {order.TypeOfService} </li>
                 <li> {order.WorkerName}</li>
-                <li style={{ borderLeft: 'none' }}> {setDate(order.DateTime)}</li>
+                <li style={{ borderLeft: 'none' }}> {setDate(order.DateTime as any)}</li>
               </ul>
             </div>
           </div>
@@ -68,7 +76,7 @@ function ExistingOrderList({ order, setChanged, Changed, isExpired }: any) {
               </div>
               <div className="rows">
                 <h3 className="marker">תאריך : </h3>
-                <p>{setDate(order.DateTime)} </p>
+                <p>{setDate(order.DateTime as any)} </p>
               </div>
 
               <div

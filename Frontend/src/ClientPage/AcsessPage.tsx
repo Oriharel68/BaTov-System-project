@@ -12,12 +12,12 @@ function AcsessPage() {
   const navigate = useNavigate();
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
 
-  function handleOnSubmit(event: any) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const email: any = formData.get('Email');
-    const password: any = formData.get('password');
-    signInWithEmailAndPassword(auth, email, password)
+  function handleOnSubmit(event: SubmitEvent| null) {
+    event!.preventDefault();
+    const formData = new FormData(event!.target as HTMLFormElement);
+    const email: FormDataEntryValue | null = formData.get('Email');
+    const password: FormDataEntryValue | null = formData.get('password');
+    signInWithEmailAndPassword(auth, email as string, password as string)
       .then(async (userCredential) => {
         setLoggedin(true);//starting the loader
         const uid = userCredential.user.uid;
@@ -35,8 +35,8 @@ function AcsessPage() {
       })
       .catch(() => {
         setLoggedin(false);
-        const errorbox: any = document.querySelector('#errorbox');
-        errorbox.innerText = `משתמש או סיסמה אינם נכונים`;//display a generic message on failed auth by firebase
+        const errorbox: HTMLDivElement | null = document.querySelector('#errorbox');
+        errorbox!.innerText = `משתמש או סיסמה אינם נכונים`;//display a generic message on failed auth by firebase
       });
   }
 
@@ -67,7 +67,7 @@ function AcsessPage() {
               <div className="registerClient-page-title">
                 <h2>התחברות</h2>
               </div>
-              <form onSubmit={(event) => handleOnSubmit(event)}>
+              <form onSubmit={(event:any) => handleOnSubmit(event)}>
                 <div className="form-group">
                   <input type="email" id="Email" name="Email" placeholder="אימייל" required />
                 </div>

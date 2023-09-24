@@ -12,15 +12,16 @@ import NavLogo from '../Main page/NavLogo';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 import { ToastContainer, toast } from 'react-toastify';
+import { Client, Order } from '../Types/Types';
 
 function CompantMainPage() {
-  const [orderData, setOrdersData]: any = useState<[]>([]);
-  const [allClients, SetAllClients]: any = useState<[]>([]);
-  const [TotalSum, setTotalSum]: any = useState<number>(0);
-  const [LineStatistic, SetLineStatistic]: any = useState<[]>([]);
-  const [statisticData, setStatisticData]: any = useState<[]>([]);
+  const [orderData, setOrdersData]  = useState<Order[]>([]);
+  const [allClients, SetAllClients] = useState<[]>([]);
+  const [TotalSum, setTotalSum] = useState<number>(0);
+  const [LineStatistic, SetLineStatistic] = useState<number[]>([]);
+  const [statisticData, setStatisticData] = useState<number[]>([]);
 
-  const [message, setMessage]: any = useState(false);
+  const [message, setMessage] = useState<boolean>(false);
 
   useEffect(() => {
     async function getOrdersData() {
@@ -42,7 +43,7 @@ function CompantMainPage() {
         console.log(error);
       }
     }
-    function SumOfClients(Clients: any) {
+    function SumOfClients(Clients: Client[]) {
       const Total = Clients.reduce(
         (accumulator: any, currentValue: any) => accumulator + currentValue.Total,
         0
@@ -54,7 +55,7 @@ function CompantMainPage() {
   }, []);
 
   useLayoutEffect(() => {
-    if(!document.cookie.includes('firstTime')){
+    if(!document.cookie.includes('firstTimeAdmin')){
     setMessage(true);
     toast.info('בדקו את הכנסות החברה  ', {
       position: 'top-left',
@@ -76,7 +77,7 @@ function CompantMainPage() {
       progress: undefined,
       theme: 'colored',
     });
-    document.cookie = "firstTime =true";
+    document.cookie = "firstTimeAdmin = true";
     setTimeout(() => {
       setMessage(false);
     }, 5000);
@@ -89,7 +90,7 @@ function CompantMainPage() {
         <div className="statistic-container">
           <h3>מספר הזמנות</h3>
           <div className="main-content">
-            {message == true ? (
+            {message ? (
               <div className="form-alerts toasts">
                 <div role="alert" className="fade form-warning alert alert-primary alert-dismissible show">
                   <button id="close" onClick={() => setMessage(!message)}>
@@ -249,7 +250,7 @@ function CompantMainPage() {
                       <th>סכום</th>
                     </tr>
 
-                    {allClients.map((client: any) => {
+                    {allClients.map((client: Client) => {
                       return (
                         <tr>
                           <IncomesList client={client} key={client._id} />

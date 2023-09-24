@@ -6,6 +6,7 @@ import EditStyle from './Add Worker List/EditDialogStyle';
 import { ToastContainer, toast } from 'react-toastify';
 import Url from '../../ApiClient/Url';
 import AxiosClient from '../../ApiClient/AxiosClient';
+import { Provider } from '../../Types/Types';
 
 function AddworkerCompany() {
   const [ServiceProviders, setServiceProviders] = useState([]);
@@ -118,13 +119,13 @@ function AddworkerCompany() {
               </thead>
               <tbody>
                 {Visible ? (
-                  ServiceProviders.map((item: any) => {
+                  ServiceProviders.map((item: Provider) => {
                     return (
                       <tr>
                         <AddWorkerListCompany
                           item={item}
                           key={item._id}
-                          setChange={setChange}
+                          setChange={setChange as any}
                         />
                       </tr>
                     );

@@ -10,12 +10,12 @@ function ForgetPassword() {
   const navigate = useNavigate();
   const [sendEmail, SetSendEmail] = useState<boolean>(false);
 
-  function handleOnSubmit(event: any) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const email: any = formData.get('Email');
+  function handleOnSubmit(event: SubmitEvent| null) {
+    event!.preventDefault();
+    const formData = new FormData(event!.target as HTMLFormElement);
+    const email:FormDataEntryValue | null  = formData.get('Email');
 
-    sendPasswordResetEmail(auth, email)
+    sendPasswordResetEmail(auth, email as string)
       .then(() => {
         // Password reset email sent!
         toast.info('בדוק את כתובת הדוא"ל שלך עבור סיסמה חדשה ');
@@ -25,8 +25,8 @@ function ForgetPassword() {
         }, 2000);
       })
       .catch(() => {
-        const errorbox: HTMLElement | null | any = document.querySelector('#errorbox');
-        errorbox.innerText = 'המייל שנרשם לא תקין';
+        const errorbox: HTMLElement | null  = document.querySelector('#errorbox');
+        errorbox!.innerText = 'המייל שנרשם לא תקין';
       });
   }
 
@@ -41,7 +41,7 @@ function ForgetPassword() {
               <div className="registerClient-page-title">
                 <h2 style={{ direction: 'rtl' }}>שכחת סיסמה?</h2>
               </div>
-              <form action="" onSubmit={(event) => handleOnSubmit(event)}>
+              <form action="" onSubmit={(event:any) => handleOnSubmit(event)}>
                 <label style={{ direction: 'rtl' }} className="inp1">
                   :הקלד את כתובת המייל לשיחזור
                   <input type="email" name="Email" id="email" placeholder="מייל" required />

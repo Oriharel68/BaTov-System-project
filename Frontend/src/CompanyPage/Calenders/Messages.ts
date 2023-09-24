@@ -10,6 +10,6 @@ export default {
   date: 'תאריך',
   time: 'זמן',
   event: 'אירוע',
-  showMore: (total: any) => `+ (${total}) אירועים`,
+  showMore: (total: number) => `+ (${total}) אירועים`,
 };
 //tranlations to hebrew

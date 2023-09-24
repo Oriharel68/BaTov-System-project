@@ -4,11 +4,12 @@ import ActiceOrdersList from "./order list's/ActiceOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
 import { getOrdersData } from '../../Helpjs/help';
+import { Client, Order } from '../../Types/Types';
 
 function OrderOfTheCompany() {
-  const [activeOrders, setActiveOrders] = useState<[]>([]);
-  const [oldOrders, setOldOrders] = useState<[]>([]);
-  const [allClients, setAllClients]: any = useState<[]>([]);
+  const [activeOrders, setActiveOrders] = useState<Order[]>([]);
+  const [oldOrders, setOldOrders] = useState<Order[]>([]);
+  const [allClients, setAllClients] = useState<Client[]>([]);
   const [Visible, setVisible] = useState<boolean>(false);
   const [totalmoney, setTotalMoney] = useState<number>(0);
   // const TAX_RATE = 0.17;
@@ -17,7 +18,7 @@ function OrderOfTheCompany() {
   const totalSum = useCallback((allOrders: any) => {
     const Total: number = allOrders.reduce((acc: any, value: any) => acc + value.Total, 0);
     setTotalMoney(Total);
-  }, []);
+  }, [allClients]);
 
   useEffect(() => {
     async function getSetData() {
@@ -61,7 +62,7 @@ function OrderOfTheCompany() {
               <th>סטטוס</th>
             </tr>
             {Visible ? (
-              activeOrders.map((item: any) => {
+              activeOrders.map((item: Order) => {
                 return (
                   <tr>
                     <ActiceOrdersList order={item} key={item._id} />
@@ -94,7 +95,7 @@ function OrderOfTheCompany() {
             </tr>
 
             {Visible ? (
-              oldOrders.map((item: any) => {
+              oldOrders.map((item: Order) => {
                 return (
                   <tr>
                     <OldOrdersList order={item} key={item._id} />

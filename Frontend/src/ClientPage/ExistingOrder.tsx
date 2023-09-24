@@ -3,10 +3,11 @@ import ExistingOrderList from './ExistingOrderList';
 import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
+import { Order } from '../Types/Types';
 
 function ExistingOrder() {
-  const [ordersData, setOrdersData] = useState<[]>([]);
-  const [OldOrders, setOldOrders] = useState<[]>([]);
+  const [ordersData, setOrdersData] = useState<Order[]>([]);
+  const [OldOrders, setOldOrders] = useState<Order[]>([]);
   const [Changed, setChanged] = useState<boolean>(false);
 
   useEffect(() => {
@@ -15,11 +16,11 @@ function ExistingOrder() {
         const response = await AxiosClient.get(`${Url}/GetMyOrders`);//getting the orders of the client and displaying it
         if (response.status !== 200) return alert('שגיאה בעת יבוא ההזמנות');
         const { data } = response;
-        const currdate: any = new Date().getTime();
-        const oldOrders: any = [];
-        const OngoingOrders: any = []; ///
-        data.forEach((item: any) => {
-          if (currdate > item.DateTime) oldOrders.push(item);
+        const currdate: number = new Date().getTime();
+        const oldOrders:Order[] = [];
+        const OngoingOrders: Order[] = []; ///
+        data.forEach((item: Order) => {
+          if (currdate as any > item.DateTime as any) oldOrders.push(item);
           else OngoingOrders.push(item);
         });
 
@@ -46,11 +47,11 @@ function ExistingOrder() {
                 <>
                   {ordersData.length > 0 ? (
                     <div className="over-flow-existingOrders ">
-                      {ordersData.map((order: any) => {
+                      {ordersData.map((order: Order) => {
                         return (
                           <ExistingOrderList
                             Changed={Changed}
-                            setChanged={setChanged}
+                            setChanged={setChanged as any}
                             order={order}
                             isExpired={true}
                             key={order._id}
@@ -67,11 +68,11 @@ function ExistingOrder() {
                   <h4 style={{ direction: 'rtl' }}>הזמנות ישנות:📇</h4>
                   {OldOrders.length > 0 ? (
                     <div className="over-flow-oldOrders">
-                      {OldOrders.map((order: any) => {
+                      {OldOrders.map((order: Order) => {
                         return (
                           <ExistingOrderList
                             Changed={Changed}
-                            setChanged={setChanged}
+                            setChanged={setChanged as any}
                             order={order}
                             isExpired={false}
                             key={order._id}
