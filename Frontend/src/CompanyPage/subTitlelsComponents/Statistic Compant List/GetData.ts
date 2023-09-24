@@ -20,7 +20,7 @@ export function MoneyByMonth(Orders: Order[]) {
     date.setTime(order.DateTime as any);
     return { ...order, Month: date.getMonth() };
   });
-  OrdersMonth.forEach((order: any) => {
+  OrdersMonth.forEach((order: Order&{Month:number}) => {
     MonthsOrders[order.Month] += order.Price;
   });
 

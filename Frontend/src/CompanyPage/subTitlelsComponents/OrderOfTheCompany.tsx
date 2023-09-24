@@ -15,7 +15,7 @@ function OrderOfTheCompany() {
   // const TAX_RATE = 0.17;
   const [colspan, setColspan] = useState(1);
 
-  const totalSum = useCallback((allOrders: any) => {
+  const totalSum = useCallback((allOrders: (Client&{Total:number})[]) => {
     const Total: number = allOrders.reduce((acc: any, value: any) => acc + value.Total, 0);
     setTotalMoney(Total);
   }, [allClients]);
@@ -129,7 +129,7 @@ function OrderOfTheCompany() {
             </tr>
 
             {Visible ? (
-              allClients.map((client: any) => {
+              allClients.map((client: Client) => {
                 return (
                   <tr>
                     <IncomesList client={client} key={client._id} />

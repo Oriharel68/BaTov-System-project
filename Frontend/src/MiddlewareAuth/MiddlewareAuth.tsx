@@ -1,8 +1,8 @@
-import React, { useLayoutEffect } from 'react';
+import React, { PropsWithChildren, useLayoutEffect } from 'react';
 import AxiosClient from '../ApiClient/AxiosClient';
 import { useNavigate } from 'react-router-dom';
 
-function MiddlewareAuth({ children }: { children: any }) {
+function MiddlewareAuth({ children }: { children: PropsWithChildren }) {
   const navigate = useNavigate();
   useLayoutEffect(() => {
     const requstinter = AxiosClient.interceptors.request.use(

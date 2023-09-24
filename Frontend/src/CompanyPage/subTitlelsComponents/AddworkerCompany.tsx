@@ -18,10 +18,10 @@ function AddworkerCompany() {
     setShowSecondDiv(!showSecondDiv);
   }, [showSecondDiv]);
 
-  async function handleOnSubmit(event: any) {
+  async function handleOnSubmit(event: SubmitEvent| null) {
     try {
-      event.preventDefault();
-      const formData = new FormData(event.target);
+      event!.preventDefault();
+      const formData = new FormData(event!.target as HTMLFormElement);
       const WorkerName = formData.get('workerName');
       const TypeOfService = formData.get('serviceType');
       const Price = formData.get('price');
@@ -88,7 +88,7 @@ function AddworkerCompany() {
               }}
               style={EditStyle as any}>
               <div className="main-container">
-                <form id="Modal-Form" onSubmit={(event) => handleOnSubmit(event)}>
+                <form id="Modal-Form" onSubmit={(event:any) => handleOnSubmit(event)}>
                   <h3>הוספת עובד</h3>
 
                   <input type="text" id="W2" name="workerName" placeholder=" שם + שם משפחה" />
