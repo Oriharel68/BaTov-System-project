@@ -82,7 +82,7 @@ function calculateSum(orders: (Order&{Price:number})[]) {                    //c
 
 
 export async function getOrdersData() :Promise<any> {// a function that does all of the calls and sorting by date used in OrderOfTheCompany Component
-  let Clients:any, Orders,SumClientsMoney:any;
+  let Clients:any, Orders:any,SumClientsMoney:any;
   try {
     await Promise.all([
       AxiosClient.get(`${Url}/findAllClients`),

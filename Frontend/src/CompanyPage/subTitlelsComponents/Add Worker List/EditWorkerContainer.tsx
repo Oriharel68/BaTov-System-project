@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { Dispatch, SetStateAction, useRef } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Url from '../../../ApiClient/Url';
@@ -8,8 +8,8 @@ import { Provider } from '../../../Types/Types';
 
 interface EditWorkerContainerProps {
   Provider:Provider,
-  setChange:(a:(prev:boolean)=>void)=> void,
-  setShowSecondDiv:(a:boolean)=> void
+  setChange:Dispatch<SetStateAction<boolean>>,
+  setShowSecondDiv:Dispatch<SetStateAction<boolean>>
 }
 
 function EditWorkerContainer({ Provider, setChange, setShowSecondDiv }: EditWorkerContainerProps) {

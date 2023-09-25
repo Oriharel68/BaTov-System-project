@@ -7,8 +7,8 @@ import { getOrdersData } from '../../Helpjs/help';
 import { Client, Order } from '../../Types/Types';
 
 function OrderOfTheCompany() {
-  const [activeOrders, setActiveOrders] = useState<Order[]>([]);
-  const [oldOrders, setOldOrders] = useState<Order[]>([]);
+  const [activeOrders, setActiveOrders] = useState<(Order&{ClientName:string})[]>([]);
+  const [oldOrders, setOldOrders] = useState<(Order&{ClientName:string})[]>([]);
   const [allClients, setAllClients] = useState<Client[]>([]);
   const [Visible, setVisible] = useState<boolean>(false);
   const [totalmoney, setTotalMoney] = useState<number>(0);
@@ -62,7 +62,7 @@ function OrderOfTheCompany() {
               <th>סטטוס</th>
             </tr>
             {Visible ? (
-              activeOrders.map((item: Order) => {
+              activeOrders.map((item) => {
                 return (
                   <tr>
                     <ActiceOrdersList order={item} key={item._id} />
@@ -95,7 +95,7 @@ function OrderOfTheCompany() {
             </tr>
 
             {Visible ? (
-              oldOrders.map((item: Order) => {
+              oldOrders.map((item) => {
                 return (
                   <tr>
                     <OldOrdersList order={item} key={item._id} />

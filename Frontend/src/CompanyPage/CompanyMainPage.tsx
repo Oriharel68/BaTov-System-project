@@ -15,7 +15,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Client, Order } from '../Types/Types';
 
 function CompantMainPage() {
-  const [orderData, setOrdersData]  = useState<Order[]>([]);
+  const [orderData, setOrdersData]  = useState<(Order&{date:Date})[]>([]);
   const [allClients, SetAllClients] = useState<[]>([]);
   const [TotalSum, setTotalSum] = useState<number>(0);
   const [LineStatistic, SetLineStatistic] = useState<number[]>([]);
@@ -43,9 +43,9 @@ function CompantMainPage() {
         console.log(error);
       }
     }
-    function SumOfClients(Clients: Client[]) {
+    function SumOfClients(Clients: (Client&{Total:number})[]) {
       const Total = Clients.reduce(
-        (accumulator: any, currentValue: any) => accumulator + currentValue.Total,
+        (accumulator: any, currentValue) => accumulator + currentValue.Total,
         0
       );
       const TotalWithoutTax = Total - Total * 0.17; // calculate with the tax
@@ -54,7 +54,7 @@ function CompantMainPage() {
     getOrdersData();
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if(!document.cookie.includes('firstTimeAdmin')){
     setMessage(true);
     toast.info('בדקו את הכנסות החברה  ', {
@@ -82,7 +82,7 @@ function CompantMainPage() {
       setMessage(false);
     }, 5000);
   }
-  }, []);
+  }, [TotalSum]);
   return (
     <>
       <CombaibnedNavCompany />
@@ -108,18 +108,7 @@ function CompantMainPage() {
                     </p>
                   </div>
                 </div>
-                <ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                  theme="colored"
-                />
+               
               </div>
             ) : <></>}
 
@@ -284,6 +273,18 @@ function CompantMainPage() {
           </ul>
         </div>
       </div>
+      <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="colored"
+                />
     </>
   );
 }

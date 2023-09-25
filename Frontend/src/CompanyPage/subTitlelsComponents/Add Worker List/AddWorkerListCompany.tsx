@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import EditWorkerContainer from './EditWorkerContainer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,7 +12,7 @@ import { Provider } from '../../../Types/Types';
 
 interface AddWorkerListCompanyProps {
   item:Provider,
-  setChange:(a:(prev:boolean)=>void)=>void
+  setChange:Dispatch<SetStateAction<boolean>>
 }
 
 
@@ -64,7 +64,7 @@ function AddWorkerListCompany({ item, setChange }: AddWorkerListCompanyProps) {
           style={EditStyle as any}>
           <EditWorkerContainer
             setShowSecondDiv={setShowSecondDiv}
-            item={item}
+            Provider={item}
             setChange={setChange}
           />
         </Modal>
