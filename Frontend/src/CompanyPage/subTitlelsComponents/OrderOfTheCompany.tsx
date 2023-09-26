@@ -9,7 +9,7 @@ import { Client, Order } from '../../Types/Types';
 function OrderOfTheCompany() {
   const [activeOrders, setActiveOrders] = useState<(Order&{ClientName:string})[]>([]);
   const [oldOrders, setOldOrders] = useState<(Order&{ClientName:string})[]>([]);
-  const [allClients, setAllClients] = useState<Client[]>([]);
+  const [allClients, setAllClients] = useState<(Client&{ Total: number, ClientName: string })[]>([]);
   const [Visible, setVisible] = useState<boolean>(false);
   const [totalmoney, setTotalMoney] = useState<number>(0);
   // const TAX_RATE = 0.17;
@@ -129,7 +129,7 @@ function OrderOfTheCompany() {
             </tr>
 
             {Visible ? (
-              allClients.map((client: Client) => {
+              allClients.map((client) => {
                 return (
                   <tr>
                     <IncomesList client={client} key={client._id} />

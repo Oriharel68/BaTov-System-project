@@ -231,24 +231,28 @@
   }
 }
 
-
 /* messages alert */
 .form-alerts {
-position: fixed;
-top: 50px;
-right: 15px;
-background-color: wheat;
-flex-wrap: wrap;
-max-width: 30%;
-direction: rtl;
-z-index: 90;
+  position: fixed;
+  top: 50px;
+  right: 15px;
+  background-color: wheat;
+  flex-wrap: wrap;
+  max-width: 30%;
+  direction: rtl;
+  z-index: 90;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 30px;
-
-
+  
 }
+
+
+
+
+
+
 #close {
   margin-top: 0px;
   margin-bottom: 50px;
@@ -285,7 +289,7 @@ z-index: 90;
     border-radius: 0.125em;
     transform: rotate(45deg);
     background: currentcolor;
-    content: "";
+    content: '';
   }
 
   &:after {
@@ -305,4 +309,3 @@ z-index: 90;
 .hoverMe:hover {
   border-bottom: 1px solid #0096ff;
 }
-

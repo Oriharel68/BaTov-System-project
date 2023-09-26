@@ -16,7 +16,7 @@ import { Client, Order } from '../Types/Types';
 
 function CompantMainPage() {
   const [orderData, setOrdersData]  = useState<(Order&{date:Date})[]>([]);
-  const [allClients, SetAllClients] = useState<[]>([]);
+  const [allClients, SetAllClients] = useState<(Client&{Total:number,ClientName:string})[]>([]);
   const [TotalSum, setTotalSum] = useState<number>(0);
   const [LineStatistic, SetLineStatistic] = useState<number[]>([]);
   const [statisticData, setStatisticData] = useState<number[]>([]);
@@ -78,11 +78,9 @@ function CompantMainPage() {
       theme: 'colored',
     });
     document.cookie = "firstTimeAdmin = true";
-    setTimeout(() => {
-      setMessage(false);
-    }, 5000);
+
   }
-  }, [TotalSum]);
+  }, []);
   return (
     <>
       <CombaibnedNavCompany />
@@ -91,20 +89,19 @@ function CompantMainPage() {
           <h3>מספר הזמנות</h3>
           <div className="main-content">
             {message ? (
-              <div className="form-alerts toasts">
-                <div role="alert" className="fade form-warning alert alert-primary alert-dismissible show">
+              <div className="form-alerts">
+                <div role="alert">
                   <button id="close" onClick={() => setMessage(!message)}>
                     x
                   </button>
-                  <div className="d-flex align-items-center">
+                  <div >
                     <img
                       alt="noti-icon"
                       src="https://brand.workingsolutions.com/components/images/ghost.svg"
                       width="28"
-                      className="me-4"
                     />
                     <p>
-                      <b className="d-flex">ברוכים השבים למערכת </b> , שמחים לראותכם 👋
+                      <b>ברוכים השבים למערכת </b> , שמחים לראותכם 👋
                     </p>
                   </div>
                 </div>
@@ -239,7 +236,7 @@ function CompantMainPage() {
                       <th>סכום</th>
                     </tr>
 
-                    {allClients.map((client: Client) => {
+                    {allClients.map((client) => {
                       return (
                         <tr>
                           <IncomesList client={client} key={client._id} />

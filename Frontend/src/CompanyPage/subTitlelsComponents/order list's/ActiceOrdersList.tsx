@@ -3,7 +3,6 @@ import { Order } from '../../../Types/Types';
 
 function ActiceOrdersList({ order }: {order:Order&{ClientName:string}}) {
   const { _id, ClientName, WorkerName, DateTime, Price } = order;
-  console.log(order);
   
 
   return (

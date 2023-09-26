@@ -1,4 +1,7 @@
-function IncomesList({ client }: any) {
+import { Client } from "../../../Types/Types";
+
+
+function IncomesList({ client }:{client:Client&{Total:number,ClientName:string}}) {
   const { ClientName, Total, Email, PhoneNumber } = client;
 
   return (
