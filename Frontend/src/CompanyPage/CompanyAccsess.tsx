@@ -26,19 +26,19 @@ function CompanyAccsess() {
   const [Loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
 
-  async function handeleSingIn(e: any) {
-    e.preventDefault();
+  async function handeleSignIn(e: SubmitEvent| null) {
+    e!.preventDefault();
 
-    const formData = new FormData(e.target);
-    const email: any = formData.get('Email');
-    const password: any = formData.get('password');//getting the data from the inputs
+    const formData = new FormData(e!.target as HTMLFormElement);
+    const email: FormDataEntryValue | null = formData.get('Email');
+    const password: FormDataEntryValue | null = formData.get('password');//getting the data from the inputs
     try {
       const response = await AxiosClient.post(`${Url}/companyCheck`, {
         email,
       });//checking if the email is authorized to access the administrative panel
       if (response?.status !== 200) return alert('שם משתמש או סיסמא אינם נכונים');
 
-      await signInWithEmailAndPassword(auth, email, password)
+      await signInWithEmailAndPassword(auth, email as string, password as string)
         .then(async (userCredential) => {
           setLoggedin(true);
           const uid = userCredential.user.uid;
@@ -73,7 +73,7 @@ function CompanyAccsess() {
       </div>
 
       <div className="CompanyMain-access-container">
-        <form action="" onSubmit={(e) => handeleSingIn(e)}>
+        <form action="" onSubmit={(e:any) => handeleSignIn(e)}>
           <h3>כניסה למערכת</h3>
 
           <label className="inp">שם משתמש</label>

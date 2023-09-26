@@ -4,20 +4,21 @@ import ActiceOrdersList from "./order list's/ActiceOrdersList";
 import OldOrdersList from "./order list's/OldOrdersList";
 import IncomesList from "./order list's/IncomesList";
 import { getOrdersData } from '../../Helpjs/help';
+import { Client, Order } from '../../Types/Types';
 
 function OrderOfTheCompany() {
-  const [activeOrders, setActiveOrders] = useState<[]>([]);
-  const [oldOrders, setOldOrders] = useState<[]>([]);
-  const [allClients, setAllClients]: any = useState<[]>([]);
+  const [activeOrders, setActiveOrders] = useState<(Order&{ClientName:string})[]>([]);
+  const [oldOrders, setOldOrders] = useState<(Order&{ClientName:string})[]>([]);
+  const [allClients, setAllClients] = useState<Client[]>([]);
   const [Visible, setVisible] = useState<boolean>(false);
   const [totalmoney, setTotalMoney] = useState<number>(0);
   // const TAX_RATE = 0.17;
   const [colspan, setColspan] = useState(1);
 
-  const totalSum = useCallback((allOrders: any) => {
+  const totalSum = useCallback((allOrders: (Client&{Total:number})[]) => {
     const Total: number = allOrders.reduce((acc: any, value: any) => acc + value.Total, 0);
     setTotalMoney(Total);
-  }, []);
+  }, [allClients]);
 
   useEffect(() => {
     async function getSetData() {
@@ -61,7 +62,7 @@ function OrderOfTheCompany() {
               <th>סטטוס</th>
             </tr>
             {Visible ? (
-              activeOrders.map((item: any) => {
+              activeOrders.map((item) => {
                 return (
                   <tr>
                     <ActiceOrdersList order={item} key={item._id} />
@@ -94,7 +95,7 @@ function OrderOfTheCompany() {
             </tr>
 
             {Visible ? (
-              oldOrders.map((item: any) => {
+              oldOrders.map((item) => {
                 return (
                   <tr>
                     <OldOrdersList order={item} key={item._id} />
@@ -128,7 +129,7 @@ function OrderOfTheCompany() {
             </tr>
 
             {Visible ? (
-              allClients.map((client: any) => {
+              allClients.map((client: Client) => {
                 return (
                   <tr>
                     <IncomesList client={client} key={client._id} />

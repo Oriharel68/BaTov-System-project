@@ -1,7 +1,13 @@
 import { memo } from 'react';
 import { TbHandClick } from 'react-icons/tb';
+import { Provider } from '../Types/Types';
 
-function NewOrderList({ Provider, addServiceProvider }: any) {
+interface NewOrderListProps {
+  Provider:Provider,
+  addServiceProvider:(provider:Provider)=>void,
+}
+
+function NewOrderList({ Provider, addServiceProvider }: NewOrderListProps) {
   const {TypeOfService,WorkerName} = Provider;
   return (
     <div className="workerType-wraper">

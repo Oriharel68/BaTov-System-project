@@ -1,21 +1,29 @@
-import { useRef } from 'react';
+import { Dispatch, SetStateAction, useRef } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Url from '../../../ApiClient/Url';
 import AxiosClient from '../../../ApiClient/AxiosClient';
+import { Provider } from '../../../Types/Types';
 
-function EditWorkerContainer({ Provider, setChange, setShowSecondDiv }: any) {
+
+interface EditWorkerContainerProps {
+  Provider:Provider,
+  setChange:Dispatch<SetStateAction<boolean>>,
+  setShowSecondDiv:Dispatch<SetStateAction<boolean>>
+}
+
+function EditWorkerContainer({ Provider, setChange, setShowSecondDiv }: EditWorkerContainerProps) {
   const { Price, TypeOfService, WorkerName, _id } = Provider;
 
-  const InputWokrerNameref: any = useRef();
-  const InputTypeOfServiceref: any = useRef();
-  const InputPriceNameref: any = useRef();
+  const InputWokrerNameref = useRef<HTMLInputElement>();
+  const InputTypeOfServiceref = useRef<HTMLInputElement>();
+  const InputPriceNameref = useRef<HTMLInputElement>();
 
   async function handleEdit(event: any) {
     event.preventDefault();
     const WorkerName = InputWokrerNameref?.current?.value;
-    const TypeOfService = InputTypeOfServiceref.current.value;
-    const Price = InputPriceNameref.current.value;
+    const TypeOfService = InputTypeOfServiceref?.current?.value;
+    const Price = InputPriceNameref?.current?.value;
     // InputTypeOfServiceref
     // InputPriceNameref
     try {
@@ -51,7 +59,7 @@ function EditWorkerContainer({ Provider, setChange, setShowSecondDiv }: any) {
         type="text"
         id="W2"
         name="workerName"
-        ref={InputWokrerNameref}
+        ref={InputWokrerNameref as any}
         placeholder={`שם + שם משפחה -- ${WorkerName}`}
       />
 
@@ -59,7 +67,7 @@ function EditWorkerContainer({ Provider, setChange, setShowSecondDiv }: any) {
         type="text"
         id="W2"
         name="serviceType"
-        ref={InputTypeOfServiceref}
+        ref={InputTypeOfServiceref as any}
         placeholder={`סוג איש מקצוע -- ${TypeOfService}`}
       />
 
@@ -67,7 +75,7 @@ function EditWorkerContainer({ Provider, setChange, setShowSecondDiv }: any) {
         type="number"
         id="W3"
         name="price"
-        ref={InputPriceNameref}
+        ref={InputPriceNameref as any}
         placeholder={`מחיר /עלות בדיקה-- ${Price}`}
         min="0"
       />

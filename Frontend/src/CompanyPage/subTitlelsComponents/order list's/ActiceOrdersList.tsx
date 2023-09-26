@@ -1,12 +1,14 @@
 import { setDate } from '../../../Helpjs/help';
-function ActiceOrdersList({ order }: any) {
+import { Order } from '../../../Types/Types';
+
+function ActiceOrdersList({ order }: {order:Order&{ClientName:string}}) {
   const { _id, ClientName, WorkerName, DateTime, Price } = order;
   console.log(order);
   
 
   return (
     <>
-      <td id="emphasis">{setDate(DateTime)}</td>
+      <td id="emphasis">{setDate(DateTime as any)}</td>
       <td>{ClientName}</td>
       <td>{WorkerName}</td>
       <td>{Price?.toLocaleString()}₪</td>

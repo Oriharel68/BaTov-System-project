@@ -6,11 +6,12 @@ import ClientNavBarOrderMain from '../nav/ClientNavBarOrderMain';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 import { toast } from 'react-toastify';
+import { Provider } from '../Types/Types';
 
 function NewOrder() {
   const navigate = useNavigate();
   const [ServiceProviders, setServiceProviders] = useState<[]>([]);
-  const [Provider, setProvider]: any = useState<object | null>(null);
+  const [Provider, setProvider] = useState<Provider|null>(null);
   const [Choice, setChoice] = useState<boolean>(true);
   const [SelectedDate, setSelectedDate] = useState(null);
 
@@ -22,7 +23,7 @@ function NewOrder() {
   }
 
   const handleComplete = async () => {
-    const { TypeOfService, WorkerName, Price } = Provider;
+    const { TypeOfService, WorkerName, Price } = Provider as Provider;
     if (!SelectedDate || !Provider) {
       toast.error('תאריך או בודק לא נכונים/ריקים אנא תקן את המידע');
       return;
@@ -40,7 +41,7 @@ function NewOrder() {
     navigate('/order/orderCompelte');
   };
 
-  const addServiceProvider = (item: any) => {
+  const addServiceProvider = (item: Provider) => {
     setProvider(item);
     setChoice(false);//after choosing the provider the provider choices will disapper and the datepicker will appear
   };
@@ -73,7 +74,7 @@ function NewOrder() {
                   <>
                     <h3> 🧑‍🔧:סוג איש מקצוע</h3>
                     <div className="New-order-list-wraper">
-                      {ServiceProviders.map((item: any) => {
+                      {ServiceProviders.map((item: Provider) => {
                         return (
                           <NewOrderList Provider={item} key={item._id} addServiceProvider={addServiceProvider} />
                         );
@@ -87,8 +88,8 @@ function NewOrder() {
                     <div className="bootmCalender-container">
                       <DatePickerComponent
                         CurrentDate={CurrentDate}
-                        Provider={Provider}
-                        setSelectedDate={setSelectedDate}
+                        Provider={Provider as Provider}
+                        setSelectedDate={setSelectedDate as any}
                       />
                       <button onClick={handleComplete} id="Calender">
                         בחר

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import EditWorkerContainer from './EditWorkerContainer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,14 +8,22 @@ import Modal from 'react-modal';
 import EditStyle from './EditDialogStyle';
 import Url from '../../../ApiClient/Url';
 import AxiosClient from '../../../ApiClient/AxiosClient';
-function AddWorkerListCompany({ item, setChange }: any) {
+import { Provider } from '../../../Types/Types';
+
+interface AddWorkerListCompanyProps {
+  item:Provider,
+  setChange:Dispatch<SetStateAction<boolean>>
+}
+
+
+function AddWorkerListCompany({ item, setChange }: AddWorkerListCompanyProps) {
   const { Price, TypeOfService, WorkerName } = item;
   const [showSecondDiv, setShowSecondDiv] = useState(false);
   function handleClick() {
     setShowSecondDiv(!showSecondDiv);
   }
 
-  async function handleRemove(event: any) {
+  async function handleRemove() {
     try {
       const response = await AxiosClient.post(`${Url}/removeworker`, {
         WorkerName,
@@ -42,7 +50,7 @@ function AddWorkerListCompany({ item, setChange }: any) {
       </td>
 
       <td id="btnAddRemove">
-        <button onClick={(event: any) => handleRemove(event)} name="WorkerName">
+        <button onClick={() => handleRemove()} name="WorkerName">
           <AiOutlineUserDelete />
         </button>
       </td>
@@ -56,7 +64,7 @@ function AddWorkerListCompany({ item, setChange }: any) {
           style={EditStyle as any}>
           <EditWorkerContainer
             setShowSecondDiv={setShowSecondDiv}
-            item={item}
+            Provider={item}
             setChange={setChange}
           />
         </Modal>

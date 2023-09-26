@@ -4,9 +4,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import he from 'date-fns/locale/he';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
+import { Provider,Order } from '../Types/Types';
 
-function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }: any) {
-  const [startDate, setStartDate]: any = useState(null);
+interface DatePickerProps {setSelectedDate:(a:number)=>void,Provider:Provider,CurrentDate:Date}
+
+function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }:DatePickerProps) {
+  const [startDate, setStartDate] = useState<any>(null);
   const [OrderData, setOrderData] = useState<[]>([]);
 
   useEffect(() => {
@@ -15,7 +18,7 @@ function DatePickerComponent({ setSelectedDate, Provider, CurrentDate }: any) {
       const { data } = await AxiosClient.get(
         `${Url}/getExistingOrders?TypeOfService=${TypeOfService}&WorkerName=${WorkerName}`
       );// getting the orders from the workerProvider and filter it by datetime
-      const FilterTime = data.map((item: any) => {
+      const FilterTime = data.map((item: Order) => {
         return item.DateTime;
       });
       setOrderData(FilterTime);

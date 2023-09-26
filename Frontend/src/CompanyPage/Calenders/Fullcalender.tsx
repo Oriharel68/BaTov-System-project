@@ -7,10 +7,11 @@ import { BiExit } from 'react-icons/bi';
 import Style from './dialogStyle';
 import Url from '../../ApiClient/Url';
 import AxiosClient from '../../ApiClient/AxiosClient';
+import { Order,Event } from '../../Types/Types';
 
 function Fullcalender() {
-  const [Events, setEvents] = useState([]);
-  const [EventData, setEventData]: any = useState(null);
+  const [Events, setEvents] = useState<Event[]>([]);
+  const [EventData, setEventData] = useState<Event>(); //state for the selection of an Event
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const getAllOrders = async () => {
@@ -21,9 +22,9 @@ function Fullcalender() {
           return;
         }
         const { Orders } = response.data;
-        const AllEvents = Orders.map((item: any) => {
+        const AllEvents:Event[] = Orders.map((item:Order) => {
           const date = new Date();
-          date.setTime(item.DateTime);
+          date.setTime(item.DateTime as any);
           const moments = moment(date).toDate();//setting the date to the event
           const text = `ביקור מ${item.WorkerName} לשירות:${item.TypeOfService}`; //title
           return {
@@ -53,11 +54,11 @@ function Fullcalender() {
     <div>
       {isOpen ? (
         <Modal isOpen={isOpen} onRequestClose={CloseDia} style={Style as any}>
-          <h3>{EventData.title}</h3>
+          <h3>{EventData!.title}</h3>
           <p>
             בתאריך:
             <br />
-            {setDate(EventData.start.getTime())}
+            {setDate(EventData!.start.getTime())}
           </p>
           <div className="button-container">
             <BiExit style={{ minHeight: '7.5em', width: '5em', cursor: 'pointer' }} onClick={CloseDia} />

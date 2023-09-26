@@ -9,10 +9,10 @@ import {
   Legend,
 } from 'chart.js/auto';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-function StatisticCompanyLine({ statisticData }: any) {
+function StatisticCompanyLine({ statisticData }: {statisticData:any}) {
   return (
     <>
-      <Bar data={statisticData} />
+      <Bar data={statisticData as any} />
     </>
   );
 }

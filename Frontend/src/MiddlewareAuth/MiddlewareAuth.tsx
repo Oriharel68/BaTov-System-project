@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { PropsWithChildren, useLayoutEffect } from 'react';
 import AxiosClient from '../ApiClient/AxiosClient';
 import { useNavigate } from 'react-router-dom';
 

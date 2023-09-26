@@ -12,15 +12,16 @@ import NavLogo from '../Main page/NavLogo';
 import Url from '../ApiClient/Url';
 import AxiosClient from '../ApiClient/AxiosClient';
 import { ToastContainer, toast } from 'react-toastify';
+import { Client, Order } from '../Types/Types';
 
 function CompantMainPage() {
-  const [orderData, setOrdersData]: any = useState<[]>([]);
-  const [allClients, SetAllClients]: any = useState<[]>([]);
-  const [TotalSum, setTotalSum]: any = useState<number>(0);
-  const [LineStatistic, SetLineStatistic]: any = useState<[]>([]);
-  const [statisticData, setStatisticData]: any = useState<[]>([]);
+  const [orderData, setOrdersData]  = useState<(Order&{date:Date})[]>([]);
+  const [allClients, SetAllClients] = useState<[]>([]);
+  const [TotalSum, setTotalSum] = useState<number>(0);
+  const [LineStatistic, SetLineStatistic] = useState<number[]>([]);
+  const [statisticData, setStatisticData] = useState<number[]>([]);
 
-  const [message, setMessage]: any = useState(true);
+  const [message, setMessage] = useState<boolean>(false);
 
   useEffect(() => {
     async function getOrdersData() {
@@ -31,55 +32,57 @@ function CompantMainPage() {
         ]);
         const { Orders } = Promises[0].data;
         const SumClients = Promises[1].data;
-        SetAllClients(SumClients);//setting the clients
-        SumOfClients(SumClients);//adding the sum of all of the clients
-        setOrdersData(getOrderWithDate(Orders));//getting the orders with date
-        const OrderByM = GetOrdersByMonth(Orders);// ordering orders by months
+        SetAllClients(SumClients); //setting the clients
+        SumOfClients(SumClients); //adding the sum of all of the clients
+        setOrdersData(getOrderWithDate(Orders)); //getting the orders with date
+        const OrderByM = GetOrdersByMonth(Orders); // ordering orders by months
         setStatisticData(OrderByM);
-        const MoneyBy = MoneyByMonth(Orders);// ordering money by months
+        const MoneyBy = MoneyByMonth(Orders); // ordering money by months
         SetLineStatistic(MoneyBy);
       } catch (error) {
         console.log(error);
       }
     }
-    function SumOfClients(Clients: any) {
+    function SumOfClients(Clients: (Client&{Total:number})[]) {
       const Total = Clients.reduce(
-        (accumulator: any, currentValue: any) => accumulator + currentValue.Total,
+        (accumulator: any, currentValue) => accumulator + currentValue.Total,
         0
       );
-      const TotalWithoutTax = Total - (Total * 0.17);// calculate with the tax
+      const TotalWithoutTax = Total - Total * 0.17; // calculate with the tax
       setTotalSum(TotalWithoutTax);
     }
     getOrdersData();
   }, []);
 
-
-  useLayoutEffect(()=>{
-
+  useEffect(() => {
+    if(!document.cookie.includes('firstTimeAdmin')){
+    setMessage(true);
     toast.info('בדקו את הכנסות החברה  ', {
-      position: "top-left",
+      position: 'top-left',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored",
-      });
+      theme: 'colored',
+    });
     toast.warn('עבור/י על יומן הבדיקות', {
-      position: "top-left",
+      position: 'top-left',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored",
-      });
-      setTimeout(()=>{
-       setMessage(false)
-      },5000)
-  },[])
+      theme: 'colored',
+    });
+    document.cookie = "firstTimeAdmin = true";
+    setTimeout(() => {
+      setMessage(false);
+    }, 5000);
+  }
+  }, [TotalSum]);
   return (
     <>
       <CombaibnedNavCompany />
@@ -87,34 +90,27 @@ function CompantMainPage() {
         <div className="statistic-container">
           <h3>מספר הזמנות</h3>
           <div className="main-content">
-      {message == true ? (
- <div className="form-alerts toasts">
- <div role="alert" className="fade form-warning alert alert-primary alert-dismissible show">
-   <button id="close" onClick={()=>setMessage(!message)}>x</button>
-   <div className="d-flex align-items-center">
-     <img alt="noti-icon" src="https://brand.workingsolutions.com/components/images/ghost.svg" width="28" className="me-4"/>
-     <p><b className="d-flex">ברוכים השבים למערכת   </b> , שמחים לראותכם  👋</p>
-   </div>
- </div>
- <ToastContainer
- position="top-right"
- autoClose={5000}
- hideProgressBar={false}
- newestOnTop
- closeOnClick
- rtl={false}
- pauseOnFocusLoss
- draggable
- pauseOnHover
- theme="colored"
- />
-</div>
-      ): null
-
-      }
-         
-
-
+            {message ? (
+              <div className="form-alerts toasts">
+                <div role="alert" className="fade form-warning alert alert-primary alert-dismissible show">
+                  <button id="close" onClick={() => setMessage(!message)}>
+                    x
+                  </button>
+                  <div className="d-flex align-items-center">
+                    <img
+                      alt="noti-icon"
+                      src="https://brand.workingsolutions.com/components/images/ghost.svg"
+                      width="28"
+                      className="me-4"
+                    />
+                    <p>
+                      <b className="d-flex">ברוכים השבים למערכת </b> , שמחים לראותכם 👋
+                    </p>
+                  </div>
+                </div>
+               
+              </div>
+            ) : <></>}
 
             <div className="left-container">
               <h3> :רווחי חברה </h3>
@@ -243,7 +239,7 @@ function CompantMainPage() {
                       <th>סכום</th>
                     </tr>
 
-                    {allClients.map((client: any) => {
+                    {allClients.map((client: Client) => {
                       return (
                         <tr>
                           <IncomesList client={client} key={client._id} />
@@ -277,6 +273,18 @@ function CompantMainPage() {
           </ul>
         </div>
       </div>
+      <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="colored"
+                />
     </>
   );
 }
