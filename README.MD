@@ -3,7 +3,7 @@
 Installation steps:
 ### client:
 1) `cd client`, then - `npm i`
-2) add auth.ts in the FireBase folder that contains firebase SDK can get it in the project settings in firebase and export default config variable
+2) add an .env file that contains firebase SDK you can get it in the project settings in firebase.
 3) run `npm start`
 
 ### server: 
